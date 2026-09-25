@@ -372,84 +372,96 @@ localization.]{style="color: red"}
 
 # 5. Preliminary Evaluation Plan {#preliminary-evaluation-plan .unnumbered}
 
-[**TODO:** JIANG ZHANGZHANG]{style="color: red"}
-
-The evaluation is designed to distinguish whether the proposed method
-improves actual bug fixing, localization quality, or only repository
-exploration efficiency.
+We will evaluate the original mini-SWE-agent (A), lexical localization
+(B), structure-aware localization (C), and structure plus failure-aware
+refinement (D) on the same held-out SWE-bench Verified tasks. The
+primary comparison is A versus D; B and C indicate which localization
+components contribute to any difference. We will assess repair outcomes,
+localization quality, and exploration cost separately so that a faster
+search is not mistaken for a successful repair.
 
 ## 5.1 Repair Performance {#repair-performance .unnumbered}
 
-Potential measures include:
-
-- issue resolution rate;
-
-- target tests passed;
-
-- regression-test performance; and
-
-- number of successful repairs within the resource budget.
-
-[**TODO:** Define the official repair-success criterion using the
-selected benchmark's evaluation harness.]{style="color: red"}
+The primary outcome is *instance resolution rate*: the proportion of
+selected tasks marked resolved by the official
+[SWE-bench evaluation harness](https://github.com/SWE-bench/SWE-bench/blob/main/docs/reference/harness.md).
+A run submits one final patch. The harness applies it in the task
+environment and checks that all FAIL_TO_PASS tests pass while the
+PASS_TO_PASS tests remain passing. A missing or unappliable patch, or
+a run that exhausts its budget, counts as unresolved. We will also
+report patch-application rate and the fractions of the two test groups
+passed, to distinguish incomplete fixes from regressions. Tests run by
+the agent during repair provide feedback but do not replace the
+official final evaluation.
 
 ## 5.2 Localization Performance {#localization-performance .unnumbered}
 
-Potential localization metrics include:
+For offline scoring, the files changed by the benchmark's reference
+patch define the ground-truth locations. We will include changed Python
+source files and exclude test, documentation, and generated files. For
+each ranked list, *Hit@1* and *Hit@5* indicate whether at least one
+ground-truth file appears in the first one or five positions; mean
+reciprocal rank uses the rank of the first such file. We will also
+report file Recall@5 because some fixes require changes in multiple
+files. Tasks without a changed Python source file will be excluded from
+file-localization scoring, with the exclusion count reported.
 
-- Top-1 relevant-file accuracy;
-
-- Top-$k$ relevant-file accuracy;
-
-- function-level localization accuracy; and
-
-- rank of the ground-truth modified location.
-
-[**TODO:** Define ground-truth localization from benchmark patches and
-decide the value(s) of $k$.]{style="color: red"}
+Initial rankings will be scored before the agent executes any command.
+For D, we will additionally compare rankings before and after the first
+usable test failure, reporting how many tasks actually produced such
+evidence. As a secondary analysis, changed lines will be mapped to
+functions in the task's original Python AST; function Hit@5 will be
+reported only where this mapping is unambiguous, together with its task
+coverage. Reference patches and benchmark test labels will never be
+shown to the agent or used by its ranking method.
 
 ## 5.3 Exploration Efficiency {#exploration-efficiency .unnumbered}
 
-We will measure the amount of repository exploration required before the
-agent reaches relevant code.
-
-Potential measures include:
-
-- number of files opened;
-
-- number of shell commands executed;
-
-- number of agent / LLM steps;
-
-- token usage;
-
-- runtime; and
-
-- estimated API cost.
-
-[**TODO:** Select the final subset of efficiency measures to avoid
-reporting too many redundant metrics.]{style="color: red"}
+From saved action and observation trajectories, we will count unique
+Python source files whose contents the agent inspects and the number of
+model steps before it first inspects a ground-truth file. Runs that
+never reach such a file will be reported separately rather than assigned
+an artificial step count. We will also measure total input and output
+tokens and wall-clock time per task, including indexing and ranking
+overhead. Shell-command count and estimated API cost will be retained
+as supplementary measures. All added localization messages count toward
+the method's token usage and cost.
 
 ## 5.4 Agent-Trajectory Analysis {#agent-trajectory-analysis .unnumbered}
 
-Aggregate metrics will be complemented with representative successful
-and failed trajectories. We will examine, for example, whether failed
-runs repeatedly inspect irrelevant files, fail to use runtime evidence,
-or reach the correct code but produce an incorrect patch.
-
-[**TODO:** Define a small failure taxonomy after observing pilot
-trajectories.]{style="color: red"}
+We will inspect representative successes and failures using the same
+trajectory logs. A preliminary failure taxonomy assigns the main reason
+for each unsuccessful run to: (i) no relevant file inspected,
+(ii) relevant code inspected but the cause misdiagnosed, (iii) a patch
+that is missing, invalid, or incomplete, (iv) a regression or inadequate
+validation, or (v) an environment or resource-limit failure. Pilot runs
+will be used to refine coding rules before the held-out analysis. Case
+studies will show the candidate rankings, files inspected, test output,
+final patch, and official test result, including cases where localization
+improves but repair still fails.
 
 ## 5.5 Variability and Experimental Protocol {#variability-and-experimental-protocol .unnumbered}
 
-Because LLM-based agents may produce different trajectories across runs,
-the comparison should control model configuration and resource budgets.
+We provisionally plan approximately 20 development tasks and up to 100
+disjoint held-out evaluation tasks from SWE-bench Verified, spanning
+multiple repositories. A pilot will establish the feasible task count
+and per-run budget; the final task list and protocol will be frozen
+before inspecting held-out results. All conditions will use identical
+task instances, the same pinned mini-SWE-agent and benchmark versions,
+the same LLM version and decoding settings, the same base prompts and
+execution environment, and equal step, token/cost, and wall-time limits.
+Only the prescribed localization context will differ. The exact model,
+temperature, limits, and applicable random seeds will be recorded after
+the pilot rather than assumed in advance.
 
-[**TODO:** Decide the number of repeated runs per task, subject to API
-and compute cost.]{style="color: red"}
-
-[**TODO:** Specify model version, temperature, maximum steps, token
-budget, and random seeds where applicable.]{style="color: red"}
+The main study will submit one independent patch per task and condition.
+To assess run-to-run variability, we plan three independent runs per
+condition on a 20-task evaluation subset chosen before results are
+examined. Repeated runs will be reported individually and as averages,
+not combined into a best-of-three score. We will report paired
+task-level differences in resolution and efficiency, with confidence
+intervals where the final sample size permits. Infrastructure failures
+will be logged separately, with any exclusions disclosed.
 
 # 6. Risks, Limitations, and Responsible Practice {#risks-limitations-and-responsible-practice .unnumbered}
 
