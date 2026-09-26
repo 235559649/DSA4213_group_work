@@ -727,151 +727,107 @@ constraints.
 % ====================
 \section*{4. Proposed System or Study Design}
 
-\todo{CHEN XINGYU}
 
-The proposed workflow consists of an initial repository analysis stage,
-a localization stage, the existing mini-SWE-agent repair process, and an
-optional refinement stage based on runtime failures.
+The proposed system extends mini-SWE-agent with structured repository
+navigation and bug localization while keeping its existing repair capability.
+The workflow consists of repository indexing, initial localization, the
+mini-SWE-agent repair process, and, when runtime failure evidence is available,
+failure-aware refinement.
 
 \begin{figure}[htbp]
     \centering
-    \fbox{
-        \parbox{0.88\linewidth}{
-            \centering
-            \vspace{1.5em}
-            \todo{Insert system architecture diagram:
-            Issue $\rightarrow$ Repository Index
-            $\rightarrow$ Initial Localization
-            $\rightarrow$ mini-SWE-agent
-            $\rightarrow$ Test Execution
-            $\rightarrow$ Failure-Aware Refinement
-            $\rightarrow$ Repair.}
-            \vspace{1.5em}
-        }
-    }
+    \includegraphics[width=\linewidth]{fig2 system_architecture.jpg}
     \caption{Proposed system architecture.}
+    \label{fig:system-architecture}
 \end{figure}
 
 
 \subsection*{4.1 Baseline}
 
-The baseline is the original mini-SWE-agent operating with its standard
-repository exploration and repair loop.
-
-\todo{Describe the exact baseline configuration and ensure it uses the
-same LLM and execution budget as the proposed system.}
+The baseline is the original mini-SWE-agent using its standard repository
+exploration and repair loop. Given a software issue, the agent explores the
+repository through shell commands, inspects relevant files, modifies source
+code, and runs tests to validate its patch. The baseline and proposed methods
+will use the same experimental settings, with localization information being
+the main difference between conditions.
 
 
 \subsection*{4.2 Repository Indexing}
 
-Before repair begins, the repository indexer analyzes the Python
-repository and records structural information such as:
+Before repair begins, the repository indexer analyzes the Python repository
+and extracts structural information at the file, class, and function levels.
+The index records file paths, classes, functions and methods, and import
+relationships. Python AST information will be used where appropriate to
+extract these structures consistently.
 
-\begin{itemize}[leftmargin=*, itemsep=0.25em]
-    \item file paths;
-    \item classes;
-    \item functions and methods;
-    \item import relationships; and
-    \item selected code metadata relevant to localization.
-\end{itemize}
-
-\todo{Define the actual internal representation. Decide whether this
-will be a table, graph, JSON index, or another structure.}
-
-\todo{Decide whether call relationships or inheritance information are
-included. Avoid adding them unless they are actually used.}
+The resulting index provides a compact representation of the repository for
+subsequent localization. Its exact internal representation will be finalized
+during implementation.
 
 
 \subsection*{4.3 Initial Localization}
 
-Given an issue description, the localization module ranks repository
-files and functions according to their estimated relevance to the issue.
+Given an issue description, the localization module ranks Python source files
+and functions according to their estimated relevance to the reported problem.
+The ranking may combine textual relevance with structural information from the
+repository index.
 
-The result will be a ranked list of suspicious locations that can be
-provided to the repair agent as additional context.
-
-\todo{Define the localization scoring function.}
-
-\todo{Decide whether the initial implementation includes keyword search,
-semantic embeddings, structural signals, or a hybrid method.}
+The resulting ranked list of suspicious locations is provided to mini-SWE-agent
+as additional context, allowing the agent to inspect likely relevant code
+earlier while retaining access to the full repository. The exact scoring
+function and combination of localization signals will be finalized after pilot
+implementation.
 
 
 \subsection*{4.4 Failure-Aware Refinement}
 
-If a reproduction attempt or test execution fails, the system extracts
-runtime evidence such as:
+When a test or reproduction attempt produces a usable failure, the system
+extracts runtime evidence such as the exception type, traceback frames, files
+and functions appearing in the traceback, failing test names, and relevant
+error messages.
 
-\begin{itemize}[leftmargin=*, itemsep=0.25em]
-    \item exception type;
-    \item traceback frames;
-    \item files and functions appearing in the traceback;
-    \item failing test names; and
-    \item relevant error messages.
-\end{itemize}
-
-This information is then used to update the ranking of suspicious code
-locations.
-
-\todo{Define how runtime evidence modifies the original ranking.}
-
-\todo{Provide one concrete example trajectory in the final proposal if
-space permits.}
+This evidence is used to update the previous ranking of suspicious code
+locations before the next repair attempt. Locations implicated by the failure
+can therefore receive greater attention in the updated ranking. This allows
+localization to adapt during debugging instead of relying only on the original
+issue description and static repository structure.
 
 
 \subsection*{4.5 Repair Loop}
 
-The localized context is passed to mini-SWE-agent, which investigates the
-repository, modifies source code, and executes tests. If the patch fails,
-failure information may be returned to the localization component and a
-new repair attempt can be made.
+The localization results are passed to mini-SWE-agent as additional context.
+The agent then follows its existing repair workflow to inspect code, make
+modifications, and execute tests. If the repair succeeds, the resulting patch
+is submitted.
 
-\todo{Specify whether localization is performed only once or repeatedly
-during the trajectory. This decision is important for the final system
-design.}
+For the failure-aware condition, a failed attempt with usable runtime failure
+evidence triggers an updated localization ranking, which can guide the next
+repair attempt. The loop continues until a patch is submitted or the predefined
+execution budget is exhausted.
 
 
 \subsection*{4.6 Optional Extension: Reviewer Agent}
 
-If time permits, an independent reviewer agent may inspect a proposed
-patch before final submission.
-
-The reviewer would focus on correctness, whether the reported failure
-has actually been addressed, potential regressions, and relevant edge
-cases.
-
-\todo{Keep this as an optional extension. Do not make it part of the main
-claim unless the core localization system is completed early.}
+If time permits, an independent reviewer agent may inspect a proposed patch
+before final submission, focusing on whether the reported failure has been
+addressed, potential regressions, and relevant edge cases. This component is
+treated as an optional extension and is not part of the main contribution.
 
 
 \subsection*{4.7 Comparisons and Ablations}
 
-The planned controlled conditions are:
+We plan to compare four controlled conditions:
 
 \begin{itemize}[leftmargin=*, itemsep=0.25em]
-
-    \item \textbf{Baseline A:}
-    original mini-SWE-agent;
-
-    \item \textbf{Baseline B:}
-    mini-SWE-agent with simple lexical / keyword localization;
-
-    \item \textbf{Method C:}
-    mini-SWE-agent with repository-structure-aware localization;
-
-    \item \textbf{Method D:}
-    mini-SWE-agent with repository-structure-aware localization and
-    failure-aware refinement.
-
+    \item \textbf{Baseline A:} original mini-SWE-agent;
+    \item \textbf{Baseline B:} mini-SWE-agent with lexical or keyword-based localization;
+    \item \textbf{Method C:} mini-SWE-agent with repository-structure-aware localization;
+    \item \textbf{Method D:} mini-SWE-agent with repository-structure-aware localization and failure-aware refinement.
 \end{itemize}
 
-Possible ablations will remove individual information sources from the
-full system.
-
-\todo{Finalize comparison conditions after implementing a pilot version.
-Do not promise more baselines than the group can realistically run.}
-
-\todo{Possible ablations: no structural information, no failure evidence,
-or file-level rather than function-level localization.}
+The primary comparison is between A and D, while B and C help isolate the
+contribution of individual localization components. Additional ablations may
+be included if resources permit.
 
 
 % ====================
