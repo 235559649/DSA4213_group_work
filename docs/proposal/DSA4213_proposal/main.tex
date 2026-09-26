@@ -314,85 +314,405 @@ Prior work already supports structural navigation and execution-informed localiz
 % ====================
 \section*{3. Agent and Task Setup}
 
-\todo{ZHANG YUHANG}
+This section defines the common task environment used by the original
+mini-SWE-agent baseline and our localization-augmented variants. The
+software repair setting is kept unchanged across experimental conditions,
+while only the localization information supplied to the agent is varied.
+This controlled setup allows us to study whether structured repository
+information and runtime failure evidence improve repository navigation,
+bug localization, and repair efficiency.
 
+
+% --------------------
+% 3.1 Task
+% --------------------
 \subsection*{3.1 Task}
 
-The agent receives a software issue together with a Python repository.
-Its goal is to identify the code relevant to the issue, produce a patch,
-and validate the patch through execution or tests.
+Each task consists of a natural-language software issue together with the
+corresponding version of a Python repository. The agent must inspect the
+repository, identify source code relevant to the reported problem, modify
+the code, and produce a patch that resolves the issue without introducing
+regressions.
 
-\textbf{Input:}
-a natural-language issue description and the corresponding repository.
-
-\textbf{Output:}
-a proposed source-code patch and an execution trajectory containing
-repository exploration, edits, and test results.
-
-
-\subsection*{3.2 Operating Environment}
-
-The repair agent will operate inside an isolated execution environment
-with access to the repository, shell commands, Python execution, Git,
-and the repository's available test framework.
-
-\todo{Specify the exact environment, e.g., Docker / SWE-bench containers,
-Python versions, and available system tools.}
-
-
-\subsection*{3.3 Agent and Model}
-
-The original mini-SWE-agent will be used as the software repair baseline.
-Our system will augment its repository exploration process with structured
-localization information.
-
-\todo{Specify the LLM(s) used in experiments.}
-
-\todo{Specify whether all compared systems will use the same model,
-temperature, token budget, and prompts to ensure a controlled comparison.}
-
-
-\subsection*{3.4 Agent Tools}
-
-The proposed system may provide the agent with the following sources of
-information:
+The task follows the repository-level software repair setting used by
+SWE-bench \cite{jimenez2024swebench}. For each task, the agent is given:
 
 \begin{itemize}[leftmargin=*, itemsep=0.25em]
-    \item shell-based repository exploration;
-    \item file, class, and function indexing;
-    \item Python AST and import information;
-    \item issue-to-code relevance scores;
-    \item test execution results; and
-    \item traceback and runtime failure evidence.
+    \item the natural-language issue description;
+    \item the corresponding repository checkout;
+    \item access to the repository through the execution environment; and
+    \item test or execution feedback generated through the agent's own actions.
 \end{itemize}
 
-\todo{Remove any tool that is not implemented in the final system and
-describe the exact interface exposed to the agent.}
+The agent is not given the reference patch, benchmark evaluation labels,
+or ground-truth localization information. These are reserved exclusively
+for offline evaluation.
+
+The primary output of each run is a final repository patch. In addition,
+we record the observable agent trajectory, including model responses,
+selected actions, shell commands, inspected files, localization rankings,
+code edits, test outputs, token usage, and runtime information. These
+trajectories will support the localization and exploration-efficiency
+analyses described in Section~5.
 
 
+% --------------------
+% 3.2 Operating Environment
+% --------------------
+\subsection*{3.2 Operating Environment}
+
+The agent will operate in an isolated execution environment compatible
+with the SWE-bench evaluation infrastructure. Each task environment
+contains the corresponding repository version together with its required
+dependencies and available testing infrastructure.
+
+Within the environment, the agent can perform normal software engineering
+operations, including:
+
+\begin{itemize}[leftmargin=*, itemsep=0.25em]
+    \item navigating the repository using shell commands;
+    \item reading and searching source files;
+    \item executing Python programs and project-specific commands;
+    \item modifying source files;
+    \item inspecting Git diffs; and
+    \item running available tests or reproduction scripts.
+\end{itemize}
+
+The official SWE-bench evaluation harness will be used only for the final
+assessment of the submitted patch. Tests executed by the agent during its
+trajectory provide intermediate feedback but do not replace the benchmark's
+official evaluation.
+
+For reproducibility, we plan to use the task-specific containerized
+environments provided by the SWE-bench infrastructure. Different
+repositories may require different Python and dependency versions, so
+each task will retain its benchmark-specified environment rather than
+being forced into a single Python version.
+
+All experimental conditions will use the same repository versions,
+execution environments, and resource constraints. The final SWE-bench
+release, container configuration, and mini-SWE-agent version will be
+pinned before held-out evaluation.
+
+
+% --------------------
+% 3.3 Agent and Experimental Conditions
+% --------------------
+\subsection*{3.3 Agent and Experimental Conditions}
+
+mini-SWE-agent provides the common software repair agent and interaction
+loop for all experimental conditions \cite{minisweagent}. At each step,
+the language model receives the issue description and current interaction
+history, selects an action, executes that action in the repository
+environment, observes the result, and uses the updated history to decide
+its next action.
+
+Our system does not replace this repair loop. Instead, it augments the
+context available to mini-SWE-agent with explicit localization
+information. This design keeps the underlying repair agent fixed while
+allowing us to study the contribution of different localization signals.
+
+The study will consider four main experimental conditions:
+
+\begin{itemize}[leftmargin=*, itemsep=0.45em]
+
+    \item[\textbf{A.}]
+    \textbf{Original mini-SWE-agent.}
+    The agent explores the repository using its standard shell-based
+    workflow without additional localization guidance.
+
+    \item[\textbf{B.}]
+    \textbf{Lexical localization.}
+    The agent receives an initial ranking of repository locations based
+    on textual relevance between the issue description and indexed
+    source-code entities.
+
+    \item[\textbf{C.}]
+    \textbf{Structure-aware localization.}
+    The agent receives localization context that combines lexical
+    relevance with structural information extracted from the
+    Python repository index.
+
+    \item[\textbf{D.}]
+    \textbf{Structure-aware localization with failure-aware refinement.}
+    The agent begins with the localization information used in
+    Condition C and receives an updated ranking when usable runtime
+    failure evidence becomes available.
+
+\end{itemize}
+
+A single fixed language model will be used across Conditions A--D so that
+performance differences cannot be attributed to different model
+capabilities. The same mini-SWE-agent version, base prompt, execution
+environment, resource limits, and generation settings will be used in all
+conditions.
+
+
+For the planned experiments, we will use
+\texttt{openai/gpt-5.4-mini} as the underlying language model for all
+experimental conditions. mini-SWE-agent supports this model through its
+LiteLLM-based model interface.
+
+The same model version, reasoning-effort setting, base prompt, generation
+configuration, and resource limits will be fixed across Conditions A--D.
+Therefore, the prescribed localization information will be the primary
+systematic difference between the experimental conditions.
+
+
+% --------------------
+% 3.4 Localization Information and Agent Tools
+% --------------------
+\subsection*{3.4 Localization Information and Agent Tools}
+
+The original mini-SWE-agent retains its normal shell-based interaction
+with the repository. Our extension adds a localization layer that provides
+structured guidance rather than restricting the agent to a predefined set
+of files.
+
+Before the repair trajectory begins, the repository indexer analyzes the
+Python source tree and records code entities including:
+
+\begin{itemize}[leftmargin=*, itemsep=0.25em]
+    \item repository-relative file paths;
+    \item classes;
+    \item functions and methods;
+    \item import relationships; and
+    \item selected textual and structural metadata used for localization.
+\end{itemize}
+
+Given the issue description, the localization module generates a ranked
+list of candidate files and code entities. For the initial implementation,
+we plan to provide the agent with the top five ranked files. For each file,
+up to two highly ranked functions or methods will be included when
+function-level candidates are available.
+
+Each localization entry may contain:
+
+\begin{itemize}[leftmargin=*, itemsep=0.25em]
+    \item the repository-relative file path;
+    \item the class, function, or method name;
+    \item the candidate type;
+    \item its relevance score or rank; and
+    \item a short description of the evidence supporting the ranking.
+\end{itemize}
+
+For example, the localization context supplied to the agent may have the
+following form:
+
+\begin{verbatim}
+1. src/parser.py
+   function: parse_header
+   score: 0.87
+   evidence: strong issue-text match + structural relevance
+
+2. src/io/reader.py
+   function: read_table
+   score: 0.71
+   evidence: related import + lexical relevance
+\end{verbatim}
+
+The agent remains free to inspect other repository locations using its
+standard shell tools. Therefore, localization acts as navigation guidance
+rather than as a hard search constraint.
+
+
+\subsubsection*{Lexical Localization}
+
+For Condition B, lexical localization will use a BM25-style retrieval
+method. Each indexed code entity will be represented using information
+such as its file path, identifier, class or function name, docstring, and
+selected source text. The issue description will serve as the retrieval
+query.
+
+The resulting lexical ranking provides a simple retrieval baseline for
+measuring whether explicit issue-to-code matching alone improves
+mini-SWE-agent's repository exploration.
+
+
+\subsubsection*{Structure-Aware Localization}
+
+For Condition C, lexical evidence will be supplemented with repository
+structure. The initial structural representation will include containment
+relationships between files, classes, and functions, together with import
+relationships between Python modules.
+
+Because lexical and structural signals may produce scores on different
+numerical scales, we plan to combine their rankings using reciprocal rank
+fusion (RRF):
+
+\[
+\operatorname{RRF}(x)
+=
+\sum_{r \in R}
+\frac{1}{k + r(x)},
+\]
+
+where $r(x)$ is the position of candidate $x$ in one input ranking and
+$R$ is the set of rankings being combined. We provisionally set
+$k=60$, which will remain fixed unless development-set experiments reveal
+a clear implementation problem.
+
+This approach allows different evidence sources to contribute to the final
+candidate ordering without requiring their raw scores to be directly
+comparable.
+
+
+\subsubsection*{Failure-Aware Localization}
+
+For Condition D, runtime failures provide an additional ranking signal.
+When a command, reproduction attempt, or test produces a usable failure,
+the system extracts available evidence such as:
+
+\begin{itemize}[leftmargin=*, itemsep=0.25em]
+    \item exception type;
+    \item traceback frames;
+    \item repository files appearing in the traceback;
+    \item class, function, or method names appearing in the traceback;
+    \item failing-test identifiers; and
+    \item relevant identifiers mentioned in error messages.
+\end{itemize}
+
+These observations are mapped back to entities in the repository index.
+Candidates appearing directly in repository traceback frames receive the
+strongest runtime evidence, while related test and error-message
+information provides secondary evidence.
+
+A runtime-based ranking is then fused with the existing lexical and
+structural rankings using the same RRF mechanism. This produces an updated
+candidate list without discarding evidence derived from the original issue
+description.
+
+The revised localization summary is supplied to mini-SWE-agent before a
+subsequent repair decision.
+
+The reference patch and benchmark evaluation labels are never used to
+construct or update these rankings.
+
+
+% --------------------
+% 3.5 Benchmark and Task Selection
+% --------------------
 \subsection*{3.5 Benchmark and Task Selection}
 
-The initial study will focus on Python repositories so that Python ASTs,
-tracebacks, and testing tools can be exploited consistently.
+The study will use tasks from \textbf{SWE-bench Verified}, a human-screened
+subset of repository-level software engineering problems
+\cite{openai2024verified}. Its Python repository setting is compatible
+with our Python-oriented repository index and provides executable tests
+for determining whether a generated patch resolves the corresponding
+issue.
 
-\todo{Define the exact benchmark subset and task selection criteria.}
+We provisionally plan to use approximately 20 tasks as a development set
+and up to 100 additional tasks for held-out evaluation.
 
-\todo{Specify the number of tasks used for pilot development and final
-evaluation.}
+The development tasks will be used to:
+
+\begin{itemize}[leftmargin=*, itemsep=0.25em]
+    \item implement and debug the repository indexer;
+    \item validate lexical and structural localization;
+    \item develop the failure-aware refinement mechanism;
+    \item select practical prompt and interface formats;
+    \item estimate token usage, runtime, and API cost; and
+    \item verify that the planned resource limits are feasible.
+\end{itemize}
+
+The development and held-out sets will remain disjoint. Once the pilot
+stage is completed, the held-out task list, model configuration, resource
+limits, and comparison protocol will be frozen before the evaluation
+results are inspected.
+
+Tasks will be selected across multiple repositories where possible so
+that conclusions are not dominated by a single codebase. The same task
+instances will be used across all four experimental conditions.
+
+For file-level localization evaluation, only tasks whose reference patch
+contains at least one modified Python source file will contribute to the
+localization metrics. Tasks that cannot be scored for localization may
+still contribute to the overall repair evaluation when applicable.
+
+The exact task identifiers and repository distribution will be published
+in the project repository together with the final experimental
+configuration to support reproducibility.
 
 
+% --------------------
+% 3.6 Stopping Conditions and Failure Recovery
+% --------------------
 \subsection*{3.6 Stopping Conditions and Failure Recovery}
 
-An agent run may terminate when the target tests pass, when the agent
-explicitly submits a final patch, or when a predefined resource budget
-is exhausted.
+Each agent run will operate under a fixed resource budget. For the initial
+proposal, we provisionally plan the following limits:
 
-When execution fails, the system can extract information from the
-failure and use it to update the localization ranking before the next
-repair attempt.
+\begin{itemize}[leftmargin=*, itemsep=0.25em]
+    \item maximum of 50 agent interaction steps;
+    \item maximum wall-clock runtime of 30 minutes per task; and
+    \item maximum total model-token budget of approximately 150,000 tokens
+          per run.
+\end{itemize}
 
-\todo{Define maximum agent steps, token budget, runtime limit, and the
-exact condition used to determine successful repair.}
+These limits are intended to prevent unusually difficult tasks from
+consuming disproportionate resources. Pilot experiments on the development
+set may be used to reduce or adjust these limits if necessary. The final
+limits will be frozen before held-out evaluation and applied equally to
+all experimental conditions.
+
+A run terminates when one of the following conditions is reached:
+
+\begin{itemize}[leftmargin=*, itemsep=0.25em]
+    \item the agent submits a final patch;
+    \item the maximum number of interaction steps is reached;
+    \item the token or API-cost budget is exhausted;
+    \item the wall-clock execution limit is exceeded; or
+    \item an unrecoverable environment failure prevents further execution.
+\end{itemize}
+
+A patch is not considered successful merely because tests executed by the
+agent during repair pass. Final repair success is determined separately
+using the official SWE-bench evaluation harness, as described in
+Section~5.1.
+
+Failed commands and failed tests are treated as observations rather than
+immediate termination conditions. In Conditions A--C, this feedback
+remains part of the normal mini-SWE-agent interaction history. In
+Condition D, usable failures additionally trigger the localization
+refinement mechanism.
+
+A runtime failure is considered usable for localization if at least one
+piece of evidence can be mapped back to the repository index. This occurs
+when:
+
+\begin{itemize}[leftmargin=*, itemsep=0.25em]
+    \item a traceback contains a repository source-file path;
+    \item a traceback contains an indexed class, function, or method;
+    \item a failing test produces a traceback that reaches project source
+          code; or
+    \item an error message explicitly mentions an indexed source entity.
+\end{itemize}
+
+If none of these conditions is satisfied, the failure does not trigger
+reranking and the agent continues using its existing localization context.
+
+The failure-aware repair process can therefore be summarized as:
+
+\begin{center}
+Initial ranking
+$\rightarrow$
+Agent exploration
+$\rightarrow$
+Execution
+$\rightarrow$
+Failure evidence
+$\rightarrow$
+Updated ranking
+$\rightarrow$
+Continued repair
+$\rightarrow$
+Final patch.
+\end{center}
+
+This design ensures that runtime evidence augments the original issue-based
+localization rather than replacing it, while allowing the baseline and
+proposed systems to operate under the same repair environment and resource
+constraints.
 
 
 % ====================
