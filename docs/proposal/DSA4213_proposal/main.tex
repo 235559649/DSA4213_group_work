@@ -70,22 +70,25 @@ Software engineering agents such as mini-SWE-agent can autonomously explore repo
 % ====================
 \section*{1. Problem, Research Question, and Motivation}
 
-\todo{CHEN WENWEN}
+Software engineering agents must identify relevant code before producing
+a useful patch. In a large repository, an issue description may not name
+the responsible files or functions, and relevant logic may be distributed
+across several locations. For example, an incorrect discount calculation
+may require examining input handling, pricing, and rounding functions
+before identifying the cause.
 
-Software engineering agents must often explore a large repository before
-they can determine which files or functions are responsible for a reported
-bug. A minimal agent such as mini-SWE-agent can perform this exploration
-using shell commands and language-model reasoning, but the navigation
-process is not explicitly optimized for locating relevant code.
+This project targets bug-fixing assistance for developers and maintainers
+of Python repositories. We investigate whether structured repository
+information and runtime failure evidence can help mini-SWE-agent
+\cite{minisweagent} locate relevant code more efficiently. An agent-based
+approach is appropriate because debugging is iterative: code inspection
+and execution provide evidence that informs subsequent actions.
 
-Our project focuses on the repository exploration and bug localization
-stage of the software repair process. Rather than replacing the existing
-repair capability of mini-SWE-agent, we investigate whether additional
-repository structure and runtime failure evidence can help the agent
-reach relevant code more efficiently.
-
-\todo{Add a short motivating example showing an issue where the agent
-must search through several files before reaching the correct function.}
+We will retain the existing repair loop and ordinary execution feedback,
+while adding ranked localization context and updates based on usable
+failure evidence. The aim is to assess the additional value of this
+guidance, rather than assume that more structure necessarily improves
+repair.
 
 \subsection*{1.1 Primary Research Question}
 
@@ -97,27 +100,31 @@ bug-fixing success?
 \subsection*{1.2 Secondary Research Questions}
 
 \textbf{RQ2.}
-Does improved localization reduce repository exploration cost, measured
-by the number of files inspected, shell commands executed, token usage,
-and runtime?
+Does improved localization reduce exploration costs, including file
+inspections, model steps, token usage, and runtime, after accounting for
+localization overhead?
 
 \vspace{0.5em}
 
 \textbf{RQ3.}
-Which information sources contribute most to successful localization:
-textual relevance to the issue, static repository structure, or runtime
-failure evidence?
+What additional value do repository structure and runtime failure evidence
+provide beyond textual issue-to-code relevance?
 
 \subsection*{1.3 Definition of Success}
 
-The project will be considered successful if the proposed system can
-either improve bug localization and repair performance, or achieve
-comparable repair performance while reducing unnecessary repository
-exploration.
+Success would mean improved localization accompanied by better repair
+performance, or comparable repair performance with lower exploration
+costs. Repair success will be determined by the independent evaluation
+described in Section~5; improved localization alone will not establish
+successful repair.
 
-\todo{Define quantitative success criteria after pilot experiments,
-for example an improvement in Top-$k$ localization accuracy or a
-reduction in exploration steps.}
+Pilot experiments on development tasks will inform quantitative success
+criteria, including the targeted improvement in localization or
+exploration efficiency and the acceptable change in repair performance.
+These criteria will be fixed before held-out evaluation. Comparisons and
+trajectory analysis will identify benefits, trade-offs, and failure cases.
+Where evidence is insufficient to establish comparable performance, we
+will report that uncertainty.
 
 % ====================
 % 2. Related work and contribution
@@ -973,49 +980,55 @@ will be logged separately, with any exclusions disclosed.
 % ====================
 \section*{6. Risks, Limitations, and Responsible Practice}
 
-\todo{CHEN WENWEN}
-
 \begin{itemize}[leftmargin=*, itemsep=0.4em]
 
-    \item \textbf{LLM nondeterminism.}
-    Repeated runs may produce different trajectories and repair results.
-    We will use controlled model settings and repeated evaluation where
-    resources permit.
+    \item \textbf{Misleading localization.}
+    Textual matches, structural relationships, and traceback locations may
+    not identify the root cause. Candidate rankings may therefore
+    misdirect exploration. They will serve as guidance rather than restrict
+    access to other code.
+
+    \item \textbf{Evaluation limitations.}
+    Reference-patch locations are imperfect localization targets because
+    alternative correct fixes may modify different code. Test-based
+    evaluation also cannot establish complete correctness. Localization,
+    repair outcomes, and representative trajectories will be interpreted
+    together.
 
     \item \textbf{Benchmark contamination.}
-    Public repositories or issue solutions may have appeared in model
-    training data, so benchmark performance should not be interpreted
-    purely as unseen-code generalization.
+    Public issues and solutions may have appeared in model training data.
+    Separating development and evaluation tasks and withholding reference
+    patches reduces experimental leakage, but cannot eliminate pretraining
+    contamination.
 
-    \item \textbf{Execution safety.}
-    Software engineering agents can execute shell commands. Experiments
-    will therefore be conducted in isolated environments with restricted
-    permissions.
-
-    \item \textbf{API and compute cost.}
-    Full agent trajectories can require substantial token usage and
-    execution time. A fixed experimental budget will be used.
+    \item \textbf{Model variability and cost.}
+    Repeated runs may produce different results, while additional
+    localization can increase token usage and runtime. We will use the
+    controlled settings, resource limits, and repeated-run analysis
+    described in Section~5.
 
     \item \textbf{Environment failures.}
-    Some benchmark repositories may fail because of dependency or setup
-    problems unrelated to the agent itself. These cases will be logged
-    separately where possible.
+    Dependency or setup problems may prevent valid execution independently
+    of repair quality. These failures and any resulting exclusions will be
+    documented.
 
-    \item \textbf{Python-specific scope.}
-    The initial system focuses on Python repositories, so conclusions may
-    not directly generalize to other programming languages.
+    \item \textbf{Limited generalizability.}
+    Findings from a selected set of Python tasks and the chosen model
+    configuration may not generalize to other languages, repositories, or
+    models.
 
 \end{itemize}
 
 \subsection*{6.1 Safeguards}
 
-Experiments will use isolated execution environments, restricted
-credentials and permissions, fixed resource budgets, and public benchmark
-repositories only. No private repositories, credentials, or confidential
-source code will be included\cite{sample2024}.
-
-\todo{Confirm the exact sandbox/container mechanism used by the final
-implementation.}
+Experiments will run in task-specific containerized environments
+consistent with the SWE-bench infrastructure, as described in Section~3.
+Each environment will contain only the corresponding public repository,
+its required dependencies, and the available testing infrastructure.
+Credentials, confidential code, and unrelated host directories will be
+excluded from shared materials. Repository content and tool outputs will
+be treated as untrusted inputs. Generated patches will require human
+review before practical use.
 
 
 % ====================
