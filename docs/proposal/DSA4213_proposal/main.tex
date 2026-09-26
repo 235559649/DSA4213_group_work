@@ -5,11 +5,16 @@
 \usepackage{amsmath,amssymb}
 \usepackage{array}
 \usepackage{booktabs}
+\usepackage{tabularx,tikz,placeins}
+\usetikzlibrary{arrows.meta,positioning,fit}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \newcommand{\todo}[1]{%
     \textcolor{red}{\textbf{TODO:} #1}%
 }
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\usepackage[super,square,sort&compress]{natbib}
 \usepackage{hyperref}
 \usepackage{setspace}
 
@@ -119,71 +124,191 @@ reduction in exploration steps.}
 % ====================
 
 \section*{2. Related Work and Proposed Contribution}
-\todo{WNAG CHI}
 
 \subsection*{2.1 mini-SWE-agent}
 
-mini-SWE-agent will serve as the primary baseline and software repair
-agent in this project.
+Software engineering agents alternate between model decisions, repository operations, and execution feedback. SWE-agent shows that the agent--computer interface (ACI) affects repository-level software repair through the design of commands and feedback \cite{yang2024sweagent}. Building on this insight, we adopt \textbf{mini-SWE-agent} as our baseline: a separate, minimal implementation combining a language model, a command-execution environment, and a linear interaction history \cite{minisweagent}. Its shell interface supports the core operations needed for repair—repository search, code inspection, editing, and test execution. By default, the v2 implementation issues these operations through native bash tool calls, while legacy configurations instead parse commands from model-generated text \cite{minisweagentv2}.
 
-\todo{Describe the mini-SWE-agent architecture, its minimal agent loop,
-available tools, and how repository exploration is performed. Add the
-appropriate citation.}
+The teal path in Figure~\ref{fig:rw-intervention} shows the agent loop: \emph{decide, act, observe, and update history}. Given the issue and interaction history, the model selects an action, which the environment executes as a shell command. The resulting output, errors, and test results are formatted as observations and appended to the history, alongside the model's response, to inform the next decision \cite{minisweagent}. Across iterations, the agent can locate relevant code, investigate or reproduce a bug, edit files, and run accessible tests. These are available actions rather than a fixed sequence: new evidence may prompt further inspection or another edit. The loop continues until submission or another stopping condition, such as a resource limit. The repository diff provides a candidate patch whose correctness is assessed separately.
 
-\todo{Clarify exactly which parts of mini-SWE-agent are reused without
-modification and which integration points will be changed by our system.}
+Our extension preserves the model adapter, execution environment, and repair loop. It supplies ranked localization context before model decisions and updates that context when execution yields usable failure evidence. The baseline retains ordinary execution feedback, including failures, so the comparison isolates the added value of explicit candidate reranking.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{Fig1 miniSWEagent.png}
+    \caption{Overview of mini-SWE-agent and the proposed localization extension.}
+    \label{fig:rw-intervention}
+\end{figure}
 
 
 \subsection*{2.2 SWE-bench}
 
-SWE-bench provides real-world software engineering tasks based on
-repository issues and corresponding code changes.
+SWE-bench evaluates repository-level software repair using real GitHub issues and executable tests \cite{jimenez2024swebench}. We propose to use \textbf{SWE-bench Verified}, a human-screened subset of 500 tasks from Python repositories \cite{openai2024verified}. Its screening helps reduce ambiguity in issue descriptions and problems with evaluation tests. Its Python scope also matches our repository indexer, making it suitable for examining whether improved localization translates into successful repair.
 
-\todo{Describe the chosen SWE-bench version/subset and justify why it is
-appropriate for evaluating our project. Add citation.}
-
-\todo{Specify whether the project will use SWE-bench Verified or another
-subset, and how many tasks will be used for development and evaluation.}
+From this task pool, we initially plan to select approximately 20 tasks for development and 100 additional tasks for evaluation, covering multiple repositories. The development tasks will support debugging and refinement of the localization components. The evaluation tasks will be reserved for comparing the baseline and proposed variants after the method is fixed. We may adjust these target sizes based on runtime and API costs measured during development, before fixing the evaluation task list. The two sets will remain disjoint, and all compared systems will use the same evaluation tasks.
 
 
 \subsection*{2.3 Repository Localization Methods}
 
-Previous software engineering agents and code-retrieval systems have
-used techniques such as lexical search, semantic retrieval, repository
-structure, dependency information, and execution feedback to identify
-code relevant to a software issue.
+Repository localization uses issue descriptions, code structure,
+and execution evidence to identify relevant files and functions.
+These information sources support complementary stages of the
+search: textual relevance provides initial candidates, structural
+relationships guide further inspection, and runtime observations
+help revise the search as repair proceeds, as shown in Table~\ref{tab:rw-positioning}.
 
-\todo{Review and cite the most relevant repository navigation /
-bug localization systems. Include systems that are particularly close
-to our proposed approach so that our novelty is clearly stated.}
+\begin{table}[H]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\caption{Prior methods relevant to this study.}
+\label{tab:rw-positioning}
 
-\todo{Explain how our approach differs from prior work rather than only
-listing related systems.}
+\begin{tabularx}{\linewidth}{
+    @{}
+    >{\raggedright\arraybackslash}p{0.15\linewidth}
+    >{\raggedright\arraybackslash}p{0.19\linewidth}
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}X
+    @{}
+}
+\toprule
+Category & Approach & Relevant mechanism & Role in this study \\
+\midrule
+
+Agent framework
+& mini-SWE-agent \cite{minisweagent}
+& Shell actions and execution feedback in a minimal agent loop.
+& Provides the baseline repair loop. \\
+
+\midrule
+
+Textual retrieval
+& BugLocator \cite{zhou2012buglocator}
+& File ranking using textual similarity and historical bug information.
+& Motivates the lexical localization comparison. \\
+
+\midrule
+
+Staged localization
+& Agentless \cite{xia2024agentless}
+& Hierarchical localization followed by repair and validation.
+& Separates candidate selection from patch correctness. \\
+
+\midrule
+
+Structural navigation and reasoning
+& LocAgent \cite{chen2025locagent}
+& Navigation over code entities and dependency relationships.
+& Motivates structural support for code search. \\
+
+& CoSIL \cite{jiang2025cosil}
+& Iterative code-graph search with context pruning.
+& Motivates refinement of localization context. \\
+
+& RepoNav \cite{chai2026reponav}
+& File-centered organization of snippets and candidate functions.
+& Motivates structured presentation of candidates. \\
+
+& GraphLocator \cite{liu2025graphlocator}
+& Graph-guided reasoning about symptoms and edit locations.
+& Distinguishes observed symptoms from repair targets. \\
+
+\midrule
+
+Execution-informed localization
+& AutoCodeRover \cite{zhang2024autocoderover}
+& Structural search with optional spectrum-based fault localization.
+& Connects code structure with test evidence. \\
+
+& IssueExec \cite{liu2026issueexec}
+& Test retrieval and execution-trace analysis.
+& Links execution evidence to candidate edit locations. \\
+
+\midrule
+
+Proposed integration
+& This study (planned)
+& Repository indexing and reranking from observed failures.
+& Updates localization context within the mini-SWE-agent loop. \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Textual retrieval and staged localization.}
+BugLocator ranks source files using report--code textual similarity
+and historical bug information \cite{zhou2012buglocator}.
+Agentless organizes issue resolution into localization, repair,
+and validation, progressively narrowing the code considered for
+modification \cite{xia2024agentless}.
+Together, these approaches provide a basis for selecting candidate
+locations before generating a patch.
+We therefore include a lexical localization condition to examine
+how much guidance issue--code matching provides within mini-SWE-agent.
+Assessing localization alongside repair will show whether improved
+candidate selection translates into successful fixes.
+
+\textbf{Structural navigation and evidence organization.}
+LocAgent represents code entities and dependencies in a heterogeneous
+graph, allowing the agent to navigate relationships between relevant
+locations \cite{chen2025locagent}.
+CoSIL combines iterative code-graph search with context pruning
+to refine the information considered during localization
+\cite{jiang2025cosil}.
+RepoNav organizes retrieved snippets around files and candidate
+functions, supporting comparison between possible targets within
+a file \cite{chai2026reponav}.
+These studies show how code relationships and candidate organization
+can guide repository exploration beyond textual matching.
+They motivate our Python repository index, which records files,
+classes, functions, and imports, and supplies a ranked localization
+summary for subsequent agent decisions.
+
+\textbf{Execution-informed localization.}
+AutoCodeRover combines structure-aware code search with optional
+spectrum-based fault localization \cite{zhang2024autocoderover}.
+IssueExec retrieves relevant tests and analyzes their execution
+traces to identify candidate edit locations \cite{liu2026issueexec}.
+These methods establish execution as a source of evidence linking
+an issue to the code involved in its behavior.
+GraphLocator further motivates examining the relationship between
+observed symptoms and locations requiring modification
+\cite{liu2025graphlocator}.
+Building on this rationale, our proposed component maps tracebacks,
+failing-test identifiers, and error messages observed during repair
+to indexed code entities.
+It then updates the candidate rankings and supplies the revised
+summary to the agent before its next decision.
+
+\textbf{Positioning of this study.}
+The proposed system combines initial localization from repository
+structure with ranking updates from the agent's own execution
+trajectory.
+Its focus is the connection between observed failures, indexed
+code entities, and the localization context used in subsequent
+decisions.
+The original mini-SWE-agent provides the repair loop and ordinary
+execution feedback; our extension adds an explicit ranking update
+mechanism.
+This design supports a controlled study of how structured
+localization context affects repair success and exploration cost.
+Table~\ref{tab:rw-positioning} summarizes the relevant mechanisms
+and the design choices they motivate.
 
 
 \subsection*{2.4 Our Contribution}
 
-\begin{itemize}[leftmargin=*, itemsep=0.4em]
+Prior work already supports structural navigation and execution-informed localization. Our contribution is a focused extension and controlled study within mini-SWE-agent, asking whether these signals improve localization efficiency without reducing repair success. We retain the three contributions defined in the group proposal:
 
-    \item[\textbf{C1.}]
-    A Python-oriented repository indexer that extracts structural
-    information at the file, class, and function levels and supports
-    task-aware localization of relevant code.
-
-    \item[\textbf{C2.}]
-    A failure-aware localization mechanism that uses runtime evidence,
-    including tracebacks and failing tests, to refine previously ranked
-    suspicious code locations.
-
-    \item[\textbf{C3.}]
-    An empirical study comparing repair performance and repository
-    exploration efficiency against the original mini-SWE-agent baseline.
-
+\begin{itemize}
+    \item \textbf{C1: Repository indexing.} A Python-oriented index of files, classes, and functions that supports localization from the issue description.
+    \item \textbf{C2: Failure-aware refinement.} A mechanism that maps observed runtime failures to code entities and updates suspicious-location rankings.
+    \item \textbf{C3: Empirical evaluation.} A comparison with the original mini-SWE-agent of repair performance and repository exploration efficiency.
 \end{itemize}
 
-\todo{Finalize the exact ranking algorithm before submission. For example,
-decide whether C1 combines keyword similarity, semantic similarity,
-repository structure, or another scoring method.}
+
 % ====================
 % 3. Agent setup
 % ====================
