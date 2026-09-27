@@ -455,16 +455,13 @@ environment, resource limits, and generation settings will be used in all
 conditions.
 
 
-For the planned experiments, we will use
-\texttt{openai/gpt-5.4-mini} as the underlying language model for all
-experimental conditions. mini-SWE-agent supports this model through its
-LiteLLM-based model interface.
-
-The same model version, reasoning-effort setting, base prompt, generation
-configuration, and resource limits will be fixed across Conditions A--D.
-Therefore, the prescribed localization information will be the primary
-systematic difference between the experimental conditions.
-
+We will access the language model through OpenRouter using the group
+API key and initial USD 15 credit provided by the course. Our
+provisional model choice is \texttt{openai/gpt-5.4-mini}, subject to
+development-pilot checks of availability, compatibility, performance,
+and cost. The final model identifier, supported reasoning and generation
+settings, and resource limits will be recorded and fixed before
+held-out evaluation and used consistently across Conditions A--D.
 
 % --------------------
 % 3.4 Localization Information and Agent Tools
@@ -529,7 +526,11 @@ For Condition B, lexical localization will use a BM25-style retrieval
 method. Each indexed code entity will be represented using information
 such as its file path, identifier, class or function name, docstring, and
 selected source text. The issue description will serve as the retrieval
-query.
+query. 
+
+For file-level fusion, each file's lexical score will be the maximum
+BM25 score among its indexed entities. Files with positive scores will
+form the lexical ranking $L$, with ties broken by repository-relative path.
 
 The resulting lexical ranking provides a simple retrieval baseline for
 measuring whether explicit issue-to-code matching alone improves
@@ -542,6 +543,28 @@ For Condition C, lexical evidence will be supplemented with repository
 structure. The initial structural representation will include containment
 relationships between files, classes, and functions, together with import
 relationships between Python modules.
+
+To generate a structural file ranking, we will use a one-hop
+import-neighbor heuristic. Let $Q$ contain up to the first ten files
+with positive scores in the lexical ranking $L$. For each seed file
+$q$, let $N(q)$ contain the repository files that it imports or that
+import it, using statically resolvable internal imports and excluding
+the file itself. Each seed distributes a weight of $1/r_L(q)$ equally
+among its distinct neighbors. A file's structural score is the sum of
+the weights it receives:
+\[
+s_{\mathrm{struct}}(f)
+= \sum_{q\in Q}
+\frac{\mathbb{1}[f\in N(q)]}
+{r_L(q)\max(1,|N(q)|)}.
+\]
+Files with positive structural scores form ranking $S$, with ties
+broken by lexical rank and then repository-relative path. Condition C
+will fuse $L$ and $S$ using RRF. If no structural candidates are
+available, it will retain $L$. Containment relationships will organize
+class and function hints within files; the proposed structural fusion
+will operate at the file level. Parameters will be fixed after the
+development pilot and before held-out evaluation.
 
 Because lexical and structural signals may produce scores on different
 numerical scales, we plan to combine their rankings using reciprocal rank
@@ -558,6 +581,10 @@ where $r(x)$ is the position of candidate $x$ in one input ranking and
 $R$ is the set of rankings being combined. We provisionally set
 $k=60$, which will remain fixed unless development-set experiments reveal
 a clear implementation problem.
+
+A candidate absent from an input ranking contributes zero for that
+ranking; tied fused scores are ordered by lexical rank and then
+repository-relative path.
 
 This approach allows different evidence sources to contribute to the final
 candidate ordering without requiring their raw scores to be directly
@@ -737,7 +764,9 @@ failure-aware refinement.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{fig2 system_architecture.jpg}
-    \caption{Proposed system architecture.}
+    \caption{Proposed system architecture. Candidate submission and official
+SWE-bench evaluation are separate; intermediate test feedback does not
+establish final repair success.}
     \label{fig:system-architecture}
 \end{figure}
 
@@ -767,24 +796,21 @@ during implementation.
 
 \subsection*{4.3 Initial Localization}
 
-Given an issue description, the localization module ranks Python source files
-and functions according to their estimated relevance to the reported problem.
-The ranking may combine textual relevance with structural information from the
-repository index.
+Given an issue description, initial localization follows Section~3.4:
+Condition B uses BM25-style lexical ranking, while Conditions C and D
+combine lexical and structural file rankings using RRF.
 
 The resulting ranked list of suspicious locations is provided to mini-SWE-agent
 as additional context, allowing the agent to inspect likely relevant code
-earlier while retaining access to the full repository. The exact scoring
-function and combination of localization signals will be finalized after pilot
-implementation.
+earlier while retaining access to the full repository. Pilot work may refine implementation parameters and the presentation
+format, which will be fixed before held-out evaluation.
 
 
 \subsection*{4.4 Failure-Aware Refinement}
 
-When a test or reproduction attempt produces a usable failure, the system
-extracts runtime evidence such as the exception type, traceback frames, files
-and functions appearing in the traceback, failing test names, and relevant
-error messages.
+When a command, reproduction attempt, or test produces a failure whose
+observed output can be mapped to an indexed repository entity, the system
+extracts the usable runtime evidence described in Section~3.4.
 
 This evidence is used to update the previous ranking of suspicious code
 locations before the next repair attempt. Locations implicated by the failure
@@ -797,8 +823,10 @@ issue description and static repository structure.
 
 The localization results are passed to mini-SWE-agent as additional context.
 The agent then follows its existing repair workflow to inspect code, make
-modifications, and execute tests. If the repair succeeds, the resulting patch
-is submitted.
+modifications, and execute tests. The agent submits a candidate patch when it decides to finish.
+Passing tests during the trajectory provides feedback but does not
+establish repair success, which is determined independently by the
+official SWE-bench harness as described in Section~5.1.
 
 For the failure-aware condition, a failed attempt with usable runtime failure
 evidence triggers an updated localization ranking, which can guide the next
@@ -820,9 +848,10 @@ We plan to compare four controlled conditions:
 
 \begin{itemize}[leftmargin=*, itemsep=0.25em]
     \item \textbf{Baseline A:} original mini-SWE-agent;
-    \item \textbf{Baseline B:} mini-SWE-agent with lexical or keyword-based localization;
-    \item \textbf{Method C:} mini-SWE-agent with repository-structure-aware localization;
-    \item \textbf{Method D:} mini-SWE-agent with repository-structure-aware localization and failure-aware refinement.
+    \item \textbf{Baseline B:} mini-SWE-agent with BM25-style lexical localization;
+    \item \textbf{Method C:} mini-SWE-agent with lexical and structural file rankings fused using RRF;
+    \item \textbf{Method D:} the same initial localization as Condition C, with additional reranking
+from usable runtime failure evidence.
 \end{itemize}
 
 The primary comparison is between A and D, while B and C help isolate the
@@ -870,9 +899,12 @@ report file Recall@5 because some fixes require changes in multiple
 files. Tasks without a changed Python source file will be excluded from
 file-localization scoring, with the exclusion count reported.
 
+Explicit ranking metrics will be reported for Conditions B--D;
+Condition A will be compared through repair outcomes and
+trajectory-based exploration measures.
+
 Initial rankings will be scored before the agent executes any command.
-For D, we will additionally compare rankings before and after the first
-usable test failure, reporting how many tasks actually produced such
+For D, we will additionally compare rankings before and after the first usable runtime failure, as defined in Section~3.6, reporting how many tasks actually produced such
 evidence. As a secondary analysis, changed lines will be mapped to
 functions in the task's original Python AST; function Hit@5 will be
 reported only where this mapping is unambiguous, together with its task
@@ -917,14 +949,15 @@ before inspecting held-out results. All conditions will use identical
 task instances, the same pinned mini-SWE-agent and benchmark versions,
 the same LLM version and decoding settings, the same base prompts and
 execution environment, and equal step, token/cost, and wall-time limits.
-Only the prescribed localization context will differ. The exact model,
-temperature, limits, and applicable random seeds will be recorded after
-the pilot rather than assumed in advance.
+Only the prescribed localization context will differ. The final model configuration and resource limits will be recorded
+after the development pilot and fixed before held-out evaluation,
+as specified in Section~3.3.
 
 The main study will submit one independent patch per task and condition.
-To assess run-to-run variability, we plan three independent runs per
-condition on a 20-task evaluation subset chosen before results are
-examined. Repeated runs will be reported individually and as averages,
+To assess run-to-run variability, we provisionally plan three independent
+runs in total per condition, including the main run, on an evaluation
+subset of up to 20 tasks chosen before results are examined. The final task count and repeat subset size will be determined from
+pilot costs and available API credit before held-out evaluation. Repeated runs will be reported individually and as averages,
 not combined into a best-of-three score. We will report paired
 task-level differences in resolution and efficiency, with confidence
 intervals where the final sample size permits. Infrastructure failures
@@ -993,10 +1026,6 @@ review before practical use.
 
 \bibliographystyle{plain}
 \bibliography{references}
-
-\todo{Create references.bib and add citations for mini-SWE-agent,
-SWE-bench, repository localization methods, and any additional systems
-used by the project.}
 
 \end{document}
 
