@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import platform
 import posixpath
 import re
+from collections.abc import Callable, Iterable
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
@@ -90,6 +92,16 @@ class RepositoryIndex:
 
     # ----- persistence -----
 
+    def digest(self) -> str:
+        """SHA-256 of the indexed content (files, records, errors), ignoring metadata.
+
+        Two indexes with the same digest give the same lookups and retrieval
+        text, wherever and whenever they were built.
+        """
+        content = {k: v for k, v in self.to_dict().items() if k in ("files", "records", "errors")}
+        payload = json.dumps(content, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
+        return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
     def to_dict(self) -> dict:
         return {
             "schema_version": SCHEMA_VERSION,
@@ -128,7 +140,7 @@ def build_index(
     max_file_bytes: int = DEFAULT_MAX_FILE_BYTES,
     max_text_chars: int = DEFAULT_MAX_TEXT_CHARS,
 ) -> RepositoryIndex:
-    """Index every Python file under `repo_root`.
+    """Index every Python file under the directory `repo_root`.
 
     Files that cannot be read, decoded or parsed are listed in `errors` and
     skipped; they never abort the build.
@@ -137,20 +149,44 @@ def build_index(
     if not root.is_dir():
         raise NotADirectoryError(f"not a directory: {root}")
 
+    return index_sources(
+        iter_python_files(root),
+        read_bytes=lambda path: (root / path).read_bytes(),
+        file_size=lambda path: (root / path).stat().st_size,
+        max_file_bytes=max_file_bytes,
+        max_text_chars=max_text_chars,
+        metadata={"repo_name": root.resolve().name},
+    )
+
+
+def index_sources(
+    paths: Iterable[str],
+    *,
+    read_bytes: Callable[[str], bytes],
+    file_size: Callable[[str], int],
+    max_file_bytes: int = DEFAULT_MAX_FILE_BYTES,
+    max_text_chars: int = DEFAULT_MAX_TEXT_CHARS,
+    metadata: dict | None = None,
+) -> RepositoryIndex:
+    """Index the given repo-relative paths, reading them through callbacks.
+
+    `build_index` reads from a directory; `src.repository.swebench` reads
+    straight from git objects. Both produce identical indexes for identical
+    files. `read_bytes` and `file_size` may raise OSError.
+    """
     records: list[IndexRecord] = []
     errors: list[ParseError] = []
-    files = list(iter_python_files(root))
+    files = sorted(paths)
 
     for rel_path in files:
-        full_path = root / rel_path
         try:
-            size = full_path.stat().st_size
+            size = file_size(rel_path)
             if size > max_file_bytes:
                 errors.append(
                     ParseError(rel_path, TOO_LARGE, f"{size} bytes > limit {max_file_bytes}")
                 )
                 continue
-            data = full_path.read_bytes()
+            data = read_bytes(rel_path)
         except OSError as exc:
             errors.append(ParseError(rel_path, READ_ERROR, str(exc)))
             continue
@@ -162,7 +198,7 @@ def build_index(
             errors.append(ParseError(rel_path, exc.kind, exc.message, exc.line))
 
     metadata = {
-        "repo_name": root.resolve().name,
+        **(metadata or {}),
         "python_version": platform.python_version(),
         "max_file_bytes": max_file_bytes,
         "max_text_chars": max_text_chars,
@@ -173,26 +209,43 @@ def build_index(
     return RepositoryIndex(records=records, errors=errors, files=files, metadata=metadata)
 
 
+def is_indexed_path(path: str) -> bool:
+    """Whether a repo-relative POSIX path is a .py file outside skipped directories.
+
+    Symlinks are not visible from the path; callers skip them separately.
+    """
+    *dirs, filename = path.split("/")
+    return filename.endswith(".py") and not any(
+        _is_skipped_dir(d, at_root=i == 0) for i, d in enumerate(dirs)
+    )
+
+
 def iter_python_files(root: Path):
-    """Yield repo-relative POSIX paths of .py files, in sorted order.
+    """Yield repo-relative POSIX paths of .py files under `root`.
 
     Skips hidden directories, excluded directories, *.egg-info and symlinks.
     """
     for dirpath, dirnames, filenames in os.walk(root):
         at_root = Path(dirpath) == root
-        dirnames[:] = sorted(
+        dirnames[:] = [
             d
             for d in dirnames
-            if not d.startswith(".")
-            and d not in EXCLUDED_DIRS
-            and not d.endswith(".egg-info")
-            and not (at_root and d in EXCLUDED_ROOT_DIRS)
+            if not _is_skipped_dir(d, at_root)
             and not os.path.islink(os.path.join(dirpath, d))
-        )
+        ]
         rel_dir = Path(dirpath).relative_to(root).as_posix()
-        for filename in sorted(filenames):
+        for filename in filenames:
             if filename.endswith(".py") and not os.path.islink(os.path.join(dirpath, filename)):
                 yield filename if rel_dir == "." else f"{rel_dir}/{filename}"
+
+
+def _is_skipped_dir(name: str, at_root: bool) -> bool:
+    return (
+        name.startswith(".")
+        or name in EXCLUDED_DIRS
+        or name.endswith(".egg-info")
+        or (at_root and name in EXCLUDED_ROOT_DIRS)
+    )
 
 
 def to_repo_path(path: str | os.PathLike, repo_root: str | os.PathLike | None = None) -> str | None:

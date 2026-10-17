@@ -25,6 +25,48 @@ Standard library only; Python 3.10+.
 
 只依赖标准库；需要 Python 3.10 及以上。
 
+## Build from a SWE-bench task ID / 按 SWE-bench 任务 ID 构建
+
+```bash
+python scripts/build_index.py --task django__django-11133
+```
+
+```python
+from src.repository.swebench import build_task_index, load_task
+
+task = load_task("django__django-11133")   # repo, base_commit, problem_statement, version, created_at
+index = build_task_index("django__django-11133")
+```
+
+On first use this downloads the pinned dataset revision
+(`SWE-bench/SWE-bench_Verified@78f471bf`), clones the task's repository once,
+reads the Python files at `base_commit` straight from git (no checkout), and
+caches the index per task. Later calls load the cached index.
+
+第一次调用时会自动下载锁定版本的数据集（`SWE-bench/SWE-bench_Verified@78f471bf`），
+每个仓库只 clone 一次，直接从 git 读取 `base_commit` 版本的 Python 文件（不需要 checkout），
+并按任务缓存索引。之后再调用会直接读取缓存。
+
+- Needs `git` and `pyarrow` (`pip install pyarrow`, only for loading tasks).<br>
+  需要 `git` 和 `pyarrow`（`pip install pyarrow`，只在读取任务时用到）。
+- Cache: `.swebench_cache/` in the project root, ignored by git. Move it with the
+  `SWEBENCH_CACHE_DIR` environment variable or `--cache-dir`.<br>
+  缓存默认在项目根目录的 `.swebench_cache/`，不会被 git 提交。可以用环境变量
+  `SWEBENCH_CACHE_DIR` 或 `--cache-dir` 改到别的位置。
+- Only `instance_id`, `repo`, `base_commit`, `problem_statement`, `version`,
+  `created_at` are read from the dataset. The reference patch, test patch,
+  FAIL_TO_PASS / PASS_TO_PASS and hints never reach the cache.<br>
+  只从数据集读取 `instance_id`、`repo`、`base_commit`、`problem_statement`、`version`、
+  `created_at`。参考补丁、测试补丁、FAIL_TO_PASS / PASS_TO_PASS 和 hints 不会进入缓存。
+- Index metadata records `repo`, `commit`, `instance_id`, `dataset_revision` and
+  `index_sha256` (`index.digest()`, the hash of the indexed content), as the
+  index identity required by the evaluation protocol.<br>
+  索引元数据记录 `repo`、`commit`、`instance_id`、`dataset_revision` 和
+  `index_sha256`（`index.digest()`，索引内容的哈希），作为评估协议要求的"索引身份"。
+- Files generated at install time inside the task container (e.g. a
+  setuptools-scm `_version.py`) are not in git and so not indexed.<br>
+  任务容器安装时生成的文件（例如 setuptools-scm 生成的 `_version.py`）不在 git 里，所以不会被索引。
+
 ## Index record / 索引记录
 
 Defined in `src/repository/models.py` (`IndexRecord`). The first six fields
