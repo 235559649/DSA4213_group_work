@@ -24,6 +24,9 @@ from src.agent.contracts import (  # noqa: E402
 from src.agent.mini_swe_wrapper import (  # noqa: E402
     MiniSWEWrapper,
 )
+from src.agent.swebench_runner import (  # noqa: E402
+    SWEbenchRunner,
+)
 
 
 def load_candidates(
@@ -40,42 +43,64 @@ def load_candidates(
     )
 
     return [
-        LocalizationCandidate(
-            **item
-        )
+        LocalizationCandidate(**item)
         for item in data
     ]
+
+
+def require(
+    parser: argparse.ArgumentParser,
+    value,
+    option: str,
+):
+    if not value:
+        parser.error(
+            f"{option} is required for "
+            "the selected benchmark mode."
+        )
+
+    return value
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
-        "--condition",
-        required=True,
-        choices=["A", "B", "C", "D"],
+        "--benchmark",
+        choices=[
+            "local",
+            "swebench",
+        ],
+        default="local",
     )
 
     parser.add_argument(
-        "--task-id",
+        "--condition",
         required=True,
+        choices=[
+            "A",
+            "B",
+            "C",
+            "D",
+        ],
+    )
+
+    # Local / synthetic mode
+    parser.add_argument(
+        "--task-id",
     )
 
     parser.add_argument(
         "--repo",
-        required=True,
     )
 
     parser.add_argument(
         "--task",
-        required=True,
     )
 
     parser.add_argument(
-        "--model",
-        default=(
-            "openai/gpt-5.4-mini"
-        ),
+        "--verify-cmd",
+        default=None,
     )
 
     parser.add_argument(
@@ -87,29 +112,88 @@ def main() -> None:
         ),
     )
 
+    # SWE-bench mode
     parser.add_argument(
-        "--verify-cmd",
-        default=None,
+        "--instance-id",
+    )
+
+    parser.add_argument(
+        "--task-config",
+    )
+
+    parser.add_argument(
+        "--model",
+        default=(
+            "openai/gpt-5.4-mini"
+        ),
     )
 
     args = parser.parse_args()
 
-    candidates = load_candidates(
-        args.candidates
-    )
+    if args.benchmark == "local":
 
-    runner = MiniSWEWrapper(
-        model_name=args.model,
-    )
+        task_id = require(
+            parser,
+            args.task_id,
+            "--task-id",
+        )
 
-    result = runner.run(
-        task_id=args.task_id,
-        task=args.task,
-        repo_path=args.repo,
-        condition=args.condition,
-        localization_candidates=candidates,
-        verify_command=args.verify_cmd,
-    )
+        repo = require(
+            parser,
+            args.repo,
+            "--repo",
+        )
+
+        task = require(
+            parser,
+            args.task,
+            "--task",
+        )
+
+        candidates = load_candidates(
+            args.candidates
+        )
+
+        runner = MiniSWEWrapper(
+            model_name=args.model,
+        )
+
+        result = runner.run(
+            task_id=task_id,
+            task=task,
+            repo_path=repo,
+            condition=args.condition,
+            localization_candidates=(
+                candidates
+            ),
+            verify_command=(
+                args.verify_cmd
+            ),
+        )
+
+    else:
+
+        instance_id = require(
+            parser,
+            args.instance_id,
+            "--instance-id",
+        )
+
+        task_config = require(
+            parser,
+            args.task_config,
+            "--task-config",
+        )
+
+        runner = SWEbenchRunner(
+            model_name=args.model,
+        )
+
+        result = runner.run(
+            instance_id=instance_id,
+            task_config=task_config,
+            condition=args.condition,
+        )
 
     print()
     print("Run completed")
