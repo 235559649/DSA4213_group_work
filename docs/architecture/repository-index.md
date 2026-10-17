@@ -27,24 +27,43 @@ Standard library only; Python 3.10+.
 
 ## Index record / 索引记录
 
-Defined in `src/repository/models.py` (`IndexRecord`).
+Defined in `src/repository/models.py` (`IndexRecord`). The first six fields
+are the shared contract with role 1 (`IndexRecord` in `src/agent/contracts.py`):
+same names, order, types and defaults. The remaining fields are extras filled
+by the indexer; they have defaults, so a record can be built with only the
+six shared fields.
 
-定义在 `src/repository/models.py`（`IndexRecord`）。
+定义在 `src/repository/models.py`（`IndexRecord`）。前六个字段是和 1 号约定的共享接口
+（`src/agent/contracts.py` 里的 `IndexRecord`）：名称、顺序、类型、默认值都一致。其余字段由
+索引器额外填写，都有默认值，所以只传六个共享字段也能创建记录。
+
+**Shared with role 1 / 与 1 号共享的字段**
 
 | Field / 字段 | Example / 示例 | Notes / 说明 |
 |---|---|---|
-| `id` | `shop/pricing.py::Cart.total` | Unique. Modules use the bare path. A redefined name (property setter, `if/else` definitions) gets `#2`, `#3`... in source order.<br>唯一标识。模块直接用路径。同名重复定义（property 的 setter、`if/else` 里各定义一次）按出现顺序加 `#2`、`#3`…… |
 | `path` | `shop/pricing.py` | Relative to the repo root, always `/`.<br>相对仓库根目录，一律用 `/`。 |
+| `symbol` | `Cart.total` | Dotted name inside the file. Nested functions: `Cart.total.line_total`. `None` for modules.<br>文件内的点分名称。嵌套函数写作 `Cart.total.line_total`。模块为 `None`。 |
+| `symbol_type` | `method` | `module`, `class`, `function` (module-level or nested in a function) or `method` (directly in a class body).<br>`module`、`class`、`function`（模块顶层或嵌套在函数里）或 `method`（直接定义在类体中）。 |
+| `start_line`, `end_line` | `30`, `40` | 1-based, inclusive, same numbering as tracebacks. `start_line` includes decorators. Always set by the indexer.<br>从 1 开始，包含首尾两行，与 traceback 的行号一致。`start_line` 包含装饰器所在行。索引器总会填写。 |
+| `retrieval_text` | | Truncated to `max_text_chars` (default 2000). Functions/methods: path, symbol, then the source. Classes: path, symbol, signature, docstring, member names. Modules: path, module name, docstring, top-level names. Tokenization is left to the retriever.<br>截断到 `max_text_chars`（默认 2000 字符）。函数/方法：路径、symbol，然后是源码。类：路径、symbol、签名、docstring、成员名。模块：路径、模块名、docstring、顶层名称。分词由检索模块负责。 |
+
+**Extra fields / 额外字段**
+
+| Field / 字段 | Example / 示例 | Notes / 说明 |
+|---|---|---|
+| `id` | `shop/pricing.py::Cart.total` | Unique. Modules use the bare path. A redefined name (property setter, `if/else` definitions) gets `#2`, `#3`... in source order. Derived from `path` and `symbol` if not given.<br>唯一标识。模块直接用路径。同名重复定义（property 的 setter、`if/else` 里各定义一次）按出现顺序加 `#2`、`#3`……未提供时由 `path` 和 `symbol` 自动生成。 |
 | `module` | `shop.pricing` | Dotted name derived from the path.<br>由路径推出的点分模块名。 |
-| `symbol` | `Cart.total` | Dotted name inside the file. Nested functions: `Cart.total.line_total`. Modules: `<module>`, as in tracebacks.<br>文件内的点分名称。嵌套函数写作 `Cart.total.line_total`。模块记录为 `<module>`，与 traceback 的写法一致。 |
-| `name` | `total` | Last part of `symbol`.<br>`symbol` 的最后一段。 |
-| `kind` | `method` | `module`, `class`, `function` (module-level or nested in a function) or `method` (directly in a class body).<br>`module`、`class`、`function`（模块顶层或嵌套在函数里）或 `method`（直接定义在类体中）。 |
-| `start_line`, `end_line` | `30`, `40` | 1-based, inclusive, same numbering as tracebacks. `start_line` includes decorators.<br>从 1 开始，包含首尾两行，与 traceback 的行号一致。`start_line` 包含装饰器所在行。 |
+| `name` | `total` | Last part of `symbol`; `None` for modules.<br>`symbol` 的最后一段；模块为 `None`。 |
 | `parent` | `shop/pricing.py::Cart` | `id` of the enclosing record; `None` for modules.<br>外层记录的 `id`；模块为 `None`。 |
 | `signature` | `def total(self, with_tax=True)` | `""` for modules.<br>模块为空字符串。 |
 | `docstring` | `Total price of all items.` | Truncated to `max_text_chars`.<br>截断到 `max_text_chars`。 |
-| `text` | | Retrieval text, truncated to `max_text_chars` (default 2000). Functions/methods: path, symbol, then the source. Classes: path, symbol, signature, docstring, member names. Modules: path, module name, docstring, top-level names. Tokenization is left to the retriever.<br>检索用文本，截断到 `max_text_chars`（默认 2000 字符）。函数/方法：路径、symbol，然后是源码。类：路径、symbol、签名、docstring、成员名。模块：路径、模块名、docstring、顶层名称。分词由检索模块负责。 |
 | `is_test` | `False` | Heuristic: inside `test/`, `tests/` or `testing/`, or named `test_*.py`, `*_test.py`, `tests.py`, `conftest.py`.<br>启发式判断：位于 `test/`、`tests/`、`testing/` 目录下，或文件名为 `test_*.py`、`*_test.py`、`tests.py`、`conftest.py`。 |
+
+Saved index JSON carries `schema_version` (currently 2); loading a file with a
+different version raises an error, so rebuild indexes made before the rename.
+
+保存的索引 JSON 带有 `schema_version`（当前为 2）；读取版本不同的文件会报错，所以改名之前
+生成的索引需要重新构建。
 
 ## Files that cannot be indexed / 无法索引的文件
 

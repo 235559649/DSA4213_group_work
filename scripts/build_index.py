@@ -29,9 +29,9 @@ def main(argv: list[str] | None = None) -> int:
         args.repo, max_file_bytes=args.max_file_bytes, max_text_chars=args.max_text_chars
     )
 
-    kinds = Counter(r.kind for r in index.records)
+    types = Counter(r.symbol_type for r in index.records)
     print(f"files:   {len(index.files)}")
-    print(f"records: {len(index.records)} " + ", ".join(f"{k}={n}" for k, n in sorted(kinds.items())))
+    print(f"records: {len(index.records)} " + ", ".join(f"{t}={n}" for t, n in sorted(types.items())))
     print(f"errors:  {len(index.errors)}")
     for error in index.errors[:20]:
         where = f"{error.path}:{error.line}" if error.line else error.path

@@ -17,7 +17,6 @@ from src.repository.ast_parser import (
     parse_source,
 )
 from src.repository.models import (
-    MODULE,
     READ_ERROR,
     SCHEMA_VERSION,
     TOO_LARGE,
@@ -86,7 +85,7 @@ class RepositoryIndex:
         return [
             r
             for r in self.records
-            if r.kind != MODULE and (r.symbol == name or r.symbol.endswith("." + name))
+            if r.symbol is not None and (r.symbol == name or r.symbol.endswith("." + name))
         ]
 
     # ----- persistence -----

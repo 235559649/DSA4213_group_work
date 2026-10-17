@@ -4,7 +4,6 @@ import pytest
 
 from src.repository.ast_parser import is_test_path, module_name, parse_source
 from src.repository.indexer import RepositoryIndex, build_index, to_repo_path
-from src.repository.models import MODULE_SYMBOL
 
 SAMPLE_REPO = Path(__file__).parent / "fixtures" / "sample_repo"
 PRICING = "shop/pricing.py"
@@ -39,8 +38,8 @@ def test_indexes_every_file_and_records_the_broken_one(index):
     assert index.records_in_file("shop/broken.py") == []
 
 
-def test_symbols_and_kinds(index):
-    found = {r.id: r.kind for r in index.records_in_file(PRICING)}
+def test_symbols_and_types(index):
+    found = {r.id: r.symbol_type for r in index.records_in_file(PRICING)}
     assert found == {
         "shop/pricing.py": "module",
         "shop/pricing.py::apply_discount": "function",
@@ -78,21 +77,21 @@ def test_record_fields(index):
     assert total.parent == "shop/pricing.py::Cart"
     assert total.signature == "def total(self, with_tax=True)"
     assert total.docstring == "Total price of all items."
-    assert total.text.startswith("shop/pricing.py\nCart.total\n    def total(")
-    assert "subtotal *= 1 + TAX_RATE" in total.text
+    assert total.retrieval_text.startswith("shop/pricing.py\nCart.total\n    def total(")
+    assert "subtotal *= 1 + TAX_RATE" in total.retrieval_text
     assert not total.is_test
 
     cart = index.get("shop/pricing.py::Cart")
     assert cart.signature == "class Cart"
-    assert "currency" in cart.text and "checkout" in cart.text
+    assert "currency" in cart.retrieval_text and "checkout" in cart.retrieval_text
 
     checkout = index.get("shop/pricing.py::Cart.checkout")
     assert checkout.signature == "async def checkout(self, gateway)"
 
     module = index.get(PRICING)
-    assert module.symbol == MODULE_SYMBOL
+    assert module.symbol is None and module.name is None
     assert module.parent is None
-    assert "TAX_RATE" in module.text and "Cart" in module.text
+    assert "TAX_RATE" in module.retrieval_text and "Cart" in module.retrieval_text
 
 
 def test_empty_file_and_package_module_names(index):
@@ -205,7 +204,7 @@ def test_line_numbers_with_crlf_and_form_feed():
     module, f = parse_source(source, "m.py")
     assert (f.start_line, f.end_line) == (3, 4)
     assert module.end_line == 4
-    assert f.text.endswith("def f():\n    return 1")
+    assert f.retrieval_text.endswith("def f():\n    return 1")
 
 
 def test_excluded_directories(tmp_path):
@@ -227,7 +226,7 @@ def test_text_is_truncated(tmp_path):
     write(tmp_path / "m.py", b'def f():\n    """' + b"word " * 1000 + b'"""\n')
     index = build_index(tmp_path, max_text_chars=100)
     f = index.get("m.py::f")
-    assert len(f.text) == 100 and len(f.docstring) == 100
+    assert len(f.retrieval_text) == 100 and len(f.docstring) == 100
 
 
 # ----- helpers -----
@@ -276,3 +275,35 @@ def test_module_name(path, expected):
 )
 def test_is_test_path(path, expected):
     assert is_test_path(path) == expected
+
+
+# ----- compatibility with role 1's contract (src/agent/contracts.py) -----
+
+CONTRACT_FIELDS = ["path", "symbol", "symbol_type", "start_line", "end_line", "retrieval_text"]
+
+
+def test_shared_fields_match_role1_contract():
+    from dataclasses import fields
+
+    from src.repository.models import IndexRecord
+
+    assert [f.name for f in fields(IndexRecord)][: len(CONTRACT_FIELDS)] == CONTRACT_FIELDS
+
+
+def test_record_built_like_role1_contract_gets_derived_fields():
+    from src.repository.models import IndexRecord
+
+    method = IndexRecord(
+        path="src/parser.py",
+        symbol="Parser.parse_header",
+        symbol_type="method",
+        start_line=10,
+        end_line=20,
+    )
+    assert method.id == "src/parser.py::Parser.parse_header"
+    assert method.name == "parse_header"
+    assert method.retrieval_text == ""
+
+    module = IndexRecord(path="src/parser.py", symbol=None, symbol_type="module", start_line=None, end_line=None)
+    assert module.id == "src/parser.py"
+    assert not module.contains(1)

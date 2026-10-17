@@ -14,7 +14,6 @@ from src.repository.models import (
     FUNCTION,
     METHOD,
     MODULE,
-    MODULE_SYMBOL,
     RECURSION_ERROR,
     SYNTAX_ERROR,
     IndexRecord,
@@ -123,18 +122,18 @@ class _Collector:
         )
         self.records.append(
             IndexRecord(
-                id=self._unique_id(self.path),
                 path=self.path,
-                module=self.module,
-                symbol=MODULE_SYMBOL,
-                name=MODULE_SYMBOL,
-                kind=MODULE,
+                symbol=None,
+                symbol_type=MODULE,
                 start_line=1,
                 end_line=max(1, len(self.lines)),
+                retrieval_text=self._truncate(text),
+                id=self._unique_id(self.path),
+                module=self.module,
+                name=None,
                 parent=None,
                 signature="",
                 docstring=self._truncate(docstring),
-                text=self._truncate(text),
                 is_test=self.is_test,
             )
         )
@@ -153,16 +152,16 @@ class _Collector:
     def _add_definition(self, node, parent_id: str, prefix: str, in_class: bool) -> None:
         symbol = f"{prefix}{node.name}"
         if isinstance(node, ast.ClassDef):
-            kind = CLASS
+            symbol_type = CLASS
         else:
-            kind = METHOD if in_class else FUNCTION
+            symbol_type = METHOD if in_class else FUNCTION
 
         start_line = min([node.lineno] + [d.lineno for d in node.decorator_list])
         end_line = node.end_lineno or node.lineno
         signature = _signature(node)
         docstring = ast.get_docstring(node) or ""
 
-        if kind == CLASS:
+        if symbol_type == CLASS:
             body_text = "\n".join(
                 part for part in (signature, docstring, " ".join(_member_names(node.body))) if part
             )
@@ -170,23 +169,23 @@ class _Collector:
             body_text = "\n".join(self.lines[start_line - 1 : end_line])
 
         record = IndexRecord(
-            id=self._unique_id(f"{self.path}::{symbol}"),
             path=self.path,
-            module=self.module,
             symbol=symbol,
-            name=node.name,
-            kind=kind,
+            symbol_type=symbol_type,
             start_line=start_line,
             end_line=end_line,
+            retrieval_text=self._truncate(f"{self.path}\n{symbol}\n{body_text}"),
+            id=self._unique_id(f"{self.path}::{symbol}"),
+            module=self.module,
+            name=node.name,
             parent=parent_id,
             signature=signature,
             docstring=self._truncate(docstring),
-            text=self._truncate(f"{self.path}\n{symbol}\n{body_text}"),
             is_test=self.is_test,
         )
         self.records.append(record)
         self._visit_children(
-            node, parent_id=record.id, prefix=f"{symbol}.", in_class=kind == CLASS
+            node, parent_id=record.id, prefix=f"{symbol}.", in_class=symbol_type == CLASS
         )
 
     def _unique_id(self, base: str) -> str:

@@ -1,7 +1,12 @@
 """Records produced by the repository index.
 
 These are the interface between the indexer (role 2) and its consumers:
-lexical retrieval (role 3), failure mapping (role 4) and evaluation (role 5).
+lexical retrieval (role 3), failure mapping (role 4), integration (role 1)
+and evaluation (role 5).
+
+The first six fields of IndexRecord match `IndexRecord` in
+`src/agent/contracts.py` (role 1) in name, order and meaning, so a record
+built by the indexer can be used wherever that contract is expected.
 
 Conventions
 -----------
@@ -10,26 +15,23 @@ Conventions
   ``start_line`` includes decorators, so a traceback line pointing at a
   decorator still maps to the decorated function.
 * ``symbol`` is the dotted name inside the file (``Cart.total``,
-  ``Cart.total.line_total``). Module records use ``<module>``, the same
-  name tracebacks print for module-level code.
+  ``Cart.total.line_total``), or None for module records.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
-MODULE_SYMBOL = "<module>"
-
-# Kinds of index records.
+# Values of IndexRecord.symbol_type.
 MODULE = "module"
 CLASS = "class"
 FUNCTION = "function"  # module-level or nested inside another function
 METHOD = "method"  # defined directly in a class body
-KINDS = (MODULE, CLASS, FUNCTION, METHOD)
+SYMBOL_TYPES = (MODULE, CLASS, FUNCTION, METHOD)
 
-# Kinds of parse errors.
+# Values of ParseError.kind.
 SYNTAX_ERROR = "syntax_error"
 DECODE_ERROR = "decode_error"
 TOO_LARGE = "too_large"
@@ -41,21 +43,34 @@ RECURSION_ERROR = "recursion_error"
 class IndexRecord:
     """One code entity: a module, class, function or method."""
 
-    id: str  # "<path>" for modules, "<path>::<symbol>" otherwise; "#2", "#3"... on redefinition
+    # --- Shared with src/agent/contracts.py (role 1) ---
     path: str  # "shop/pricing.py"
-    module: str  # dotted module name derived from the path, "shop.pricing"
-    symbol: str  # "Cart.total", or "<module>"
-    name: str  # last component of symbol, "total"
-    kind: str  # one of KINDS
-    start_line: int
-    end_line: int
-    parent: str | None  # id of the enclosing record; None for modules
-    signature: str  # "def total(self, with_tax=True)", "class Cart(Base)", "" for modules
-    docstring: str
-    text: str  # retrieval text: path, symbol and selected source, truncated
-    is_test: bool  # heuristic: the file looks like test code
+    symbol: str | None  # "Cart.total"; None for modules
+    symbol_type: str  # one of SYMBOL_TYPES
+    start_line: int | None  # always set by the indexer
+    end_line: int | None  # always set by the indexer
+    retrieval_text: str = ""  # path, symbol and selected source, truncated
+
+    # --- Filled by the indexer ---
+    id: str = ""  # "<path>" for modules, "<path>::<symbol>" otherwise; "#2", "#3"... on redefinition
+    module: str = ""  # dotted module name derived from the path, "shop.pricing"
+    name: str | None = None  # last component of symbol, "total"; None for modules
+    parent: str | None = None  # id of the enclosing record; None for modules
+    signature: str = ""  # "def total(self, with_tax=True)", "class Cart(Base)", "" for modules
+    docstring: str = ""
+    is_test: bool = False  # heuristic: the file looks like test code
+
+    def __post_init__(self) -> None:
+        # Records built by hand (e.g. in other roles' tests) get the same
+        # derived fields the indexer would give them.
+        if not self.id:
+            object.__setattr__(self, "id", f"{self.path}::{self.symbol}" if self.symbol else self.path)
+        if self.name is None and self.symbol:
+            object.__setattr__(self, "name", self.symbol.rsplit(".", 1)[-1])
 
     def contains(self, line: int) -> bool:
+        if self.start_line is None or self.end_line is None:
+            return False
         return self.start_line <= line <= self.end_line
 
 
