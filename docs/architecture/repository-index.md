@@ -94,18 +94,51 @@ six shared fields.
 | Field / 字段 | Example / 示例 | Notes / 说明 |
 |---|---|---|
 | `id` | `shop/pricing.py::Cart.total` | Unique. Modules use the bare path. A redefined name (property setter, `if/else` definitions) gets `#2`, `#3`... in source order. Derived from `path` and `symbol` if not given.<br>唯一标识。模块直接用路径。同名重复定义（property 的 setter、`if/else` 里各定义一次）按出现顺序加 `#2`、`#3`……未提供时由 `path` 和 `symbol` 自动生成。 |
-| `module` | `shop.pricing` | Dotted name derived from the path.<br>由路径推出的点分模块名。 |
+| `module` | `shop.pricing` | The name Python imports the file as: the path below the outermost directory without an `__init__.py`, so `src/_pytest/python.py` is `_pytest.python`.<br>Python 导入该文件时用的名字：从最外层没有 `__init__.py` 的目录以下开始算，所以 `src/_pytest/python.py` 是 `_pytest.python`。 |
 | `name` | `total` | Last part of `symbol`; `None` for modules.<br>`symbol` 的最后一段；模块为 `None`。 |
 | `parent` | `shop/pricing.py::Cart` | `id` of the enclosing record; `None` for modules.<br>外层记录的 `id`；模块为 `None`。 |
 | `signature` | `def total(self, with_tax=True)` | `""` for modules.<br>模块为空字符串。 |
 | `docstring` | `Total price of all items.` | Truncated to `max_text_chars`.<br>截断到 `max_text_chars`。 |
 | `is_test` | `False` | Heuristic: inside `test/`, `tests/` or `testing/`, or named `test_*.py`, `*_test.py`, `tests.py`, `conftest.py`.<br>启发式判断：位于 `test/`、`tests/`、`testing/` 目录下，或文件名为 `test_*.py`、`*_test.py`、`tests.py`、`conftest.py`。 |
 
-Saved index JSON carries `schema_version` (currently 2); loading a file with a
-different version raises an error, so rebuild indexes made before the rename.
+Saved index JSON carries `schema_version` (currently 3); loading a file with a
+different version raises an error. `build_task_index` rebuilds outdated cached
+indexes automatically.
 
-保存的索引 JSON 带有 `schema_version`（当前为 2）；读取版本不同的文件会报错，所以改名之前
-生成的索引需要重新构建。
+保存的索引 JSON 带有 `schema_version`（当前为 3）；读取版本不同的文件会报错。
+`build_task_index` 会自动重建过期的缓存索引。
+
+## Import graph / 导入关系
+
+`index.imports` maps each file to the repository files it imports (files
+without internal imports are omitted). Statements anywhere in the file count,
+including inside functions and `try` blocks. Rules:
+
+`index.imports` 记录每个文件导入了仓库里的哪些文件（没有内部导入的文件不出现）。
+文件中任何位置的 import 都算，包括函数内部和 `try` 块里的。规则如下：
+
+- Relative imports are resolved against the file's package; going above the
+  top-level package is dropped.<br>
+  相对导入按文件所在的包解析；超出顶层包的会被丢弃。
+- `from a.b import c` points to `a/b/c.py` if `c` is a submodule, otherwise to
+  module `a.b`. `import a.b` points to `a.b` only, not to the parent package `a`.<br>
+  `from a.b import c`：如果 `c` 是子模块就指向 `a/b/c.py`，否则指向模块 `a.b`。
+  `import a.b` 只指向 `a.b`，不指向父包 `a`。
+- External modules (stdlib, third-party) and self-imports are dropped. A package
+  (`x/__init__.py`) wins over a module (`x.py`). Names claimed by two files of
+  the same kind are ambiguous and not resolved.<br>
+  外部模块（标准库、第三方库）和自己导入自己会被丢弃。包（`x/__init__.py`）优先于同名模块（`x.py`）。
+  被两个同类文件同时占用的模块名视为有歧义，不解析。
+- Files that fail to parse can still be import targets, but contribute no
+  imports of their own.<br>
+  解析失败的文件仍然可以被别人导入，但它自己的导入不会被记录。
+
+| Method / 方法 | Use / 用途 |
+|---|---|
+| `index.imports_of(path)` | Files `path` imports.<br>`path` 导入的文件。 |
+| `index.imported_by(path)` | Files that import `path`.<br>导入了 `path` 的文件。 |
+| `index.neighbors(path)` | Both, without `path` itself: the one-hop neighbors N(q) of the proposal.<br>两者合并，去掉自身：即 proposal 中的一跳邻居 N(q)。 |
+| `index.is_test_file(path)` | The file's `is_test` flag.<br>文件的 `is_test` 标记。 |
 
 ## Files that cannot be indexed / 无法索引的文件
 
