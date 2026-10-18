@@ -20,11 +20,46 @@ proposal section 3.4. Code: `src/localization/structural.py`.
 
    s_struct(f) = Σ_{q∈Q} 1[f ∈ N(q)] / (r_L(q) · max(1, |N(q)|))
 
-4. S: files with positive score, highest first; ties by lexical rank (files not
-   in L last), then path.<br>
-   S：分数为正的文件，从高到低；同分时按词法排名（不在 L 中的排最后），再按路径。
-5. No seed has a neighbor → S is empty and C keeps L unchanged.<br>
-   没有任何种子有邻居 → S 为空，C 直接沿用 L。
+4. S: **the seeds first, in lexical order** (see below), then the other files
+   with positive score, highest first; ties by lexical rank (files not in L
+   last), then path.<br>
+   S：**先放种子本身，按词法顺序**（见下文），再放其余分数为正的文件，从高到低；
+   同分时按词法排名（不在 L 中的排最后），再按路径。
+5. No seed has a neighbor → S is just the seeds, and fusing it with L leaves
+   L's order unchanged.<br>
+   没有任何种子有邻居 → S 只有种子本身，和 L 融合后 L 的顺序不变。
+
+## Design choice: seeds head S / 设计选择：种子放在 S 最前面
+
+**Team decision, 2026-10-19, before the freeze. Differs from the proposal; report it.**
+
+**组内决定（2026-10-19，冻结前）。与 proposal 不同，需要在报告中说明。**
+
+In the proposal, S holds only the seeds' neighbors; a seed appears in S only
+if it neighbors another seed. Fused with L by RRF, a correct file ranked #1 in
+L but absent from S gets one RRF term, while files present in both lists get
+two and overtake it (django-11133: #1 → #23). On the 20 development tasks
+(L = role 3's full BM25 ranking, RRF k = 60):
+
+proposal 中 S 只包含种子的邻居，种子只有在恰好是别的种子的邻居时才出现在 S 里。用 RRF 和 L
+融合时，一个在 L 中排第 1 但不在 S 中的正确文件只能拿到一份分数，而同时出现在两份排名里的文件
+能拿到两份并反超它（django-11133：第 1 → 第 23）。在 20 个开发任务上（L 为 3 号的完整 BM25
+排名，RRF k = 60）：
+
+| | Hit@1 | Hit@5 | MRR |
+|---|---|---|---|
+| L only (Condition B) / 只用 L（条件 B） | 8/20 | 12/20 | 0.500 |
+| C, proposal's S / C，proposal 原定义的 S | 6/20 | 11/20 | 0.393 |
+| **C, seeds head S (default)** / **C，种子放在 S 最前面（默认）** | **8/20** | **12/20** | **0.504** |
+
+With seeds at the front, 6 tasks improved and 1 got worse relative to L.
+Caveats: 20 tasks, several variants tried (lower S weight in RRF, truncating
+S), so the choice may overfit the development set. `include_seeds=False`
+(`--no-seeds`) reproduces the proposal's S for comparison.
+
+种子放在最前面后，相比 L 有 6 个任务变好、1 个变差。注意：只有 20 个任务，而且试过好几种方案
+（降低 S 在 RRF 中的权重、截断 S 等），这个选择可能对开发集过拟合。`include_seeds=False`
+（`--no-seeds`）可以复现 proposal 原定义的 S，用于对比。
 
 Fusing L and S with RRF (k = 60) belongs to the retrieval module (role 3).
 
@@ -79,10 +114,10 @@ Each `StructuralCandidate` has the `LocalizationCandidate` fields of
 | Field / 字段 | Meaning / 含义 |
 |---|---|
 | `file`, `rank` | The file and its rank in S.<br>文件及其在 S 中的名次。 |
-| `score` | s_struct(file), the sum of the relation weights.<br>s_struct(file)，即各关系权重之和。 |
+| `score` | s_struct(file), the sum of the neighbor relation weights; 0 for a seed that neighbors no other seed.<br>s_struct(file)，即各邻居关系权重之和；不是其他种子邻居的种子为 0。 |
 | `symbol`, `symbol_type` | `None` (file-level).<br>`None`（文件级）。 |
 | `reason` | Up to three strongest relations as text, e.g. `imported by lexical #1 sympy/matrices/expressions/blockmatrix.py`.<br>最强的最多三条关系的文字说明。 |
-| `relations` | Every contributing seed: `seed`, `seed_rank`, `relation` (`imported_by`: the candidate is imported by the seed; `imports`: the candidate imports the seed), `weight` = 1 / (seed_rank · \|N(seed)\|). Strongest first.<br>每个贡献分数的种子：`seed`、`seed_rank`、`relation`（`imported_by`：候选文件被种子导入；`imports`：候选文件导入了种子）、`weight` = 1 / (seed_rank · \|N(seed)\|)。按权重从大到小。 |
+| `relations` | A `seed` relation first if the file is itself a seed (`weight` 0; it only fixes the position), then every contributing seed: `seed`, `seed_rank`, `relation` (`imported_by`: the candidate is imported by the seed; `imports`: the candidate imports the seed), `weight` = 1 / (seed_rank · \|N(seed)\|), strongest first.<br>如果文件本身是种子，第一条是 `seed` 关系（`weight` 为 0，只决定位置）；之后是每个贡献分数的种子：`seed`、`seed_rank`、`relation`（`imported_by`：候选文件被种子导入；`imports`：候选文件导入了种子）、`weight` = 1 / (seed_rank · \|N(seed)\|)，按权重从大到小。 |
 
 ## Batch JSON / 批量 JSON
 
@@ -101,6 +136,7 @@ Output, one entry per task:
   "instance_id": "sympy__sympy-17630",
   "index_sha256": "d3baa2f9...",
   "num_seeds": 10,
+  "include_seeds": true,
   "exclude_test_neighbors": true,
   "num_lexical_files": 10,
   "ranked_files": [

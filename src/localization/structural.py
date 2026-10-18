@@ -13,10 +13,21 @@ Implements proposal section 3.4, "Structure-Aware Localization":
 * S: files with a positive score, by score; ties broken by lexical rank
   (files missing from L rank last), then by path.
 
-If no seed has a neighbor, S is empty and Condition C keeps L unchanged.
 Fusing L and S with RRF is done by the retrieval module (role 3).
 
-One design choice beyond the proposal, `exclude_test_neighbors` (default on):
+Two design choices beyond the proposal, both decided on the development set
+before the freeze and to be reported as such:
+
+`include_seeds` (default on, team decision 2026-10-19): the seeds themselves
+head S, in lexical order, followed by the other files ranked as above. In the
+proposal's S the seeds appear only if they neighbor another seed, so with RRF
+a correct file ranked #1 in L but absent from S was overtaken by files present
+in both lists (dev set: MRR 0.500 for L alone, 0.393 for the proposal's C,
+0.504 with seeds included). With `include_seeds=False` S is the proposal's.
+Either way, when no seed has a neighbor, fusing S with L leaves L's order
+unchanged.
+
+`exclude_test_neighbors` (default on):
 test files may still be seeds, since a test file points at the code it
 tests through its imports, but they are not counted as neighbors. Otherwise a
 widely imported source file's weight is spread over dozens of test files, and
@@ -34,6 +45,7 @@ DEFAULT_NUM_SEEDS = 10
 MAX_REASONS = 3
 
 
+SEED = "seed"  # the candidate is itself a seed (include_seeds)
 IMPORTED_BY = "imported_by"  # the candidate is imported by the seed
 IMPORTS = "imports"  # the candidate imports the seed
 
@@ -44,8 +56,8 @@ class Relation:
 
     seed: str  # the lexical file this relation comes from
     seed_rank: int  # its rank in L
-    relation: str  # IMPORTED_BY or IMPORTS
-    weight: float  # 1 / (seed_rank * |N(seed)|)
+    relation: str  # SEED, IMPORTED_BY or IMPORTS
+    weight: float  # 1 / (seed_rank * |N(seed)|); 0 for SEED, which only fixes the position
 
 
 @dataclass(frozen=True)
@@ -59,8 +71,8 @@ class StructuralCandidate:
 
     file: str
     rank: int
-    score: float  # s_struct(file), the sum of the relation weights
-    relations: tuple[Relation, ...]  # every contributing seed, strongest first
+    score: float  # s_struct(file), the sum of the neighbor relation weights (0 for an isolated seed)
+    relations: tuple[Relation, ...]  # a SEED relation first if any, then neighbors, strongest first
     reason: str  # the strongest relations as text, "imported by lexical #1 shop/pricing.py"
     symbol: None = None
     symbol_type: None = None
@@ -71,6 +83,7 @@ def structural_ranking(
     lexical: Sequence[tuple[str, float]],
     *,
     num_seeds: int = DEFAULT_NUM_SEEDS,
+    include_seeds: bool = True,
     exclude_test_neighbors: bool = True,
 ) -> list[StructuralCandidate]:
     """Rank files by import proximity to the top lexical files.
@@ -106,12 +119,23 @@ def structural_ranking(
 
     never = len(lexical_rank) + 1
     ordered = sorted(scores, key=lambda f: (-scores[f], lexical_rank.get(f, never), f))
+    if include_seeds:
+        seed_set = set(seeds)
+        ordered = seeds + [f for f in ordered if f not in seed_set]
+        for seed in seeds:
+            relations.setdefault(seed, []).insert(0, Relation(seed, lexical_rank[seed], SEED, 0.0))
+
     candidates = []
     for i, f in enumerate(ordered, start=1):
-        strongest = tuple(sorted(relations[f], key=lambda r: (-r.weight, r.seed_rank)))
-        reason = "; ".join(
-            f"{r.relation.replace('_', ' ')} lexical #{r.seed_rank} {r.seed}"
-            for r in strongest[:MAX_REASONS]
+        strongest = tuple(
+            sorted(relations[f], key=lambda r: (r.relation != SEED, -r.weight, r.seed_rank))
         )
-        candidates.append(StructuralCandidate(f, i, scores[f], strongest, reason))
+        reason = "; ".join(_describe(r) for r in strongest[:MAX_REASONS])
+        candidates.append(StructuralCandidate(f, i, scores.get(f, 0.0), strongest, reason))
     return candidates
+
+
+def _describe(relation: Relation) -> str:
+    if relation.relation == SEED:
+        return f"lexical seed #{relation.seed_rank}"
+    return f"{relation.relation.replace('_', ' ')} lexical #{relation.seed_rank} {relation.seed}"

@@ -31,6 +31,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("-o", "--output", required=True, help="where to write structural rankings")
     parser.add_argument("--num-seeds", type=int, default=DEFAULT_NUM_SEEDS)
     parser.add_argument(
+        "--no-seeds", action="store_true", help="proposal's S: leave the seeds out of S"
+    )
+    parser.add_argument(
         "--include-test-neighbors", action="store_true", help="count test files as neighbors"
     )
     parser.add_argument("--cache-dir", help="SWE-bench cache directory (default: .swebench_cache)")
@@ -52,6 +55,7 @@ def main(argv: list[str] | None = None) -> int:
             index,
             lexical,
             num_seeds=args.num_seeds,
+            include_seeds=not args.no_seeds,
             exclude_test_neighbors=not args.include_test_neighbors,
         )
         results.append(
@@ -59,6 +63,7 @@ def main(argv: list[str] | None = None) -> int:
                 "instance_id": instance_id,
                 "index_sha256": index.metadata.get("index_sha256"),
                 "num_seeds": args.num_seeds,
+                "include_seeds": not args.no_seeds,
                 "exclude_test_neighbors": not args.include_test_neighbors,
                 "num_lexical_files": len(lexical),
                 "ranked_files": [
