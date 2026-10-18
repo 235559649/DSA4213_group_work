@@ -1,31 +1,54 @@
 from __future__ import annotations
 
 import json
-import shutil
-import subprocess
 import time
 import uuid
 from pathlib import Path
 from typing import Any
 
-from minisweagent import __version__ as mini_version
+from minisweagent import (
+    __version__ as mini_version,
+)
+from minisweagent.agents import get_agent
+from minisweagent.config import (
+    builtin_config_dir,
+    get_config_from_spec,
+)
+from minisweagent.models import get_model
+from minisweagent.run.benchmarks.swebench import (
+    get_sb_environment,
+)
+from minisweagent.utils.serialize import (
+    recursive_merge,
+)
 
-from src.agent.contracts import RunResult, RunUsage
+from src.agent.context import (
+    augment_task_with_localization,
+)
+from src.agent.contracts import (
+    LocalizationCandidate,
+    RunResult,
+    RunUsage,
+)
 
 
 class SWEbenchRunner:
     """
     Role 1 SWE-bench integration runner.
 
-    Phase 2 responsibilities:
-    - run a frozen SWE-bench instance through mini-swe-agent
+    Responsibilities:
+    - run a frozen SWE-bench instance through mini-SWE-agent
     - use the official Docker benchmark environment
-    - save trajectory, patch, task metadata and runner log
+    - support controlled A/B/C task-context conditions
+    - save trajectory, patch, task metadata, effective task,
+      and localization candidates
     - normalize run metadata into RunResult
 
-    Phase 2 currently implements Condition A only.
-    Conditions B/C/D will be connected after the localization
-    modules are integrated.
+    Conditions:
+    - A: original SWE-bench problem statement
+    - B: original task + lexical localization context
+    - C: original task + lexical/structural localization context
+    - D: reserved for failure-aware reranking
     """
 
     def __init__(
@@ -43,13 +66,68 @@ class SWEbenchRunner:
         self.output_root = Path(output_root)
 
     @staticmethod
-    def _load_json(path: Path) -> dict[str, Any]:
+    def _load_json(
+        path: Path,
+    ) -> dict[str, Any]:
         return json.loads(
-            path.read_text(encoding="utf-8")
+            path.read_text(
+                encoding="utf-8",
+            )
         )
 
     @staticmethod
-    def _walk_strings(value: Any):
+    def build_effective_task(
+        *,
+        task: str,
+        condition: str,
+        localization_candidates: (
+            list[LocalizationCandidate] | None
+        ) = None,
+    ) -> str:
+        """
+        Build the task actually shown to the agent.
+
+        Condition A receives the original task only.
+        Conditions B/C receive the original task plus
+        localization guidance.
+        """
+
+        condition = condition.upper()
+
+        candidates = (
+            localization_candidates
+            or []
+        )
+
+        if condition == "A":
+            return task
+
+        if condition in {"B", "C"}:
+            if not candidates:
+                raise ValueError(
+                    f"Condition {condition} requires "
+                    "localization candidates."
+                )
+
+            return augment_task_with_localization(
+                task,
+                candidates,
+            )
+
+        if condition == "D":
+            raise NotImplementedError(
+                "Condition D will be enabled after "
+                "failure-aware reranking is integrated."
+            )
+
+        raise ValueError(
+            f"Unknown condition: {condition}"
+        )
+
+    @staticmethod
+    def _walk_strings(
+        value: Any,
+    ):
         """
         Recursively yield strings from trajectory objects.
         """
@@ -59,14 +137,24 @@ class SWEbenchRunner:
 
         elif isinstance(value, dict):
             for item in value.values():
-                yield from SWEbenchRunner._walk_strings(item)
+                yield from (
+                    SWEbenchRunner._walk_strings(
+                        item
+                    )
+                )
 
         elif isinstance(value, list):
             for item in value:
-                yield from SWEbenchRunner._walk_strings(item)
+                yield from (
+                    SWEbenchRunner._walk_strings(
+                        item
+                    )
+                )
 
     @staticmethod
-    def _extract_diff(text: str) -> str:
+    def _extract_diff(
+        text: str,
+    ) -> str:
         """
         Extract a git-style unified diff from a block of text.
         """
@@ -76,7 +164,9 @@ class SWEbenchRunner:
         if marker not in text:
             return ""
 
-        patch = text[text.find(marker):]
+        patch = text[
+            text.find(marker):
+        ]
 
         # Tool observations may end with XML-like wrappers.
         for end_marker in [
@@ -99,19 +189,25 @@ class SWEbenchRunner:
         """
         Prefer the official submission field.
 
-        If the agent produced a patch but failed to terminate cleanly
-        (e.g. RepeatedFormatError), recover the most recent git diff
-        from the trajectory messages.
+        If the agent produced a patch but failed to terminate
+        cleanly, recover the most recent git diff from the
+        trajectory messages.
         """
 
-        info = trajectory.get("info", {})
+        info = trajectory.get(
+            "info",
+            {},
+        )
 
         submission = info.get(
             "submission",
             "",
         )
 
-        if isinstance(submission, str):
+        if isinstance(
+            submission,
+            str,
+        ):
             patch = cls._extract_diff(
                 submission
             )
@@ -122,101 +218,107 @@ class SWEbenchRunner:
         candidates: list[str] = []
 
         for text in cls._walk_strings(
-            trajectory.get("messages", [])
+            trajectory.get(
+                "messages",
+                [],
+            )
         ):
-            patch = cls._extract_diff(text)
+            patch = cls._extract_diff(
+                text
+            )
 
             if patch:
-                candidates.append(patch)
+                candidates.append(
+                    patch
+                )
 
         if not candidates:
             return ""
 
-        # Later observations generally correspond to the final patch.
+        # The latest diff is normally the final patch.
         return candidates[-1]
 
-    def _build_command(
+    def _build_agent(
         self,
         *,
         instance_id: str,
         trajectory_path: Path,
-    ) -> list[str]:
+    ):
+        """
+        Build mini-SWE-agent directly through its Python API.
 
-        executable = shutil.which(
-            "mini-extra"
+        This mirrors swebench-single, but allows Role 1 to control
+        the task text passed into agent.run().
+        """
+
+        default_config = (
+            builtin_config_dir
+            / "benchmarks"
+            / "swebench.yaml"
         )
 
-        if executable is None:
-            raise RuntimeError(
-                "mini-extra was not found. "
-                "Activate the project virtual environment first."
+        base_config = (
+            get_config_from_spec(
+                str(default_config)
             )
+        )
 
-        return [
-            executable,
-            "swebench-single",
+        override = {
+            "agent": {
+                "mode": "yolo",
+                "confirm_exit": False,
+                "output_path":
+                    trajectory_path,
+            },
+            "model": {
+                "model_name":
+                    self.model_name,
+                "model_class":
+                    self.model_class,
+            },
+            "environment": {
+                "environment_class":
+                    "docker",
+            },
+        }
 
-            "--subset",
-            self.subset,
+        config = recursive_merge(
+            base_config,
+            override,
+        )
 
-            "--split",
-            self.split,
+        # mini-SWE-agent derives the official SWE-bench
+        # Docker image from the instance ID.
+        instance = {
+            "instance_id":
+                instance_id,
+        }
 
-            "-i",
-            instance_id,
-
-            "-m",
-            self.model_name,
-
-            "--model-class",
-            self.model_class,
-
-            "--environment-class",
-            "docker",
-
-            "-y",
-
-            "--exit-immediately",
-
-            "-o",
-            str(trajectory_path),
-        ]
-
-    @staticmethod
-    def _run_and_stream(
-        command: list[str],
-        log_path: Path,
-    ) -> int:
-        """
-        Stream mini-swe-agent output to both terminal and runner.log.
-        """
-
-        with log_path.open(
-            "w",
-            encoding="utf-8",
-        ) as log_file:
-
-            process = subprocess.Popen(
-                command,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-                text=True,
-                bufsize=1,
+        environment = (
+            get_sb_environment(
+                config,
+                instance,
             )
+        )
 
-            assert process.stdout is not None
+        model = get_model(
+            config=config.get(
+                "model",
+                {},
+            )
+        )
 
-            for line in process.stdout:
-                print(
-                    line,
-                    end="",
-                    flush=True,
-                )
+        agent = get_agent(
+            model,
+            environment,
+            config.get(
+                "agent",
+                {},
+            ),
+            default_type="interactive",
+        )
 
-                log_file.write(line)
-                log_file.flush()
-
-            return process.wait()
+        return agent, environment
 
     def run(
         self,
@@ -224,16 +326,18 @@ class SWEbenchRunner:
         instance_id: str,
         task_config: str | Path,
         condition: str = "A",
+        localization_candidates: (
+            list[LocalizationCandidate] | None
+        ) = None,
     ) -> RunResult:
+        """
+        Execute one SWE-bench instance.
+
+        The only intended experimental difference between
+        Conditions A/B/C is the task context supplied to the agent.
+        """
 
         condition = condition.upper()
-
-        if condition != "A":
-            raise NotImplementedError(
-                "SWE-bench Phase 2 currently supports "
-                "Condition A only. B/C/D will be integrated "
-                "after the localization interfaces are connected."
-            )
 
         task_config = Path(
             task_config
@@ -248,20 +352,49 @@ class SWEbenchRunner:
             task_config
         )
 
-        configured_instance = metadata.get(
-            "instance_id"
+        configured_instance = (
+            metadata.get(
+                "instance_id"
+            )
         )
 
-        if configured_instance != instance_id:
+        if (
+            configured_instance
+            != instance_id
+        ):
             raise ValueError(
                 "Instance mismatch: "
-                f"CLI requested {instance_id!r}, "
-                f"but task config contains "
+                f"CLI requested "
+                f"{instance_id!r}, "
+                "but task config contains "
                 f"{configured_instance!r}."
             )
 
+        original_task = (
+            metadata.get(
+                "problem_statement"
+            )
+        )
+
+        if not original_task:
+            raise ValueError(
+                "task config does not "
+                "contain problem_statement"
+            )
+
+        effective_task = (
+            self.build_effective_task(
+                task=original_task,
+                condition=condition,
+                localization_candidates=(
+                    localization_candidates
+                ),
+            )
+        )
+
         run_id = (
-            f"{instance_id}_{condition}_"
+            f"{instance_id}_"
+            f"{condition}_"
             f"{uuid.uuid4().hex[:8]}"
         )
 
@@ -295,11 +428,17 @@ class SWEbenchRunner:
             / "task_metadata.json"
         )
 
-        runner_log_path = (
+        effective_task_path = (
             run_dir
-            / "runner.log"
+            / "effective_task.txt"
         )
 
+        candidates_path = (
+            run_dir
+            / "localization_candidates.json"
+        )
+
+        # Save the frozen task metadata.
         task_metadata_path.write_text(
             json.dumps(
                 metadata,
@@ -309,42 +448,137 @@ class SWEbenchRunner:
             encoding="utf-8",
         )
 
-        command = self._build_command(
-            instance_id=instance_id,
-            trajectory_path=trajectory_path,
+        # Save exactly what is passed to the agent.
+        effective_task_path.write_text(
+            effective_task,
+            encoding="utf-8",
+        )
+
+        # Save the localization input separately for reproducibility.
+        candidate_records = [
+            {
+                "file":
+                    candidate.file,
+                "rank":
+                    candidate.rank,
+                "score":
+                    candidate.score,
+                "symbol":
+                    candidate.symbol,
+                "symbol_type":
+                    candidate.symbol_type,
+                "reason":
+                    candidate.reason,
+            }
+            for candidate in (
+                localization_candidates
+                or []
+            )
+        ]
+
+        candidates_path.write_text(
+            json.dumps(
+                candidate_records,
+                indent=2,
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
         )
 
         print()
-        print("SWE-bench Condition A")
-        print("---------------------")
         print(
-            f"instance: {instance_id}"
+            f"SWE-bench Condition "
+            f"{condition}"
         )
         print(
-            f"run_dir: {run_dir}"
+            "---------------------"
+        )
+        print(
+            f"instance: "
+            f"{instance_id}"
+        )
+        print(
+            f"run_dir: "
+            f"{run_dir}"
+        )
+        print(
+            "localization candidates: "
+            f"{len(candidate_records)}"
         )
         print()
 
         started = time.time()
 
-        cli_returncode = (
-            self._run_and_stream(
-                command,
-                runner_log_path,
+        error: str | None = None
+        outcome: dict[str, Any] = {}
+
+        agent = None
+        environment = None
+
+        try:
+            agent, environment = (
+                self._build_agent(
+                    instance_id=instance_id,
+                    trajectory_path=(
+                        trajectory_path
+                    ),
+                )
             )
-        )
+
+            outcome = agent.run(
+                effective_task
+            )
+
+        except Exception as exc:
+            error = (
+                f"{type(exc).__name__}: "
+                f"{exc}"
+            )
+
+            outcome = {
+                "exit_status":
+                    type(exc).__name__,
+                "submission":
+                    "",
+            }
+
+            # DefaultAgent normally saves its trajectory
+            # in finally. Save again when possible so that
+            # partial runs are not lost.
+            if agent is not None:
+                try:
+                    agent.save(
+                        trajectory_path
+                    )
+                except Exception:
+                    pass
+
+        finally:
+            if environment is not None:
+                cleanup = getattr(
+                    environment,
+                    "cleanup",
+                    None,
+                )
+
+                if callable(cleanup):
+                    cleanup()
 
         runtime_seconds = (
-            time.time() - started
+            time.time()
+            - started
         )
 
         trajectory: dict[str, Any] = {}
 
         if trajectory_path.exists():
             try:
-                trajectory = self._load_json(
-                    trajectory_path
+                trajectory = (
+                    self._load_json(
+                        trajectory_path
+                    )
                 )
+
             except json.JSONDecodeError:
                 trajectory = {}
 
@@ -359,25 +593,53 @@ class SWEbenchRunner:
         )
 
         exit_status = str(
-            info.get(
-                "exit_status",
-                f"cli_returncode_{cli_returncode}",
+            outcome.get(
+                "exit_status"
+            )
+            or info.get(
+                "exit_status"
+            )
+            or (
+                "error"
+                if error
+                else "unknown"
             )
         )
 
-        submission = info.get(
-            "submission",
-            "",
+        submission = (
+            outcome.get(
+                "submission"
+            )
+            or info.get(
+                "submission",
+                "",
+            )
         )
 
         submission_present = bool(
-            isinstance(submission, str)
+            isinstance(
+                submission,
+                str,
+            )
             and submission.strip()
         )
 
         patch = self.extract_patch(
             trajectory
         )
+
+        # If the trajectory is unavailable but the agent returned
+        # a valid submission, try to recover the diff directly.
+        if (
+            not patch
+            and isinstance(
+                submission,
+                str,
+            )
+        ):
+            patch = self._extract_diff(
+                submission
+            )
 
         patch_path.write_text(
             patch,
@@ -390,22 +652,20 @@ class SWEbenchRunner:
 
         if submission_present:
             status = "completed"
+
         elif patch_generated:
             status = "partial"
+
         else:
             status = "error"
 
-        error: str | None = None
-
-        if cli_returncode != 0:
+        if (
+            error is None
+            and not submission_present
+        ):
             error = (
-                "mini-extra exited with return code "
-                f"{cli_returncode}"
-            )
-
-        elif not submission_present:
-            error = (
-                "Agent did not record an official submission. "
+                "Agent did not record an "
+                "official submission. "
                 f"exit_status={exit_status}"
             )
 
@@ -490,6 +750,11 @@ class SWEbenchRunner:
                         "repo"
                     ),
 
+                "version":
+                    metadata.get(
+                        "version"
+                    ),
+
                 "base_commit":
                     metadata.get(
                         "base_commit"
@@ -508,6 +773,11 @@ class SWEbenchRunner:
                         "cost_limit"
                     ),
 
+                "wall_time_limit_seconds":
+                    agent_config.get(
+                        "wall_time_limit_seconds"
+                    ),
+
                 "command_timeout_seconds":
                     environment_config.get(
                         "timeout"
@@ -517,11 +787,26 @@ class SWEbenchRunner:
                     environment_config.get(
                         "image"
                     ),
+
+                "localization_candidate_count":
+                    len(
+                        candidate_records
+                    ),
+
+                "effective_task_path":
+                    str(
+                        effective_task_path
+                    ),
+
+                "localization_candidates_path":
+                    str(
+                        candidates_path
+                    ),
             },
 
             evaluation={
-                "cli_returncode":
-                    cli_returncode,
+                "agent_run_completed":
+                    error is None,
 
                 "submission_present":
                     submission_present,
@@ -541,20 +826,41 @@ class SWEbenchRunner:
         )
 
         print()
-        print("SWE-bench run recorded")
-        print("----------------------")
-        print(f"status: {status}")
         print(
-            f"termination: {exit_status}"
+            "SWE-bench run recorded"
         )
         print(
-            f"patch_generated: {patch_generated}"
+            "----------------------"
         )
         print(
-            f"submission_present: {submission_present}"
+            f"condition: {condition}"
         )
         print(
-            f"run_result: {result_path}"
+            f"status: {status}"
+        )
+        print(
+            "termination: "
+            f"{exit_status}"
+        )
+        print(
+            "patch_generated: "
+            f"{patch_generated}"
+        )
+        print(
+            "submission_present: "
+            f"{submission_present}"
+        )
+        print(
+            "api_calls: "
+            f"{model_stats.get('api_calls')}"
+        )
+        print(
+            "cost_usd: "
+            f"{model_stats.get('instance_cost')}"
+        )
+        print(
+            f"run_result: "
+            f"{result_path}"
         )
 
         return result

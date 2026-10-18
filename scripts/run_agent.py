@@ -32,18 +32,53 @@ from src.agent.swebench_runner import (  # noqa: E402
 def load_candidates(
     path: str | None,
 ) -> list[LocalizationCandidate]:
+    """
+    Load localization candidates from a JSON file.
+
+    Expected format:
+    [
+        {
+            "file": "src/example.py",
+            "rank": 1,
+            "score": 0.9,
+            "symbol": "Example",
+            "symbol_type": "class",
+            "reason": "BM25"
+        }
+    ]
+    """
 
     if not path:
         return []
 
+    candidate_path = Path(
+        path
+    ).resolve()
+
+    if not candidate_path.exists():
+        raise FileNotFoundError(
+            candidate_path
+        )
+
     data = json.loads(
-        Path(path).read_text(
+        candidate_path.read_text(
             encoding="utf-8"
         )
     )
 
+    if not isinstance(
+        data,
+        list,
+    ):
+        raise ValueError(
+            "Candidate file must contain "
+            "a JSON list."
+        )
+
     return [
-        LocalizationCandidate(**item)
+        LocalizationCandidate(
+            **item
+        )
         for item in data
     ]
 
@@ -53,6 +88,10 @@ def require(
     value,
     option: str,
 ):
+    """
+    Require an argument only for the selected benchmark mode.
+    """
+
     if not value:
         parser.error(
             f"{option} is required for "
@@ -63,7 +102,12 @@ def require(
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description=(
+            "Unified Role 1 runner for "
+            "local and SWE-bench experiments."
+        )
+    )
 
     parser.add_argument(
         "--benchmark",
@@ -85,7 +129,10 @@ def main() -> None:
         ],
     )
 
+    # ---------------------------------------------------------
     # Local / synthetic mode
+    # ---------------------------------------------------------
+
     parser.add_argument(
         "--task-id",
     )
@@ -103,16 +150,24 @@ def main() -> None:
         default=None,
     )
 
+    # ---------------------------------------------------------
+    # Shared localization input
+    # ---------------------------------------------------------
+
     parser.add_argument(
         "--candidates",
         default=None,
         help=(
             "JSON file containing "
-            "LocalizationCandidate records."
+            "LocalizationCandidate records. "
+            "Required for Conditions B/C."
         ),
     )
 
+    # ---------------------------------------------------------
     # SWE-bench mode
+    # ---------------------------------------------------------
+
     parser.add_argument(
         "--instance-id",
     )
@@ -129,6 +184,10 @@ def main() -> None:
     )
 
     args = parser.parse_args()
+
+    # =========================================================
+    # Local benchmark
+    # =========================================================
 
     if args.benchmark == "local":
 
@@ -171,6 +230,10 @@ def main() -> None:
             ),
         )
 
+    # =========================================================
+    # SWE-bench
+    # =========================================================
+
     else:
 
         instance_id = require(
@@ -185,6 +248,10 @@ def main() -> None:
             "--task-config",
         )
 
+        candidates = load_candidates(
+            args.candidates
+        )
+
         runner = SWEbenchRunner(
             model_name=args.model,
         )
@@ -193,32 +260,64 @@ def main() -> None:
             instance_id=instance_id,
             task_config=task_config,
             condition=args.condition,
+            localization_candidates=(
+                candidates
+            ),
         )
+
+    # =========================================================
+    # Unified summary
+    # =========================================================
 
     print()
     print("Run completed")
     print("-------------")
+
     print(
-        f"run_id: {result.run_id}"
+        f"run_id: "
+        f"{result.run_id}"
     )
+
     print(
-        f"status: {result.status}"
+        f"condition: "
+        f"{result.condition}"
     )
+
+    print(
+        f"status: "
+        f"{result.status}"
+    )
+
     print(
         "termination: "
         f"{result.termination_reason}"
     )
+
     print(
         "trajectory: "
         f"{result.trajectory_path}"
     )
+
     print(
-        f"patch: {result.patch_path}"
+        f"patch: "
+        f"{result.patch_path}"
     )
+
+    if result.usage:
+        print(
+            "api_calls: "
+            f"{result.usage.api_calls}"
+        )
+
+        print(
+            "cost_usd: "
+            f"{result.usage.cost_usd}"
+        )
 
     if result.error:
         print(
-            f"error: {result.error}"
+            f"error: "
+            f"{result.error}"
         )
 
 
