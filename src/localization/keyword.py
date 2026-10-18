@@ -1,114 +1,103 @@
-"""BM25 lexical retrieval over repository index records."""
+"""BM25 lexical retrieval over repository index records.
+
+Score each code entity separately, then assign each file its maximum
+entity score. Return all positive-scoring files by default.
+"""
 
 from __future__ import annotations
 
 import math
 import re
-from collections import Counter, defaultdict
+from collections import Counter
 
 from src.repository.indexer import RepositoryIndex
 
 
 def tokenize(text: str) -> list[str]:
-    """Split text into lowercase searchable tokens."""
+    """Split text into lowercase searchable tokens (existing tokenizer)."""
     return re.findall(r"[a-zA-Z_][a-zA-Z_0-9]*|\d+", text.lower())
 
 
 class BM25Retriever:
-    """Rank repository files using BM25."""
+    """Rank files by the highest BM25 score of their indexed entities."""
 
     def __init__(
         self,
         index: RepositoryIndex,
         k1: float = 1.5,
         b: float = 0.75,
-    ):
+    ) -> None:
+        if k1 <= 0:
+            raise ValueError("k1 must be positive")
+        if not 0 <= b <= 1:
+            raise ValueError("b must be between 0 and 1")
+
         self.index = index
         self.k1 = k1
         self.b = b
 
-        self.documents = {}
-        self.term_freqs = {}
-        self.doc_freqs = Counter()
-
-        # Combine retrieval text from all records belonging to each file.
-        grouped = defaultdict(list)
+        # Each record is a separate BM25 document (not an entire file).
+        self.documents: list[tuple[str, list[str]]] = []
+        self.term_freqs: list[Counter[str]] = []
+        self.doc_freqs: Counter[str] = Counter()
 
         for record in index.records:
-            grouped[record.path].append(record.retrieval_text)
-
-        for path, texts in grouped.items():
-            combined = " ".join(texts)
-            tokens = tokenize(combined)
-
-            self.documents[path] = tokens
-            self.term_freqs[path] = Counter(tokens)
-
-            for term in set(tokens):
-                self.doc_freqs[term] += 1
+            tokens = tokenize(record.retrieval_text or "")
+            if not tokens:
+                continue
+            self.documents.append((record.path, tokens))
+            self.term_freqs.append(Counter(tokens))
+            self.doc_freqs.update(set(tokens))
 
         self.N = len(self.documents)
-
         self.avgdl = (
-            sum(len(tokens) for tokens in self.documents.values()) / self.N
-            if self.N > 0
-            else 0
+            sum(len(tokens) for _, tokens in self.documents) / self.N
+            if self.N else 0.0
         )
 
     def score(self, query: str) -> dict[str, float]:
-        """Calculate BM25 scores for all indexed files."""
+        """Return the maximum entity BM25 score for every indexed file."""
+        if not self.N or not query.strip():
+            return {}
 
-        query_tokens = tokenize(query)
-        scores = {}
+        query_terms = set(tokenize(query))
+        if not query_terms:
+            return {}
 
-        for path, tokens in self.documents.items():
-
+        file_scores: dict[str, float] = {}
+        for (path, tokens), freqs in zip(self.documents, self.term_freqs):
             dl = len(tokens)
-            score = 0.0
-
-            for term in set(query_tokens):
-
-                tf = self.term_freqs[path][term]
-
-                if tf == 0:
+            entity_score = 0.0
+            for term in query_terms:
+                tf = freqs[term]
+                if not tf:
                     continue
-
                 df = self.doc_freqs[term]
-
-                idf = math.log(
-                    1 + (self.N - df + 0.5) / (df + 0.5)
+                idf = math.log(1 + (self.N - df + 0.5) / (df + 0.5))
+                denominator = tf + self.k1 * (
+                    1 - self.b + self.b * dl / self.avgdl
                 )
+                entity_score += idf * tf * (self.k1 + 1) / denominator
 
-                denominator = (
-                    tf
-                    + self.k1
-                    * (1 - self.b + self.b * dl / self.avgdl)
-                )
+            file_scores[path] = max(file_scores.get(path, 0.0), entity_score)
 
-                score += idf * (
-                    tf * (self.k1 + 1) / denominator
-                )
-
-            scores[path] = score
-
-        return scores
+        return file_scores
 
     def retrieve(
         self,
         query: str,
-        top_k: int = 10,
+        top_k: int | None = None,
     ) -> list[tuple[str, float]]:
-        """Return top-k positive-scoring files."""
+        """Return positive-scoring files sorted by score, then path.
 
-        scores = self.score(query)
+        top_k=None (default) returns the COMPLETE positive ranking.
+        Pass top_k=5 or top_k=10 only when a downstream consumer needs it.
+        """
+        if top_k is not None and top_k < 0:
+            raise ValueError("top_k must be nonnegative or None")
 
         ranked = sorted(
-            (
-                (path, score)
-                for path, score in scores.items()
-                if score > 0
-            ),
+            ((path, score) for path, score in self.score(query).items() if score > 0),
             key=lambda item: (-item[1], item[0]),
         )
-
-        return ranked[:top_k]
+        return ranked if top_k is None else ranked[:top_k]
