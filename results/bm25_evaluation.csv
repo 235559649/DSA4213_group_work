@@ -1,0 +1,21 @@
+instance_id,num_true_files,num_matched,recall_at_10,hit_at_10,true_files,matched_files
+django__django-11133,1,1,1.0,1,django/http/response.py,django/http/response.py
+django__django-12262,1,1,1.0,1,django/template/library.py,django/template/library.py
+django__django-13158,1,1,1.0,1,django/db/models/sql/query.py,django/db/models/sql/query.py
+django__django-13417,1,1,1.0,1,django/db/models/query.py,django/db/models/query.py
+django__django-14017,1,1,1.0,1,django/db/models/query_utils.py,django/db/models/query_utils.py
+django__django-14539,1,1,1.0,1,django/utils/html.py,django/utils/html.py
+sympy__sympy-23262,1,1,1.0,1,sympy/utilities/lambdify.py,sympy/utilities/lambdify.py
+sympy__sympy-17630,1,0,0.0,0,sympy/matrices/expressions/matexpr.py,
+sympy__sympy-21379,1,0,0.0,0,sympy/core/mod.py,
+sympy__sympy-19346,1,0,0.0,0,sympy/printing/repr.py,
+sympy__sympy-20154,1,1,1.0,1,sympy/utilities/iterables.py,sympy/utilities/iterables.py
+sympy__sympy-20438,3,1,0.3333333333333333,1,sympy/core/relational.py; sympy/sets/handlers/comparison.py; sympy/sets/handlers/issubset.py,sympy/core/relational.py
+sphinx-doc__sphinx-8595,1,1,1.0,1,sphinx/ext/autodoc/__init__.py,sphinx/ext/autodoc/__init__.py
+sphinx-doc__sphinx-7462,2,1,0.5,1,sphinx/domains/python.py; sphinx/pycode/ast.py,sphinx/domains/python.py
+sphinx-doc__sphinx-9673,1,0,0.0,0,sphinx/ext/autodoc/typehints.py,
+sphinx-doc__sphinx-8721,1,1,1.0,1,sphinx/ext/viewcode.py,sphinx/ext/viewcode.py
+pytest-dev__pytest-7571,1,1,1.0,1,src/_pytest/logging.py,src/_pytest/logging.py
+pytest-dev__pytest-7205,1,1,1.0,1,src/_pytest/setuponly.py,src/_pytest/setuponly.py
+pytest-dev__pytest-7490,1,0,0.0,0,src/_pytest/skipping.py,
+pytest-dev__pytest-10356,1,1,1.0,1,src/_pytest/mark/structures.py,src/_pytest/mark/structures.py

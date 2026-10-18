@@ -1,0 +1,1102 @@
+[
+  {
+    "instance_id": "django__django-11133",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "django/http/response.py",
+        "bm25_score": 84.5768
+      },
+      {
+        "rank": 2,
+        "path": "django/http/multipartparser.py",
+        "bm25_score": 80.8306
+      },
+      {
+        "rank": 3,
+        "path": "django/test/client.py",
+        "bm25_score": 73.1312
+      },
+      {
+        "rank": 4,
+        "path": "django/test/testcases.py",
+        "bm25_score": 72.4428
+      },
+      {
+        "rank": 5,
+        "path": "django/utils/encoding.py",
+        "bm25_score": 69.978
+      },
+      {
+        "rank": 6,
+        "path": "django/utils/cache.py",
+        "bm25_score": 68.1138
+      },
+      {
+        "rank": 7,
+        "path": "django/db/models/fields/files.py",
+        "bm25_score": 67.2222
+      },
+      {
+        "rank": 8,
+        "path": "django/template/defaulttags.py",
+        "bm25_score": 65.6895
+      },
+      {
+        "rank": 9,
+        "path": "django/db/backends/base/creation.py",
+        "bm25_score": 65.6567
+      },
+      {
+        "rank": 10,
+        "path": "tests/httpwrappers/tests.py",
+        "bm25_score": 65.6536
+      }
+    ]
+  },
+  {
+    "instance_id": "django__django-12262",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "django/template/defaulttags.py",
+        "bm25_score": 143.4626
+      },
+      {
+        "rank": 2,
+        "path": "django/template/library.py",
+        "bm25_score": 137.0214
+      },
+      {
+        "rank": 3,
+        "path": "django/template/base.py",
+        "bm25_score": 130.7448
+      },
+      {
+        "rank": 4,
+        "path": "tests/template_tests/test_custom.py",
+        "bm25_score": 117.2171
+      },
+      {
+        "rank": 5,
+        "path": "django/template/defaultfilters.py",
+        "bm25_score": 112.6571
+      },
+      {
+        "rank": 6,
+        "path": "django/template/loader_tags.py",
+        "bm25_score": 108.9426
+      },
+      {
+        "rank": 7,
+        "path": "django/apps/registry.py",
+        "bm25_score": 107.2522
+      },
+      {
+        "rank": 8,
+        "path": "django/templatetags/i18n.py",
+        "bm25_score": 106.0961
+      },
+      {
+        "rank": 9,
+        "path": "django/forms/models.py",
+        "bm25_score": 100.676
+      },
+      {
+        "rank": 10,
+        "path": "django/db/transaction.py",
+        "bm25_score": 98.8588
+      }
+    ]
+  },
+  {
+    "instance_id": "django__django-13158",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "tests/model_forms/tests.py",
+        "bm25_score": 135.1654
+      },
+      {
+        "rank": 2,
+        "path": "django/forms/models.py",
+        "bm25_score": 127.3788
+      },
+      {
+        "rank": 3,
+        "path": "tests/admin_changelist/tests.py",
+        "bm25_score": 125.5975
+      },
+      {
+        "rank": 4,
+        "path": "django/db/models/query.py",
+        "bm25_score": 120.0009
+      },
+      {
+        "rank": 5,
+        "path": "django/db/models/sql/query.py",
+        "bm25_score": 117.9907
+      },
+      {
+        "rank": 6,
+        "path": "django/contrib/admin/options.py",
+        "bm25_score": 117.4146
+      },
+      {
+        "rank": 7,
+        "path": "django/forms/formsets.py",
+        "bm25_score": 111.9437
+      },
+      {
+        "rank": 8,
+        "path": "tests/admin_utils/tests.py",
+        "bm25_score": 110.821
+      },
+      {
+        "rank": 9,
+        "path": "tests/model_forms/test_modelchoicefield.py",
+        "bm25_score": 110.7832
+      },
+      {
+        "rank": 10,
+        "path": "django/db/models/sql/compiler.py",
+        "bm25_score": 108.5499
+      }
+    ]
+  },
+  {
+    "instance_id": "django__django-13417",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "django/db/models/sql/compiler.py",
+        "bm25_score": 139.4764
+      },
+      {
+        "rank": 2,
+        "path": "django/db/models/sql/query.py",
+        "bm25_score": 136.4185
+      },
+      {
+        "rank": 3,
+        "path": "django/db/models/query.py",
+        "bm25_score": 132.0539
+      },
+      {
+        "rank": 4,
+        "path": "tests/queries/tests.py",
+        "bm25_score": 125.7908
+      },
+      {
+        "rank": 5,
+        "path": "tests/extra_regress/tests.py",
+        "bm25_score": 124.6034
+      },
+      {
+        "rank": 6,
+        "path": "tests/aggregation_regress/tests.py",
+        "bm25_score": 120.5693
+      },
+      {
+        "rank": 7,
+        "path": "tests/admin_changelist/tests.py",
+        "bm25_score": 117.6972
+      },
+      {
+        "rank": 8,
+        "path": "tests/ordering/tests.py",
+        "bm25_score": 114.6767
+      },
+      {
+        "rank": 9,
+        "path": "tests/model_inheritance/tests.py",
+        "bm25_score": 111.8915
+      },
+      {
+        "rank": 10,
+        "path": "tests/gis_tests/distapp/tests.py",
+        "bm25_score": 111.7008
+      }
+    ]
+  },
+  {
+    "instance_id": "django__django-14017",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "django/db/models/query_utils.py",
+        "bm25_score": 135.3128
+      },
+      {
+        "rank": 2,
+        "path": "django/db/models/expressions.py",
+        "bm25_score": 100.2342
+      },
+      {
+        "rank": 3,
+        "path": "django/db/models/query.py",
+        "bm25_score": 94.4397
+      },
+      {
+        "rank": 4,
+        "path": "django/db/migrations/loader.py",
+        "bm25_score": 92.2764
+      },
+      {
+        "rank": 5,
+        "path": "django/db/models/sql/query.py",
+        "bm25_score": 90.8187
+      },
+      {
+        "rank": 6,
+        "path": "django/template/defaulttags.py",
+        "bm25_score": 87.1785
+      },
+      {
+        "rank": 7,
+        "path": "django/utils/datastructures.py",
+        "bm25_score": 85.5678
+      },
+      {
+        "rank": 8,
+        "path": "django/db/models/base.py",
+        "bm25_score": 85.2876
+      },
+      {
+        "rank": 9,
+        "path": "django/db/backends/oracle/base.py",
+        "bm25_score": 83.6995
+      },
+      {
+        "rank": 10,
+        "path": "django/forms/models.py",
+        "bm25_score": 83.4325
+      }
+    ]
+  },
+  {
+    "instance_id": "django__django-14539",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "tests/template_tests/filter_tests/test_urlize.py",
+        "bm25_score": 106.9972
+      },
+      {
+        "rank": 2,
+        "path": "tests/utils_tests/test_html.py",
+        "bm25_score": 91.8764
+      },
+      {
+        "rank": 3,
+        "path": "tests/template_tests/filter_tests/test_urlizetrunc.py",
+        "bm25_score": 74.0982
+      },
+      {
+        "rank": 4,
+        "path": "django/utils/html.py",
+        "bm25_score": 70.0928
+      },
+      {
+        "rank": 5,
+        "path": "tests/syndication_tests/tests.py",
+        "bm25_score": 58.5656
+      },
+      {
+        "rank": 6,
+        "path": "tests/admin_widgets/tests.py",
+        "bm25_score": 51.8086
+      },
+      {
+        "rank": 7,
+        "path": "django/utils/text.py",
+        "bm25_score": 49.3893
+      },
+      {
+        "rank": 8,
+        "path": "django/utils/http.py",
+        "bm25_score": 43.7422
+      },
+      {
+        "rank": 9,
+        "path": "tests/requests/tests.py",
+        "bm25_score": 43.6131
+      },
+      {
+        "rank": 10,
+        "path": "tests/utils_tests/test_text.py",
+        "bm25_score": 43.3574
+      }
+    ]
+  },
+  {
+    "instance_id": "sympy__sympy-23262",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "sympy/utilities/iterables.py",
+        "bm25_score": 121.7903
+      },
+      {
+        "rank": 2,
+        "path": "sympy/utilities/lambdify.py",
+        "bm25_score": 111.9318
+      },
+      {
+        "rank": 3,
+        "path": "sympy/utilities/codegen.py",
+        "bm25_score": 108.431
+      },
+      {
+        "rank": 4,
+        "path": "sympy/codegen/ast.py",
+        "bm25_score": 106.7669
+      },
+      {
+        "rank": 5,
+        "path": "sympy/testing/runtests.py",
+        "bm25_score": 104.7174
+      },
+      {
+        "rank": 6,
+        "path": "sympy/solvers/solveset.py",
+        "bm25_score": 102.0702
+      },
+      {
+        "rank": 7,
+        "path": "sympy/core/symbol.py",
+        "bm25_score": 100.0086
+      },
+      {
+        "rank": 8,
+        "path": "sympy/plotting/experimental_lambdify.py",
+        "bm25_score": 99.2204
+      },
+      {
+        "rank": 9,
+        "path": "sympy/solvers/solvers.py",
+        "bm25_score": 98.9463
+      },
+      {
+        "rank": 10,
+        "path": "sympy/core/function.py",
+        "bm25_score": 98.5282
+      }
+    ]
+  },
+  {
+    "instance_id": "sympy__sympy-17630",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "sympy/matrices/expressions/blockmatrix.py",
+        "bm25_score": 240.9127
+      },
+      {
+        "rank": 2,
+        "path": "sympy/matrices/matrices.py",
+        "bm25_score": 150.1063
+      },
+      {
+        "rank": 3,
+        "path": "sympy/core/compatibility.py",
+        "bm25_score": 148.3265
+      },
+      {
+        "rank": 4,
+        "path": "sympy/strategies/core.py",
+        "bm25_score": 146.9654
+      },
+      {
+        "rank": 5,
+        "path": "release/fabfile.py",
+        "bm25_score": 146.6231
+      },
+      {
+        "rank": 6,
+        "path": "sympy/codegen/ast.py",
+        "bm25_score": 145.9597
+      },
+      {
+        "rank": 7,
+        "path": "sympy/utilities/runtests.py",
+        "bm25_score": 138.9772
+      },
+      {
+        "rank": 8,
+        "path": "sympy/core/sympify.py",
+        "bm25_score": 138.4723
+      },
+      {
+        "rank": 9,
+        "path": "sympy/core/function.py",
+        "bm25_score": 138.0083
+      },
+      {
+        "rank": 10,
+        "path": "sympy/core/basic.py",
+        "bm25_score": 137.6937
+      }
+    ]
+  },
+  {
+    "instance_id": "sympy__sympy-21379",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "sympy/core/expr.py",
+        "bm25_score": 200.2534
+      },
+      {
+        "rank": 2,
+        "path": "sympy/solvers/solveset.py",
+        "bm25_score": 194.386
+      },
+      {
+        "rank": 3,
+        "path": "sympy/core/basic.py",
+        "bm25_score": 187.1331
+      },
+      {
+        "rank": 4,
+        "path": "sympy/core/function.py",
+        "bm25_score": 186.1835
+      },
+      {
+        "rank": 5,
+        "path": "sympy/series/gruntz.py",
+        "bm25_score": 182.8126
+      },
+      {
+        "rank": 6,
+        "path": "sympy/core/evalf.py",
+        "bm25_score": 178.0543
+      },
+      {
+        "rank": 7,
+        "path": "sympy/integrals/risch.py",
+        "bm25_score": 176.9732
+      },
+      {
+        "rank": 8,
+        "path": "release/fabfile.py",
+        "bm25_score": 176.865
+      },
+      {
+        "rank": 9,
+        "path": "sympy/simplify/simplify.py",
+        "bm25_score": 173.622
+      },
+      {
+        "rank": 10,
+        "path": "sympy/testing/runtests.py",
+        "bm25_score": 172.1271
+      }
+    ]
+  },
+  {
+    "instance_id": "sympy__sympy-19346",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "sympy/combinatorics/permutations.py",
+        "bm25_score": 59.2604
+      },
+      {
+        "rank": 2,
+        "path": "sympy/core/compatibility.py",
+        "bm25_score": 56.5477
+      },
+      {
+        "rank": 3,
+        "path": "sympy/utilities/iterables.py",
+        "bm25_score": 56.0191
+      },
+      {
+        "rank": 4,
+        "path": "sympy/physics/quantum/qexpr.py",
+        "bm25_score": 55.6265
+      },
+      {
+        "rank": 5,
+        "path": "sympy/core/basic.py",
+        "bm25_score": 54.7035
+      },
+      {
+        "rank": 6,
+        "path": "sympy/simplify/epathtools.py",
+        "bm25_score": 52.8592
+      },
+      {
+        "rank": 7,
+        "path": "sympy/printing/dot.py",
+        "bm25_score": 52.6977
+      },
+      {
+        "rank": 8,
+        "path": "sympy/core/function.py",
+        "bm25_score": 51.6765
+      },
+      {
+        "rank": 9,
+        "path": "sympy/codegen/ast.py",
+        "bm25_score": 50.8915
+      },
+      {
+        "rank": 10,
+        "path": "isympy.py",
+        "bm25_score": 50.757
+      }
+    ]
+  },
+  {
+    "instance_id": "sympy__sympy-20154",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "sympy/utilities/iterables.py",
+        "bm25_score": 113.5262
+      },
+      {
+        "rank": 2,
+        "path": "sympy/utilities/enumerative.py",
+        "bm25_score": 96.4701
+      },
+      {
+        "rank": 3,
+        "path": "sympy/core/expr.py",
+        "bm25_score": 87.6102
+      },
+      {
+        "rank": 4,
+        "path": "sympy/simplify/trigsimp.py",
+        "bm25_score": 85.8758
+      },
+      {
+        "rank": 5,
+        "path": "sympy/series/gruntz.py",
+        "bm25_score": 82.0042
+      },
+      {
+        "rank": 6,
+        "path": "sympy/integrals/risch.py",
+        "bm25_score": 81.3607
+      },
+      {
+        "rank": 7,
+        "path": "sympy/core/function.py",
+        "bm25_score": 81.3092
+      },
+      {
+        "rank": 8,
+        "path": "sympy/categories/diagram_drawing.py",
+        "bm25_score": 78.6045
+      },
+      {
+        "rank": 9,
+        "path": "sympy/testing/runtests.py",
+        "bm25_score": 78.1029
+      },
+      {
+        "rank": 10,
+        "path": "sympy/core/basic.py",
+        "bm25_score": 77.825
+      }
+    ]
+  },
+  {
+    "instance_id": "sympy__sympy-20438",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "release/fabfile.py",
+        "bm25_score": 117.9972
+      },
+      {
+        "rank": 2,
+        "path": "sympy/core/relational.py",
+        "bm25_score": 112.0643
+      },
+      {
+        "rank": 3,
+        "path": "sympy/logic/boolalg.py",
+        "bm25_score": 104.9444
+      },
+      {
+        "rank": 4,
+        "path": "sympy/sets/sets.py",
+        "bm25_score": 104.1873
+      },
+      {
+        "rank": 5,
+        "path": "sympy/testing/runtests.py",
+        "bm25_score": 97.7993
+      },
+      {
+        "rank": 6,
+        "path": "sympy/sets/fancysets.py",
+        "bm25_score": 97.4579
+      },
+      {
+        "rank": 7,
+        "path": "sympy/solvers/solveset.py",
+        "bm25_score": 96.1575
+      },
+      {
+        "rank": 8,
+        "path": "sympy/codegen/ast.py",
+        "bm25_score": 91.886
+      },
+      {
+        "rank": 9,
+        "path": "sympy/stats/rv.py",
+        "bm25_score": 91.2753
+      },
+      {
+        "rank": 10,
+        "path": "sympy/functions/elementary/piecewise.py",
+        "bm25_score": 89.7642
+      }
+    ]
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-8595",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "tests/test_ext_apidoc.py",
+        "bm25_score": 66.6105
+      },
+      {
+        "rank": 2,
+        "path": "tests/test_ext_autodoc.py",
+        "bm25_score": 64.6879
+      },
+      {
+        "rank": 3,
+        "path": "sphinx/application.py",
+        "bm25_score": 64.6499
+      },
+      {
+        "rank": 4,
+        "path": "tests/test_ext_autodoc_configs.py",
+        "bm25_score": 63.3178
+      },
+      {
+        "rank": 5,
+        "path": "sphinx/ext/autodoc/__init__.py",
+        "bm25_score": 61.3749
+      },
+      {
+        "rank": 6,
+        "path": "sphinx/ext/napoleon/__init__.py",
+        "bm25_score": 60.5073
+      },
+      {
+        "rank": 7,
+        "path": "doc/usage/extensions/example_numpy.py",
+        "bm25_score": 60.2187
+      },
+      {
+        "rank": 8,
+        "path": "doc/usage/extensions/example_google.py",
+        "bm25_score": 59.8545
+      },
+      {
+        "rank": 9,
+        "path": "sphinx/domains/__init__.py",
+        "bm25_score": 59.5725
+      },
+      {
+        "rank": 10,
+        "path": "sphinx/ext/autosummary/generate.py",
+        "bm25_score": 58.7941
+      }
+    ]
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-7462",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "sphinx/application.py",
+        "bm25_score": 106.8394
+      },
+      {
+        "rank": 2,
+        "path": "sphinx/util/inspect.py",
+        "bm25_score": 101.8253
+      },
+      {
+        "rank": 3,
+        "path": "sphinx/ext/apidoc.py",
+        "bm25_score": 100.8807
+      },
+      {
+        "rank": 4,
+        "path": "sphinx/ext/intersphinx.py",
+        "bm25_score": 100.392
+      },
+      {
+        "rank": 5,
+        "path": "tests/test_intl.py",
+        "bm25_score": 98.4811
+      },
+      {
+        "rank": 6,
+        "path": "sphinx/ext/napoleon/__init__.py",
+        "bm25_score": 96.5575
+      },
+      {
+        "rank": 7,
+        "path": "sphinx/util/__init__.py",
+        "bm25_score": 96.5115
+      },
+      {
+        "rank": 8,
+        "path": "doc/usage/extensions/example_numpy.py",
+        "bm25_score": 95.0542
+      },
+      {
+        "rank": 9,
+        "path": "sphinx/domains/python.py",
+        "bm25_score": 93.8999
+      },
+      {
+        "rank": 10,
+        "path": "sphinx/environment/__init__.py",
+        "bm25_score": 93.2455
+      }
+    ]
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-9673",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "doc/usage/extensions/example_google.py",
+        "bm25_score": 180.3022
+      },
+      {
+        "rank": 2,
+        "path": "doc/usage/extensions/example_numpy.py",
+        "bm25_score": 174.1816
+      },
+      {
+        "rank": 3,
+        "path": "sphinx/ext/napoleon/__init__.py",
+        "bm25_score": 140.15
+      },
+      {
+        "rank": 4,
+        "path": "tests/test_ext_napoleon_docstring.py",
+        "bm25_score": 139.8368
+      },
+      {
+        "rank": 5,
+        "path": "sphinx/ext/intersphinx.py",
+        "bm25_score": 107.6391
+      },
+      {
+        "rank": 6,
+        "path": "sphinx/ext/autodoc/__init__.py",
+        "bm25_score": 100.8168
+      },
+      {
+        "rank": 7,
+        "path": "sphinx/ext/napoleon/docstring.py",
+        "bm25_score": 100.6529
+      },
+      {
+        "rank": 8,
+        "path": "sphinx/cmd/quickstart.py",
+        "bm25_score": 99.1402
+      },
+      {
+        "rank": 9,
+        "path": "sphinx/application.py",
+        "bm25_score": 94.1017
+      },
+      {
+        "rank": 10,
+        "path": "tests/test_ext_autodoc_configs.py",
+        "bm25_score": 93.8319
+      }
+    ]
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-8721",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "sphinx/ext/viewcode.py",
+        "bm25_score": 64.5369
+      },
+      {
+        "rank": 2,
+        "path": "sphinx/application.py",
+        "bm25_score": 63.2391
+      },
+      {
+        "rank": 3,
+        "path": "sphinx/cmd/quickstart.py",
+        "bm25_score": 56.1979
+      },
+      {
+        "rank": 4,
+        "path": "sphinx/ext/apidoc.py",
+        "bm25_score": 55.2195
+      },
+      {
+        "rank": 5,
+        "path": "doc/usage/extensions/example_google.py",
+        "bm25_score": 54.1123
+      },
+      {
+        "rank": 6,
+        "path": "sphinx/builders/epub3.py",
+        "bm25_score": 53.1638
+      },
+      {
+        "rank": 7,
+        "path": "doc/usage/extensions/example_numpy.py",
+        "bm25_score": 51.4117
+      },
+      {
+        "rank": 8,
+        "path": "tests/test_quickstart.py",
+        "bm25_score": 50.0183
+      },
+      {
+        "rank": 9,
+        "path": "sphinx/domains/__init__.py",
+        "bm25_score": 49.0186
+      },
+      {
+        "rank": 10,
+        "path": "sphinx/directives/__init__.py",
+        "bm25_score": 48.7889
+      }
+    ]
+  },
+  {
+    "instance_id": "pytest-dev__pytest-7571",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "src/_pytest/logging.py",
+        "bm25_score": 85.4899
+      },
+      {
+        "rank": 2,
+        "path": "testing/logging/test_fixture.py",
+        "bm25_score": 69.4685
+      },
+      {
+        "rank": 3,
+        "path": "testing/logging/test_reporting.py",
+        "bm25_score": 61.698
+      },
+      {
+        "rank": 4,
+        "path": "testing/test_capture.py",
+        "bm25_score": 50.2657
+      },
+      {
+        "rank": 5,
+        "path": "src/_pytest/junitxml.py",
+        "bm25_score": 44.4796
+      },
+      {
+        "rank": 6,
+        "path": "src/_pytest/fixtures.py",
+        "bm25_score": 43.5486
+      },
+      {
+        "rank": 7,
+        "path": "testing/test_doctest.py",
+        "bm25_score": 42.9801
+      },
+      {
+        "rank": 8,
+        "path": "src/_pytest/pytester.py",
+        "bm25_score": 41.7815
+      },
+      {
+        "rank": 9,
+        "path": "src/_pytest/warnings.py",
+        "bm25_score": 41.6773
+      },
+      {
+        "rank": 10,
+        "path": "src/_pytest/hookspec.py",
+        "bm25_score": 41.4036
+      }
+    ]
+  },
+  {
+    "instance_id": "pytest-dev__pytest-7205",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "src/_pytest/fixtures.py",
+        "bm25_score": 252.54
+      },
+      {
+        "rank": 2,
+        "path": "src/_pytest/setuponly.py",
+        "bm25_score": 231.4821
+      },
+      {
+        "rank": 3,
+        "path": "src/_pytest/runner.py",
+        "bm25_score": 227.881
+      },
+      {
+        "rank": 4,
+        "path": "src/_pytest/python.py",
+        "bm25_score": 203.9859
+      },
+      {
+        "rank": 5,
+        "path": "testing/python/fixtures.py",
+        "bm25_score": 162.1165
+      },
+      {
+        "rank": 6,
+        "path": "src/_pytest/hookspec.py",
+        "bm25_score": 159.5945
+      },
+      {
+        "rank": 7,
+        "path": "src/_pytest/capture.py",
+        "bm25_score": 154.192
+      },
+      {
+        "rank": 8,
+        "path": "src/_pytest/debugging.py",
+        "bm25_score": 151.6132
+      },
+      {
+        "rank": 9,
+        "path": "src/_pytest/config/__init__.py",
+        "bm25_score": 151.4845
+      },
+      {
+        "rank": 10,
+        "path": "src/_pytest/pytester.py",
+        "bm25_score": 149.9828
+      }
+    ]
+  },
+  {
+    "instance_id": "pytest-dev__pytest-7490",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "testing/test_terminal.py",
+        "bm25_score": 164.8507
+      },
+      {
+        "rank": 2,
+        "path": "testing/test_doctest.py",
+        "bm25_score": 142.3714
+      },
+      {
+        "rank": 3,
+        "path": "src/_pytest/pytester.py",
+        "bm25_score": 135.417
+      },
+      {
+        "rank": 4,
+        "path": "src/_pytest/fixtures.py",
+        "bm25_score": 127.8006
+      },
+      {
+        "rank": 5,
+        "path": "testing/code/test_excinfo.py",
+        "bm25_score": 126.6796
+      },
+      {
+        "rank": 6,
+        "path": "src/_pytest/config/__init__.py",
+        "bm25_score": 122.4238
+      },
+      {
+        "rank": 7,
+        "path": "src/_pytest/python.py",
+        "bm25_score": 120.4581
+      },
+      {
+        "rank": 8,
+        "path": "testing/acceptance_test.py",
+        "bm25_score": 116.8664
+      },
+      {
+        "rank": 9,
+        "path": "src/_pytest/junitxml.py",
+        "bm25_score": 116.2045
+      },
+      {
+        "rank": 10,
+        "path": "src/_pytest/hookspec.py",
+        "bm25_score": 116.1832
+      }
+    ]
+  },
+  {
+    "instance_id": "pytest-dev__pytest-10356",
+    "ranked_files": [
+      {
+        "rank": 1,
+        "path": "src/_pytest/python.py",
+        "bm25_score": 219.0739
+      },
+      {
+        "rank": 2,
+        "path": "src/_pytest/fixtures.py",
+        "bm25_score": 206.8639
+      },
+      {
+        "rank": 3,
+        "path": "src/_pytest/hookspec.py",
+        "bm25_score": 197.6415
+      },
+      {
+        "rank": 4,
+        "path": "src/_pytest/nodes.py",
+        "bm25_score": 197.2362
+      },
+      {
+        "rank": 5,
+        "path": "src/_pytest/config/__init__.py",
+        "bm25_score": 193.9001
+      },
+      {
+        "rank": 6,
+        "path": "src/_pytest/mark/structures.py",
+        "bm25_score": 185.4859
+      },
+      {
+        "rank": 7,
+        "path": "src/_pytest/python_api.py",
+        "bm25_score": 174.5592
+      },
+      {
+        "rank": 8,
+        "path": "src/_pytest/pytester.py",
+        "bm25_score": 168.8538
+      },
+      {
+        "rank": 9,
+        "path": "src/_pytest/assertion/util.py",
+        "bm25_score": 168.2463
+      },
+      {
+        "rank": 10,
+        "path": "src/_pytest/pathlib.py",
+        "bm25_score": 167.9863
+      }
+    ]
+  }
+]
