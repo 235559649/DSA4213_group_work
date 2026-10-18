@@ -34,14 +34,36 @@ DEFAULT_NUM_SEEDS = 10
 MAX_REASONS = 3
 
 
+IMPORTED_BY = "imported_by"  # the candidate is imported by the seed
+IMPORTS = "imports"  # the candidate imports the seed
+
+
+@dataclass(frozen=True)
+class Relation:
+    """One seed's contribution to a candidate's structural score."""
+
+    seed: str  # the lexical file this relation comes from
+    seed_rank: int  # its rank in L
+    relation: str  # IMPORTED_BY or IMPORTS
+    weight: float  # 1 / (seed_rank * |N(seed)|)
+
+
 @dataclass(frozen=True)
 class StructuralCandidate:
-    """One file in S. Field names follow LocalizationCandidate (src/agent/contracts.py)."""
+    """One file in S.
+
+    `file`, `rank`, `score`, `symbol`, `symbol_type` and `reason` follow
+    LocalizationCandidate (src/agent/contracts.py). S is file-level, so
+    `symbol` and `symbol_type` are always None.
+    """
 
     file: str
     rank: int
-    score: float
-    reason: str  # e.g. "imported by lexical #1 shop/pricing.py"
+    score: float  # s_struct(file), the sum of the relation weights
+    relations: tuple[Relation, ...]  # every contributing seed, strongest first
+    reason: str  # the strongest relations as text, "imported by lexical #1 shop/pricing.py"
+    symbol: None = None
+    symbol_type: None = None
 
 
 def structural_ranking(
@@ -65,7 +87,7 @@ def structural_ranking(
     seeds = [path for path, rank in lexical_rank.items() if rank <= num_seeds]
 
     scores: dict[str, float] = {}
-    reasons: dict[str, list[tuple[float, str]]] = {}
+    relations: dict[str, list[Relation]] = {}
     for seed in seeds:
         rank = lexical_rank[seed]
         imports = set(index.imports_of(seed))
@@ -79,19 +101,17 @@ def structural_ranking(
         weight = 1.0 / (rank * len(neighbors))
         for neighbor in neighbors:
             scores[neighbor] = scores.get(neighbor, 0.0) + weight
-            relation = "imported by" if neighbor in imports else "imports"
-            reasons.setdefault(neighbor, []).append((weight, f"{relation} lexical #{rank} {seed}"))
+            relation = IMPORTED_BY if neighbor in imports else IMPORTS
+            relations.setdefault(neighbor, []).append(Relation(seed, rank, relation, weight))
 
     never = len(lexical_rank) + 1
     ordered = sorted(scores, key=lambda f: (-scores[f], lexical_rank.get(f, never), f))
-    return [
-        StructuralCandidate(
-            file=f,
-            rank=i,
-            score=scores[f],
-            reason="; ".join(
-                text for _, text in sorted(reasons[f], key=lambda item: -item[0])[:MAX_REASONS]
-            ),
+    candidates = []
+    for i, f in enumerate(ordered, start=1):
+        strongest = tuple(sorted(relations[f], key=lambda r: (-r.weight, r.seed_rank)))
+        reason = "; ".join(
+            f"{r.relation.replace('_', ' ')} lexical #{r.seed_rank} {r.seed}"
+            for r in strongest[:MAX_REASONS]
         )
-        for i, f in enumerate(ordered, start=1)
-    ]
+        candidates.append(StructuralCandidate(f, i, scores[f], strongest, reason))
+    return candidates

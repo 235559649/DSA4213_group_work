@@ -61,18 +61,64 @@ also break ties, and RRF needs the full L.
 
 请传入**完整的**正分词法排名，而不只是前 10 名：词法排名也用于打破平分，而且 RRF 需要完整的 L。
 
-Each `StructuralCandidate` has `file`, `rank`, `score` and `reason` (e.g.
-`imported by lexical #1 sympy/matrices/expressions/blockmatrix.py`), the same
-field names as `LocalizationCandidate` in `src/agent/contracts.py`.
+## Output / 输出
 
-每个 `StructuralCandidate` 有 `file`、`rank`、`score`、`reason`（例如
-`imported by lexical #1 sympy/matrices/expressions/blockmatrix.py`），字段名与
-`src/agent/contracts.py` 中的 `LocalizationCandidate` 相同。
+**File-level.** S ranks files; `symbol` and `symbol_type` are always `None`.
+Function hints inside a file come from the retrieval module's entity scores
+and the index's containment (`index.records_in_file`, `parent`).
 
-Batch over tasks, reading the retrieval module's JSON output:
+**文件级。** S 只给文件排名，`symbol` 和 `symbol_type` 总是 `None`。文件内的函数提示来自
+检索模块的实体级分数和索引里的包含关系（`index.records_in_file`、`parent`）。
 
-批量处理多个任务，读取检索模块输出的 JSON：
+Each `StructuralCandidate` has the `LocalizationCandidate` fields of
+`src/agent/contracts.py` plus structured evidence:
+
+每个 `StructuralCandidate` 包含 `src/agent/contracts.py` 中 `LocalizationCandidate` 的字段，
+外加结构化的证据：
+
+| Field / 字段 | Meaning / 含义 |
+|---|---|
+| `file`, `rank` | The file and its rank in S.<br>文件及其在 S 中的名次。 |
+| `score` | s_struct(file), the sum of the relation weights.<br>s_struct(file)，即各关系权重之和。 |
+| `symbol`, `symbol_type` | `None` (file-level).<br>`None`（文件级）。 |
+| `reason` | Up to three strongest relations as text, e.g. `imported by lexical #1 sympy/matrices/expressions/blockmatrix.py`.<br>最强的最多三条关系的文字说明。 |
+| `relations` | Every contributing seed: `seed`, `seed_rank`, `relation` (`imported_by`: the candidate is imported by the seed; `imports`: the candidate imports the seed), `weight` = 1 / (seed_rank · \|N(seed)\|). Strongest first.<br>每个贡献分数的种子：`seed`、`seed_rank`、`relation`（`imported_by`：候选文件被种子导入；`imports`：候选文件导入了种子）、`weight` = 1 / (seed_rank · \|N(seed)\|)。按权重从大到小。 |
+
+## Batch JSON / 批量 JSON
 
 ```bash
 python scripts/run_structural.py --lexical bm25_results.json -o structural_results.json
 ```
+
+Input: the retrieval module's JSON, `[{"instance_id", "ranked_files": [{"rank", "path" or "file", "bm25_score" or "score"}]}]`.
+Output, one entry per task:
+
+输入：检索模块的 JSON，`[{"instance_id", "ranked_files": [{"rank", "path" 或 "file", "bm25_score" 或 "score"}]}]`。
+输出，每个任务一项：
+
+```json
+{
+  "instance_id": "sympy__sympy-17630",
+  "index_sha256": "d3baa2f9...",
+  "num_seeds": 10,
+  "exclude_test_neighbors": true,
+  "num_lexical_files": 10,
+  "ranked_files": [
+    {
+      "file": "sympy/core/compatibility.py",
+      "rank": 1,
+      "score": 0.110688,
+      "symbol": null,
+      "symbol_type": null,
+      "reason": "imported by lexical #1 sympy/matrices/expressions/blockmatrix.py; ...",
+      "relations": [
+        {"seed": "sympy/matrices/expressions/blockmatrix.py", "seed_rank": 1, "relation": "imported_by", "weight": 0.043478}
+      ]
+    }
+  ]
+}
+```
+
+Dropping `relations` from an entry gives the keyword arguments of `LocalizationCandidate`.
+
+去掉 `relations` 后，每一项正好是 `LocalizationCandidate` 的构造参数。

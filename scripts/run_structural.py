@@ -5,8 +5,9 @@ Usage:
 
 The input is the retrieval module's output, a JSON list of
     {"instance_id": ..., "ranked_files": [{"rank": 1, "path": ..., "bm25_score": ...}, ...]}
-("score" is accepted instead of "bm25_score"). The output has the same shape,
-with "score" and "reason" per file, plus the index identity used. Indexes come
+("file" is accepted for "path", "score" for "bm25_score"). Each output file
+entry has the LocalizationCandidate fields (file, rank, score, symbol,
+symbol_type, reason) plus "relations", the structured evidence. Indexes come
 from the SWE-bench cache and are built on first use.
 """
 
@@ -15,6 +16,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from dataclasses import asdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -42,7 +44,7 @@ def main(argv: list[str] | None = None) -> int:
     for task in tasks:
         instance_id = task["instance_id"]
         lexical = [
-            (item["path"], item.get("bm25_score", item.get("score")))
+            (item.get("file", item.get("path")), item.get("bm25_score", item.get("score")))
             for item in sorted(task["ranked_files"], key=lambda item: item["rank"])
         ]
         index = build_task_index(instance_id, cache_dir=cache)
@@ -60,7 +62,17 @@ def main(argv: list[str] | None = None) -> int:
                 "exclude_test_neighbors": not args.include_test_neighbors,
                 "num_lexical_files": len(lexical),
                 "ranked_files": [
-                    {"rank": c.rank, "path": c.file, "score": round(c.score, 6), "reason": c.reason}
+                    {
+                        "file": c.file,
+                        "rank": c.rank,
+                        "score": round(c.score, 6),
+                        "symbol": c.symbol,
+                        "symbol_type": c.symbol_type,
+                        "reason": c.reason,
+                        "relations": [
+                            {**asdict(r), "weight": round(r.weight, 6)} for r in c.relations
+                        ],
+                    }
                     for c in ranking
                 ],
             }

@@ -72,3 +72,16 @@ def test_no_neighbors_gives_empty_ranking(index):
 def test_paths_are_normalized_and_duplicates_ignored(index):
     result = structural_ranking(index, [(".\\a.py", 5.0), ("a.py", 4.0), ("./d.py", 3.0)])
     assert ranked(result) == [("b.py", 0.8333), ("c.py", 0.3333), ("e.py", 0.3333)]
+
+
+def test_relations_are_structured(index):
+    from src.localization.structural import IMPORTED_BY, IMPORTS
+
+    by_file = {c.file: c for c in structural_ranking(index, [("a.py", 5.0), ("d.py", 3.0)])}
+    b = by_file["b.py"]
+    assert [(r.seed, r.seed_rank, r.relation, round(r.weight, 4)) for r in b.relations] == [
+        ("d.py", 2, IMPORTS, 0.5),
+        ("a.py", 1, IMPORTED_BY, 0.3333),
+    ]
+    assert round(sum(r.weight for r in b.relations), 6) == round(b.score, 6)
+    assert b.symbol is None and b.symbol_type is None
