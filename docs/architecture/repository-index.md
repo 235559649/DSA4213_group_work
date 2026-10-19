@@ -101,11 +101,11 @@ six shared fields.
 | `docstring` | `Total price of all items.` | Truncated to `max_text_chars`.<br>截断到 `max_text_chars`。 |
 | `is_test` | `False` | Heuristic: inside `test/`, `tests/` or `testing/`, or named `test_*.py`, `*_test.py`, `tests.py`, `conftest.py`.<br>启发式判断：位于 `test/`、`tests/`、`testing/` 目录下，或文件名为 `test_*.py`、`*_test.py`、`tests.py`、`conftest.py`。 |
 
-Saved index JSON carries `schema_version` (currently 3); loading a file with a
+Saved index JSON carries `schema_version` (currently 4); loading a file with a
 different version raises an error. `build_task_index` rebuilds outdated cached
 indexes automatically.
 
-保存的索引 JSON 带有 `schema_version`（当前为 3）；读取版本不同的文件会报错。
+保存的索引 JSON 带有 `schema_version`（当前为 4）；读取版本不同的文件会报错。
 `build_task_index` 会自动重建过期的缓存索引。
 
 ## Import graph / 导入关系
@@ -170,3 +170,59 @@ Skipped while walking: hidden directories, `__pycache__`, `node_modules`,
 | `index.find_enclosing(path, line)` | Innermost record containing the line, falling back to the module record. For mapping traceback frames.<br>包含该行的最内层记录，找不到时返回模块记录。用于把 traceback 栈帧映射到代码实体。 |
 | `index.find_by_name(name)` | Records whose symbol is `name` or ends with `.name`, e.g. `total` or `Cart.total`.<br>symbol 等于 `name` 或以 `.name` 结尾的记录，例如 `total` 或 `Cart.total`。 |
 | `to_repo_path(path, repo_root)` | Normalize a traceback path, e.g. `("/testbed/shop/pricing.py", "/testbed")` -> `shop/pricing.py`; `None` if outside the repo.<br>规范化 traceback 中的路径，例如 `("/testbed/shop/pricing.py", "/testbed")` -> `shop/pricing.py`；仓库外的路径返回 `None`。 |
+
+## Keeping the index current during a run / 运行中保持索引与代码一致
+
+The index is built at `base_commit`. Once the agent edits a file, line numbers
+in that file shift, and traceback frames no longer match the index. Before
+mapping a failure (Condition D), update the index with the files changed so
+far:
+
+索引是按 `base_commit` 构建的。Agent 一旦修改文件，该文件的行号就会变化，traceback
+里的行号就和索引对不上了。在映射失败信息（条件 D）之前，先用目前为止改动过的文件更新索引：
+
+```python
+base = build_task_index(instance_id)          # once per run; keep it
+index = base.with_updated_files(changes)      # before each failure mapping
+record = index.find_enclosing(path, line)
+```
+
+`changes` maps each changed path to its current content (`bytes`, or `str`
+encoded as UTF-8), or to `None` if the file was deleted. In the task
+container, the paths come from:
+
+`changes` 把每个改动过的路径映射到它当前的内容（`bytes`，或按 UTF-8 编码的 `str`），
+被删除的文件映射为 `None`。在任务容器里，路径可以这样获得：
+
+```bash
+git -C /testbed diff --name-only HEAD                     # edited and deleted tracked files
+git -C /testbed ls-files --others --exclude-standard       # new files, e.g. reproduce.py
+```
+
+Read each file's content from the container (it no longer exists if
+deleted). With a local checkout, `read_workspace_files(repo_root, paths)`
+builds `changes` directly.
+
+再从容器里读取每个文件的内容（被删除的文件读不到，就传 `None`）。如果是本地的代码目录，
+可以直接用 `read_workspace_files(repo_root, paths)` 生成 `changes`。
+
+- Always pass **all** files changed since `base_commit` to the **base** index,
+  or only the newest changes to the previous result; both give the same index.<br>
+  每次可以把从 `base_commit` 起**所有**改动过的文件传给**基准**索引，也可以只把最新的改动传给
+  上一次的结果，两种方式得到的索引相同。
+- Only the changed files are parsed again (django: about 0.3 s for one file);
+  the import graph is re-resolved for the whole repository. The base index is
+  not modified.<br>
+  只重新解析改动过的文件（django 上更新一个文件约 0.3 秒）；导入关系会对整个仓库重新解析。
+  基准索引本身不会被修改。
+- A file the agent left with a syntax error appears in `index.errors` and has
+  no records, so `find_enclosing` returns `None` for it.<br>
+  被 Agent 改出语法错误的文件会出现在 `index.errors` 中，没有记录，`find_enclosing` 对它返回 `None`。
+- The result equals a full rebuild from the updated files, with one exception:
+  if an `__init__.py` is added or removed, unchanged files get their new module
+  names, but their module records' retrieval text keeps the old name.<br>
+  结果与用更新后的文件重新完整构建一致，只有一个例外：如果新增或删除了 `__init__.py`，未改动的文件
+  会得到新的模块名，但它们模块记录的检索文本里仍是旧的模块名。
+- Metadata records `base_index_sha256` (the index before any update) and
+  `updated_files` (all paths updated so far).<br>
+  元数据记录 `base_index_sha256`（更新前的索引）和 `updated_files`（目前为止更新过的所有路径）。
