@@ -2,14 +2,11 @@
 
 import csv
 import json
-import subprocess
-import sys
 from pathlib import Path
 
-from datasets import load_dataset
 
 from src.localization.keyword import BM25Retriever
-from src.repository.indexer import RepositoryIndex
+from src.repository.swebench import build_task_index, load_task
 
 
 # Development task IDs selected by Role 5 (unchanged).
@@ -36,24 +33,12 @@ TASK_IDS = [
     "pytest-dev__pytest-10356",
 ]
 
-DATASET_REVISION = "78f471bf655a3137b2e8a75af1501690ec009ec3"
-CACHE_DIR = Path(".swebench_cache/index")
 RESULT_DIR = Path("results")
 
 
 def main() -> None:
     RESULT_DIR.mkdir(parents=True, exist_ok=True)
-    print("Loading SWE-bench Verified dataset...")
-    dataset = load_dataset(
-        "SWE-bench/SWE-bench_Verified",
-        split="test",
-        revision=DATASET_REVISION,
-    )
-    tasks = {
-        row["instance_id"]: row
-        for row in dataset
-        if row["instance_id"] in TASK_IDS
-    }
+    print("Using the team's pinned SWE-bench task loader...")
 
     all_results = []
     summary = []
@@ -61,19 +46,9 @@ def main() -> None:
     for i, task_id in enumerate(TASK_IDS, start=1):
         print(f"\n[{i}/{len(TASK_IDS)}] Processing {task_id}")
         try:
-            if task_id not in tasks:
-                raise ValueError(f"Task missing from dataset: {task_id}")
-
-            index_path = CACHE_DIR / f"{task_id}.json"
-            if not index_path.exists():
-                # Reuse the team's existing index-building script/cache workflow.
-                subprocess.run(
-                    [sys.executable, "scripts/build_index.py", "--task", task_id],
-                    check=True,
-                )
-
-            index = RepositoryIndex.load(index_path)
-            query = tasks[task_id]["problem_statement"]
+            task = load_task(task_id)
+            index = build_task_index(task_id)
+            query = task.problem_statement
             retriever = BM25Retriever(index)
 
             # IMPORTANT: no top_k cutoff; save ALL positive-scoring files.
@@ -120,7 +95,8 @@ def main() -> None:
                 "top1_score": 0,
             })
 
-    json_path = RESULT_DIR / "bm25_results.json"
+    json_path = Path("experiments/bm25_results.json")
+json_path.parent.mkdir(parents=True, exist_ok=True)
     with json_path.open("w", encoding="utf-8") as handle:
         json.dump(all_results, handle, indent=2, ensure_ascii=False)
 

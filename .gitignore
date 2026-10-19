@@ -218,3 +218,8 @@ __marimo__/
 .streamlit/secrets.toml
 
 .idea
+
+# Evaluation results containing ground truth
+results/bm25_evaluation.csv
+scripts/evaluate_bm25.py
+results/bm25_summary.csv
