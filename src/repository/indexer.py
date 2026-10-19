@@ -15,8 +15,10 @@ from pathlib import Path
 from src.repository.ast_parser import (
     DEFAULT_MAX_TEXT_CHARS,
     FileParseError,
+    ImportStatement,
     decode_source,
-    parse_source,
+    module_names,
+    parse_file,
 )
 from src.repository.models import (
     READ_ERROR,
@@ -43,15 +45,22 @@ class RepositoryIndex:
     errors: list[ParseError]
     files: list[str]  # every Python file visited, parsed or not
     metadata: dict = field(default_factory=dict)
+    # path -> repository files it imports (sorted); files without internal imports are omitted
+    imports: dict[str, list[str]] = field(default_factory=dict)
 
     _by_id: dict[str, IndexRecord] = field(init=False, repr=False, compare=False)
     _by_path: dict[str, list[IndexRecord]] = field(init=False, repr=False, compare=False)
+    _imported_by: dict[str, list[str]] = field(init=False, repr=False, compare=False)
 
     def __post_init__(self) -> None:
         self._by_id = {r.id: r for r in self.records}
         self._by_path = {}
         for r in self.records:
             self._by_path.setdefault(r.path, []).append(r)
+        self._imported_by = {}
+        for importer in sorted(self.imports):
+            for target in self.imports[importer]:
+                self._imported_by.setdefault(target, []).append(importer)
 
     # ----- lookups -----
 
@@ -90,15 +99,34 @@ class RepositoryIndex:
             if r.symbol is not None and (r.symbol == name or r.symbol.endswith("." + name))
         ]
 
+    # ----- import graph -----
+
+    def imports_of(self, path: str) -> list[str]:
+        """Repository files that `path` imports."""
+        return list(self.imports.get(to_repo_path(path) or "", []))
+
+    def imported_by(self, path: str) -> list[str]:
+        """Repository files that import `path`."""
+        return list(self._imported_by.get(to_repo_path(path) or "", []))
+
+    def neighbors(self, path: str) -> list[str]:
+        """One-hop import neighbors: files `path` imports or is imported by, sorted."""
+        path = to_repo_path(path) or ""
+        return sorted((set(self.imports_of(path)) | set(self.imported_by(path))) - {path})
+
+    def is_test_file(self, path: str) -> bool:
+        records = self._by_path.get(to_repo_path(path) or "")
+        return bool(records) and records[0].is_test
+
     # ----- persistence -----
 
     def digest(self) -> str:
-        """SHA-256 of the indexed content (files, records, errors), ignoring metadata.
+        """SHA-256 of the indexed content (files, records, errors, imports), ignoring metadata.
 
         Two indexes with the same digest give the same lookups and retrieval
         text, wherever and whenever they were built.
         """
-        content = {k: v for k, v in self.to_dict().items() if k in ("files", "records", "errors")}
+        content = {k: v for k, v in self.to_dict().items() if k in ("files", "records", "errors", "imports")}
         payload = json.dumps(content, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
@@ -109,6 +137,7 @@ class RepositoryIndex:
             "files": self.files,
             "records": [asdict(r) for r in self.records],
             "errors": [asdict(e) for e in self.errors],
+            "imports": self.imports,
         }
 
     @classmethod
@@ -121,6 +150,7 @@ class RepositoryIndex:
             errors=[ParseError(**e) for e in data["errors"]],
             files=list(data["files"]),
             metadata=dict(data.get("metadata", {})),
+            imports={path: list(targets) for path, targets in data["imports"].items()},
         )
 
     def save(self, path: str | os.PathLike) -> None:
@@ -177,6 +207,8 @@ def index_sources(
     records: list[IndexRecord] = []
     errors: list[ParseError] = []
     files = sorted(paths)
+    modules = module_names(files)
+    raw_imports: dict[str, list[ImportStatement]] = {}
 
     for rel_path in files:
         try:
@@ -193,9 +225,16 @@ def index_sources(
 
         try:
             source = decode_source(data)
-            records.extend(parse_source(source, rel_path, max_text_chars=max_text_chars))
+            parsed = parse_file(
+                source, rel_path, module=modules[rel_path], max_text_chars=max_text_chars
+            )
         except FileParseError as exc:
             errors.append(ParseError(rel_path, exc.kind, exc.message, exc.line))
+            continue
+        records.extend(parsed.records)
+        raw_imports[rel_path] = parsed.imports
+
+    imports = resolve_imports(raw_imports, modules)
 
     metadata = {
         **(metadata or {}),
@@ -205,8 +244,62 @@ def index_sources(
         "num_files": len(files),
         "num_records": len(records),
         "num_errors": len(errors),
+        "num_import_edges": sum(len(targets) for targets in imports.values()),
     }
-    return RepositoryIndex(records=records, errors=errors, files=files, metadata=metadata)
+    return RepositoryIndex(
+        records=records, errors=errors, files=files, metadata=metadata, imports=imports
+    )
+
+
+def resolve_imports(
+    raw_imports: dict[str, list[ImportStatement]], modules: dict[str, str]
+) -> dict[str, list[str]]:
+    """Map import statements to repository files; drop everything external.
+
+    `from a.b import c` points to a/b/c.py when `c` is a submodule, otherwise
+    to the module a.b where `c` is defined. `import a.b` points to a.b only,
+    not to the parent package a. Names claimed by two files of the same kind
+    (e.g. two top-level `conftest.py` in different non-package directories)
+    are ambiguous and not resolved. A package (`x/__init__.py`) wins over a
+    module (`x.py`), as in Python.
+    """
+    by_module: dict[str, str] = {}
+    ambiguous: set[str] = set()
+    for path in sorted(modules):
+        name = modules[path]
+        if not name:
+            continue
+        if name not in by_module:
+            by_module[name] = path
+            continue
+        is_package = path.endswith("__init__.py")
+        if is_package != by_module[name].endswith("__init__.py"):
+            if is_package:
+                by_module[name] = path
+        else:
+            ambiguous.add(name)
+    for name in ambiguous:
+        del by_module[name]
+
+    resolved = {}
+    for path, statements in raw_imports.items():
+        targets = set()
+        for statement in statements:
+            base = by_module.get(statement.module)
+            if not statement.names:
+                if base:
+                    targets.add(base)
+                continue
+            for name in statement.names:
+                submodule = by_module.get(f"{statement.module}.{name}") if name != "*" else None
+                if submodule:
+                    targets.add(submodule)
+                elif base:
+                    targets.add(base)
+        targets.discard(path)
+        if targets:
+            resolved[path] = sorted(targets)
+    return resolved
 
 
 def is_indexed_path(path: str) -> bool:
