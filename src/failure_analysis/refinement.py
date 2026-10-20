@@ -13,7 +13,11 @@ from src.repository.indexer import RepositoryIndex, to_repo_path
 
 @dataclass(frozen=True)
 class FailureAnalysis:
-    """Role 4 draft wire format; serialize with to_dict for other roles."""
+    """Failure evidence plus a file ranking, separate from fused agent context.
+
+    Existing ``candidates`` and ``to_dict()`` retain full evidence. Use
+    ``to_localization_candidates()`` at the Role 1/3 contract boundary.
+    """
 
     event: dict
     candidates: list[dict]
@@ -28,6 +32,45 @@ class FailureAnalysis:
 
     def to_dict(self) -> dict:
         return asdict(self)
+
+    def to_localization_candidates(self) -> list[dict]:
+        """Export fresh JSON-ready records accepted by LocalizationCandidate.
+
+        Role 3 can fuse these runtime ranks with lexical/structural ranks.
+        Role 1 can construct ``LocalizationCandidate(**item)`` without the
+        evidence-only fields causing unexpected-keyword errors. No import of
+        Role 1's unmerged module is required here.
+
+        This is a COMPLETE file-level runtime ranking, not fused context or a
+        function ranking. Symbols remain None; per-frame symbols and evidence
+        stay in ``candidates``/``mappings``. An unusable result exports an empty
+        list, meaning preserve the existing context, not clear it. Delivery and
+        UpdateGate acknowledgement remain the caller's responsibility.
+
+        Handoff (after Role 1/3 modules are integrated)::
+
+            failure = result.to_localization_candidates()
+            # Role 3: fuse L, S and failure with fuse_condition_d(...).
+            # Its output uses rrf_score, so convert to score at its boundary.
+            # Role 1: for this runtime list alone, the contract is:
+            objects = [LocalizationCandidate(**item) for item in failure]
+
+        Keep complete rankings for evaluation; selecting context top-k belongs
+        to the context producer, not this evidence export.
+        """
+        if not self.usable:
+            return []
+        return [
+            {
+                'file': item['file'],
+                'rank': item['rank'],
+                'score': item['score'],
+                'symbol': None,
+                'symbol_type': None,
+                'reason': item['reason'],
+            }
+            for item in self.candidates
+        ]
 
 
 def analyze_failure(
