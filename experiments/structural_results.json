@@ -47934,7 +47934,7 @@
         ]
       },
       {
-        "file": "sphinx/writers/html.py",
+        "file": "sphinx/io.py",
         "rank": 75,
         "score": 0.002096,
         "symbol": null,
@@ -47950,7 +47950,7 @@
         ]
       },
       {
-        "file": "sphinx/io.py",
+        "file": "sphinx/writers/html.py",
         "rank": 76,
         "score": 0.002096,
         "symbol": null,
@@ -48328,7 +48328,7 @@
         ]
       },
       {
-        "file": "doc/usage/extensions/example_numpy.py",
+        "file": "sphinx/util/stemmer/porter.py",
         "rank": 4,
         "score": 0.0,
         "symbol": null,
@@ -48336,7 +48336,7 @@
         "reason": "lexical seed #4",
         "relations": [
           {
-            "seed": "doc/usage/extensions/example_numpy.py",
+            "seed": "sphinx/util/stemmer/porter.py",
             "seed_rank": 4,
             "relation": "seed",
             "weight": 0.0
@@ -48344,7 +48344,7 @@
         ]
       },
       {
-        "file": "sphinx/util/stemmer/porter.py",
+        "file": "doc/usage/extensions/example_numpy.py",
         "rank": 5,
         "score": 0.0,
         "symbol": null,
@@ -48352,7 +48352,7 @@
         "reason": "lexical seed #5",
         "relations": [
           {
-            "seed": "sphinx/util/stemmer/porter.py",
+            "seed": "doc/usage/extensions/example_numpy.py",
             "seed_rank": 5,
             "relation": "seed",
             "weight": 0.0
@@ -48452,8 +48452,24 @@
         ]
       },
       {
-        "file": "sphinx/__init__.py",
+        "file": "sphinx/util/stemmer/__init__.py",
         "rank": 11,
+        "score": 0.25,
+        "symbol": null,
+        "symbol_type": null,
+        "reason": "imports lexical #4 sphinx/util/stemmer/porter.py",
+        "relations": [
+          {
+            "seed": "sphinx/util/stemmer/porter.py",
+            "seed_rank": 4,
+            "relation": "imports",
+            "weight": 0.25
+          }
+        ]
+      },
+      {
+        "file": "sphinx/__init__.py",
+        "rank": 12,
         "score": 0.206944,
         "symbol": null,
         "symbol_type": null,
@@ -48476,22 +48492,6 @@
             "seed_rank": 8,
             "relation": "imported_by",
             "weight": 0.0125
-          }
-        ]
-      },
-      {
-        "file": "sphinx/util/stemmer/__init__.py",
-        "rank": 12,
-        "score": 0.2,
-        "symbol": null,
-        "symbol_type": null,
-        "reason": "imports lexical #5 sphinx/util/stemmer/porter.py",
-        "relations": [
-          {
-            "seed": "sphinx/util/stemmer/porter.py",
-            "seed_rank": 5,
-            "relation": "imports",
-            "weight": 0.2
           }
         ]
       },
@@ -52350,7 +52350,7 @@
       {
         "file": "sphinx/application.py",
         "rank": 6,
-        "score": 0.176423,
+        "score": 0.177277,
         "symbol": null,
         "symbol_type": null,
         "reason": "lexical seed #6; imported by lexical #1 sphinx/ext/viewcode.py; imported by lexical #8 tests/test_quickstart.py",
@@ -52393,9 +52393,9 @@
           },
           {
             "seed": "sphinx/domains/javascript.py",
-            "seed_rank": 10,
+            "seed_rank": 9,
             "relation": "imported_by",
-            "weight": 0.007692
+            "weight": 0.008547
           }
         ]
       },
@@ -52438,32 +52438,16 @@
         ]
       },
       {
-        "file": "doc/usage/extensions/example_numpy.py",
-        "rank": 9,
-        "score": 0.0,
-        "symbol": null,
-        "symbol_type": null,
-        "reason": "lexical seed #9",
-        "relations": [
-          {
-            "seed": "doc/usage/extensions/example_numpy.py",
-            "seed_rank": 9,
-            "relation": "seed",
-            "weight": 0.0
-          }
-        ]
-      },
-      {
         "file": "sphinx/domains/javascript.py",
-        "rank": 10,
+        "rank": 9,
         "score": 0.001572,
         "symbol": null,
         "symbol_type": null,
-        "reason": "lexical seed #10; imports lexical #6 sphinx/application.py",
+        "reason": "lexical seed #9; imports lexical #6 sphinx/application.py",
         "relations": [
           {
             "seed": "sphinx/domains/javascript.py",
-            "seed_rank": 10,
+            "seed_rank": 9,
             "relation": "seed",
             "weight": 0.0
           },
@@ -52476,9 +52460,25 @@
         ]
       },
       {
+        "file": "doc/usage/extensions/example_numpy.py",
+        "rank": 10,
+        "score": 0.0,
+        "symbol": null,
+        "symbol_type": null,
+        "reason": "lexical seed #10",
+        "relations": [
+          {
+            "seed": "doc/usage/extensions/example_numpy.py",
+            "seed_rank": 10,
+            "relation": "seed",
+            "weight": 0.0
+          }
+        ]
+      },
+      {
         "file": "sphinx/util/logging.py",
         "rank": 11,
-        "score": 0.180078,
+        "score": 0.180933,
         "symbol": null,
         "symbol_type": null,
         "reason": "imported by lexical #1 sphinx/ext/viewcode.py; imported by lexical #5 sphinx/util/inventory.py; imported by lexical #3 sphinx/builders/latex/__init__.py",
@@ -52515,9 +52515,9 @@
           },
           {
             "seed": "sphinx/domains/javascript.py",
-            "seed_rank": 10,
+            "seed_rank": 9,
             "relation": "imported_by",
-            "weight": 0.007692
+            "weight": 0.008547
           },
           {
             "seed": "sphinx/application.py",
@@ -52530,7 +52530,7 @@
       {
         "file": "sphinx/environment/__init__.py",
         "rank": 12,
-        "score": 0.166745,
+        "score": 0.1676,
         "symbol": null,
         "symbol_type": null,
         "reason": "imported by lexical #1 sphinx/ext/viewcode.py; imported by lexical #5 sphinx/util/inventory.py; imported by lexical #4 sphinx/ext/autodoc/__init__.py",
@@ -52561,9 +52561,9 @@
           },
           {
             "seed": "sphinx/domains/javascript.py",
-            "seed_rank": 10,
+            "seed_rank": 9,
             "relation": "imported_by",
-            "weight": 0.007692
+            "weight": 0.008547
           },
           {
             "seed": "sphinx/application.py",
@@ -52576,7 +52576,7 @@
       {
         "file": "sphinx/locale/__init__.py",
         "rank": 13,
-        "score": 0.146745,
+        "score": 0.1476,
         "symbol": null,
         "symbol_type": null,
         "reason": "imported by lexical #1 sphinx/ext/viewcode.py; imported by lexical #3 sphinx/builders/latex/__init__.py; imported by lexical #4 sphinx/ext/autodoc/__init__.py",
@@ -52607,9 +52607,9 @@
           },
           {
             "seed": "sphinx/domains/javascript.py",
-            "seed_rank": 10,
+            "seed_rank": 9,
             "relation": "imported_by",
-            "weight": 0.007692
+            "weight": 0.008547
           },
           {
             "seed": "sphinx/application.py",
@@ -52690,7 +52690,7 @@
       {
         "file": "sphinx/util/nodes.py",
         "rank": 16,
-        "score": 0.132015,
+        "score": 0.132869,
         "symbol": null,
         "symbol_type": null,
         "reason": "imported by lexical #1 sphinx/ext/viewcode.py; imported by lexical #3 sphinx/builders/latex/__init__.py; imported by lexical #7 sphinx/ext/todo.py",
@@ -52715,19 +52715,19 @@
           },
           {
             "seed": "sphinx/domains/javascript.py",
-            "seed_rank": 10,
+            "seed_rank": 9,
             "relation": "imported_by",
-            "weight": 0.007692
+            "weight": 0.008547
           }
         ]
       },
       {
         "file": "sphinx/addnodes.py",
         "rank": 17,
-        "score": 0.122598,
+        "score": 0.123453,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #1 sphinx/ext/viewcode.py; imported by lexical #3 sphinx/builders/latex/__init__.py; imported by lexical #10 sphinx/domains/javascript.py",
+        "reason": "imported by lexical #1 sphinx/ext/viewcode.py; imported by lexical #3 sphinx/builders/latex/__init__.py; imported by lexical #9 sphinx/domains/javascript.py",
         "relations": [
           {
             "seed": "sphinx/ext/viewcode.py",
@@ -52743,9 +52743,9 @@
           },
           {
             "seed": "sphinx/domains/javascript.py",
-            "seed_rank": 10,
+            "seed_rank": 9,
             "relation": "imported_by",
-            "weight": 0.007692
+            "weight": 0.008547
           },
           {
             "seed": "sphinx/application.py",
@@ -52808,10 +52808,10 @@
       {
         "file": "sphinx/builders/__init__.py",
         "rank": 20,
-        "score": 0.055931,
+        "score": 0.056786,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #5 sphinx/util/inventory.py; imported by lexical #3 sphinx/builders/latex/__init__.py; imported by lexical #10 sphinx/domains/javascript.py",
+        "reason": "imported by lexical #5 sphinx/util/inventory.py; imported by lexical #3 sphinx/builders/latex/__init__.py; imported by lexical #9 sphinx/domains/javascript.py",
         "relations": [
           {
             "seed": "sphinx/util/inventory.py",
@@ -52827,9 +52827,9 @@
           },
           {
             "seed": "sphinx/domains/javascript.py",
-            "seed_rank": 10,
+            "seed_rank": 9,
             "relation": "imported_by",
-            "weight": 0.007692
+            "weight": 0.008547
           },
           {
             "seed": "sphinx/application.py",
@@ -52954,10 +52954,10 @@
       {
         "file": "sphinx/util/docutils.py",
         "rank": 25,
-        "score": 0.033587,
+        "score": 0.034442,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #3 sphinx/builders/latex/__init__.py; imported by lexical #7 sphinx/ext/todo.py; imported by lexical #10 sphinx/domains/javascript.py",
+        "reason": "imported by lexical #3 sphinx/builders/latex/__init__.py; imported by lexical #7 sphinx/ext/todo.py; imported by lexical #9 sphinx/domains/javascript.py",
         "relations": [
           {
             "seed": "sphinx/builders/latex/__init__.py",
@@ -52973,9 +52973,9 @@
           },
           {
             "seed": "sphinx/domains/javascript.py",
-            "seed_rank": 10,
+            "seed_rank": 9,
             "relation": "imported_by",
-            "weight": 0.007692
+            "weight": 0.008547
           },
           {
             "seed": "sphinx/application.py",
@@ -53120,10 +53120,10 @@
       {
         "file": "sphinx/domains/__init__.py",
         "rank": 32,
-        "score": 0.020254,
+        "score": 0.021108,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #7 sphinx/ext/todo.py; imported by lexical #10 sphinx/domains/javascript.py; imported by lexical #6 sphinx/application.py",
+        "reason": "imported by lexical #7 sphinx/ext/todo.py; imported by lexical #9 sphinx/domains/javascript.py; imported by lexical #6 sphinx/application.py",
         "relations": [
           {
             "seed": "sphinx/ext/todo.py",
@@ -53133,9 +53133,9 @@
           },
           {
             "seed": "sphinx/domains/javascript.py",
-            "seed_rank": 10,
+            "seed_rank": 9,
             "relation": "imported_by",
-            "weight": 0.007692
+            "weight": 0.008547
           },
           {
             "seed": "sphinx/application.py",
@@ -53532,16 +53532,16 @@
       {
         "file": "sphinx/domains/python.py",
         "rank": 54,
-        "score": 0.009265,
+        "score": 0.010119,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #10 sphinx/domains/javascript.py; imports lexical #6 sphinx/application.py",
+        "reason": "imported by lexical #9 sphinx/domains/javascript.py; imports lexical #6 sphinx/application.py",
         "relations": [
           {
             "seed": "sphinx/domains/javascript.py",
-            "seed_rank": 10,
+            "seed_rank": 9,
             "relation": "imported_by",
-            "weight": 0.007692
+            "weight": 0.008547
           },
           {
             "seed": "sphinx/application.py",
@@ -53554,16 +53554,16 @@
       {
         "file": "sphinx/directives/__init__.py",
         "rank": 55,
-        "score": 0.009265,
+        "score": 0.010119,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #10 sphinx/domains/javascript.py; imports lexical #6 sphinx/application.py",
+        "reason": "imported by lexical #9 sphinx/domains/javascript.py; imports lexical #6 sphinx/application.py",
         "relations": [
           {
             "seed": "sphinx/domains/javascript.py",
-            "seed_rank": 10,
+            "seed_rank": 9,
             "relation": "imported_by",
-            "weight": 0.007692
+            "weight": 0.008547
           },
           {
             "seed": "sphinx/application.py",
@@ -53576,16 +53576,16 @@
       {
         "file": "sphinx/roles.py",
         "rank": 56,
-        "score": 0.009265,
+        "score": 0.010119,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #10 sphinx/domains/javascript.py; imported by lexical #6 sphinx/application.py",
+        "reason": "imported by lexical #9 sphinx/domains/javascript.py; imported by lexical #6 sphinx/application.py",
         "relations": [
           {
             "seed": "sphinx/domains/javascript.py",
-            "seed_rank": 10,
+            "seed_rank": 9,
             "relation": "imported_by",
-            "weight": 0.007692
+            "weight": 0.008547
           },
           {
             "seed": "sphinx/application.py",
@@ -53598,16 +53598,16 @@
       {
         "file": "sphinx/util/docfields.py",
         "rank": 57,
-        "score": 0.007692,
+        "score": 0.008547,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #10 sphinx/domains/javascript.py",
+        "reason": "imported by lexical #9 sphinx/domains/javascript.py",
         "relations": [
           {
             "seed": "sphinx/domains/javascript.py",
-            "seed_rank": 10,
+            "seed_rank": 9,
             "relation": "imported_by",
-            "weight": 0.007692
+            "weight": 0.008547
           }
         ]
       },
@@ -54412,7 +54412,7 @@
         ]
       },
       {
-        "file": "sphinx/directives/code.py",
+        "file": "sphinx/domains/citation.py",
         "rank": 108,
         "score": 0.001572,
         "symbol": null,
@@ -54428,7 +54428,7 @@
         ]
       },
       {
-        "file": "sphinx/domains/citation.py",
+        "file": "sphinx/directives/code.py",
         "rank": 109,
         "score": 0.001572,
         "symbol": null,
@@ -57514,10 +57514,10 @@
       {
         "file": "src/_pytest/hookspec.py",
         "rank": 5,
-        "score": 0.010714,
+        "score": 0.007143,
         "symbol": null,
         "symbol_type": null,
-        "reason": "lexical seed #5; imports lexical #7 src/_pytest/outcomes.py; imports lexical #10 src/_pytest/fixtures.py",
+        "reason": "lexical seed #5; imports lexical #7 src/_pytest/outcomes.py",
         "relations": [
           {
             "seed": "src/_pytest/hookspec.py",
@@ -57530,12 +57530,6 @@
             "seed_rank": 7,
             "relation": "imports",
             "weight": 0.007143
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imports",
-            "weight": 0.003571
           }
         ]
       },
@@ -57558,7 +57552,7 @@
       {
         "file": "src/_pytest/outcomes.py",
         "rank": 7,
-        "score": 0.061759,
+        "score": 0.058188,
         "symbol": null,
         "symbol_type": null,
         "reason": "lexical seed #7; imported by lexical #3 src/_pytest/skipping.py; imported by lexical #5 src/_pytest/hookspec.py",
@@ -57586,19 +57580,13 @@
             "seed_rank": 8,
             "relation": "imported_by",
             "weight": 0.0125
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imported_by",
-            "weight": 0.003571
           }
         ]
       },
       {
         "file": "src/_pytest/mark/structures.py",
         "rank": 8,
-        "score": 0.041017,
+        "score": 0.037446,
         "symbol": null,
         "symbol_type": null,
         "reason": "lexical seed #8; imported by lexical #3 src/_pytest/skipping.py; imports lexical #7 src/_pytest/outcomes.py",
@@ -57620,17 +57608,11 @@
             "seed_rank": 7,
             "relation": "imports",
             "weight": 0.007143
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imports",
-            "weight": 0.003571
           }
         ]
       },
       {
-        "file": "testing/python/approx.py",
+        "file": "scripts/append_codecov_token.py",
         "rank": 9,
         "score": 0.0,
         "symbol": null,
@@ -57638,7 +57620,7 @@
         "reason": "lexical seed #9",
         "relations": [
           {
-            "seed": "testing/python/approx.py",
+            "seed": "scripts/append_codecov_token.py",
             "seed_rank": 9,
             "relation": "seed",
             "weight": 0.0
@@ -57646,52 +57628,28 @@
         ]
       },
       {
-        "file": "src/_pytest/fixtures.py",
+        "file": "testing/python/approx.py",
         "rank": 10,
-        "score": 0.058837,
+        "score": 0.0,
         "symbol": null,
         "symbol_type": null,
-        "reason": "lexical seed #10; imported by lexical #6 testing/python/collect.py; imported by lexical #5 src/_pytest/hookspec.py",
+        "reason": "lexical seed #10",
         "relations": [
           {
-            "seed": "src/_pytest/fixtures.py",
+            "seed": "testing/python/approx.py",
             "seed_rank": 10,
             "relation": "seed",
             "weight": 0.0
-          },
-          {
-            "seed": "testing/python/collect.py",
-            "seed_rank": 6,
-            "relation": "imported_by",
-            "weight": 0.02381
-          },
-          {
-            "seed": "src/_pytest/hookspec.py",
-            "seed_rank": 5,
-            "relation": "imported_by",
-            "weight": 0.015385
-          },
-          {
-            "seed": "src/_pytest/mark/structures.py",
-            "seed_rank": 8,
-            "relation": "imported_by",
-            "weight": 0.0125
-          },
-          {
-            "seed": "src/_pytest/outcomes.py",
-            "seed_rank": 7,
-            "relation": "imports",
-            "weight": 0.007143
           }
         ]
       },
       {
         "file": "src/pytest/__init__.py",
         "rank": 11,
-        "score": 0.675938,
+        "score": 0.661255,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #1 testing/test_doctest.py; imported by lexical #9 testing/python/approx.py; imported by lexical #2 testing/code/test_excinfo.py",
+        "reason": "imported by lexical #1 testing/test_doctest.py; imported by lexical #10 testing/python/approx.py; imported by lexical #2 testing/code/test_excinfo.py",
         "relations": [
           {
             "seed": "testing/test_doctest.py",
@@ -57701,9 +57659,9 @@
           },
           {
             "seed": "testing/python/approx.py",
-            "seed_rank": 9,
+            "seed_rank": 10,
             "relation": "imported_by",
-            "weight": 0.111111
+            "weight": 0.1
           },
           {
             "seed": "testing/code/test_excinfo.py",
@@ -57734,19 +57692,13 @@
             "seed_rank": 7,
             "relation": "imports",
             "weight": 0.007143
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imported_by",
-            "weight": 0.003571
           }
         ]
       },
       {
         "file": "src/_pytest/compat.py",
         "rank": 12,
-        "score": 0.485569,
+        "score": 0.481997,
         "symbol": null,
         "symbol_type": null,
         "reason": "imported by lexical #1 testing/test_doctest.py; imported by lexical #2 testing/code/test_excinfo.py; imported by lexical #3 src/_pytest/skipping.py",
@@ -57786,22 +57738,16 @@
             "seed_rank": 7,
             "relation": "imports",
             "weight": 0.007143
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imported_by",
-            "weight": 0.003571
           }
         ]
       },
       {
         "file": "src/_pytest/doctest.py",
         "rank": 13,
-        "score": 0.344048,
+        "score": 0.340476,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #1 testing/test_doctest.py; imports lexical #7 src/_pytest/outcomes.py; imports lexical #10 src/_pytest/fixtures.py",
+        "reason": "imported by lexical #1 testing/test_doctest.py; imports lexical #7 src/_pytest/outcomes.py",
         "relations": [
           {
             "seed": "testing/test_doctest.py",
@@ -57814,12 +57760,6 @@
             "seed_rank": 7,
             "relation": "imports",
             "weight": 0.007143
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imports",
-            "weight": 0.003571
           }
         ]
       },
@@ -57860,10 +57800,10 @@
       {
         "file": "src/_pytest/pytester.py",
         "rank": 15,
-        "score": 0.110714,
+        "score": 0.107143,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #2 testing/code/test_excinfo.py; imported by lexical #6 testing/python/collect.py; imports lexical #10 src/_pytest/fixtures.py",
+        "reason": "imported by lexical #2 testing/code/test_excinfo.py; imported by lexical #6 testing/python/collect.py",
         "relations": [
           {
             "seed": "testing/code/test_excinfo.py",
@@ -57876,22 +57816,16 @@
             "seed_rank": 6,
             "relation": "imported_by",
             "weight": 0.02381
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imports",
-            "weight": 0.003571
           }
         ]
       },
       {
         "file": "src/_pytest/_code/code.py",
         "rank": 16,
-        "score": 0.102289,
+        "score": 0.098718,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #2 testing/code/test_excinfo.py; imported by lexical #5 src/_pytest/hookspec.py; imported by lexical #10 src/_pytest/fixtures.py",
+        "reason": "imported by lexical #2 testing/code/test_excinfo.py; imported by lexical #5 src/_pytest/hookspec.py",
         "relations": [
           {
             "seed": "testing/code/test_excinfo.py",
@@ -57904,19 +57838,13 @@
             "seed_rank": 5,
             "relation": "imported_by",
             "weight": 0.015385
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imported_by",
-            "weight": 0.003571
           }
         ]
       },
       {
         "file": "src/_pytest/nodes.py",
         "rank": 17,
-        "score": 0.092711,
+        "score": 0.08914,
         "symbol": null,
         "symbol_type": null,
         "reason": "imported by lexical #3 src/_pytest/skipping.py; imported by lexical #6 testing/python/collect.py; imported by lexical #5 src/_pytest/hookspec.py",
@@ -57950,19 +57878,13 @@
             "seed_rank": 7,
             "relation": "imports",
             "weight": 0.007143
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imported_by",
-            "weight": 0.003571
           }
         ]
       },
       {
         "file": "src/_pytest/config/__init__.py",
         "rank": 18,
-        "score": 0.092711,
+        "score": 0.08914,
         "symbol": null,
         "symbol_type": null,
         "reason": "imported by lexical #3 src/_pytest/skipping.py; imported by lexical #6 testing/python/collect.py; imported by lexical #5 src/_pytest/hookspec.py",
@@ -57996,63 +57918,79 @@
             "seed_rank": 7,
             "relation": "imports",
             "weight": 0.007143
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imported_by",
-            "weight": 0.003571
           }
         ]
       },
       {
         "file": "src/_pytest/__init__.py",
         "rank": 19,
-        "score": 0.086905,
+        "score": 0.083333,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #2 testing/code/test_excinfo.py; imported by lexical #10 src/_pytest/fixtures.py",
+        "reason": "imported by lexical #2 testing/code/test_excinfo.py",
         "relations": [
           {
             "seed": "testing/code/test_excinfo.py",
             "seed_rank": 2,
             "relation": "imported_by",
             "weight": 0.083333
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imported_by",
-            "weight": 0.003571
           }
         ]
       },
       {
         "file": "src/_pytest/_io/__init__.py",
         "rank": 20,
-        "score": 0.086905,
+        "score": 0.083333,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #2 testing/code/test_excinfo.py; imported by lexical #10 src/_pytest/fixtures.py",
+        "reason": "imported by lexical #2 testing/code/test_excinfo.py",
         "relations": [
           {
             "seed": "testing/code/test_excinfo.py",
             "seed_rank": 2,
             "relation": "imported_by",
             "weight": 0.083333
+          }
+        ]
+      },
+      {
+        "file": "src/_pytest/fixtures.py",
+        "rank": 21,
+        "score": 0.058837,
+        "symbol": null,
+        "symbol_type": null,
+        "reason": "imported by lexical #6 testing/python/collect.py; imported by lexical #5 src/_pytest/hookspec.py; imported by lexical #8 src/_pytest/mark/structures.py",
+        "relations": [
+          {
+            "seed": "testing/python/collect.py",
+            "seed_rank": 6,
+            "relation": "imported_by",
+            "weight": 0.02381
           },
           {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
+            "seed": "src/_pytest/hookspec.py",
+            "seed_rank": 5,
             "relation": "imported_by",
-            "weight": 0.003571
+            "weight": 0.015385
+          },
+          {
+            "seed": "src/_pytest/mark/structures.py",
+            "seed_rank": 8,
+            "relation": "imported_by",
+            "weight": 0.0125
+          },
+          {
+            "seed": "src/_pytest/outcomes.py",
+            "seed_rank": 7,
+            "relation": "imports",
+            "weight": 0.007143
           }
         ]
       },
       {
         "file": "src/_pytest/python.py",
-        "rank": 21,
-        "score": 0.062408,
+        "rank": 22,
+        "score": 0.058837,
         "symbol": null,
         "symbol_type": null,
         "reason": "imported by lexical #6 testing/python/collect.py; imported by lexical #5 src/_pytest/hookspec.py; imports lexical #8 src/_pytest/mark/structures.py",
@@ -58080,18 +58018,12 @@
             "seed_rank": 7,
             "relation": "imports",
             "weight": 0.007143
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imported_by",
-            "weight": 0.003571
           }
         ]
       },
       {
         "file": "src/_pytest/reports.py",
-        "rank": 22,
+        "rank": 23,
         "score": 0.052831,
         "symbol": null,
         "symbol_type": null,
@@ -58119,11 +58051,11 @@
       },
       {
         "file": "src/_pytest/config/argparsing.py",
-        "rank": 23,
-        "score": 0.049259,
+        "rank": 24,
+        "score": 0.045688,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #3 src/_pytest/skipping.py; imported by lexical #5 src/_pytest/hookspec.py; imported by lexical #10 src/_pytest/fixtures.py",
+        "reason": "imported by lexical #3 src/_pytest/skipping.py; imported by lexical #5 src/_pytest/hookspec.py",
         "relations": [
           {
             "seed": "src/_pytest/skipping.py",
@@ -58136,22 +58068,16 @@
             "seed_rank": 5,
             "relation": "imported_by",
             "weight": 0.015385
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imported_by",
-            "weight": 0.003571
           }
         ]
       },
       {
         "file": "src/_pytest/unittest.py",
-        "rank": 24,
-        "score": 0.041017,
+        "rank": 25,
+        "score": 0.037446,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imports lexical #3 src/_pytest/skipping.py; imports lexical #7 src/_pytest/outcomes.py; imports lexical #10 src/_pytest/fixtures.py",
+        "reason": "imports lexical #3 src/_pytest/skipping.py; imports lexical #7 src/_pytest/outcomes.py",
         "relations": [
           {
             "seed": "src/_pytest/skipping.py",
@@ -58164,22 +58090,16 @@
             "seed_rank": 7,
             "relation": "imports",
             "weight": 0.007143
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imports",
-            "weight": 0.003571
           }
         ]
       },
       {
         "file": "src/_pytest/_code/__init__.py",
-        "rank": 25,
-        "score": 0.039881,
+        "rank": 26,
+        "score": 0.03631,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #6 testing/python/collect.py; imported by lexical #8 src/_pytest/mark/structures.py; imported by lexical #10 src/_pytest/fixtures.py",
+        "reason": "imported by lexical #6 testing/python/collect.py; imported by lexical #8 src/_pytest/mark/structures.py",
         "relations": [
           {
             "seed": "testing/python/collect.py",
@@ -58192,18 +58112,12 @@
             "seed_rank": 8,
             "relation": "imported_by",
             "weight": 0.0125
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imported_by",
-            "weight": 0.003571
           }
         ]
       },
       {
         "file": "src/_pytest/store.py",
-        "rank": 26,
+        "rank": 27,
         "score": 0.030303,
         "symbol": null,
         "symbol_type": null,
@@ -58219,11 +58133,11 @@
       },
       {
         "file": "src/_pytest/main.py",
-        "rank": 27,
-        "score": 0.026099,
+        "rank": 28,
+        "score": 0.022527,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #5 src/_pytest/hookspec.py; imports lexical #7 src/_pytest/outcomes.py; imported by lexical #10 src/_pytest/fixtures.py",
+        "reason": "imported by lexical #5 src/_pytest/hookspec.py; imports lexical #7 src/_pytest/outcomes.py",
         "relations": [
           {
             "seed": "src/_pytest/hookspec.py",
@@ -58236,61 +58150,27 @@
             "seed_rank": 7,
             "relation": "imports",
             "weight": 0.007143
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imported_by",
-            "weight": 0.003571
           }
         ]
       },
       {
-        "file": "src/_pytest/deprecated.py",
-        "rank": 28,
-        "score": 0.018956,
+        "file": "src/_pytest/terminal.py",
+        "rank": 29,
+        "score": 0.015385,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imported by lexical #5 src/_pytest/hookspec.py; imported by lexical #10 src/_pytest/fixtures.py",
+        "reason": "imported by lexical #5 src/_pytest/hookspec.py",
         "relations": [
           {
             "seed": "src/_pytest/hookspec.py",
             "seed_rank": 5,
             "relation": "imported_by",
             "weight": 0.015385
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imported_by",
-            "weight": 0.003571
           }
         ]
       },
       {
-        "file": "src/_pytest/mark/__init__.py",
-        "rank": 29,
-        "score": 0.016071,
-        "symbol": null,
-        "symbol_type": null,
-        "reason": "imports lexical #8 src/_pytest/mark/structures.py; imported by lexical #10 src/_pytest/fixtures.py",
-        "relations": [
-          {
-            "seed": "src/_pytest/mark/structures.py",
-            "seed_rank": 8,
-            "relation": "imports",
-            "weight": 0.0125
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imported_by",
-            "weight": 0.003571
-          }
-        ]
-      },
-      {
-        "file": "src/_pytest/terminal.py",
+        "file": "src/_pytest/deprecated.py",
         "rank": 30,
         "score": 0.015385,
         "symbol": null,
@@ -58306,8 +58186,24 @@
         ]
       },
       {
-        "file": "src/_pytest/warning_types.py",
+        "file": "src/_pytest/mark/__init__.py",
         "rank": 31,
+        "score": 0.0125,
+        "symbol": null,
+        "symbol_type": null,
+        "reason": "imports lexical #8 src/_pytest/mark/structures.py",
+        "relations": [
+          {
+            "seed": "src/_pytest/mark/structures.py",
+            "seed_rank": 8,
+            "relation": "imports",
+            "weight": 0.0125
+          }
+        ]
+      },
+      {
+        "file": "src/_pytest/warning_types.py",
+        "rank": 32,
         "score": 0.0125,
         "symbol": null,
         "symbol_type": null,
@@ -58318,28 +58214,6 @@
             "seed_rank": 8,
             "relation": "imported_by",
             "weight": 0.0125
-          }
-        ]
-      },
-      {
-        "file": "src/_pytest/recwarn.py",
-        "rank": 32,
-        "score": 0.010714,
-        "symbol": null,
-        "symbol_type": null,
-        "reason": "imports lexical #7 src/_pytest/outcomes.py; imports lexical #10 src/_pytest/fixtures.py",
-        "relations": [
-          {
-            "seed": "src/_pytest/outcomes.py",
-            "seed_rank": 7,
-            "relation": "imports",
-            "weight": 0.007143
-          },
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imports",
-            "weight": 0.003571
           }
         ]
       },
@@ -58424,130 +58298,18 @@
         ]
       },
       {
-        "file": "src/_pytest/capture.py",
+        "file": "src/_pytest/recwarn.py",
         "rank": 38,
-        "score": 0.003571,
+        "score": 0.007143,
         "symbol": null,
         "symbol_type": null,
-        "reason": "imports lexical #10 src/_pytest/fixtures.py",
+        "reason": "imports lexical #7 src/_pytest/outcomes.py",
         "relations": [
           {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
+            "seed": "src/_pytest/outcomes.py",
+            "seed_rank": 7,
             "relation": "imports",
-            "weight": 0.003571
-          }
-        ]
-      },
-      {
-        "file": "src/_pytest/cacheprovider.py",
-        "rank": 39,
-        "score": 0.003571,
-        "symbol": null,
-        "symbol_type": null,
-        "reason": "imports lexical #10 src/_pytest/fixtures.py",
-        "relations": [
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imports",
-            "weight": 0.003571
-          }
-        ]
-      },
-      {
-        "file": "src/_pytest/junitxml.py",
-        "rank": 40,
-        "score": 0.003571,
-        "symbol": null,
-        "symbol_type": null,
-        "reason": "imports lexical #10 src/_pytest/fixtures.py",
-        "relations": [
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imports",
-            "weight": 0.003571
-          }
-        ]
-      },
-      {
-        "file": "src/_pytest/monkeypatch.py",
-        "rank": 41,
-        "score": 0.003571,
-        "symbol": null,
-        "symbol_type": null,
-        "reason": "imports lexical #10 src/_pytest/fixtures.py",
-        "relations": [
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imports",
-            "weight": 0.003571
-          }
-        ]
-      },
-      {
-        "file": "src/_pytest/tmpdir.py",
-        "rank": 42,
-        "score": 0.003571,
-        "symbol": null,
-        "symbol_type": null,
-        "reason": "imports lexical #10 src/_pytest/fixtures.py",
-        "relations": [
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imports",
-            "weight": 0.003571
-          }
-        ]
-      },
-      {
-        "file": "src/_pytest/logging.py",
-        "rank": 43,
-        "score": 0.003571,
-        "symbol": null,
-        "symbol_type": null,
-        "reason": "imports lexical #10 src/_pytest/fixtures.py",
-        "relations": [
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imports",
-            "weight": 0.003571
-          }
-        ]
-      },
-      {
-        "file": "src/_pytest/setuponly.py",
-        "rank": 44,
-        "score": 0.003571,
-        "symbol": null,
-        "symbol_type": null,
-        "reason": "imports lexical #10 src/_pytest/fixtures.py",
-        "relations": [
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imports",
-            "weight": 0.003571
-          }
-        ]
-      },
-      {
-        "file": "src/_pytest/setupplan.py",
-        "rank": 45,
-        "score": 0.003571,
-        "symbol": null,
-        "symbol_type": null,
-        "reason": "imports lexical #10 src/_pytest/fixtures.py",
-        "relations": [
-          {
-            "seed": "src/_pytest/fixtures.py",
-            "seed_rank": 10,
-            "relation": "imports",
-            "weight": 0.003571
+            "weight": 0.007143
           }
         ]
       }
