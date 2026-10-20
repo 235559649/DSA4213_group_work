@@ -47,13 +47,17 @@ class FailureAnalysis:
         list, meaning preserve the existing context, not clear it. Delivery and
         UpdateGate acknowledgement remain the caller's responsibility.
 
-        Handoff (after Role 1/3 modules are integrated)::
+        Handoff using the current shared main interfaces::
 
+            from src.agent.contracts import LocalizationCandidate
+            from src.localization.ranker import fuse_condition_d_for_agent
             failure = result.to_localization_candidates()
-            # Role 3: fuse L, S and failure with fuse_condition_d(...).
-            # Its output uses rrf_score, so convert to score at its boundary.
-            # Role 1: for this runtime list alone, the contract is:
-            objects = [LocalizationCandidate(**item) for item in failure]
+            records = fuse_condition_d_for_agent(lexical, structural, failure)
+            objects = [LocalizationCandidate(**item) for item in records]
+
+        The shared agent-facing fusion already exports score; do not manually
+        convert rrf_score here. Gate eligibility must be checked before an
+        attempted update. If ineligible, preserve the current delivered context.
 
         Keep complete rankings for evaluation; selecting context top-k belongs
         to the context producer, not this evidence export.
@@ -86,6 +90,13 @@ def analyze_failure(
 
     Caller must establish failure from execution status and confirm that index
     lines match the workspace. False index_is_current suppresses all candidates.
+    With schema 4, the caller can prepare a current index using
+    ``base_index.with_updated_files(changes)`` before this call. When starting
+    from the base index, changes must include ALL modifications since the base,
+    including new paths and deleted paths (None). The index and workspace_version
+    must describe the state that produced this failure, before any later edit.
+    Freshness is a caller assertion; this function does not read the workspace
+    or silently refresh an index. Unparseable/deleted files stay unmapped.
     No file reads, command execution, model calls or reference labels are used.
     """
     parsed = parse_traceback(output)
