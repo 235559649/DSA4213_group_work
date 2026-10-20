@@ -223,3 +223,20 @@ __marimo__/
 results/bm25_evaluation.csv
 scripts/evaluate_bm25.py
 results/bm25_summary.csv
+
+.venv/
+*.pyc
+.idea/
+.DS_Store
+
+# Python
+*.py[cod]
+
+
+# Secrets
+
+# IDE
+.vscode/
+
+# Local agent runs
+runs/
