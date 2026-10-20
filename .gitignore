@@ -217,4 +217,19 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-.idea
+.venv/
+*.pyc
+.idea/
+.DS_Store
+
+# Python
+*.py[cod]
+
+
+# Secrets
+
+# IDE
+.vscode/
+
+# Local agent runs
+runs/
