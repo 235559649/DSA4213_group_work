@@ -79,3 +79,9 @@ def test_failure_event_schema():
         event.traceback_files[0]
         == "src/parser.py"
     )
+
+def test_index_record_is_the_shared_definition():
+    from src.agent.contracts import IndexRecord as ContractRecord
+    from src.repository.models import IndexRecord
+
+    assert ContractRecord is IndexRecord
