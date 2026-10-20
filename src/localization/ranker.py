@@ -101,3 +101,42 @@ def fuse_condition_d(
         rankings.append(failure_ranking)
 
     return reciprocal_rank_fusion(rankings, k=k)
+
+def to_agent_candidates(
+    fused_ranking: Sequence[Mapping[str, Any]],
+    reason: str,
+) -> list[dict[str, Any]]:
+    """Convert a complete RRF ranking to Role 3's six-field agent contract."""
+    return [
+        {
+            "file": item["file"],
+            "rank": item["rank"],
+            "score": item["rrf_score"],
+            "symbol": None,
+            "symbol_type": None,
+            "reason": reason,
+        }
+        for item in fused_ranking
+    ]
+
+
+def fuse_condition_c_for_agent(
+    lexical_ranking: Sequence[Mapping[str, Any]],
+    structural_ranking: Sequence[Mapping[str, Any]],
+    k: int = RRF_K,
+) -> list[dict[str, Any]]:
+    """Condition C complete ranking in the agreed agent-facing format."""
+    fused = fuse_condition_c(lexical_ranking, structural_ranking, k=k)
+    return to_agent_candidates(fused, reason="RRF(L,S)")
+
+
+def fuse_condition_d_for_agent(
+    lexical_ranking: Sequence[Mapping[str, Any]],
+    structural_ranking: Sequence[Mapping[str, Any]],
+    failure_ranking: Sequence[Mapping[str, Any]] | None = None,
+    k: int = RRF_K,
+) -> list[dict[str, Any]]:
+    """Condition D complete ranking; empty F falls back to Condition C."""
+    fused = fuse_condition_d(lexical_ranking, structural_ranking, failure_ranking, k=k)
+    reason = "RRF(L,S,F)" if failure_ranking else "RRF(L,S)"
+    return to_agent_candidates(fused, reason=reason)
