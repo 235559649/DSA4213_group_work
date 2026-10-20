@@ -96,15 +96,21 @@ def is_test_path(path: str) -> bool:
 
 @dataclass(frozen=True)
 class ImportStatement:
-    """One import, with relative imports already made absolute.
+    """One import statement as written; relative ones are resolved later.
 
     `import a.b` -> ImportStatement("a.b", ())
     `from a.b import c, d` -> ImportStatement("a.b", ("c", "d"))
-    `from . import x` in package `shop` -> ImportStatement("shop", ("x",))
+    `from ..x import y` -> ImportStatement("x", ("y",), level=2)
+    `from . import x` -> ImportStatement("", ("x",), level=1)
+
+    Relative imports depend on which directories are packages, which can
+    change when files are added or removed, so `resolve_imports` resolves
+    them against the whole repository at build time.
     """
 
     module: str
     names: tuple[str, ...]
+    level: int = 0  # 0 for absolute imports, otherwise the number of leading dots
 
 
 @dataclass(frozen=True)
@@ -167,7 +173,6 @@ class _Collector:
             self.lines.pop()
         self.path = path
         self.module = module
-        self.is_package = path == "__init__.py" or path.endswith("/__init__.py")
         self.is_test = is_test_path(path)
         self.max_text_chars = max_text_chars
         self.records: list[IndexRecord] = []
@@ -218,22 +223,9 @@ class _Collector:
         if isinstance(node, ast.Import):
             self.imports.extend(ImportStatement(alias.name, ()) for alias in node.names)
             return
-
         names = tuple(alias.name for alias in node.names)
-        if node.level == 0:
-            if node.module:
-                self.imports.append(ImportStatement(node.module, names))
-            return
-
-        # Relative import: level 1 is the current package, each extra level one up.
-        package = self.module.split(".") if self.is_package else self.module.split(".")[:-1]
-        package = [part for part in package if part]
-        up = node.level - 1
-        if up > len(package):
-            return  # beyond the top-level package; Python would fail too
-        base = package[: len(package) - up] + (node.module.split(".") if node.module else [])
-        if base:
-            self.imports.append(ImportStatement(".".join(base), names))
+        if node.level or node.module:
+            self.imports.append(ImportStatement(node.module or "", names, node.level))
 
     def _add_definition(self, node, parent_id: str, prefix: str, in_class: bool) -> None:
         symbol = f"{prefix}{node.name}"
