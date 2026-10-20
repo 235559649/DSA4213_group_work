@@ -96,7 +96,7 @@ def main() -> None:
             })
 
     json_path = Path("experiments/bm25_results.json")
-json_path.parent.mkdir(parents=True, exist_ok=True)
+    json_path.parent.mkdir(parents=True, exist_ok=True)
     with json_path.open("w", encoding="utf-8") as handle:
         json.dump(all_results, handle, indent=2, ensure_ascii=False)
 

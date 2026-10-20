@@ -1,0 +1,10 @@
+[
+  {
+    "file": "src/marshmallow/fields.py",
+    "rank": 1,
+    "score": 1.0,
+    "symbol": "DateTime",
+    "symbol_type": "class",
+    "reason": "Phase 3 integration smoke-test candidate"
+  }
+]
