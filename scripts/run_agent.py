@@ -413,7 +413,6 @@ def main() -> None:
 
         candidates = load_candidates(
             args.candidates,
-            instance_id=instance_id,
         )
 
         prompt_candidates = (
@@ -461,7 +460,8 @@ def main() -> None:
         )
 
         candidates = load_candidates(
-            args.candidates
+            args.candidates,
+            instance_id=instance_id,
         )
 
         runner = SWEbenchRunner(
