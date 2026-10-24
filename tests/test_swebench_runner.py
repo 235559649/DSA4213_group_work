@@ -6,6 +6,27 @@ from src.agent.swebench_runner import (
 )
 
 import json
+import src.agent.swebench_runner as swebench_runner_module
+
+class FakeRepositoryIndex:
+    files = [
+        "src/a.py",
+        "src/b.py",
+    ]
+
+    records = [
+        object(),
+        object(),
+        object(),
+    ]
+
+    errors = []
+
+    metadata = {
+        "repo": "owner/repo",
+        "commit": "abc123",
+        "index_sha256": "index-sha",
+    }
 
 def test_extract_patch_from_submission():
     trajectory = {
@@ -270,6 +291,11 @@ def test_run_preserves_full_ranking_and_prompt_top_k(
                     submission,
             }
 
+    monkeypatch.setattr(
+        swebench_runner_module,
+        "build_task_index",
+        lambda instance_id: FakeRepositoryIndex(),
+    )
     runner = SWEbenchRunner(
         output_root=(
             tmp_path
@@ -388,3 +414,71 @@ def test_run_preserves_full_ranking_and_prompt_top_k(
 
     assert result.usage.api_calls == 0
     assert result.usage.cost_usd == 0
+
+    assert (
+        result.config[
+            "repository_index"
+        ]
+        == {
+            "instance_id": "task-a",
+            "repo": "owner/repo",
+            "base_commit": "abc123",
+            "index_sha256": "index-sha",
+            "file_count": 2,
+            "record_count": 3,
+            "error_count": 0,
+        }
+    )
+
+def test_repository_index_metadata(
+    tmp_path,
+    monkeypatch,
+):
+    class FakeIndex:
+        files = [
+            "src/a.py",
+            "src/b.py",
+        ]
+
+        records = [
+            object(),
+            object(),
+            object(),
+        ]
+
+        errors = []
+
+        metadata = {
+            "repo": "owner/repo",
+            "commit": "abc123",
+            "index_sha256": "sha256-test",
+        }
+
+    monkeypatch.setattr(
+        swebench_runner_module,
+        "build_task_index",
+        lambda instance_id: FakeIndex(),
+    )
+
+    runner = SWEbenchRunner(
+        output_root=(
+            tmp_path
+            / "runs"
+        )
+    )
+
+    metadata = (
+        runner._build_repository_index_metadata(
+            "task-a"
+        )
+    )
+
+    assert metadata == {
+        "instance_id": "task-a",
+        "repo": "owner/repo",
+        "base_commit": "abc123",
+        "index_sha256": "sha256-test",
+        "file_count": 2,
+        "record_count": 3,
+        "error_count": 0,
+    }

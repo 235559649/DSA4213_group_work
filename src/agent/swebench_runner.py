@@ -32,6 +32,8 @@ from src.agent.contracts import (
     RunUsage,
 )
 
+from src.repository.swebench import build_task_index
+
 
 class SWEbenchRunner:
     """
@@ -65,6 +67,25 @@ class SWEbenchRunner:
         self.subset = subset
         self.split = split
         self.output_root = Path(output_root)
+
+
+    def _build_repository_index_metadata(
+        self,
+        instance_id: str,
+    ) -> dict:
+        index = build_task_index(instance_id)
+
+        return {
+            "instance_id": instance_id,
+            "repo": index.metadata.get("repo"),
+            "base_commit": index.metadata.get("commit"),
+            "index_sha256": index.metadata.get(
+                "index_sha256"
+            ),
+            "file_count": len(index.files),
+            "record_count": len(index.records),
+            "error_count": len(index.errors),
+        }
 
     @staticmethod
     def _load_json(
@@ -375,6 +396,12 @@ class SWEbenchRunner:
         original_task = (
             metadata.get(
                 "problem_statement"
+            )
+        )
+
+        repository_index_metadata = (
+            self._build_repository_index_metadata(
+                instance_id
             )
         )
 
@@ -820,6 +847,9 @@ class SWEbenchRunner:
 
                 "model_class":
                     self.model_class,
+
+                "repository_index":
+                    repository_index_metadata,
 
                 "localization_source":
                     {
