@@ -5,21 +5,15 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
 
+from src.repository.models import IndexRecord
 
-@dataclass(frozen=True)
-class IndexRecord:
-    """
-    Shared repository-index record.
-
-    Mainly produced by Role 2.
-    """
-    path: str
-    symbol: str | None
-    symbol_type: str
-    start_line: int | None
-    end_line: int | None
-    retrieval_text: str = ""
-
+__all__ = [
+    "IndexRecord",
+    "LocalizationCandidate",
+    "FailureEvent",
+    "RunUsage",
+    "RunResult",
+]
 
 @dataclass(frozen=True)
 class LocalizationCandidate:

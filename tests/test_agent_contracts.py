@@ -170,3 +170,16 @@ def test_prompt_candidates_reject_invalid_top_k():
         raise AssertionError(
             "top_k=0 should be rejected."
         )
+
+def test_index_record_is_shared_definition():
+    from src.agent.contracts import (
+        IndexRecord as AgentIndexRecord,
+    )
+    from src.repository.models import (
+        IndexRecord as RepositoryIndexRecord,
+    )
+
+    assert (
+        AgentIndexRecord
+        is RepositoryIndexRecord
+    )
