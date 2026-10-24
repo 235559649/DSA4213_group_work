@@ -233,3 +233,6 @@ __marimo__/
 
 # Local agent runs
 runs/
+
+# SWE-bench evaluation artifacts
+logs/
