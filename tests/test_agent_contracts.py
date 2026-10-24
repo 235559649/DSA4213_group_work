@@ -7,6 +7,12 @@ from src.agent.contracts import (
     LocalizationCandidate,
 )
 
+from src.agent.context import (
+    augment_task_with_localization,
+    format_localization_context,
+    select_prompt_candidates,
+)
+
 
 def test_localization_context_format():
     candidates = [
@@ -79,3 +85,88 @@ def test_failure_event_schema():
         event.traceback_files[0]
         == "src/parser.py"
     )
+
+def test_prompt_candidates_respect_top_k():
+    candidates = [
+        LocalizationCandidate(
+            file="src/c.py",
+            rank=3,
+            score=0.3,
+        ),
+        LocalizationCandidate(
+            file="src/a.py",
+            rank=1,
+            score=0.9,
+        ),
+        LocalizationCandidate(
+            file="src/b.py",
+            rank=2,
+            score=0.6,
+        ),
+    ]
+
+    from src.agent.context import (
+        select_prompt_candidates,
+    )
+
+    result = select_prompt_candidates(
+        candidates,
+        top_k=2,
+    )
+
+    assert [
+        candidate.file
+        for candidate in result
+    ] == [
+        "src/a.py",
+        "src/b.py",
+    ]
+
+
+def test_prompt_candidates_none_keeps_all():
+    candidates = [
+        LocalizationCandidate(
+            file="src/a.py",
+            rank=1,
+            score=0.9,
+        ),
+        LocalizationCandidate(
+            file="src/b.py",
+            rank=2,
+            score=0.6,
+        ),
+    ]
+
+    from src.agent.context import (
+        select_prompt_candidates,
+    )
+
+    result = select_prompt_candidates(
+        candidates,
+        top_k=None,
+    )
+
+    assert len(result) == 2
+
+
+def test_prompt_candidates_reject_invalid_top_k():
+    from src.agent.context import (
+        select_prompt_candidates,
+    )
+
+    try:
+        select_prompt_candidates(
+            [],
+            top_k=0,
+        )
+
+    except ValueError as exc:
+        assert (
+            "positive integer"
+            in str(exc)
+        )
+
+    else:
+        raise AssertionError(
+            "top_k=0 should be rejected."
+        )

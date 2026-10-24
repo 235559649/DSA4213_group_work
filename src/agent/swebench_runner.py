@@ -24,6 +24,7 @@ from minisweagent.utils.serialize import (
 
 from src.agent.context import (
     augment_task_with_localization,
+    select_prompt_candidates,
 )
 from src.agent.contracts import (
     LocalizationCandidate,
@@ -329,6 +330,7 @@ class SWEbenchRunner:
         localization_candidates: (
             list[LocalizationCandidate] | None
         ) = None,
+        localization_top_k: int | None = None,
     ) -> RunResult:
         """
         Execute one SWE-bench instance.
@@ -382,12 +384,28 @@ class SWEbenchRunner:
                 "contain problem_statement"
             )
 
+        full_candidates = list(
+            localization_candidates
+            or []
+        )
+
+        if condition == "A":
+            prompt_candidates = []
+
+        else:
+            prompt_candidates = (
+                select_prompt_candidates(
+                    full_candidates,
+                    localization_top_k,
+                )
+            )
+
         effective_task = (
             self.build_effective_task(
                 task=original_task,
                 condition=condition,
                 localization_candidates=(
-                    localization_candidates
+                    prompt_candidates
                 ),
             )
         )
@@ -438,6 +456,11 @@ class SWEbenchRunner:
             / "localization_candidates.json"
         )
 
+        prompt_candidates_path = (
+            run_dir
+            / "prompt_candidates.json"
+        )
+
         # Save the frozen task metadata.
         task_metadata_path.write_text(
             json.dumps(
@@ -470,15 +493,39 @@ class SWEbenchRunner:
                 "reason":
                     candidate.reason,
             }
-            for candidate in (
-                localization_candidates
-                or []
-            )
+            for candidate in full_candidates
         ]
 
         candidates_path.write_text(
             json.dumps(
                 candidate_records,
+                indent=2,
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
+        prompt_candidate_records = [
+            {
+                "file":
+                    candidate.file,
+                "rank":
+                    candidate.rank,
+                "score":
+                    candidate.score,
+                "symbol":
+                    candidate.symbol,
+                "symbol_type":
+                    candidate.symbol_type,
+                "reason":
+                    candidate.reason,
+            }
+            for candidate in prompt_candidates
+        ]
+
+        prompt_candidates_path.write_text(
+            json.dumps(
+                prompt_candidate_records,
                 indent=2,
                 ensure_ascii=False,
             ),
@@ -502,9 +549,20 @@ class SWEbenchRunner:
             f"{run_dir}"
         )
         print(
-            "localization candidates: "
+            "full localization ranking: "
             f"{len(candidate_records)}"
         )
+
+        print(
+            "prompt localization candidates: "
+            f"{len(prompt_candidate_records)}"
+        )
+
+        print(
+            "localization top_k: "
+            f"{localization_top_k}"
+        )
+
         print()
 
         started = time.time()
@@ -763,6 +821,46 @@ class SWEbenchRunner:
                 "model_class":
                     self.model_class,
 
+                "localization_source":
+                    {
+                        "A": None,
+                        "B": "bm25",
+                        "C": "rrf_l_s",
+                        "D": "rrf_l_s_f",
+                    }.get(condition),
+                "localization_candidate_count":
+                    len(
+                        candidate_records
+                    ),
+
+                "localization_full_ranking_size":
+                    len(
+                        candidate_records
+                    ),
+
+                "localization_top_k":
+                    localization_top_k,
+
+                "localization_prompt_candidate_count":
+                    len(
+                        prompt_candidate_records
+                    ),
+
+                "effective_task_path":
+                    str(
+                        effective_task_path
+                    ),
+
+                "localization_candidates_path":
+                    str(
+                        candidates_path
+                    ),
+
+                "prompt_candidates_path":
+                    str(
+                        prompt_candidates_path
+                    ),
+
                 "step_limit":
                     agent_config.get(
                         "step_limit"
@@ -803,7 +901,6 @@ class SWEbenchRunner:
                         candidates_path
                     ),
             },
-
             evaluation={
                 "agent_run_completed":
                     error is None,
