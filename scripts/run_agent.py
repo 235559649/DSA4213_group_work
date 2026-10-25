@@ -28,24 +28,51 @@ from src.agent.swebench_runner import (  # noqa: E402
     SWEbenchRunner,
 )
 
+from src.agent.context import (  # noqa: E402
+    select_prompt_candidates,
+)
+
 
 def load_candidates(
     path: str | None,
+    *,
+    instance_id: str | None = None,
 ) -> list[LocalizationCandidate]:
     """
-    Load localization candidates from a JSON file.
+    Load localization candidates from JSON.
 
-    Expected format:
-    [
-        {
-            "file": "src/example.py",
-            "rank": 1,
-            "score": 0.9,
-            "symbol": "Example",
-            "symbol_type": "class",
-            "reason": "BM25"
-        }
-    ]
+    Supported formats:
+
+    1. Role 1 canonical format:
+       {
+           "file": "...",
+           "rank": 1,
+           "score": 0.9
+       }
+
+    2. Role 3 BM25 format:
+       {
+           "path": "...",
+           "rank": 1,
+           "bm25_score": 12.3
+       }
+
+    3. Role 3 RRF format:
+       {
+           "file": "...",
+           "rank": 1,
+           "rrf_score": 0.03
+       }
+
+    The file may contain either a flat ranking list or
+    Role 3's batch format:
+
+       [
+           {
+               "instance_id": "...",
+               "ranked_files": [...]
+           }
+       ]
     """
 
     if not path:
@@ -75,12 +102,150 @@ def load_candidates(
             "a JSON list."
         )
 
-    return [
-        LocalizationCandidate(
-            **item
+    # ---------------------------------------------------------
+    # Role 3 batch output
+    # ---------------------------------------------------------
+
+    if (
+        data
+        and isinstance(data[0], dict)
+        and "instance_id" in data[0]
+        and "ranked_files" in data[0]
+    ):
+        if not instance_id:
+            raise ValueError(
+                "instance_id is required when "
+                "loading a batch ranking file."
+            )
+
+        matching = [
+            item
+            for item in data
+            if item.get("instance_id")
+            == instance_id
+        ]
+
+        if not matching:
+            raise ValueError(
+                "No ranking found for "
+                f"instance_id={instance_id!r}."
+            )
+
+        if len(matching) > 1:
+            raise ValueError(
+                "Multiple rankings found for "
+                f"instance_id={instance_id!r}."
+            )
+
+        data = matching[0].get(
+            "ranked_files",
+            [],
         )
-        for item in data
-    ]
+
+    # ---------------------------------------------------------
+    # Normalize external schemas into Role 1's contract
+    # ---------------------------------------------------------
+
+    candidates: list[
+        LocalizationCandidate
+    ] = []
+
+    for item in data:
+        if not isinstance(
+            item,
+            dict,
+        ):
+            raise ValueError(
+                "Each localization candidate "
+                "must be a JSON object."
+            )
+
+        rank = item.get(
+            "rank"
+        )
+
+        if rank is None:
+            raise ValueError(
+                "Localization candidate "
+                "is missing rank."
+            )
+
+        # Role 1 canonical format.
+        if (
+            "file" in item
+            and "score" in item
+        ):
+            candidate = (
+                LocalizationCandidate(
+                    file=item["file"],
+                    rank=rank,
+                    score=item["score"],
+                    symbol=item.get(
+                        "symbol"
+                    ),
+                    symbol_type=item.get(
+                        "symbol_type"
+                    ),
+                    reason=item.get(
+                        "reason",
+                        "",
+                    ),
+                )
+            )
+
+        # Role 3 BM25 output.
+        elif (
+            "path" in item
+            and "bm25_score" in item
+        ):
+            candidate = (
+                LocalizationCandidate(
+                    file=item["path"],
+                    rank=rank,
+                    score=item[
+                        "bm25_score"
+                    ],
+                    symbol=None,
+                    symbol_type=None,
+                    reason="BM25",
+                )
+            )
+
+        # Role 3 RRF output.
+        elif (
+            "file" in item
+            and "rrf_score" in item
+        ):
+            candidate = (
+                LocalizationCandidate(
+                    file=item["file"],
+                    rank=rank,
+                    score=item[
+                        "rrf_score"
+                    ],
+                    symbol=None,
+                    symbol_type=None,
+                    reason="RRF",
+                )
+            )
+
+        else:
+            raise ValueError(
+                "Unsupported localization "
+                "candidate schema."
+            )
+
+        candidates.append(
+            candidate
+        )
+
+    return sorted(
+        candidates,
+        key=lambda candidate: (
+            candidate.rank,
+            candidate.file,
+        ),
+    )
 
 
 def require(
@@ -163,6 +328,16 @@ def main() -> None:
             "Required for Conditions B/C."
         ),
     )
+    parser.add_argument(
+        "--localization-top-k",
+        type=int,
+        default=None,
+        help=(
+            "Number of ranked localization "
+            "candidates exposed to the model. "
+            "Required for Conditions B/C."
+        ),
+    )
 
     # ---------------------------------------------------------
     # SWE-bench mode
@@ -184,6 +359,33 @@ def main() -> None:
     )
 
     args = parser.parse_args()
+
+    if (
+        args.condition in {"B", "C"}
+        and not args.candidates
+    ):
+        parser.error(
+            "--candidates is required "
+            "for Conditions B/C."
+        )
+
+    if (
+        args.condition in {"B", "C"}
+        and args.localization_top_k is None
+    ):
+        parser.error(
+            "--localization-top-k is required "
+            "for Conditions B/C."
+        )
+
+    if (
+        args.localization_top_k is not None
+        and args.localization_top_k <= 0
+    ):
+        parser.error(
+            "--localization-top-k must be "
+            "a positive integer."
+        )
 
     # =========================================================
     # Local benchmark
@@ -210,7 +412,16 @@ def main() -> None:
         )
 
         candidates = load_candidates(
-            args.candidates
+            args.candidates,
+        )
+
+        prompt_candidates = (
+            select_prompt_candidates(
+                candidates,
+                args.localization_top_k,
+            )
+            if args.condition in {"B", "C"}
+            else []
         )
 
         runner = MiniSWEWrapper(
@@ -223,7 +434,7 @@ def main() -> None:
             repo_path=repo,
             condition=args.condition,
             localization_candidates=(
-                candidates
+                prompt_candidates
             ),
             verify_command=(
                 args.verify_cmd
@@ -249,7 +460,8 @@ def main() -> None:
         )
 
         candidates = load_candidates(
-            args.candidates
+            args.candidates,
+            instance_id=instance_id,
         )
 
         runner = SWEbenchRunner(
@@ -262,6 +474,9 @@ def main() -> None:
             condition=args.condition,
             localization_candidates=(
                 candidates
+            ),
+            localization_top_k=(
+                args.localization_top_k
             ),
         )
 

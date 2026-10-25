@@ -240,3 +240,6 @@ results/bm25_summary.csv
 
 # Local agent runs
 runs/
+
+# SWE-bench evaluation artifacts
+logs/

@@ -5,12 +5,15 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
 
-# Shared repository-index record, produced by Role 2. Defined once in
-# src/repository/models.py and re-exported here, so both modules always agree.
 from src.repository.models import IndexRecord
 
-__all__ = ["IndexRecord", "LocalizationCandidate", "FailureEvent", "RunUsage", "RunResult"]
-
+__all__ = [
+    "IndexRecord",
+    "LocalizationCandidate",
+    "FailureEvent",
+    "RunUsage",
+    "RunResult",
+]
 
 @dataclass(frozen=True)
 class LocalizationCandidate:
