@@ -33,6 +33,7 @@ from src.agent.contracts import (
 )
 
 from src.repository.swebench import build_task_index
+from src.agent.failure_feedback import FailureFeedbackController, RemoteSourceReader
 
 
 class SWEbenchRunner:
@@ -42,7 +43,7 @@ class SWEbenchRunner:
     Responsibilities:
     - run a frozen SWE-bench instance through mini-SWE-agent
     - use the official Docker benchmark environment
-    - support controlled A/B/C task-context conditions
+    - support controlled A/B/C/D task-context conditions
     - save trajectory, patch, task metadata, effective task,
       and localization candidates
     - normalize run metadata into RunResult
@@ -51,7 +52,7 @@ class SWEbenchRunner:
     - A: original SWE-bench problem statement
     - B: original task + lexical localization context
     - C: original task + lexical/structural localization context
-    - D: reserved for failure-aware reranking
+    - D: initial C context plus eligible runtime failure reranking
     """
 
     def __init__(
@@ -61,12 +62,16 @@ class SWEbenchRunner:
         subset: str = "lite",
         split: str = "dev",
         output_root: str | Path = "runs",
+        failure_max_updates: int = 3,
+        failure_repo_root: str = '/testbed',
     ):
         self.model_name = model_name
         self.model_class = model_class
         self.subset = subset
         self.split = split
         self.output_root = Path(output_root)
+        self.failure_max_updates = failure_max_updates
+        self.failure_repo_root = failure_repo_root
 
 
     def _build_repository_index_metadata(
@@ -137,10 +142,8 @@ class SWEbenchRunner:
             )
 
         if condition == "D":
-            raise NotImplementedError(
-                "Condition D will be enabled after "
-                "failure-aware reranking is integrated."
-            )
+            # Real initial C context is built from task sources after env setup.
+            return augment_task_with_localization(task, candidates)
 
         raise ValueError(
             f"Unknown condition: {condition}"
@@ -599,6 +602,7 @@ class SWEbenchRunner:
 
         agent = None
         environment = None
+        feedback = None
 
         try:
             agent, environment = (
@@ -610,6 +614,20 @@ class SWEbenchRunner:
                 )
             )
 
+            if condition == 'D':
+                feedback = FailureFeedbackController(agent,
+                    RemoteSourceReader(environment.execute, self.failure_repo_root), original_task,
+                    run_dir / 'failure_feedback', self.failure_max_updates, localization_top_k)
+                full_candidates = feedback.initial_full_candidates()
+                prompt_candidates = select_prompt_candidates(full_candidates, localization_top_k)
+                candidate_records = [dict(file=c.file, rank=c.rank, score=c.score,
+                    symbol=c.symbol, symbol_type=c.symbol_type, reason=c.reason) for c in full_candidates]
+                prompt_candidate_records = [dict(file=c.file, rank=c.rank, score=c.score,
+                    symbol=c.symbol, symbol_type=c.symbol_type, reason=c.reason) for c in prompt_candidates]
+                effective_task = augment_task_with_localization(original_task, prompt_candidates)
+                effective_task_path.write_text(effective_task, encoding='utf-8')
+                candidates_path.write_text(json.dumps(candidate_records, ensure_ascii=False, indent=2), encoding='utf-8')
+                prompt_candidates_path.write_text(json.dumps(prompt_candidate_records, ensure_ascii=False, indent=2), encoding='utf-8')
             outcome = agent.run(
                 effective_task
             )
@@ -639,6 +657,8 @@ class SWEbenchRunner:
                     pass
 
         finally:
+            if feedback is not None:
+                feedback.close()
             if environment is not None:
                 cleanup = getattr(
                     environment,
@@ -948,6 +968,8 @@ class SWEbenchRunner:
             error=error,
         )
 
+        if feedback is not None:
+            result.config['failure_feedback'] = feedback.summary()
         result.save(
             result_path
         )

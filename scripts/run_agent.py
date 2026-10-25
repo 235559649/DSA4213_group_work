@@ -325,7 +325,7 @@ def main() -> None:
         help=(
             "JSON file containing "
             "LocalizationCandidate records. "
-            "Required for Conditions B/C."
+            "Required for Conditions B/C. D computes its initial ranking."
         ),
     )
     parser.add_argument(
@@ -335,7 +335,7 @@ def main() -> None:
         help=(
             "Number of ranked localization "
             "candidates exposed to the model. "
-            "Required for Conditions B/C."
+            "Required for Conditions B/C/D."
         ),
     )
 
@@ -358,6 +358,9 @@ def main() -> None:
         ),
     )
 
+    parser.add_argument('--model-class', default='openrouter')
+    parser.add_argument('--failure-max-updates', type=int, default=3)
+    parser.add_argument('--failure-root', default='/testbed')
     args = parser.parse_args()
 
     if (
@@ -370,12 +373,12 @@ def main() -> None:
         )
 
     if (
-        args.condition in {"B", "C"}
+        args.condition in {"B", "C", "D"}
         and args.localization_top_k is None
     ):
         parser.error(
             "--localization-top-k is required "
-            "for Conditions B/C."
+            "for Conditions B/C/D."
         )
 
     if (
@@ -415,17 +418,10 @@ def main() -> None:
             args.candidates,
         )
 
-        prompt_candidates = (
-            select_prompt_candidates(
-                candidates,
-                args.localization_top_k,
-            )
-            if args.condition in {"B", "C"}
-            else []
-        )
-
         runner = MiniSWEWrapper(
             model_name=args.model,
+            model_class=args.model_class,
+            failure_max_updates=args.failure_max_updates,
         )
 
         result = runner.run(
@@ -434,8 +430,9 @@ def main() -> None:
             repo_path=repo,
             condition=args.condition,
             localization_candidates=(
-                prompt_candidates
+                candidates
             ),
+            localization_top_k=args.localization_top_k,
             verify_command=(
                 args.verify_cmd
             ),
@@ -466,6 +463,9 @@ def main() -> None:
 
         runner = SWEbenchRunner(
             model_name=args.model,
+            model_class=args.model_class,
+            failure_max_updates=args.failure_max_updates,
+            failure_repo_root=args.failure_root,
         )
 
         result = runner.run(

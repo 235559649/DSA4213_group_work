@@ -20,7 +20,8 @@ from minisweagent.agents.default import DefaultAgent
 from minisweagent.environments.local import LocalEnvironment
 from minisweagent.models import get_model
 
-from src.agent.context import augment_task_with_localization
+from src.agent.context import augment_task_with_localization, select_prompt_candidates
+from src.agent.failure_feedback import FailureFeedbackController, LocalSourceReader
 from src.agent.contracts import (
     LocalizationCandidate,
     RunResult,
@@ -52,6 +53,7 @@ class MiniSWEWrapper:
         wall_time_limit_seconds: int = 1800,
         command_timeout_seconds: int = 120,
         output_root: str | Path = "runs",
+        failure_max_updates: int = 3,
     ):
         self.model_name = model_name
         self.model_class = model_class
@@ -62,6 +64,7 @@ class MiniSWEWrapper:
         self.command_timeout_seconds = command_timeout_seconds
 
         self.output_root = Path(output_root)
+        self.failure_max_updates = failure_max_updates
 
         # mini-extra config set writes keys here.
         load_dotenv(global_config_dir / ".env")
@@ -275,6 +278,7 @@ class MiniSWEWrapper:
             list[LocalizationCandidate] | None
         ) = None,
         verify_command: str | None = None,
+        localization_top_k: int | None = None,
     ) -> RunResult:
 
         condition = condition.upper()
@@ -295,14 +299,6 @@ class MiniSWEWrapper:
                     f"Condition {condition} "
                     "requires localization candidates."
                 )
-
-        if condition == "D":
-            raise NotImplementedError(
-                "Condition D requires runtime "
-                "failure-aware reranking and will "
-                "be connected after Role 4 delivers "
-                "the FailureEvent interface."
-            )
 
         repo_path = Path(
             repo_path
@@ -355,10 +351,12 @@ class MiniSWEWrapper:
             )
         )
 
+        full_candidates = list(localization_candidates or [])
+        prompt_candidates = select_prompt_candidates(full_candidates, localization_top_k) if condition in {'B', 'C'} else []
         effective_task = (
             augment_task_with_localization(
                 task,
-                localization_candidates or [],
+                prompt_candidates,
             )
         )
 
@@ -371,6 +369,17 @@ class MiniSWEWrapper:
             workspace,
             trajectory_path,
         )
+        feedback = None
+
+        def save_localization_inputs():
+            for filename, selected in [('localization_candidates.json', full_candidates),
+                                       ('prompt_candidates.json', prompt_candidates)]:
+                records = [dict(file=c.file, rank=c.rank, score=c.score, symbol=c.symbol,
+                                symbol_type=c.symbol_type, reason=c.reason) for c in selected]
+                (run_dir / filename).write_text(json.dumps(records, ensure_ascii=False, indent=2), encoding='utf-8')
+            (run_dir / 'effective_task.txt').write_text(effective_task, encoding='utf-8')
+
+        save_localization_inputs()
 
         started = time.time()
 
@@ -379,6 +388,13 @@ class MiniSWEWrapper:
         outcome: dict = {}
 
         try:
+            if condition == 'D':
+                feedback = FailureFeedbackController(agent, LocalSourceReader(workspace), task,
+                    run_dir / 'failure_feedback', self.failure_max_updates, localization_top_k)
+                full_candidates = feedback.initial_full_candidates()
+                prompt_candidates = feedback.initial_candidates()
+                effective_task = augment_task_with_localization(task, prompt_candidates)
+                save_localization_inputs()
             outcome = agent.run(
                 effective_task
             )
@@ -400,6 +416,10 @@ class MiniSWEWrapper:
             agent.save(
                 trajectory_path
             )
+
+        finally:
+            if feedback is not None:
+                feedback.close()
 
         runtime_seconds = (
             time.time() - started
@@ -541,6 +561,14 @@ class MiniSWEWrapper:
             error=error,
         )
 
+        result.config.update(localization_top_k=localization_top_k,
+            localization_full_ranking_size=len(full_candidates),
+            localization_prompt_candidate_count=len(prompt_candidates),
+            localization_candidates_path=str(run_dir / 'localization_candidates.json'),
+            prompt_candidates_path=str(run_dir / 'prompt_candidates.json'),
+            effective_task_path=str(run_dir / 'effective_task.txt'))
+        if feedback is not None:
+            result.config['failure_feedback'] = feedback.summary()
         result.save(
             result_path
         )
