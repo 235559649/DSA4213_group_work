@@ -189,7 +189,7 @@ def build_commit_index(
     repo_dir = ensure_repo(repo, cache_dir)
     ensure_commit(repo_dir, commit)
 
-    entries = _list_python_blobs(repo_dir, commit)  # path -> (blob id, size)
+    entries = list_python_blobs(repo_dir, commit)  # path -> (blob id, size)
     wanted = [blob for blob, size in entries.values() if size <= max_file_bytes]
     blobs = _read_blobs(repo_dir, wanted)
 
@@ -268,7 +268,7 @@ def _has_commit(repo_dir: Path, commit: str) -> bool:
     return result.returncode == 0
 
 
-def _list_python_blobs(repo_dir: Path, commit: str) -> dict[str, tuple[str, int]]:
+def list_python_blobs(repo_dir: Path, commit: str) -> dict[str, tuple[str, int]]:
     """Indexed .py files at `commit`: path -> (blob id, size). Skips symlinks and submodules."""
     out = _git("-C", str(repo_dir), "ls-tree", "-r", "-l", "-z", "--full-tree", commit)
     entries = {}
