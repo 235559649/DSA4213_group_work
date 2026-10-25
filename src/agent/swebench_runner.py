@@ -24,12 +24,16 @@ from minisweagent.utils.serialize import (
 
 from src.agent.context import (
     augment_task_with_localization,
+    select_prompt_candidates,
 )
 from src.agent.contracts import (
     LocalizationCandidate,
     RunResult,
     RunUsage,
 )
+
+from src.repository.swebench import build_task_index
+from src.agent.failure_feedback import FailureFeedbackController, RemoteSourceReader
 
 
 class SWEbenchRunner:
@@ -39,7 +43,7 @@ class SWEbenchRunner:
     Responsibilities:
     - run a frozen SWE-bench instance through mini-SWE-agent
     - use the official Docker benchmark environment
-    - support controlled A/B/C task-context conditions
+    - support controlled A/B/C/D task-context conditions
     - save trajectory, patch, task metadata, effective task,
       and localization candidates
     - normalize run metadata into RunResult
@@ -48,7 +52,7 @@ class SWEbenchRunner:
     - A: original SWE-bench problem statement
     - B: original task + lexical localization context
     - C: original task + lexical/structural localization context
-    - D: reserved for failure-aware reranking
+    - D: initial C context plus eligible runtime failure reranking
     """
 
     def __init__(
@@ -58,12 +62,35 @@ class SWEbenchRunner:
         subset: str = "lite",
         split: str = "dev",
         output_root: str | Path = "runs",
+        failure_max_updates: int = 3,
+        failure_repo_root: str = '/testbed',
     ):
         self.model_name = model_name
         self.model_class = model_class
         self.subset = subset
         self.split = split
         self.output_root = Path(output_root)
+        self.failure_max_updates = failure_max_updates
+        self.failure_repo_root = failure_repo_root
+
+
+    def _build_repository_index_metadata(
+        self,
+        instance_id: str,
+    ) -> dict:
+        index = build_task_index(instance_id)
+
+        return {
+            "instance_id": instance_id,
+            "repo": index.metadata.get("repo"),
+            "base_commit": index.metadata.get("commit"),
+            "index_sha256": index.metadata.get(
+                "index_sha256"
+            ),
+            "file_count": len(index.files),
+            "record_count": len(index.records),
+            "error_count": len(index.errors),
+        }
 
     @staticmethod
     def _load_json(
@@ -115,10 +142,8 @@ class SWEbenchRunner:
             )
 
         if condition == "D":
-            raise NotImplementedError(
-                "Condition D will be enabled after "
-                "failure-aware reranking is integrated."
-            )
+            # Real initial C context is built from task sources after env setup.
+            return augment_task_with_localization(task, candidates)
 
         raise ValueError(
             f"Unknown condition: {condition}"
@@ -329,6 +354,7 @@ class SWEbenchRunner:
         localization_candidates: (
             list[LocalizationCandidate] | None
         ) = None,
+        localization_top_k: int | None = None,
     ) -> RunResult:
         """
         Execute one SWE-bench instance.
@@ -376,10 +402,32 @@ class SWEbenchRunner:
             )
         )
 
+        repository_index_metadata = (
+            self._build_repository_index_metadata(
+                instance_id
+            )
+        )
+
         if not original_task:
             raise ValueError(
                 "task config does not "
                 "contain problem_statement"
+            )
+
+        full_candidates = list(
+            localization_candidates
+            or []
+        )
+
+        if condition == "A":
+            prompt_candidates = []
+
+        else:
+            prompt_candidates = (
+                select_prompt_candidates(
+                    full_candidates,
+                    localization_top_k,
+                )
             )
 
         effective_task = (
@@ -387,7 +435,7 @@ class SWEbenchRunner:
                 task=original_task,
                 condition=condition,
                 localization_candidates=(
-                    localization_candidates
+                    prompt_candidates
                 ),
             )
         )
@@ -438,6 +486,11 @@ class SWEbenchRunner:
             / "localization_candidates.json"
         )
 
+        prompt_candidates_path = (
+            run_dir
+            / "prompt_candidates.json"
+        )
+
         # Save the frozen task metadata.
         task_metadata_path.write_text(
             json.dumps(
@@ -470,15 +523,39 @@ class SWEbenchRunner:
                 "reason":
                     candidate.reason,
             }
-            for candidate in (
-                localization_candidates
-                or []
-            )
+            for candidate in full_candidates
         ]
 
         candidates_path.write_text(
             json.dumps(
                 candidate_records,
+                indent=2,
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
+        prompt_candidate_records = [
+            {
+                "file":
+                    candidate.file,
+                "rank":
+                    candidate.rank,
+                "score":
+                    candidate.score,
+                "symbol":
+                    candidate.symbol,
+                "symbol_type":
+                    candidate.symbol_type,
+                "reason":
+                    candidate.reason,
+            }
+            for candidate in prompt_candidates
+        ]
+
+        prompt_candidates_path.write_text(
+            json.dumps(
+                prompt_candidate_records,
                 indent=2,
                 ensure_ascii=False,
             ),
@@ -502,9 +579,20 @@ class SWEbenchRunner:
             f"{run_dir}"
         )
         print(
-            "localization candidates: "
+            "full localization ranking: "
             f"{len(candidate_records)}"
         )
+
+        print(
+            "prompt localization candidates: "
+            f"{len(prompt_candidate_records)}"
+        )
+
+        print(
+            "localization top_k: "
+            f"{localization_top_k}"
+        )
+
         print()
 
         started = time.time()
@@ -514,6 +602,7 @@ class SWEbenchRunner:
 
         agent = None
         environment = None
+        feedback = None
 
         try:
             agent, environment = (
@@ -525,6 +614,20 @@ class SWEbenchRunner:
                 )
             )
 
+            if condition == 'D':
+                feedback = FailureFeedbackController(agent,
+                    RemoteSourceReader(environment.execute, self.failure_repo_root), original_task,
+                    run_dir / 'failure_feedback', self.failure_max_updates, localization_top_k)
+                full_candidates = feedback.initial_full_candidates()
+                prompt_candidates = select_prompt_candidates(full_candidates, localization_top_k)
+                candidate_records = [dict(file=c.file, rank=c.rank, score=c.score,
+                    symbol=c.symbol, symbol_type=c.symbol_type, reason=c.reason) for c in full_candidates]
+                prompt_candidate_records = [dict(file=c.file, rank=c.rank, score=c.score,
+                    symbol=c.symbol, symbol_type=c.symbol_type, reason=c.reason) for c in prompt_candidates]
+                effective_task = augment_task_with_localization(original_task, prompt_candidates)
+                effective_task_path.write_text(effective_task, encoding='utf-8')
+                candidates_path.write_text(json.dumps(candidate_records, ensure_ascii=False, indent=2), encoding='utf-8')
+                prompt_candidates_path.write_text(json.dumps(prompt_candidate_records, ensure_ascii=False, indent=2), encoding='utf-8')
             outcome = agent.run(
                 effective_task
             )
@@ -554,6 +657,8 @@ class SWEbenchRunner:
                     pass
 
         finally:
+            if feedback is not None:
+                feedback.close()
             if environment is not None:
                 cleanup = getattr(
                     environment,
@@ -763,6 +868,49 @@ class SWEbenchRunner:
                 "model_class":
                     self.model_class,
 
+                "repository_index":
+                    repository_index_metadata,
+
+                "localization_source":
+                    {
+                        "A": None,
+                        "B": "bm25",
+                        "C": "rrf_l_s",
+                        "D": "rrf_l_s_f",
+                    }.get(condition),
+                "localization_candidate_count":
+                    len(
+                        candidate_records
+                    ),
+
+                "localization_full_ranking_size":
+                    len(
+                        candidate_records
+                    ),
+
+                "localization_top_k":
+                    localization_top_k,
+
+                "localization_prompt_candidate_count":
+                    len(
+                        prompt_candidate_records
+                    ),
+
+                "effective_task_path":
+                    str(
+                        effective_task_path
+                    ),
+
+                "localization_candidates_path":
+                    str(
+                        candidates_path
+                    ),
+
+                "prompt_candidates_path":
+                    str(
+                        prompt_candidates_path
+                    ),
+
                 "step_limit":
                     agent_config.get(
                         "step_limit"
@@ -803,7 +951,6 @@ class SWEbenchRunner:
                         candidates_path
                     ),
             },
-
             evaluation={
                 "agent_run_completed":
                     error is None,
@@ -821,6 +968,8 @@ class SWEbenchRunner:
             error=error,
         )
 
+        if feedback is not None:
+            result.config['failure_feedback'] = feedback.summary()
         result.save(
             result_path
         )
