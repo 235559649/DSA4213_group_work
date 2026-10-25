@@ -8,15 +8,17 @@ import os
 import platform
 import posixpath
 import re
-from collections.abc import Callable, Iterable
-from dataclasses import asdict, dataclass, field
+from collections.abc import Callable, Iterable, Mapping
+from dataclasses import asdict, dataclass, field, replace
 from pathlib import Path
 
 from src.repository.ast_parser import (
     DEFAULT_MAX_TEXT_CHARS,
     FileParseError,
+    ImportStatement,
     decode_source,
-    parse_source,
+    module_names,
+    parse_file,
 )
 from src.repository.models import (
     READ_ERROR,
@@ -43,15 +45,24 @@ class RepositoryIndex:
     errors: list[ParseError]
     files: list[str]  # every Python file visited, parsed or not
     metadata: dict = field(default_factory=dict)
+    # path -> repository files it imports (sorted); files without internal imports are omitted
+    imports: dict[str, list[str]] = field(default_factory=dict)
+    # path -> its import statements as written; kept so `imports` can be re-resolved on update
+    import_statements: dict[str, list[ImportStatement]] = field(default_factory=dict)
 
     _by_id: dict[str, IndexRecord] = field(init=False, repr=False, compare=False)
     _by_path: dict[str, list[IndexRecord]] = field(init=False, repr=False, compare=False)
+    _imported_by: dict[str, list[str]] = field(init=False, repr=False, compare=False)
 
     def __post_init__(self) -> None:
         self._by_id = {r.id: r for r in self.records}
         self._by_path = {}
         for r in self.records:
             self._by_path.setdefault(r.path, []).append(r)
+        self._imported_by = {}
+        for importer in sorted(self.imports):
+            for target in self.imports[importer]:
+                self._imported_by.setdefault(target, []).append(importer)
 
     # ----- lookups -----
 
@@ -90,15 +101,112 @@ class RepositoryIndex:
             if r.symbol is not None and (r.symbol == name or r.symbol.endswith("." + name))
         ]
 
+    # ----- import graph -----
+
+    def imports_of(self, path: str) -> list[str]:
+        """Repository files that `path` imports."""
+        return list(self.imports.get(to_repo_path(path) or "", []))
+
+    def imported_by(self, path: str) -> list[str]:
+        """Repository files that import `path`."""
+        return list(self._imported_by.get(to_repo_path(path) or "", []))
+
+    def neighbors(self, path: str) -> list[str]:
+        """One-hop import neighbors: files `path` imports or is imported by, sorted."""
+        path = to_repo_path(path) or ""
+        return sorted((set(self.imports_of(path)) | set(self.imported_by(path))) - {path})
+
+    def is_test_file(self, path: str) -> bool:
+        records = self._by_path.get(to_repo_path(path) or "")
+        return bool(records) and records[0].is_test
+
+    # ----- updating -----
+
+    def with_updated_files(self, changes: Mapping[str, str | bytes | None]) -> RepositoryIndex:
+        """A copy of the index after some files changed; this index is left as is.
+
+        `changes` maps paths to their current content (bytes as on disk, or
+        str, encoded as UTF-8), or to None for deleted files. New paths are
+        added. Only these files are parsed again; everything else is reused,
+        and the import graph is re-resolved for the whole repository.
+
+        Use it during a run, after the agent edits files, so that traceback
+        line numbers match the index again: pass the files `git diff
+        --name-only` reports (plus new untracked files) with their content.
+
+        The result equals rebuilding the index from the updated files, except
+        in one case: when an `__init__.py` is added or removed, unchanged files
+        get their new module names, but the retrieval text of their module
+        records keeps the old one. Lookups and the import graph are exact.
+        """
+        max_file_bytes = self.metadata.get("max_file_bytes", DEFAULT_MAX_FILE_BYTES)
+        max_text_chars = self.metadata.get("max_text_chars", DEFAULT_MAX_TEXT_CHARS)
+        updates: dict[str, str | bytes | None] = {}
+        for path, content in changes.items():
+            rel_path = to_repo_path(path)
+            if rel_path is None:
+                raise ValueError(f"not a path inside the repository: {path!r}")
+            updates[rel_path] = content
+
+        records_by_file = {path: list(records) for path, records in self._by_path.items()}
+        errors_by_file = {e.path: e for e in self.errors}
+        statements_by_file = dict(self.import_statements)
+        files = set(self.files)
+        for rel_path, content in updates.items():
+            files.discard(rel_path)
+            records_by_file.pop(rel_path, None)
+            errors_by_file.pop(rel_path, None)
+            statements_by_file.pop(rel_path, None)
+            if content is not None and is_indexed_path(rel_path):
+                files.add(rel_path)
+
+        modules = module_names(files)
+        for rel_path, content in updates.items():
+            if rel_path not in modules:
+                continue  # deleted, or not a file the index covers
+            data = content.encode("utf-8") if isinstance(content, str) else content
+            _index_file(
+                rel_path,
+                read_bytes=lambda _path, data=data: data,
+                file_size=lambda _path, data=data: len(data),
+                module=modules[rel_path],
+                max_file_bytes=max_file_bytes,
+                max_text_chars=max_text_chars,
+                records_by_file=records_by_file,
+                errors_by_file=errors_by_file,
+                statements_by_file=statements_by_file,
+            )
+
+        metadata = {
+            **self.metadata,
+            "base_index_sha256": self.metadata.get("base_index_sha256")
+            or self.metadata.get("index_sha256")
+            or self.digest(),
+            "updated_files": sorted(set(self.metadata.get("updated_files", [])) | set(updates)),
+        }
+        index = _assemble(
+            sorted(files),
+            modules,
+            records_by_file,
+            errors_by_file,
+            statements_by_file,
+            metadata=metadata,
+            max_file_bytes=max_file_bytes,
+            max_text_chars=max_text_chars,
+        )
+        if "index_sha256" in self.metadata:
+            index.metadata["index_sha256"] = index.digest()
+        return index
+
     # ----- persistence -----
 
     def digest(self) -> str:
-        """SHA-256 of the indexed content (files, records, errors), ignoring metadata.
+        """SHA-256 of the indexed content, ignoring metadata.
 
         Two indexes with the same digest give the same lookups and retrieval
         text, wherever and whenever they were built.
         """
-        content = {k: v for k, v in self.to_dict().items() if k in ("files", "records", "errors")}
+        content = {k: v for k, v in self.to_dict().items() if k not in ("schema_version", "metadata")}
         payload = json.dumps(content, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
@@ -109,6 +217,11 @@ class RepositoryIndex:
             "files": self.files,
             "records": [asdict(r) for r in self.records],
             "errors": [asdict(e) for e in self.errors],
+            "imports": self.imports,
+            "import_statements": {
+                path: [[s.module, list(s.names), s.level] for s in statements]
+                for path, statements in self.import_statements.items()
+            },
         }
 
     @classmethod
@@ -121,6 +234,11 @@ class RepositoryIndex:
             errors=[ParseError(**e) for e in data["errors"]],
             files=list(data["files"]),
             metadata=dict(data.get("metadata", {})),
+            imports={path: list(targets) for path, targets in data["imports"].items()},
+            import_statements={
+                path: [ImportStatement(module, tuple(names), level) for module, names, level in rows]
+                for path, rows in data["import_statements"].items()
+            },
         )
 
     def save(self, path: str | os.PathLike) -> None:
@@ -159,6 +277,24 @@ def build_index(
     )
 
 
+def read_workspace_files(
+    repo_root: str | os.PathLike, paths: Iterable[str]
+) -> dict[str, bytes | None]:
+    """Current content of `paths` in a checkout, None for files that are gone.
+
+    The result can be passed straight to `RepositoryIndex.with_updated_files`.
+    """
+    root = Path(repo_root)
+    changes: dict[str, bytes | None] = {}
+    for path in paths:
+        rel_path = to_repo_path(path, root)
+        if rel_path is None:
+            raise ValueError(f"not a path inside the repository: {path!r}")
+        full_path = root / rel_path
+        changes[rel_path] = full_path.read_bytes() if full_path.is_file() else None
+    return changes
+
+
 def index_sources(
     paths: Iterable[str],
     *,
@@ -174,39 +310,179 @@ def index_sources(
     straight from git objects. Both produce identical indexes for identical
     files. `read_bytes` and `file_size` may raise OSError.
     """
-    records: list[IndexRecord] = []
-    errors: list[ParseError] = []
     files = sorted(paths)
-
+    modules = module_names(files)
+    records_by_file: dict[str, list[IndexRecord]] = {}
+    errors_by_file: dict[str, ParseError] = {}
+    statements_by_file: dict[str, list[ImportStatement]] = {}
     for rel_path in files:
-        try:
-            size = file_size(rel_path)
-            if size > max_file_bytes:
-                errors.append(
-                    ParseError(rel_path, TOO_LARGE, f"{size} bytes > limit {max_file_bytes}")
-                )
-                continue
-            data = read_bytes(rel_path)
-        except OSError as exc:
-            errors.append(ParseError(rel_path, READ_ERROR, str(exc)))
-            continue
+        _index_file(
+            rel_path,
+            read_bytes=read_bytes,
+            file_size=file_size,
+            module=modules[rel_path],
+            max_file_bytes=max_file_bytes,
+            max_text_chars=max_text_chars,
+            records_by_file=records_by_file,
+            errors_by_file=errors_by_file,
+            statements_by_file=statements_by_file,
+        )
+    return _assemble(
+        files,
+        modules,
+        records_by_file,
+        errors_by_file,
+        statements_by_file,
+        metadata=metadata or {},
+        max_file_bytes=max_file_bytes,
+        max_text_chars=max_text_chars,
+    )
 
-        try:
-            source = decode_source(data)
-            records.extend(parse_source(source, rel_path, max_text_chars=max_text_chars))
-        except FileParseError as exc:
-            errors.append(ParseError(rel_path, exc.kind, exc.message, exc.line))
 
+def _index_file(
+    rel_path: str,
+    *,
+    read_bytes: Callable[[str], bytes],
+    file_size: Callable[[str], int],
+    module: str,
+    max_file_bytes: int,
+    max_text_chars: int,
+    records_by_file: dict[str, list[IndexRecord]],
+    errors_by_file: dict[str, ParseError],
+    statements_by_file: dict[str, list[ImportStatement]],
+) -> None:
+    """Parse one file into the per-file tables, or record why it could not be."""
+    try:
+        size = file_size(rel_path)
+        if size > max_file_bytes:
+            errors_by_file[rel_path] = ParseError(
+                rel_path, TOO_LARGE, f"{size} bytes > limit {max_file_bytes}"
+            )
+            return
+        data = read_bytes(rel_path)
+    except OSError as exc:
+        errors_by_file[rel_path] = ParseError(rel_path, READ_ERROR, str(exc))
+        return
+
+    try:
+        parsed = parse_file(
+            decode_source(data), rel_path, module=module, max_text_chars=max_text_chars
+        )
+    except FileParseError as exc:
+        errors_by_file[rel_path] = ParseError(rel_path, exc.kind, exc.message, exc.line)
+        return
+    records_by_file[rel_path] = parsed.records
+    if parsed.imports:
+        statements_by_file[rel_path] = parsed.imports
+
+
+def _assemble(
+    files: list[str],
+    modules: dict[str, str],
+    records_by_file: dict[str, list[IndexRecord]],
+    errors_by_file: dict[str, ParseError],
+    statements_by_file: dict[str, list[ImportStatement]],
+    *,
+    metadata: dict,
+    max_file_bytes: int,
+    max_text_chars: int,
+) -> RepositoryIndex:
+    """Put per-file results together in file order and resolve the import graph."""
+    records = [
+        record if record.module == modules[path] else replace(record, module=modules[path])
+        for path in files
+        for record in records_by_file.get(path, [])
+    ]
+    errors = [errors_by_file[path] for path in files if path in errors_by_file]
+    statements = {path: statements_by_file[path] for path in files if path in statements_by_file}
+    imports = resolve_imports(statements, modules)
     metadata = {
-        **(metadata or {}),
+        **metadata,
         "python_version": platform.python_version(),
         "max_file_bytes": max_file_bytes,
         "max_text_chars": max_text_chars,
         "num_files": len(files),
         "num_records": len(records),
         "num_errors": len(errors),
+        "num_import_edges": sum(len(targets) for targets in imports.values()),
     }
-    return RepositoryIndex(records=records, errors=errors, files=files, metadata=metadata)
+    return RepositoryIndex(
+        records=records,
+        errors=errors,
+        files=files,
+        metadata=metadata,
+        imports=imports,
+        import_statements=statements,
+    )
+
+
+def resolve_imports(
+    statements_by_file: dict[str, list[ImportStatement]], modules: dict[str, str]
+) -> dict[str, list[str]]:
+    """Map import statements to repository files; drop everything external.
+
+    Relative imports are resolved against the importing file's package;
+    going above the top-level package drops the import, as Python would fail.
+    `from a.b import c` points to a/b/c.py when `c` is a submodule, otherwise
+    to the module a.b where `c` is defined. `import a.b` points to a.b only,
+    not to the parent package a. Names claimed by two files of the same kind
+    (e.g. two top-level `conftest.py` in different non-package directories)
+    are ambiguous and not resolved. A package (`x/__init__.py`) wins over a
+    module (`x.py`), as in Python.
+    """
+    by_module: dict[str, str] = {}
+    ambiguous: set[str] = set()
+    for path in sorted(modules):
+        name = modules[path]
+        if not name:
+            continue
+        if name not in by_module:
+            by_module[name] = path
+            continue
+        is_package = path.endswith("__init__.py")
+        if is_package != by_module[name].endswith("__init__.py"):
+            if is_package:
+                by_module[name] = path
+        else:
+            ambiguous.add(name)
+    for name in ambiguous:
+        del by_module[name]
+
+    resolved = {}
+    for path, statements in statements_by_file.items():
+        targets = set()
+        for statement in statements:
+            module = _absolute_module(statement, path, modules.get(path, ""))
+            if not module:
+                continue
+            base = by_module.get(module)
+            if not statement.names:
+                if base:
+                    targets.add(base)
+                continue
+            for name in statement.names:
+                submodule = by_module.get(f"{module}.{name}") if name != "*" else None
+                if submodule:
+                    targets.add(submodule)
+                elif base:
+                    targets.add(base)
+        targets.discard(path)
+        if targets:
+            resolved[path] = sorted(targets)
+    return resolved
+
+
+def _absolute_module(statement: ImportStatement, path: str, module: str) -> str | None:
+    if statement.level == 0:
+        return statement.module or None
+    # Level 1 is the importing file's own package, each extra level one up.
+    is_package = path == "__init__.py" or path.endswith("/__init__.py")
+    package = [part for part in (module.split(".") if is_package else module.split(".")[:-1]) if part]
+    up = statement.level - 1
+    if up > len(package):
+        return None
+    base = package[: len(package) - up] + (statement.module.split(".") if statement.module else [])
+    return ".".join(base) or None
 
 
 def is_indexed_path(path: str) -> bool:

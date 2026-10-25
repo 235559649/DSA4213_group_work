@@ -1,0 +1,5 @@
+mini-swe-agent==2.4.6
+PyYAML
+python-dotenv
+pytest
+pyarrow
