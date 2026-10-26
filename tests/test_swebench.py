@@ -4,6 +4,7 @@ A local git repository stands in for GitHub and a small parquet file for the
 SWE-bench dataset, so nothing here touches the network.
 """
 
+import json
 import shutil
 import subprocess
 from pathlib import Path
@@ -225,3 +226,41 @@ def test_cache_without_build_time_is_rebuilt(dataset, cache):
     built.save(cache / "index" / "acme__shop-1.json")
     assert "build_seconds" in swebench.build_task_index("acme__shop-1", cache_dir=cache).metadata
     assert "build_seconds" in RepositoryIndex.load(cache / "index" / "acme__shop-1.json").metadata
+
+
+def test_run_structural_records_timing(dataset, cache, tmp_path):
+    import importlib.util
+
+    from src.localization.structural import structural_ranking
+
+    script = Path(__file__).parents[1] / "scripts" / "run_structural.py"
+    spec = importlib.util.spec_from_file_location("run_structural", script)
+    run_structural = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(run_structural)
+
+    lexical = tmp_path / "bm25.json"
+    lexical.write_text(
+        json.dumps(
+            [
+                {
+                    "instance_id": "acme__shop-1",
+                    "ranked_files": [
+                        {"rank": 1, "path": "shop/pricing.py", "bm25_score": 3.0},
+                        {"rank": 2, "path": "tests/test_pricing.py", "bm25_score": 1.0},
+                    ],
+                }
+            ]
+        ),
+        encoding="utf-8",
+    )
+    output = tmp_path / "structural.json"
+    run_structural.main(["--lexical", str(lexical), "-o", str(output), "--cache-dir", str(cache)])
+
+    (task,) = json.loads(output.read_text(encoding="utf-8"))
+    timing = task["timing"]
+    index = swebench.build_task_index("acme__shop-1", cache_dir=cache)
+    assert timing["index_build_seconds"] == index.metadata["build_seconds"]
+    assert timing["index_load_seconds"] >= 0 and timing["structural_seconds"] >= 0
+    assert "Python" in timing["measured_on"]
+    expected = structural_ranking(index, [("shop/pricing.py", 3.0), ("tests/test_pricing.py", 1.0)])
+    assert [f["file"] for f in task["ranked_files"]] == [c.file for c in expected]
