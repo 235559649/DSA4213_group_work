@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from dataclasses import asdict, dataclass, field
 
 from src.failure_analysis.diagnostics import classify_failure
@@ -49,6 +50,9 @@ class FailureAnalysis:
         exception = self.diagnostics.get('exception', {})
         message = exception.get('message', '')
         locations = self.diagnostics.get('source_locations', [])
+        tests = self.event.get('failing_tests', [])
+        assertions = self.diagnostics.get('observed_assertions', [])
+        chain_details = self.diagnostics.get('exception_chain_details', [])
         # Near-error observed frames are useful evidence, never a root-cause claim.
         return {
             'schema_version': 1, 'usable': self.usable, 'reason': self.reason,
@@ -60,6 +64,17 @@ class FailureAnalysis:
                           'message': message[:max_message_chars],
                           'message_truncated': len(message) > max_message_chars},
             'exception_chain': list(self.diagnostics.get('exception_chain', []))[-5:],
+            'exception_chain_details': [
+                {'type': item['type'], 'message': item['message'][:max_message_chars],
+                 'message_truncated': len(item['message']) > max_message_chars}
+                for item in chain_details[-5:]
+            ],
+            'omitted_exception_count': max(0, len(chain_details) - 5),
+            'failing_tests': [name[:max_message_chars] for name in tests[:3]],
+            'omitted_test_count': max(0, len(tests) - 3),
+            'observed_assertions': [text[:max_message_chars] for text in assertions[:3]],
+            'omitted_assertion_count': max(0, len(assertions) - 3),
+            'test_text_truncated': any(len(text) > max_message_chars for text in tests[:3] + assertions[:3]),
             'source_locations': [dict(item) for item in locations[-max_locations:]],
             'omitted_location_count': max(0, len(locations) - max_locations),
             'location_interpretation': 'Observed source frames; not proof of root cause.',
@@ -74,6 +89,14 @@ class FailureAnalysis:
                  'Exception: ' + json.dumps(evidence['exception'], ensure_ascii=False)]
         if len(evidence['exception_chain']) > 1:
             lines.append('Observed exception chain: ' + json.dumps(evidence['exception_chain'], ensure_ascii=False))
+        for detail in evidence['exception_chain_details']:
+            lines.append('Observed exception detail: ' + json.dumps(detail, ensure_ascii=False))
+        for key in ['failing_tests', 'observed_assertions']:
+            if evidence[key]:
+                lines.append(key + ': ' + json.dumps(evidence[key], ensure_ascii=False))
+        for key in ['omitted_exception_count', 'omitted_test_count', 'omitted_assertion_count', 'test_text_truncated']:
+            if evidence[key]:
+                lines.append(key + ': ' + json.dumps(evidence[key]))
         for location in evidence['source_locations']:
             lines.append('Source frame: ' + json.dumps(location, ensure_ascii=False))
         if evidence['omitted_location_count']:
@@ -135,7 +158,7 @@ def analyze_failure(
 ) -> FailureAnalysis:
     """Analyze ONE failed command observation (not a whole trajectory).
 
-    Caller must establish failure from execution status and confirm that index
+    Caller must establish failure from status or trusted observation evidence and confirm that index
     lines match the workspace. False index_is_current suppresses all candidates.
     With schema 4, the caller can prepare a current index using
     ``base_index.with_updated_files(changes)`` before this call. When starting
@@ -192,6 +215,15 @@ def analyze_failure(
     diagnostics = {
         'exception': {'type': exception_type, 'message': exception_message},
         'exception_chain': [detail.name for detail in parsed.exception_details],
+        'exception_chain_details': [
+            {'type': detail.name, 'message': detail.message} for detail in parsed.exception_details
+        ],
+        # Only explicit pytest assertion output; never infer an expected value
+        # from arbitrary prints, test names or benchmark reference labels.
+        'observed_assertions': list(dict.fromkeys(
+            match[1] for line in text.splitlines()
+            if (match := re.fullmatch(r'\s*E\s+(assert\s+.+)', line))
+        )),
         'source_locations': [],
     }
     for mapping in mappings:
@@ -242,6 +274,13 @@ class UpdateGate:
 
     This class does not fuse rankings or deliver context. Failed attempts do not
     consume budget. Construct a fresh instance for every independent agent run.
+
+    Legacy calls deduplicate raw failure fingerprints. Opt-in callers pass the
+    SAME final ``delivered_context`` to check and mark_applied, after constructing
+    ranking plus diagnostics. This deduplicates actual visible text within the
+    workspace/index scope, including new diagnostic evidence at unchanged ranks.
+    Do not switch delivery modes within a run: legacy acknowledgements did not
+    retain context and cannot retroactively participate in text deduplication.
     """
 
     def __init__(self, max_updates: int = 3):
@@ -249,18 +288,35 @@ class UpdateGate:
             raise ValueError('max_updates must be a nonnegative integer')
         self.max_updates = max_updates
         self._applied: set[str] = set()
+        self._delivered: set[str] = set()
+        self._count = 0
 
-    def check(self, result: FailureAnalysis) -> tuple[bool, str]:
+    @staticmethod
+    def _delivery_key(result: FailureAnalysis, delivered_context: str) -> str:
+        if not isinstance(delivered_context, str) or not delivered_context.strip():
+            raise ValueError('delivered_context must be a nonempty string')
+        # Exact final text, including both ranking and diagnostic projection.
+        # A changed workspace/index is a distinct scope, not stale suppression.
+        payload = [result.workspace_version, result.index_sha256, delivered_context]
+        return hashlib.sha256(json.dumps(payload, ensure_ascii=False).encode()).hexdigest()
+
+    def check(self, result: FailureAnalysis, *, delivered_context: str | None = None) -> tuple[bool, str]:
+        key = self._delivery_key(result, delivered_context) if delivered_context is not None else None
         if not result.usable:
             return False, result.reason
-        if result.fingerprint in self._applied:
+        if key is not None and key in self._delivered:
+            return False, 'duplicate_context'
+        if key is None and result.fingerprint in self._applied:
             return False, 'duplicate_failure'
-        if len(self._applied) >= self.max_updates:
+        if self._count >= self.max_updates:
             return False, 'update_limit'
         return True, 'eligible'
 
-    def mark_applied(self, result: FailureAnalysis) -> None:
-        allowed, reason = self.check(result)
+    def mark_applied(self, result: FailureAnalysis, *, delivered_context: str | None = None) -> None:
+        allowed, reason = self.check(result, delivered_context=delivered_context)
         if not allowed:
             raise ValueError(reason)
         self._applied.add(result.fingerprint)
+        if delivered_context is not None:
+            self._delivered.add(self._delivery_key(result, delivered_context))
+        self._count += 1

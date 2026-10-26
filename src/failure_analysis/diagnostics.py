@@ -25,7 +25,9 @@ def classify_failure(
     """
     kind = (exception_type or '').rsplit('.', 1)[-1]
     message = exception_message.lower()
-    lowered = output.lower()
+    # Once a terminal exception is known, unrelated grep/log/source text in
+    # the same observation must not become environmental evidence for it.
+    lowered = message if exception_type else output.lower()
     matched = [marker for marker in _ENVIRONMENT_HINTS if marker in lowered]
     configuration_rule = None
     django_type = exception_type in {kind, 'django.core.exceptions.' + kind}
