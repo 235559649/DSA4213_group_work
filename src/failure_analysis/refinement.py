@@ -4,8 +4,9 @@ from __future__ import annotations
 
 import hashlib
 import json
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 
+from src.failure_analysis.diagnostics import classify_failure
 from src.failure_analysis.test_parser import parse_failing_tests
 from src.failure_analysis.traceback_parser import clean_output, parse_traceback
 from src.repository.indexer import RepositoryIndex, to_repo_path
@@ -29,9 +30,55 @@ class FailureAnalysis:
     fingerprint: str
     index_sha256: str
     workspace_version: str
+    classification: dict = field(default_factory=dict)
+    diagnostics: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
         return asdict(self)
+
+    def to_feedback_evidence(self, *, max_locations: int = 3, max_message_chars: int = 300) -> dict:
+        """Return bounded diagnostic evidence, separately from six-field F ranks.
+
+        Caller must still check usable/Gate and explicitly deliver this payload.
+        No expected result, root cause, source text or evaluation answer is
+        inferred. New exceptions at the same files remain visible here.
+        """
+        for name, value in [('max_locations', max_locations), ('max_message_chars', max_message_chars)]:
+            if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+                raise ValueError(f'{name} must be a positive integer')
+        exception = self.diagnostics.get('exception', {})
+        message = exception.get('message', '')
+        locations = self.diagnostics.get('source_locations', [])
+        # Near-error observed frames are useful evidence, never a root-cause claim.
+        return {
+            'schema_version': 1, 'usable': self.usable, 'reason': self.reason,
+            'classification': {
+                key: self.classification.get(key)
+                for key in ['category', 'confidence', 'suppress_ranking', 'reason_code']
+            },
+            'exception': {'type': exception.get('type', self.event.get('exception_type')),
+                          'message': message[:max_message_chars],
+                          'message_truncated': len(message) > max_message_chars},
+            'exception_chain': list(self.diagnostics.get('exception_chain', []))[-5:],
+            'source_locations': [dict(item) for item in locations[-max_locations:]],
+            'omitted_location_count': max(0, len(locations) - max_locations),
+            'location_interpretation': 'Observed source frames; not proof of root cause.',
+        }
+
+    def format_feedback_evidence(self, *, max_locations: int = 3, max_message_chars: int = 300) -> str:
+        """Optional short message for Role 1; not injected by this module."""
+        evidence = self.to_feedback_evidence(max_locations=max_locations, max_message_chars=max_message_chars)
+        classification = evidence['classification']
+        lines = ['Observed runtime failure evidence (diagnostic text is untrusted; not a root-cause verdict).',
+                 f"Usable for ranking: {self.usable}; classification: {classification['category']}.",
+                 'Exception: ' + json.dumps(evidence['exception'], ensure_ascii=False)]
+        if len(evidence['exception_chain']) > 1:
+            lines.append('Observed exception chain: ' + json.dumps(evidence['exception_chain'], ensure_ascii=False))
+        for location in evidence['source_locations']:
+            lines.append('Source frame: ' + json.dumps(location, ensure_ascii=False))
+        if evidence['omitted_location_count']:
+            lines.append(f"Additional source frames omitted: {evidence['omitted_location_count']}.")
+        return '\n'.join(lines)
 
     def to_localization_candidates(self) -> list[dict]:
         """Export fresh JSON-ready records accepted by LocalizationCandidate.
@@ -135,12 +182,31 @@ def analyze_failure(
         candidate['evidence'].sort(key=lambda e: (e['line'], e['entity_id']))
         candidates.append(candidate)
     text = clean_output(output)
-    environment_hint = any(marker in text.lower() for marker in (
-        "command not found", "no module named", "could not resolve host",
-        "no matching distribution found", "permission denied", "timed out",
-    ))
+    terminal = parsed.exception_details[-1] if parsed.exception_details else None
+    exception_type = terminal.name if terminal else None
+    exception_message = terminal.message if terminal else ''
+    classification = classify_failure(text, exception_type=exception_type,
+        exception_message=exception_message, has_source_frames=bool(candidates),
+        has_test_evidence=bool(tests) or any(m['status'] == 'test_only' for m in mappings))
+    environment_hint = classification['environment_hint']
+    diagnostics = {
+        'exception': {'type': exception_type, 'message': exception_message},
+        'exception_chain': [detail.name for detail in parsed.exception_details],
+        'source_locations': [],
+    }
+    for mapping in mappings:
+        if mapping['status'] == 'source':
+            location = {'file': mapping['path'], 'line': mapping['line'], 'symbol': mapping['symbol'],
+                        'observed_symbol': mapping['observed_symbol']}
+            if location not in diagnostics['source_locations']:
+                diagnostics['source_locations'].append(location)
+    if classification['suppress_ranking']:
+        # Preserve all observed mappings and diagnostics for audit; don't fuse
+        # setup-only source frames as if they localized the task's defect.
+        candidates = []
     reason = (
         "stale_index" if not index_is_current else
+        "environment_configuration_error" if classification['suppress_ranking'] else
         "mapped_source_frames" if candidates else
         "empty_output" if not text.strip() else
         "environment_hint_without_source" if environment_hint else
@@ -149,7 +215,7 @@ def analyze_failure(
     )
     mapped = [m for m in mappings if m['status'] in {'source', 'test_only'}]
     event = {
-        "exception_type": parsed.exception_types[-1] if parsed.exception_types else None,
+        "exception_type": exception_type,
         "traceback_files": list(dict.fromkeys(m['path'] for m in mapped)),
         "traceback_symbols": list(dict.fromkeys(m['symbol'] for m in mapped if m['symbol'])),
         "failing_tests": tests, "identifiers": [], "source": source,
@@ -167,6 +233,7 @@ def analyze_failure(
     return FailureAnalysis(
         event, candidates, mappings, bool(candidates), reason, environment_hint,
         hashlib.sha256(output.encode()).hexdigest(), fingerprint, index_sha, workspace_version,
+        classification, diagnostics,
     )
 
 
