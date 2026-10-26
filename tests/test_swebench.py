@@ -208,3 +208,20 @@ def test_cache_dir_from_environment(tmp_path, monkeypatch):
     cache = swebench.resolve_cache_dir()
     assert cache == tmp_path / "elsewhere"
     assert (cache / ".gitignore").read_text(encoding="utf-8") == "*\n"
+
+
+def test_build_time_survives_the_cache(dataset, cache):
+    built = swebench.build_task_index("acme__shop-1", cache_dir=cache)
+    seconds = built.metadata["build_seconds"]
+    assert seconds >= 0
+    assert swebench.build_task_index("acme__shop-1", cache_dir=cache).metadata["build_seconds"] == seconds
+
+
+def test_cache_without_build_time_is_rebuilt(dataset, cache):
+    from src.repository.indexer import RepositoryIndex
+
+    built = swebench.build_task_index("acme__shop-1", cache_dir=cache)
+    del built.metadata["build_seconds"]
+    built.save(cache / "index" / "acme__shop-1.json")
+    assert "build_seconds" in swebench.build_task_index("acme__shop-1", cache_dir=cache).metadata
+    assert "build_seconds" in RepositoryIndex.load(cache / "index" / "acme__shop-1.json").metadata

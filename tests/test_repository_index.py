@@ -169,7 +169,11 @@ def test_load_rejects_other_schema_versions(index):
 
 
 def test_build_is_deterministic(index):
-    assert build_index(SAMPLE_REPO).to_dict() == index.to_dict()
+    rebuilt = build_index(SAMPLE_REPO)
+    assert rebuilt.digest() == index.digest()
+    # Everything but the measured build time is reproducible.
+    without_time = lambda metadata: {k: v for k, v in metadata.items() if k != "build_seconds"}
+    assert without_time(rebuilt.metadata) == without_time(index.metadata)
 
 
 # ----- unusual files -----
@@ -307,3 +311,11 @@ def test_record_built_like_role1_contract_gets_derived_fields():
     module = IndexRecord(path="src/parser.py", symbol=None, symbol_type="module", start_line=None, end_line=None)
     assert module.id == "src/parser.py"
     assert not module.contains(1)
+
+
+def test_build_time_is_recorded_but_not_part_of_the_identity(index):
+    assert isinstance(index.metadata["build_seconds"], float)
+    assert index.metadata["build_seconds"] >= 0
+    digest = index.digest()
+    index.metadata["build_seconds"] = 123.0
+    assert index.digest() == digest

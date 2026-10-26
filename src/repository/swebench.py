@@ -34,6 +34,7 @@ import stat
 import subprocess
 import sys
 import tempfile
+import time
 import urllib.request
 from dataclasses import asdict, dataclass, fields
 from pathlib import Path
@@ -185,15 +186,20 @@ def build_commit_index(
     max_file_bytes: int = DEFAULT_MAX_FILE_BYTES,
     max_text_chars: int = DEFAULT_MAX_TEXT_CHARS,
 ) -> RepositoryIndex:
-    """Index the Python files of `repo` at `commit`, read from git objects."""
+    """Index the Python files of `repo` at `commit`, read from git objects.
+
+    `metadata["build_seconds"]` is the time spent reading the files from git
+    and indexing them; cloning or fetching the repository is not included.
+    """
     repo_dir = ensure_repo(repo, cache_dir)
     ensure_commit(repo_dir, commit)
 
-    entries = _list_python_blobs(repo_dir, commit)  # path -> (blob id, size)
+    started = time.perf_counter()
+    entries = list_python_blobs(repo_dir, commit)  # path -> (blob id, size)
     wanted = [blob for blob, size in entries.values() if size <= max_file_bytes]
     blobs = _read_blobs(repo_dir, wanted)
 
-    return index_sources(
+    index = index_sources(
         entries,
         read_bytes=lambda path: blobs[entries[path][0]],
         file_size=lambda path: entries[path][1],
@@ -201,6 +207,8 @@ def build_commit_index(
         max_text_chars=max_text_chars,
         metadata={"repo": repo, "commit": commit, "source": "git"},
     )
+    index.metadata["build_seconds"] = round(time.perf_counter() - started, 3)
+    return index
 
 
 def build_task_index(
@@ -226,6 +234,7 @@ def build_task_index(
             index is not None
             and index.metadata.get("max_file_bytes") == max_file_bytes
             and index.metadata.get("max_text_chars") == max_text_chars
+            and "build_seconds" in index.metadata  # caches from before it was recorded
         ):
             return index
 
@@ -268,7 +277,7 @@ def _has_commit(repo_dir: Path, commit: str) -> bool:
     return result.returncode == 0
 
 
-def _list_python_blobs(repo_dir: Path, commit: str) -> dict[str, tuple[str, int]]:
+def list_python_blobs(repo_dir: Path, commit: str) -> dict[str, tuple[str, int]]:
     """Indexed .py files at `commit`: path -> (blob id, size). Skips symlinks and submodules."""
     out = _git("-C", str(repo_dir), "ls-tree", "-r", "-l", "-z", "--full-tree", commit)
     entries = {}
