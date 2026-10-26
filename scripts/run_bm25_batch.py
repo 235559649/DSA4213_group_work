@@ -8,7 +8,8 @@ from pathlib import Path
 
 
 from src.localization.keyword import BM25Retriever
-from src.repository.swebench import build_task_index, load_task
+from src.repository.indexer import RepositoryIndex
+from src.repository.swebench import build_task_index, load_task, resolve_cache_dir
 
 
 # Development task IDs selected by Role 5 (unchanged).
@@ -49,9 +50,13 @@ def main() -> None:
         print(f"\n[{i}/{len(TASK_IDS)}] Processing {task_id}")
         try:
             task = load_task(task_id)
+            build_task_index(task_id)  # builds and caches on first use
+
+            # Time only loading the cached index, as run_structural.py does, so a
+            # first build is not counted twice (it is index_build_seconds).
             started = time.perf_counter()
-            index = build_task_index(task_id)
-            index_access_seconds = time.perf_counter() - started
+            index = RepositoryIndex.load(resolve_cache_dir() / "index" / f"{task_id}.json")
+            index_load_seconds = time.perf_counter() - started
             query = task.problem_statement
 
             started = time.perf_counter()
@@ -75,7 +80,7 @@ def main() -> None:
                 "instance_id": task_id,
                 "timing": {
                     "index_build_seconds": index.metadata.get("build_seconds"),
-                    "index_access_seconds": round(index_access_seconds, 4),
+                    "index_load_seconds": round(index_load_seconds, 4),
                     "bm25_init_seconds": round(bm25_init_seconds, 4),
                     "bm25_seconds": round(bm25_seconds, 4),
                     "measured_on": f"{platform.system()} {platform.machine()}, Python {platform.python_version()}",
