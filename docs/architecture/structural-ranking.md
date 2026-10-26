@@ -139,6 +139,12 @@ Output, one entry per task:
   "include_seeds": true,
   "exclude_test_neighbors": true,
   "num_lexical_files": 10,
+  "timing": {
+    "index_build_seconds": 10.54,
+    "index_load_seconds": 0.45,
+    "structural_seconds": 0.0034,
+    "measured_on": "Windows AMD64, Python 3.14.3"
+  },
   "ranked_files": [
     {
       "file": "sympy/core/compatibility.py",
@@ -154,6 +160,18 @@ Output, one entry per task:
   ]
 }
 ```
+
+`timing` is for reporting localization overhead: `index_build_seconds` is the
+task's one-time preprocessing cost (the index's `build_seconds`),
+`index_load_seconds` loading the cached index, `structural_seconds` the
+structural ranking itself. On the 20 development tasks the structural ranking
+takes 0.4–4 ms; index loading 0.04–0.5 s; index building 0.4–13 s. Timings
+depend on the machine, so measure them where the agent runs; rankings do not.
+
+`timing` 用于统计定位开销：`index_build_seconds` 是该任务一次性的预处理成本（索引的
+`build_seconds`），`index_load_seconds` 是读取缓存索引的时间，`structural_seconds` 是结构排名本身的
+时间。在 20 个开发任务上，结构排名本身只需 0.4–4 毫秒，读取索引 0.04–0.5 秒，建索引 0.4–13 秒。耗时
+取决于机器，应在运行 Agent 的同一台机器上测量；排名结果则与机器无关。
 
 Dropping `relations` from an entry gives the keyword arguments of `LocalizationCandidate`.
 

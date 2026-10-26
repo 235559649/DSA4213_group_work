@@ -9,19 +9,30 @@ The input is the retrieval module's output, a JSON list of
 entry has the LocalizationCandidate fields (file, rank, score, symbol,
 symbol_type, reason) plus "relations", the structured evidence. Indexes come
 from the SWE-bench cache and are built on first use.
+
+Each task also gets a "timing" entry, for reporting localization overhead:
+  index_build_seconds  one-time cost of building the task's index (recorded
+                       in the index when it was built; see build_seconds)
+  index_load_seconds   loading the cached index
+  structural_seconds   computing the structural ranking itself
+plus the platform and Python version they were measured on. Timings vary
+between runs and machines; the rankings do not.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import platform
 import sys
+import time
 from dataclasses import asdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from src.localization.structural import DEFAULT_NUM_SEEDS, structural_ranking  # noqa: E402
+from src.repository.indexer import RepositoryIndex  # noqa: E402
 from src.repository.swebench import build_task_index, resolve_cache_dir  # noqa: E402
 
 
@@ -50,7 +61,13 @@ def main(argv: list[str] | None = None) -> int:
             (item.get("file", item.get("path")), item.get("bm25_score", item.get("score")))
             for item in sorted(task["ranked_files"], key=lambda item: item["rank"])
         ]
-        index = build_task_index(instance_id, cache_dir=cache)
+        build_task_index(instance_id, cache_dir=cache)  # builds and caches on first use
+
+        started = time.perf_counter()
+        index = RepositoryIndex.load(cache / "index" / f"{instance_id}.json")
+        load_seconds = time.perf_counter() - started
+
+        started = time.perf_counter()
         ranking = structural_ranking(
             index,
             lexical,
@@ -58,6 +75,7 @@ def main(argv: list[str] | None = None) -> int:
             include_seeds=not args.no_seeds,
             exclude_test_neighbors=not args.include_test_neighbors,
         )
+        structural_seconds = time.perf_counter() - started
         results.append(
             {
                 "instance_id": instance_id,
@@ -66,6 +84,13 @@ def main(argv: list[str] | None = None) -> int:
                 "include_seeds": not args.no_seeds,
                 "exclude_test_neighbors": not args.include_test_neighbors,
                 "num_lexical_files": len(lexical),
+                "timing": {
+                    "index_build_seconds": index.metadata.get("build_seconds"),
+                    "index_load_seconds": round(load_seconds, 4),
+                    "structural_seconds": round(structural_seconds, 4),
+                    "measured_on": f"{platform.system()} {platform.machine()}, "
+                    f"Python {platform.python_version()}",
+                },
                 "ranked_files": [
                     {
                         "file": c.file,
@@ -82,7 +107,10 @@ def main(argv: list[str] | None = None) -> int:
                 ],
             }
         )
-        print(f"{instance_id}: {len(ranking)} structural candidates")
+        print(
+            f"{instance_id}: {len(ranking)} structural candidates, "
+            f"structural ranking {structural_seconds:.3f} s, index load {load_seconds:.2f} s"
+        )
 
     Path(args.output).parent.mkdir(parents=True, exist_ok=True)
     with open(args.output, "w", encoding="utf-8") as f:
