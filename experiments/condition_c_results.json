@@ -3,6 +3,10 @@
     "instance_id": "django__django-11133",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.001073,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "django/http/response.py",
@@ -8735,6 +8739,10 @@
     "instance_id": "django__django-12262",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000776,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "django/template/library.py",
@@ -16872,6 +16880,10 @@
     "instance_id": "django__django-13158",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000938,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "django/db/models/query.py",
@@ -26214,6 +26226,10 @@
     "instance_id": "django__django-13417",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000891,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "django/db/models/sql/compiler.py",
@@ -35551,6 +35567,10 @@
     "instance_id": "django__django-14017",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.001278,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "django/db/models/query_utils.py",
@@ -48978,6 +48998,10 @@
     "instance_id": "django__django-14539",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000702,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "tests/template_tests/filter_tests/test_urlize.py",
@@ -56340,6 +56364,10 @@
     "instance_id": "sympy__sympy-23262",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.00088,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "sympy/core/evalf.py",
@@ -64042,6 +64070,10 @@
     "instance_id": "sympy__sympy-17630",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000796,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "sympy/matrices/expressions/blockmatrix.py",
@@ -70734,6 +70766,10 @@
     "instance_id": "sympy__sympy-21379",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000913,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "sympy/core/sympify.py",
@@ -78251,6 +78287,10 @@
     "instance_id": "sympy__sympy-19346",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000744,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "isympy.py",
@@ -85228,6 +85268,10 @@
     "instance_id": "sympy__sympy-20154",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000807,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "sympy/utilities/iterables.py",
@@ -92395,6 +92439,10 @@
     "instance_id": "sympy__sympy-20438",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000842,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "sympy/core/relational.py",
@@ -99647,6 +99695,10 @@
     "instance_id": "sphinx-doc__sphinx-8595",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.00026,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "sphinx/domains/__init__.py",
@@ -102304,6 +102356,10 @@
     "instance_id": "sphinx-doc__sphinx-7462",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000253,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "sphinx/util/inspect.py",
@@ -104746,6 +104802,10 @@
     "instance_id": "sphinx-doc__sphinx-9673",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000279,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "doc/usage/extensions/example_numpy.py",
@@ -107073,6 +107133,10 @@
     "instance_id": "sphinx-doc__sphinx-8721",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000243,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "sphinx/ext/viewcode.py",
@@ -109300,6 +109364,10 @@
     "instance_id": "pytest-dev__pytest-7571",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000135,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "src/_pytest/logging.py",
@@ -110327,6 +110395,10 @@
     "instance_id": "pytest-dev__pytest-7205",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000107,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "src/_pytest/setuponly.py",
@@ -111384,6 +111456,10 @@
     "instance_id": "pytest-dev__pytest-7490",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000104,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "testing/test_doctest.py",
@@ -112461,6 +112537,10 @@
     "instance_id": "pytest-dev__pytest-10356",
     "condition": "C",
     "rrf_k": 60,
+    "timing": {
+      "rrf_seconds": 0.000178,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "file": "src/_pytest/python_api.py",

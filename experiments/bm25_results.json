@@ -1,6 +1,13 @@
 [
   {
     "instance_id": "django__django-11133",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.1709,
+      "bm25_init_seconds": 0.2834,
+      "bm25_seconds": 0.1044,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -8731,6 +8738,13 @@
   },
   {
     "instance_id": "django__django-12262",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.1945,
+      "bm25_init_seconds": 0.337,
+      "bm25_seconds": 0.1682,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -16846,6 +16860,13 @@
   },
   {
     "instance_id": "django__django-13158",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.1613,
+      "bm25_init_seconds": 0.3758,
+      "bm25_seconds": 0.1889,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -26181,6 +26202,13 @@
   },
   {
     "instance_id": "django__django-13417",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.1584,
+      "bm25_init_seconds": 0.3415,
+      "bm25_seconds": 0.1561,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -35501,6 +35529,13 @@
   },
   {
     "instance_id": "django__django-14017",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.1899,
+      "bm25_init_seconds": 0.3908,
+      "bm25_seconds": 0.1987,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -48926,6 +48961,13 @@
   },
   {
     "instance_id": "django__django-14539",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.1642,
+      "bm25_init_seconds": 0.3551,
+      "bm25_seconds": 0.0627,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -56261,6 +56303,13 @@
   },
   {
     "instance_id": "sympy__sympy-23262",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.3071,
+      "bm25_init_seconds": 0.6084,
+      "bm25_seconds": 0.2463,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -63961,6 +64010,13 @@
   },
   {
     "instance_id": "sympy__sympy-17630",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.25,
+      "bm25_init_seconds": 0.571,
+      "bm25_seconds": 0.2926,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -70651,6 +70707,13 @@
   },
   {
     "instance_id": "sympy__sympy-21379",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.2381,
+      "bm25_init_seconds": 0.61,
+      "bm25_seconds": 0.3604,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -78166,6 +78229,13 @@
   },
   {
     "instance_id": "sympy__sympy-19346",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.2285,
+      "bm25_init_seconds": 0.6005,
+      "bm25_seconds": 0.103,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -85141,6 +85211,13 @@
   },
   {
     "instance_id": "sympy__sympy-20154",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.2475,
+      "bm25_init_seconds": 0.5422,
+      "bm25_seconds": 0.1636,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -92306,6 +92383,13 @@
   },
   {
     "instance_id": "sympy__sympy-20438",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.2688,
+      "bm25_init_seconds": 0.6014,
+      "bm25_seconds": 0.2215,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -99556,6 +99640,13 @@
   },
   {
     "instance_id": "sphinx-doc__sphinx-8595",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.0349,
+      "bm25_init_seconds": 0.1005,
+      "bm25_seconds": 0.0257,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -102211,6 +102302,13 @@
   },
   {
     "instance_id": "sphinx-doc__sphinx-7462",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.0301,
+      "bm25_init_seconds": 0.079,
+      "bm25_seconds": 0.0433,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -104651,6 +104749,13 @@
   },
   {
     "instance_id": "sphinx-doc__sphinx-9673",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.0349,
+      "bm25_init_seconds": 0.0741,
+      "bm25_seconds": 0.0467,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -106976,6 +107081,13 @@
   },
   {
     "instance_id": "sphinx-doc__sphinx-8721",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.0345,
+      "bm25_init_seconds": 0.073,
+      "bm25_seconds": 0.0221,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -109201,6 +109313,13 @@
   },
   {
     "instance_id": "pytest-dev__pytest-7571",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.027,
+      "bm25_init_seconds": 0.0639,
+      "bm25_seconds": 0.0161,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -110211,6 +110330,13 @@
   },
   {
     "instance_id": "pytest-dev__pytest-7205",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.0275,
+      "bm25_init_seconds": 0.0508,
+      "bm25_seconds": 0.0547,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -111266,6 +111392,13 @@
   },
   {
     "instance_id": "pytest-dev__pytest-7490",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.0279,
+      "bm25_init_seconds": 0.0536,
+      "bm25_seconds": 0.1225,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,
@@ -112341,6 +112474,13 @@
   },
   {
     "instance_id": "pytest-dev__pytest-10356",
+    "timing": {
+      "index_build_seconds": null,
+      "index_access_seconds": 0.0302,
+      "bm25_init_seconds": 0.0588,
+      "bm25_seconds": 0.0739,
+      "measured_on": "Darwin arm64, Python 3.11.16"
+    },
     "ranked_files": [
       {
         "rank": 1,

@@ -5,6 +5,8 @@ Does not access SWE-bench ground truth.
 """
 
 import json
+import platform
+import time
 from pathlib import Path
 
 from src.localization.ranker import fuse_condition_c
@@ -47,16 +49,22 @@ def main():
         lexical = task["ranked_files"]
         structural = structural_by_id[task_id]["ranked_files"]
 
+        started = time.perf_counter()
         fused = fuse_condition_c(
             lexical_ranking=lexical,
             structural_ranking=structural,
             k=RRF_K,
         )
+        rrf_seconds = time.perf_counter() - started
 
         all_results.append({
             "instance_id": task_id,
             "condition": "C",
             "rrf_k": RRF_K,
+            "timing": {
+                "rrf_seconds": round(rrf_seconds, 6),
+                "measured_on": f"{platform.system()} {platform.machine()}, Python {platform.python_version()}",
+            },
             "ranked_files": fused,
         })
 
@@ -64,7 +72,7 @@ def main():
             f"{task_id}: "
             f"BM25={len(lexical)}, "
             f"Structural={len(structural)}, "
-            f"Fused={len(fused)}"
+            f"Fused={len(fused)}, RRF={rrf_seconds:.6f} s"
         )
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
