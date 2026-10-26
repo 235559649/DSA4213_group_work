@@ -107,9 +107,11 @@ class FailureFeedbackController:
         self.applied = 0
         self.closed = False
         self.overhead_seconds = 0.0
+        self.feedback_total_seconds = 0.0
         self._execute = agent.env.execute
         self._query = agent.model.query
         started = time.monotonic()
+        timing_started = time.perf_counter()
         self.base_sources = reader()
         self.base = index_sources(self.base_sources,
             read_bytes=self.base_sources.__getitem__, file_size=lambda p: len(self.base_sources[p]))
@@ -120,6 +122,7 @@ class FailureFeedbackController:
         self.ranking = fuse_condition_c_for_agent(self.lexical, self.structural)
         self._save_json('initial_rankings.json', {'index_sha256': self.base.digest(),
             'lexical': self.lexical, 'structural': self.structural, 'fused': self.ranking})
+        self.initial_localization_seconds = time.perf_counter() - timing_started
         self.overhead_seconds += time.monotonic() - started
         agent.env.execute = self.execute
         agent.model.query = self.query
@@ -137,15 +140,24 @@ class FailureFeedbackController:
     def initial_full_candidates(self):
         return [LocalizationCandidate(**x) for x in self.ranking]
 
+    def _record_feedback_time(self, event, started):
+        # Accumulate only active processing slices, never command/model waiting.
+        # Writing the final timing values is outside the measured slices.
+        elapsed = time.perf_counter() - started
+        event['feedback_processing_seconds'] += elapsed
+        self.feedback_total_seconds += elapsed
+
     def execute(self, action, *args, **kwargs):
         response = self._execute(action, *args, **kwargs)
         if response.get('returncode') == 0:
             return response
         started = time.monotonic()
+        timing_started = time.perf_counter()
         number = len(self.events) + 1
         event = {'event_id': f'failure-{number}', 'step': self.agent.n_calls,
                  'returncode': response.get('returncode'), 'update_applied': False,
-                 'update_status': 'pending', 'action': action}
+                 'update_status': 'pending', 'action': action,
+                 'feedback_processing_seconds': 0.0}
         raw = response.get('output', '')
         evidence_file = f'failure-{number}-output.txt'
         (self.directory / evidence_file).write_text(raw, encoding='utf-8')
@@ -168,6 +180,7 @@ class FailureFeedbackController:
                          error=f'{type(exc).__name__}: {exc}')
         self.events.append(event)
         self.overhead_seconds += time.monotonic() - started
+        self._record_feedback_time(event, timing_started)
         self._persist()
         return response
 
@@ -177,33 +190,40 @@ class FailureFeedbackController:
         selected = None
         pending, self.pending = self.pending, []
         for result, event in pending:
-            allowed, reason = self.gate.check(result)
-            if not allowed:
-                event.update(update_status='skipped', no_update_reason=reason)
-            elif selected is not None:
-                event.update(update_status='skipped', no_update_reason='additional_failure_same_decision')
-            else:
-                selected = result, event
+            started = time.perf_counter()
+            try:
+                allowed, reason = self.gate.check(result)
+                if not allowed:
+                    event.update(update_status='skipped', no_update_reason=reason)
+                elif selected is not None:
+                    event.update(update_status='skipped', no_update_reason='additional_failure_same_decision')
+                else:
+                    selected = result, event
+            finally:
+                self._record_feedback_time(event, started)
         message_count = len(messages)
         if selected:
             result, event = selected
-            ranking = fuse_condition_d_for_agent(self.lexical, self.structural,
-                                               result.to_localization_candidates())
-            prompt = select_prompt_candidates([LocalizationCandidate(**x) for x in ranking], self.top_k)
-            context = 'Runtime failure localization update\n' + format_localization_context(
-                prompt)
-            event.update(before_ranking=self.ranking, proposed_ranking=ranking,
-                         prompt_candidates=[asdict(x) for x in prompt], localization_top_k=self.top_k,
-                         delivered_context=context, update_status='awaiting_model_call')
+            started = time.perf_counter()
             try:
-                added = self.agent.model.format_message(role='user', content=context)
-                self.agent.add_messages(added)
-            except Exception as exc:
-                event.update(update_status='failed', no_update_reason='context_injection_failed',
-                             error=f'{type(exc).__name__}: {exc}')
+                ranking = fuse_condition_d_for_agent(self.lexical, self.structural,
+                                                   result.to_localization_candidates())
+                prompt = select_prompt_candidates([LocalizationCandidate(**x) for x in ranking], self.top_k)
+                context = 'Runtime failure localization update\n' + format_localization_context(
+                    prompt)
+                event.update(before_ranking=self.ranking, proposed_ranking=ranking,
+                             prompt_candidates=[asdict(x) for x in prompt], localization_top_k=self.top_k,
+                             delivered_context=context, update_status='awaiting_model_call')
+                try:
+                    added = self.agent.model.format_message(role='user', content=context)
+                    self.agent.add_messages(added)
+                except Exception as exc:
+                    event.update(update_status='failed', no_update_reason='context_injection_failed',
+                                 error=f'{type(exc).__name__}: {exc}')
+                    raise
+            finally:
+                self._record_feedback_time(event, started)
                 self._persist()
-                raise
-            self._persist()
         try:
             response = self._query(messages, **kwargs)
         except Exception as exc:
@@ -240,5 +260,7 @@ class FailureFeedbackController:
         return {'max_updates': self.gate.max_updates, 'context_top_k': self.top_k,
                 'failures_observed': len(self.events), 'updates_applied': self.applied,
                 'localization_overhead_seconds': self.overhead_seconds,
+                'initial_localization_seconds': self.initial_localization_seconds,
+                'feedback_total_seconds': self.feedback_total_seconds,
                 'initial_LS_fixed': True, 'failure_signal': 'single_action_first_eligible_per_decision',
                 'log_directory': str(self.directory)}
