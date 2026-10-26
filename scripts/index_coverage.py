@@ -4,9 +4,10 @@ Usage:
     python scripts/index_coverage.py --tasks-from experiments/bm25_results.json
     python scripts/index_coverage.py django__django-11133 sympy__sympy-17630 --rebuild
 
-Indexes come from the SWE-bench cache and are built on first use. With
---rebuild every index is rebuilt and the build time is reported (the
-repositories must already be cloned for the time to exclude the download).
+Indexes come from the SWE-bench cache and are built on first use. Build
+times are the `build_seconds` each index records when it is built (reading
+from git and indexing, without cloning); --rebuild rebuilds every index first,
+so all times come from the same machine and run.
 """
 
 from __future__ import annotations
@@ -14,7 +15,6 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-import time
 from collections import Counter
 from pathlib import Path
 
@@ -34,7 +34,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("instance_ids", nargs="*", help="SWE-bench instance ids")
     parser.add_argument("--tasks-from", help="a rankings JSON with one entry per instance_id")
-    parser.add_argument("--rebuild", action="store_true", help="rebuild indexes and time them")
+    parser.add_argument("--rebuild", action="store_true", help="rebuild every index first")
     parser.add_argument("--cache-dir", help="SWE-bench cache directory (default: .swebench_cache)")
     parser.add_argument("-o", "--output", help="write the Markdown here instead of stdout")
     args = parser.parse_args(argv)
@@ -52,9 +52,7 @@ def main(argv: list[str] | None = None) -> int:
         task = load_task(instance_id, cache)
         repo_dir = ensure_repo(task.repo, cache)
         ensure_commit(repo_dir, task.base_commit)
-        started = time.perf_counter()
         index = build_task_index(instance_id, cache_dir=cache, rebuild=args.rebuild)
-        seconds = time.perf_counter() - started
         source_bytes = sum(size for _, size in list_python_blobs(repo_dir, task.base_commit).values())
         types = Counter(r.symbol_type for r in index.records)
         rows.append(
@@ -71,12 +69,12 @@ def main(argv: list[str] | None = None) -> int:
                 "import_edges": index.metadata["num_import_edges"],
                 "files_with_imports": len(index.imports),
                 "index_mb": (cache / "index" / f"{instance_id}.json").stat().st_size / 2**20,
-                "seconds": seconds if args.rebuild else None,
+                "seconds": index.metadata.get("build_seconds"),
             }
         )
         print(f"{instance_id}: {len(index.files)} files", file=sys.stderr)
 
-    text = render(rows, timed=args.rebuild)
+    text = render(rows)
     if args.output:
         Path(args.output).write_text(text, encoding="utf-8")
     else:
@@ -84,11 +82,10 @@ def main(argv: list[str] | None = None) -> int:
     return 0
 
 
-def render(rows: list[dict], *, timed: bool) -> str:
+def render(rows: list[dict]) -> str:
     header = (
         "| Task | Commit | .py files | Test files | Source (MB) | Records | Classes "
-        "| Functions / methods | Parse errors | Import edges | Index JSON (MB) |"
-        + (" Build (s) |" if timed else "")
+        "| Functions / methods | Parse errors | Import edges | Index JSON (MB) | Build (s) |"
     )
     lines = [header, "|" + "---|" * (header.count("|") - 1)]
     for r in rows:
@@ -98,8 +95,7 @@ def render(rows: list[dict], *, timed: bool) -> str:
             f"| {r['source_mb']:.1f} | {r['records']} | {r['classes']} | {r['functions']} "
             f"| {errors} | {r['import_edges']} | {r['index_mb']:.1f} |"
         )
-        if timed:
-            line += f" {r['seconds']:.1f} |"
+        line += f" {r['seconds']:.1f} |" if r["seconds"] is not None else " - |"
         lines.append(line)
 
     total_errors = sum(len(r["errors"]) for r in rows)

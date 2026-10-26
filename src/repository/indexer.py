@@ -8,6 +8,7 @@ import os
 import platform
 import posixpath
 import re
+import time
 from collections.abc import Callable, Iterable, Mapping
 from dataclasses import asdict, dataclass, field, replace
 from pathlib import Path
@@ -261,13 +262,15 @@ def build_index(
     """Index every Python file under the directory `repo_root`.
 
     Files that cannot be read, decoded or parsed are listed in `errors` and
-    skipped; they never abort the build.
+    skipped; they never abort the build. `metadata["build_seconds"]` is the
+    time spent reading and indexing the files.
     """
     root = Path(repo_root)
     if not root.is_dir():
         raise NotADirectoryError(f"not a directory: {root}")
 
-    return index_sources(
+    started = time.perf_counter()
+    index = index_sources(
         iter_python_files(root),
         read_bytes=lambda path: (root / path).read_bytes(),
         file_size=lambda path: (root / path).stat().st_size,
@@ -275,6 +278,8 @@ def build_index(
         max_text_chars=max_text_chars,
         metadata={"repo_name": root.resolve().name},
     )
+    index.metadata["build_seconds"] = round(time.perf_counter() - started, 3)
+    return index
 
 
 def read_workspace_files(

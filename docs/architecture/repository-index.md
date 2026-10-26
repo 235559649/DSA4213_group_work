@@ -63,6 +63,12 @@ caches the index per task. Later calls load the cached index.
   index identity required by the evaluation protocol.<br>
   索引元数据记录 `repo`、`commit`、`instance_id`、`dataset_revision` 和
   `index_sha256`（`index.digest()`，索引内容的哈希），作为评估协议要求的"索引身份"。
+- `metadata["build_seconds"]` is the time spent reading the files and indexing
+  them (not cloning, not saving): the one-time preprocessing cost of the task,
+  for timing reports. It is metadata, so it does not change `index_sha256`.
+  Cached indexes from before it was recorded are rebuilt once.<br>
+  `metadata["build_seconds"]` 是读取文件并建索引所用的时间（不含 clone 和保存），即该任务一次性的
+  预处理成本，供计时统计使用。它属于元数据，不影响 `index_sha256`。记录这个字段之前生成的缓存会自动重建一次。
 - Files generated at install time inside the task container (e.g. a
   setuptools-scm `_version.py`) are not in git and so not indexed.<br>
   任务容器安装时生成的文件（例如 setuptools-scm 生成的 `_version.py`）不在 git 里，所以不会被索引。
