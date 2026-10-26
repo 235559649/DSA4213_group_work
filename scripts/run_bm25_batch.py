@@ -2,6 +2,8 @@
 
 import csv
 import json
+import platform
+import time
 from pathlib import Path
 
 
@@ -47,12 +49,19 @@ def main() -> None:
         print(f"\n[{i}/{len(TASK_IDS)}] Processing {task_id}")
         try:
             task = load_task(task_id)
+            started = time.perf_counter()
             index = build_task_index(task_id)
+            index_access_seconds = time.perf_counter() - started
             query = task.problem_statement
+
+            started = time.perf_counter()
             retriever = BM25Retriever(index)
+            bm25_init_seconds = time.perf_counter() - started
 
             # IMPORTANT: no top_k cutoff; save ALL positive-scoring files.
+            started = time.perf_counter()
             results = retriever.retrieve(query)
+            bm25_seconds = time.perf_counter() - started
             ranked_files = [
                 {
                     "rank": rank,
@@ -64,6 +73,13 @@ def main() -> None:
 
             all_results.append({
                 "instance_id": task_id,
+                "timing": {
+                    "index_build_seconds": index.metadata.get("build_seconds"),
+                    "index_access_seconds": round(index_access_seconds, 4),
+                    "bm25_init_seconds": round(bm25_init_seconds, 4),
+                    "bm25_seconds": round(bm25_seconds, 4),
+                    "measured_on": f"{platform.system()} {platform.machine()}, Python {platform.python_version()}",
+                },
                 "ranked_files": ranked_files,
             })
             summary.append({
@@ -77,6 +93,7 @@ def main() -> None:
             })
             print(f"  Indexed files: {len(index.files)}")
             print(f"  Full positive ranking: {len(ranked_files)} files")
+            print(f"  BM25 initialization: {bm25_init_seconds:.4f} s; retrieval: {bm25_seconds:.4f} s")
             print("  Preview (first 10 only; saved JSON contains ALL files):")
             for item in ranked_files[:10]:
                 print(
