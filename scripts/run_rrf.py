@@ -2,14 +2,24 @@
 
 Uses BM25 lexical ranking L and structural ranking S.
 Does not access SWE-bench ground truth.
+
+Usage:
+    python scripts/run_rrf.py                             # experiments/*.json, as before
+    python scripts/run_rrf.py --lexical experiments/test/bm25_results.json \\
+        --structural experiments/test/structural_results.json \\
+        --output experiments/test/condition_c_results.json
 """
 
+import argparse
 import json
 import platform
+import sys
 import time
 from pathlib import Path
 
-from src.localization.ranker import fuse_condition_c
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from src.localization.ranker import fuse_condition_c  # noqa: E402
 
 
 BM25_PATH = Path("experiments/bm25_results.json")
@@ -25,11 +35,18 @@ def load_results(path):
         return json.load(f)
 
 
-def main():
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--lexical", type=Path, default=BM25_PATH, help="BM25 rankings JSON (L)")
+    parser.add_argument("--structural", type=Path, default=STRUCTURAL_PATH, help="structural rankings JSON (S)")
+    parser.add_argument("--output", type=Path, default=OUTPUT_PATH, help="where to write Condition C rankings")
+    parser.add_argument("--k", type=int, default=RRF_K, help="RRF constant (frozen at 60)")
+    args = parser.parse_args(argv)
+
     print("Loading BM25 and Structural rankings...")
 
-    lexical_results = load_results(BM25_PATH)
-    structural_results = load_results(STRUCTURAL_PATH)
+    lexical_results = load_results(args.lexical)
+    structural_results = load_results(args.structural)
 
     structural_by_id = {
         task["instance_id"]: task
@@ -53,14 +70,14 @@ def main():
         fused = fuse_condition_c(
             lexical_ranking=lexical,
             structural_ranking=structural,
-            k=RRF_K,
+            k=args.k,
         )
         rrf_seconds = time.perf_counter() - started
 
         all_results.append({
             "instance_id": task_id,
             "condition": "C",
-            "rrf_k": RRF_K,
+            "rrf_k": args.k,
             "timing": {
                 "rrf_seconds": round(rrf_seconds, 6),
                 "measured_on": f"{platform.system()} {platform.machine()}, Python {platform.python_version()}",
@@ -75,9 +92,9 @@ def main():
             f"Fused={len(fused)}, RRF={rrf_seconds:.6f} s"
         )
 
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    args.output.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+    with open(args.output, "w", encoding="utf-8") as f:
         json.dump(
             all_results,
             f,
@@ -88,9 +105,10 @@ def main():
     print("\n" + "=" * 60)
     print("Condition C RRF fusion completed!")
     print(f"Tasks processed: {len(all_results)}")
-    print(f"RRF k: {RRF_K}")
-    print(f"Results saved to: {OUTPUT_PATH}")
+    print(f"RRF k: {args.k}")
+    print(f"Results saved to: {args.output}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

@@ -3,10 +3,10 @@
 Which time quantities the report uses, how each is computed from the recorded
 fields, and which fields must not be added together. Supplements
 `evaluation_protocol.v0.1.md` (section 2.2, `timings`). Status as of
-2026-10-26, including PR #15.
+2026-10-26, including PR #15 and PR #17.
 
 报告中使用哪些时间量、每一项如何从已记录的字段计算，以及哪些字段不能相加。作为
-`evaluation_protocol.v0.1.md`（2.2 节 `timings`）的补充。截至 2026-10-26，包含 PR #15。
+`evaluation_protocol.v0.1.md`（2.2 节 `timings`）的补充。截至 2026-10-26，包含 PR #15 和 PR #17。
 
 ## 1. Reported quantities / 报告项
 
@@ -149,20 +149,34 @@ start-up timeouts).
 因此 `runtime_seconds` **不是** T_agent，也不能直接跨条件比较：D 的包含了它的定位开销，B、C 的不包含；
 而且所有条件的都包含容器启动时间，这个时间波动很大（dev5 中有 6 次启动超时）。
 
-**Fix (role 1):** record separate timestamps in `swebench_runner.py` around
-container start-up, `agent.run()` and shutdown, e.g. `env_setup_seconds`,
-`agent_seconds`, `env_teardown_seconds`.
+**Fix (PR #17):** each run record gets `config.timing`:
 
-**修复（1 号）：** 在 `swebench_runner.py` 中分别记录容器启动、`agent.run()` 和关闭前后的时间戳，例如
-`env_setup_seconds`、`agent_seconds`、`env_teardown_seconds`。
+**修复（PR #17）：** 每条运行记录新增 `config.timing`：
 
-**Until then:** report `runtime_seconds` labelled as "run time including
-container start-up", and for D subtract
+| Field / 字段 | Covers / 覆盖范围 |
+|---|---|
+| `env_setup_seconds` | building the agent and starting the container; recorded even if start-up fails<br>构建 Agent 并启动容器；启动失败时也会记录 |
+| `agent_seconds` | `agent.run()` only; for D it includes the failure updates<br>只含 `agent.run()`；D 的报错更新也在其中 |
+| `env_teardown_seconds` | closing D's logs and cleaning up the environment<br>关闭 D 的日志并清理环境 |
+
+With these fields / 使用这些字段时：
+
+- **T_agent** = `agent_seconds` for A, B, C; `agent_seconds − failure_feedback.feedback_total_seconds` for D.<br>
+  **T_agent**：A、B、C 为 `agent_seconds`；D 为 `agent_seconds − failure_feedback.feedback_total_seconds`。
+- **T_env** = `env_setup_seconds + env_teardown_seconds`.<br>
+  **T_env** = `env_setup_seconds + env_teardown_seconds`。
+- `runtime_seconds` is unchanged and remains the total wall time.<br>
+  `runtime_seconds` 不变，仍是总耗时。
+
+**For runs recorded before PR #17** (e.g. dev5), which lack `config.timing`:
+report `runtime_seconds` labelled as "run time including container
+start-up", and for D subtract
 `initial_localization_seconds + feedback_total_seconds` before comparing with
 the other conditions. State this approximation in the report.
 
-**在此之前：** 把 `runtime_seconds` 标注为"含容器启动的运行时间"来报告；D 在与其他条件比较前，先减去
-`initial_localization_seconds + feedback_total_seconds`。在报告中说明这一近似处理。
+**PR #17 之前记录的运行**（例如 dev5）没有 `config.timing`：把 `runtime_seconds` 标注为"含容器启动的运行
+时间"来报告；D 在与其他条件比较前，先减去 `initial_localization_seconds + feedback_total_seconds`。在报告
+中说明这一近似处理。
 
 T_eval is not recorded by the runner; the evaluation lead measures it around
 the harness call.
@@ -186,7 +200,10 @@ T_eval 不由运行器记录，由评估负责人在调用官方评测前后测�
 | `config.failure_feedback.feedback_total_seconds` | D run record / D 运行记录 | all failure updates / 所有报错更新 | T_loc (D) |
 | `feedback_processing_seconds` | `failure_updates.jsonl` | one failure update / 单次报错更新 | detail / 明细 |
 | `config.failure_feedback.localization_overhead_seconds` | D run record / D 运行记录 | partial D overhead / D 的部分开销 | superseded (3.5) / 已取代 |
-| `runtime_seconds` | run record / 运行记录 | container + (D) ranking + agent / 容器 + （D）排名 + Agent | see section 4 / 见第 4 节 |
+| `config.timing.env_setup_seconds` | run record (PR #17) / 运行记录 | agent build + container start / 构建 Agent + 启动容器 | T_env |
+| `config.timing.agent_seconds` | run record (PR #17) / 运行记录 | `agent.run()` (D: incl. failure updates) / 含 D 的报错更新 | T_agent (section 4) |
+| `config.timing.env_teardown_seconds` | run record (PR #17) / 运行记录 | cleanup / 清理 | T_env |
+| `runtime_seconds` | run record / 运行记录 | container + (D) ranking + agent / 容器 + （D）排名 + Agent | total; see section 4 / 总耗时，见第 4 节 |
 
 ## 6. Measured magnitudes / 实测量级
 
