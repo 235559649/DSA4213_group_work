@@ -4,6 +4,31 @@ from src.agent.contracts import (
     LocalizationCandidate,
 )
 
+REPAIR_GUIDANCE_VERSION = 'closed_loop_v2'
+REPAIR_GUIDANCE = """
+Repository investigation and verification:
+- Use localization hints as leads. Inspect the relevant implementation before
+  editing; if you skip a high-ranked plausible candidate, explain why and follow
+  evidence to another location. A filename or one traceback line is not enough
+  to establish the cause. Do not open every candidate just to satisfy a checklist.
+- Turn the public issue's expected behavior into executable assertions. Check
+  the original reproduction after edits, relevant alternative/default branches,
+  and available nearby regression tests. Derive expectations only from the issue
+  and repository specification, never hidden evaluation tests or reference fixes.
+- Run reproduction/test commands separately from source display or git diff so
+  a later successful command cannot mask a failure. If you catch an unexpected
+  exception for diagnostics, print the full traceback and preserve failure status.
+- A printed result, successful compilation, or a narrow example is not proof of
+  correctness. Before submission, revisit visible exceptions and failed assertions;
+  fix them or explicitly report unresolved behavior and validation limitations.
+  If tests are unavailable, report that limitation rather than claiming they pass.
+""".strip()
+
+
+def with_repair_guidance(system_template: str) -> str:
+    """Same verification instruction for every A/B/C/D run in the v2 protocol."""
+    return system_template + '\n\n' + REPAIR_GUIDANCE
+
 
 def select_prompt_candidates(
     candidates: list[LocalizationCandidate],
@@ -84,6 +109,7 @@ def format_localization_context(
             "You may inspect any file in the "
             "repository if needed."
         ),
+        "Inspect plausible implementation candidates before editing; explain evidence-based departures from the ranking.",
         "",
     ]
 
@@ -101,9 +127,12 @@ def format_localization_context(
                 f"{candidate.symbol}"
             )
 
+        # Historical C artifacts used RRF while D used RRF(L,S). Normalize
+        # this presentation-only alias; keep full saved ranking metadata intact.
+        reason = 'RRF(L,S)' if candidate.reason in {'RRF', 'RRF(L,S)'} else candidate.reason
         reason_text = (
-            f" | reason: {candidate.reason}"
-            if candidate.reason
+            f" | reason: {reason}"
+            if reason
             else ""
         )
 

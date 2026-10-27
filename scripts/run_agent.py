@@ -28,6 +28,10 @@ from src.agent.swebench_runner import (  # noqa: E402
     SWEbenchRunner,
 )
 
+from src.agent.failure_feedback import (  # noqa: E402
+    validate_failure_limits, validate_failure_weight,
+)
+
 from src.agent.context import (  # noqa: E402
     select_prompt_candidates,
 )
@@ -359,9 +363,20 @@ def main() -> None:
     )
 
     parser.add_argument('--model-class', default='openrouter')
-    parser.add_argument('--failure-max-updates', type=int, default=3)
+    parser.add_argument('--failure-max-updates', type=int, default=3,
+                        help='Maximum successful ranking updates (not total messages).')
+    parser.add_argument('--failure-max-recovery-updates', type=int, default=2)
+    parser.add_argument('--failure-max-diagnostic-updates', type=int, default=1)
     parser.add_argument('--failure-root', default='/testbed')
+    parser.add_argument('--failure-weight', type=float, default=1.0,
+                        help='Positive finite F weight for Condition D (default: 1.0).')
     args = parser.parse_args()
+    try:
+        args.failure_weight = validate_failure_weight(args.failure_weight)
+        validate_failure_limits(args.failure_max_updates, args.failure_max_recovery_updates,
+                                args.failure_max_diagnostic_updates)
+    except ValueError as exc:
+        parser.error(str(exc))
 
     if (
         args.condition in {"B", "C"}
@@ -422,6 +437,9 @@ def main() -> None:
             model_name=args.model,
             model_class=args.model_class,
             failure_max_updates=args.failure_max_updates,
+            failure_weight=args.failure_weight,
+            failure_max_recovery_updates=args.failure_max_recovery_updates,
+            failure_max_diagnostic_updates=args.failure_max_diagnostic_updates,
         )
 
         result = runner.run(
@@ -465,6 +483,9 @@ def main() -> None:
             model_name=args.model,
             model_class=args.model_class,
             failure_max_updates=args.failure_max_updates,
+            failure_weight=args.failure_weight,
+            failure_max_recovery_updates=args.failure_max_recovery_updates,
+            failure_max_diagnostic_updates=args.failure_max_diagnostic_updates,
             failure_repo_root=args.failure_root,
         )
 
