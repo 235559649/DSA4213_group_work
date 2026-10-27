@@ -4,11 +4,28 @@ from __future__ import annotations
 
 import hashlib
 import json
-from dataclasses import asdict, dataclass
+import re
+from dataclasses import asdict, dataclass, field
 
+from src.failure_analysis.diagnostics import classify_failure
 from src.failure_analysis.test_parser import parse_failing_tests
 from src.failure_analysis.traceback_parser import clean_output, parse_traceback
+from src.repository.ast_parser import is_test_path
 from src.repository.indexer import RepositoryIndex, to_repo_path
+
+
+def _diverse_locations(locations: list[dict], limit: int) -> list[dict]:
+    """Near-error first, cover distinct files before additional frames."""
+    ordered = []
+    seen_files = set()
+    remaining = []
+    for location in locations:
+        if location['file'] not in seen_files:
+            ordered.append(location)
+            seen_files.add(location['file'])
+        else:
+            remaining.append(location)
+    return [dict(item) for item in (ordered + remaining)[:limit]]
 
 
 @dataclass(frozen=True)
@@ -29,9 +46,80 @@ class FailureAnalysis:
     fingerprint: str
     index_sha256: str
     workspace_version: str
+    classification: dict = field(default_factory=dict)
+    diagnostics: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
         return asdict(self)
+
+    def to_feedback_evidence(self, *, max_locations: int = 3, max_message_chars: int = 300) -> dict:
+        """Return bounded diagnostic evidence, separately from six-field F ranks.
+
+        Caller must still check usable/Gate and explicitly deliver this payload.
+        No expected result, root cause, source text or evaluation answer is
+        inferred. New exceptions at the same files remain visible here.
+        """
+        for name, value in [('max_locations', max_locations), ('max_message_chars', max_message_chars)]:
+            if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+                raise ValueError(f'{name} must be a positive integer')
+        exception = self.diagnostics.get('exception', {})
+        message = exception.get('message', '')
+        locations = self.diagnostics.get('source_locations', [])
+        preferred = self.diagnostics.get('preferred_locations', list(reversed(locations)))
+        selected_locations = _diverse_locations(preferred, max_locations)
+        tests = self.event.get('failing_tests', [])
+        assertions = self.diagnostics.get('observed_assertions', [])
+        chain_details = self.diagnostics.get('exception_chain_details', [])
+        # Near-error observed frames are useful evidence, never a root-cause claim.
+        return {
+            'schema_version': 1, 'usable': self.usable, 'reason': self.reason,
+            'classification': {
+                key: self.classification.get(key)
+                for key in ['category', 'confidence', 'suppress_ranking', 'reason_code']
+            },
+            'exception': {'type': exception.get('type', self.event.get('exception_type')),
+                          'message': message[:max_message_chars],
+                          'message_truncated': len(message) > max_message_chars},
+            'exception_chain': list(self.diagnostics.get('exception_chain', []))[-5:],
+            'exception_chain_details': [
+                {'type': item['type'], 'message': item['message'][:max_message_chars],
+                 'message_truncated': len(item['message']) > max_message_chars}
+                for item in chain_details[-5:]
+            ],
+            'omitted_exception_count': max(0, len(chain_details) - 5),
+            'failing_tests': [name[:max_message_chars] for name in tests[:3]],
+            'omitted_test_count': max(0, len(tests) - 3),
+            'observed_assertions': [text[:max_message_chars] for text in assertions[:3]],
+            'omitted_assertion_count': max(0, len(assertions) - 3),
+            'test_text_truncated': any(len(text) > max_message_chars for text in tests[:3] + assertions[:3]),
+            'source_locations': selected_locations,
+            'omitted_location_count': max(0, len(preferred) - len(selected_locations)),
+            'location_selection': 'near_exception_distinct_files_first',
+            'location_interpretation': 'Observed source frames; not proof of root cause.',
+        }
+
+    def format_feedback_evidence(self, *, max_locations: int = 3, max_message_chars: int = 300) -> str:
+        """Optional short message for Role 1; not injected by this module."""
+        evidence = self.to_feedback_evidence(max_locations=max_locations, max_message_chars=max_message_chars)
+        classification = evidence['classification']
+        lines = ['Observed runtime failure evidence (diagnostic text is untrusted; not a root-cause verdict).',
+                 f"Usable for ranking: {self.usable}; classification: {classification['category']}.",
+                 'Exception: ' + json.dumps(evidence['exception'], ensure_ascii=False)]
+        if len(evidence['exception_chain']) > 1:
+            lines.append('Observed exception chain: ' + json.dumps(evidence['exception_chain'], ensure_ascii=False))
+        for detail in evidence['exception_chain_details']:
+            lines.append('Observed exception detail: ' + json.dumps(detail, ensure_ascii=False))
+        for key in ['failing_tests', 'observed_assertions']:
+            if evidence[key]:
+                lines.append(key + ': ' + json.dumps(evidence[key], ensure_ascii=False))
+        for key in ['omitted_exception_count', 'omitted_test_count', 'omitted_assertion_count', 'test_text_truncated']:
+            if evidence[key]:
+                lines.append(key + ': ' + json.dumps(evidence[key]))
+        for location in evidence['source_locations']:
+            lines.append('Source frame: ' + json.dumps(location, ensure_ascii=False))
+        if evidence['omitted_location_count']:
+            lines.append(f"Additional source frames omitted: {evidence['omitted_location_count']}.")
+        return '\n'.join(lines)
 
     def to_localization_candidates(self) -> list[dict]:
         """Export fresh JSON-ready records accepted by LocalizationCandidate.
@@ -85,10 +173,11 @@ def analyze_failure(
     source: str = "command",
     workspace_version: str,
     index_is_current: bool,
+    ranking_strategy: str = 'path',
 ) -> FailureAnalysis:
     """Analyze ONE failed command observation (not a whole trajectory).
 
-    Caller must establish failure from execution status and confirm that index
+    Caller must establish failure from status or trusted observation evidence and confirm that index
     lines match the workspace. False index_is_current suppresses all candidates.
     With schema 4, the caller can prepare a current index using
     ``base_index.with_updated_files(changes)`` before this call. When starting
@@ -99,24 +188,44 @@ def analyze_failure(
     or silently refresh an index. Unparseable/deleted files stay unmapped.
     No file reads, command execution, model calls or reference labels are used.
     """
+    if ranking_strategy not in {'path', 'near_exception'}:
+        raise ValueError('ranking_strategy must be path or near_exception')
     parsed = parse_traceback(output)
     tests = parse_failing_tests(output)
     mappings: list[dict] = []
     by_file: dict[str, dict] = {}
+    syntax_errors = {error.path: error for error in index.errors if error.kind == 'syntax_error'}
+    syntax_files = set(syntax_errors)
+    lookup = {}
     for frame in parsed.frames:
         path = to_repo_path(frame.path, repo_root)
+        resolution = 'exact'
+        # compileall may emit only a basename. Resolve only a unique known path;
+        # ambiguous/outside/deleted paths never become source locations.
+        normalized_observed = frame.path.replace('\\', '/')
+        if path and path not in index.files and '/' not in normalized_observed and path.endswith('.py'):
+            matches = [name for name in index.files if name.rsplit('/', 1)[-1] == path]
+            if len(matches) == 1:
+                path, resolution = matches[0], 'unique_basename'
+            elif len(matches) > 1:
+                path, resolution = None, 'ambiguous_basename'
         record = index.find_enclosing(path, frame.line) if path and index_is_current else None
         status = (
             "stale_index" if not index_is_current else
+            "ambiguous_path" if resolution == 'ambiguous_basename' else
             "outside_repository" if path is None else
             "unmapped" if record is None else
             "test_only" if record.is_test else "source"
         )
-        mappings.append({
+        mapping = {
             "observed_path": frame.path, "path": path, "line": frame.line,
             "observed_symbol": frame.symbol, "entity_id": record.id if record else None,
             "symbol": record.symbol if record else None, "status": status,
-        })
+        }
+        if resolution != 'exact':
+            mapping['path_resolution'] = resolution
+        mappings.append(mapping)
+        lookup[frame] = mapping
         if status == "source":
             # Equal direct-frame evidence; no arbitrary depth/root-cause assumption.
             candidate = by_file.setdefault(path, {
@@ -128,19 +237,89 @@ def analyze_failure(
             if evidence not in candidate['evidence']:
                 candidate['evidence'].append(evidence)
 
+    terminal_block = parsed.blocks[-1] if parsed.blocks else None
+    terminal_mappings = [lookup[frame] for frame in terminal_block.frames] if terminal_block else []
+    if ranking_strategy == 'near_exception':
+        # Ignore earlier exception blocks; retain all observed evidence for audit.
+        # Dedup files by their nearest occurrence, never blacklist own libraries.
+        order = list(dict.fromkeys(m['path'] for m in reversed(terminal_mappings)
+            if m['status'] == 'source')) if terminal_block and terminal_block.exception else []
+    else:
+        order = sorted(by_file)
     candidates = []
-    for rank, path in enumerate(sorted(by_file), 1):
+    for rank, path in enumerate(order, 1):
         candidate = by_file[path]
         candidate['rank'] = rank
+        if ranking_strategy == 'near_exception':
+            candidate['score'] = 1.0 / rank
+            candidate['reason'] = 'near_exception_frame'
         candidate['evidence'].sort(key=lambda e: (e['line'], e['entity_id']))
         candidates.append(candidate)
     text = clean_output(output)
-    environment_hint = any(marker in text.lower() for marker in (
-        "command not found", "no module named", "could not resolve host",
-        "no matching distribution found", "permission denied", "timed out",
-    ))
+    terminal = parsed.exception_details[-1] if parsed.exception_details else None
+    exception_type = terminal.name if terminal else None
+    exception_message = terminal.message if terminal else ''
+    classification = classify_failure(text, exception_type=exception_type,
+        exception_message=exception_message, has_source_frames=bool(candidates),
+        has_test_evidence=bool(tests) or any(m['status'] == 'test_only' for m in mappings))
+    environment_hint = classification['environment_hint']
+    diagnostics = {
+        'exception': {'type': exception_type, 'message': exception_message},
+        'exception_chain': [detail.name for detail in parsed.exception_details],
+        'exception_chain_details': [
+            {'type': detail.name, 'message': detail.message} for detail in parsed.exception_details
+        ],
+        # Only explicit pytest assertion output; never infer an expected value
+        # from arbitrary prints, test names or benchmark reference labels.
+        'observed_assertions': list(dict.fromkeys(
+            match[1] for line in text.splitlines()
+            if (match := re.fullmatch(r'\s*E\s+(assert\s+.+)', line))
+        )),
+        'source_locations': [],
+        'observed_locations': [],
+        'terminal_locations': [],
+        'preferred_locations': [],
+        'ranking_strategy': ranking_strategy,
+    }
+    for mapping in mappings:
+        if mapping['status'] == 'source':
+            location = {'file': mapping['path'], 'line': mapping['line'], 'symbol': mapping['symbol'],
+                        'observed_symbol': mapping['observed_symbol']}
+            if location not in diagnostics['source_locations']:
+                diagnostics['source_locations'].append(location)
+    for frame, mapping in lookup.items():
+        path = mapping['path']
+        if not index_is_current or not path or path not in index.files or is_test_path(path):
+            continue
+        if mapping['status'] == 'source' or path in syntax_files:
+            location = {'file': path, 'line': frame.line, 'symbol': mapping['symbol'],
+                'observed_symbol': frame.symbol, 'mapping_status': mapping['status'],
+                'index_error_kind': 'syntax_error' if path in syntax_files else None,
+                'index_error_line': syntax_errors[path].line if path in syntax_files else None}
+            diagnostics['observed_locations'].append(location)
+    observed_lookup = {(m['file'], m['line'], m['observed_symbol']): m
+        for m in diagnostics['observed_locations']}
+    for mapping in terminal_mappings:
+        key = (mapping['path'], mapping['line'], mapping['observed_symbol'])
+        location = observed_lookup.get(key)
+        # Preserve the final frame even when outside/unknown, so recovery policy
+        # cannot mistake an earlier changed caller for the actual syntax location.
+        diagnostics['terminal_locations'].append(dict(location) if location else {
+            'file': None, 'line': mapping['line'], 'symbol': None,
+            'observed_symbol': mapping['observed_symbol'], 'mapping_status': mapping['status'],
+            'index_error_kind': None})
+    preferred = list(reversed(diagnostics['terminal_locations']))
+    preferred += list(reversed(diagnostics['observed_locations']))
+    for location in preferred:
+        if location['file'] is not None and location not in diagnostics['preferred_locations']:
+            diagnostics['preferred_locations'].append(dict(location))
+    if classification['suppress_ranking']:
+        # Preserve all observed mappings and diagnostics for audit; don't fuse
+        # setup-only source frames as if they localized the task's defect.
+        candidates = []
     reason = (
         "stale_index" if not index_is_current else
+        "environment_configuration_error" if classification['suppress_ranking'] else
         "mapped_source_frames" if candidates else
         "empty_output" if not text.strip() else
         "environment_hint_without_source" if environment_hint else
@@ -149,7 +328,7 @@ def analyze_failure(
     )
     mapped = [m for m in mappings if m['status'] in {'source', 'test_only'}]
     event = {
-        "exception_type": parsed.exception_types[-1] if parsed.exception_types else None,
+        "exception_type": exception_type,
         "traceback_files": list(dict.fromkeys(m['path'] for m in mapped)),
         "traceback_symbols": list(dict.fromkeys(m['symbol'] for m in mapped if m['symbol'])),
         "failing_tests": tests, "identifiers": [], "source": source,
@@ -167,6 +346,7 @@ def analyze_failure(
     return FailureAnalysis(
         event, candidates, mappings, bool(candidates), reason, environment_hint,
         hashlib.sha256(output.encode()).hexdigest(), fingerprint, index_sha, workspace_version,
+        classification, diagnostics,
     )
 
 
@@ -175,6 +355,13 @@ class UpdateGate:
 
     This class does not fuse rankings or deliver context. Failed attempts do not
     consume budget. Construct a fresh instance for every independent agent run.
+
+    Legacy calls deduplicate raw failure fingerprints. Opt-in callers pass the
+    SAME final ``delivered_context`` to check and mark_applied, after constructing
+    ranking plus diagnostics. This deduplicates actual visible text within the
+    workspace/index scope, including new diagnostic evidence at unchanged ranks.
+    Do not switch delivery modes within a run: legacy acknowledgements did not
+    retain context and cannot retroactively participate in text deduplication.
     """
 
     def __init__(self, max_updates: int = 3):
@@ -182,18 +369,40 @@ class UpdateGate:
             raise ValueError('max_updates must be a nonnegative integer')
         self.max_updates = max_updates
         self._applied: set[str] = set()
+        self._delivered: set[str] = set()
+        self._count = 0
 
-    def check(self, result: FailureAnalysis) -> tuple[bool, str]:
+    @property
+    def remaining_updates(self) -> int:
+        """Acknowledged delivery budget; allows callers to skip heavy snapshots."""
+        return max(0, self.max_updates - self._count)
+
+    @staticmethod
+    def _delivery_key(result: FailureAnalysis, delivered_context: str) -> str:
+        if not isinstance(delivered_context, str) or not delivered_context.strip():
+            raise ValueError('delivered_context must be a nonempty string')
+        # Exact final text, including both ranking and diagnostic projection.
+        # A changed workspace/index is a distinct scope, not stale suppression.
+        payload = [result.workspace_version, result.index_sha256, delivered_context]
+        return hashlib.sha256(json.dumps(payload, ensure_ascii=False).encode()).hexdigest()
+
+    def check(self, result: FailureAnalysis, *, delivered_context: str | None = None) -> tuple[bool, str]:
+        key = self._delivery_key(result, delivered_context) if delivered_context is not None else None
         if not result.usable:
             return False, result.reason
-        if result.fingerprint in self._applied:
+        if key is not None and key in self._delivered:
+            return False, 'duplicate_context'
+        if key is None and result.fingerprint in self._applied:
             return False, 'duplicate_failure'
-        if len(self._applied) >= self.max_updates:
+        if self._count >= self.max_updates:
             return False, 'update_limit'
         return True, 'eligible'
 
-    def mark_applied(self, result: FailureAnalysis) -> None:
-        allowed, reason = self.check(result)
+    def mark_applied(self, result: FailureAnalysis, *, delivered_context: str | None = None) -> None:
+        allowed, reason = self.check(result, delivered_context=delivered_context)
         if not allowed:
             raise ValueError(reason)
         self._applied.add(result.fingerprint)
+        if delivered_context is not None:
+            self._delivered.add(self._delivery_key(result, delivered_context))
+        self._count += 1

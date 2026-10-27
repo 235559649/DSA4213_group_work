@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from typing import Any, Mapping, Sequence
+from itertools import repeat
+import math
+from numbers import Real
+from typing import Any, Iterable, Mapping, Sequence
 
 
 RRF_K = 60
@@ -24,12 +27,21 @@ def reciprocal_rank_fusion(
     Returns all ranked files, sorted by descending RRF score.
     """
 
+    return _weighted_rank_fusion(rankings, repeat(1.0), k)
+
+
+def _weighted_rank_fusion(
+    rankings: Sequence[Sequence[Mapping[str, Any]]],
+    weights: Iterable[float],
+    k: int,
+) -> list[dict[str, Any]]:
+    """Shared accumulator; public unweighted RRF keeps its exact old behavior."""
     if k <= 0:
         raise ValueError("k must be positive")
 
     scores: dict[str, float] = defaultdict(float)
 
-    for ranking in rankings:
+    for ranking, weight in zip(rankings, weights):
         seen: set[str] = set()
 
         ordered = sorted(
@@ -53,7 +65,7 @@ def reciprocal_rank_fusion(
             if rank < 1:
                 raise ValueError("Rank must be >= 1")
 
-            scores[path] += 1.0 / (k + rank)
+            scores[path] += weight / (k + rank)
 
     fused = sorted(
         scores.items(),
@@ -88,19 +100,29 @@ def fuse_condition_d(
     structural_ranking: Sequence[Mapping[str, Any]],
     failure_ranking: Sequence[Mapping[str, Any]] | None = None,
     k: int = RRF_K,
+    *,
+    failure_weight: float = 1.0,
 ) -> list[dict[str, Any]]:
     """
     Condition D: fuse L, S and available failure ranking F.
 
-    If failure evidence is unavailable, fall back to L + S.
+    L and S retain weight 1. F contributes failure_weight / (k + rank).
+    Input score fields are not used as weights. If F is unavailable, return
+    exactly Condition C, regardless of the valid configured failure weight.
+    Default weight 1.0 preserves the previous D output and positional k calls.
     """
-
-    rankings = [lexical_ranking, structural_ranking]
-
-    if failure_ranking:
-        rankings.append(failure_ranking)
-
-    return reciprocal_rank_fusion(rankings, k=k)
+    if isinstance(failure_weight, bool) or not isinstance(failure_weight, Real):
+        raise ValueError('failure_weight must be a finite positive number')
+    try:
+        weight = float(failure_weight)
+    except (OverflowError, ValueError):
+        raise ValueError('failure_weight must be a finite positive number') from None
+    if not math.isfinite(weight) or weight <= 0:
+        raise ValueError('failure_weight must be a finite positive number')
+    if not failure_ranking:
+        return fuse_condition_c(lexical_ranking, structural_ranking, k=k)
+    return _weighted_rank_fusion(
+        [lexical_ranking, structural_ranking, failure_ranking], [1.0, 1.0, weight], k)
 
 def to_agent_candidates(
     fused_ranking: Sequence[Mapping[str, Any]],
@@ -135,8 +157,11 @@ def fuse_condition_d_for_agent(
     structural_ranking: Sequence[Mapping[str, Any]],
     failure_ranking: Sequence[Mapping[str, Any]] | None = None,
     k: int = RRF_K,
+    *,
+    failure_weight: float = 1.0,
 ) -> list[dict[str, Any]]:
     """Condition D complete ranking; empty F falls back to Condition C."""
-    fused = fuse_condition_d(lexical_ranking, structural_ranking, failure_ranking, k=k)
+    fused = fuse_condition_d(lexical_ranking, structural_ranking, failure_ranking,
+        k=k, failure_weight=failure_weight)
     reason = "RRF(L,S,F)" if failure_ranking else "RRF(L,S)"
     return to_agent_candidates(fused, reason=reason)
