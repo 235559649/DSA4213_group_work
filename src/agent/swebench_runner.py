@@ -23,8 +23,10 @@ from minisweagent.utils.serialize import (
 )
 
 from src.agent.context import (
+    PROMPT_POLICY,
     augment_task_with_localization,
     select_prompt_candidates,
+    select_related_tests,
 )
 from src.agent.contracts import (
     LocalizationCandidate,
@@ -110,6 +112,7 @@ class SWEbenchRunner:
         localization_candidates: (
             list[LocalizationCandidate] | None
         ) = None,
+        related_tests: list[str] | None = None,
     ) -> str:
         """
         Build the task actually shown to the agent.
@@ -139,11 +142,12 @@ class SWEbenchRunner:
             return augment_task_with_localization(
                 task,
                 candidates,
+                related_tests,
             )
 
         if condition == "D":
             # Real initial C context is built from task sources after env setup.
-            return augment_task_with_localization(task, candidates)
+            return augment_task_with_localization(task, candidates, related_tests)
 
         raise ValueError(
             f"Unknown condition: {condition}"
@@ -421,6 +425,7 @@ class SWEbenchRunner:
 
         if condition == "A":
             prompt_candidates = []
+            related_tests = []
 
         else:
             prompt_candidates = (
@@ -428,6 +433,9 @@ class SWEbenchRunner:
                     full_candidates,
                     localization_top_k,
                 )
+            )
+            related_tests = select_related_tests(
+                full_candidates
             )
 
         effective_task = (
@@ -437,6 +445,7 @@ class SWEbenchRunner:
                 localization_candidates=(
                     prompt_candidates
                 ),
+                related_tests=related_tests,
             )
         )
 
@@ -620,11 +629,12 @@ class SWEbenchRunner:
                     run_dir / 'failure_feedback', self.failure_max_updates, localization_top_k)
                 full_candidates = feedback.initial_full_candidates()
                 prompt_candidates = select_prompt_candidates(full_candidates, localization_top_k)
+                related_tests = select_related_tests(full_candidates)
                 candidate_records = [dict(file=c.file, rank=c.rank, score=c.score,
                     symbol=c.symbol, symbol_type=c.symbol_type, reason=c.reason) for c in full_candidates]
                 prompt_candidate_records = [dict(file=c.file, rank=c.rank, score=c.score,
                     symbol=c.symbol, symbol_type=c.symbol_type, reason=c.reason) for c in prompt_candidates]
-                effective_task = augment_task_with_localization(original_task, prompt_candidates)
+                effective_task = augment_task_with_localization(original_task, prompt_candidates, related_tests)
                 effective_task_path.write_text(effective_task, encoding='utf-8')
                 candidates_path.write_text(json.dumps(candidate_records, ensure_ascii=False, indent=2), encoding='utf-8')
                 prompt_candidates_path.write_text(json.dumps(prompt_candidate_records, ensure_ascii=False, indent=2), encoding='utf-8')
@@ -895,6 +905,14 @@ class SWEbenchRunner:
                     len(
                         prompt_candidate_records
                     ),
+
+                # Which files may appear in the prompt and which
+                # tests are listed separately (src/agent/context.py).
+                "localization_prompt_policy":
+                    PROMPT_POLICY if condition != "A" else None,
+
+                "localization_related_tests":
+                    related_tests,
 
                 "effective_task_path":
                     str(
