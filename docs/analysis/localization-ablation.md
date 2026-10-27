@@ -33,6 +33,7 @@ excluding tests, documentation and files that did not exist at base_commit
 | S0 | structural ranking alone, proposal definition: neighbors of the top-10 lexical files, no seeds / 只用结构排名，proposal 定义：词法前 10 名的邻居，不含种子 |
 | C | RRF(L, S) with the seeds at the head of S, **as used in the experiments** (Condition C) / RRF(L, S)，S 以种子开头，**即实验中实际使用的条件 C** |
 | C0 | RRF(L, S0), the proposal's original Condition C / RRF(L, S0)，proposal 原定的条件 C |
+| L′, C′ | L and C restricted to source files, as the prompt policy `source_only+related_tests_v1` shows them (B′, C′; see below) / 只保留源码文件的 L 和 C，即提示策略 `source_only+related_tests_v1` 实际展示的列表（B′、C′，见下文） |
 
 ## Layer 1 — mechanism / 第 1 层：机制有效性
 
@@ -71,6 +72,8 @@ proposal 5.2 的指标；因为提示展示前 20 名，额外加了 Hit@10 和 
 | S0: structural only | 0.05 | 0.20 | 0.200 | 0.142 | 0.45 | 0.50 |
 | **C: as run** | 0.40 | 0.60 | 0.567 | **0.504** | 0.65 | **0.85** |
 | C0: proposal's C | 0.30 | 0.55 | 0.492 | 0.393 | 0.55 | 0.65 |
+| **L′: B′ prompt (source only)** | **0.50** | **0.70** | 0.667 | **0.586** | 0.75 | 0.75 |
+| **C′: C′ prompt (source only)** | **0.50** | **0.70** | 0.667 | **0.591** | 0.75 | **0.85** |
 
 Rank of the first reference file (- = not in the ranking):
 
@@ -141,6 +144,41 @@ Rank of the first reference file (- = not in the ranking):
 - File level only. Function Hit@5 (proposal 5.2) needs function candidates,
   which no condition produces yet.<br>
   只评文件级。函数级 Hit@5（proposal 5.2）需要函数候选，目前没有条件会产生。
+
+## Prompt policy B′/C′ (development revision) / 提示策略 B′/C′（开发阶段修订）
+
+The dev runs failed mostly after the agent had seen the right file
+(wrong fix, or submission without running existing tests), and test or
+documentation files took on average 2.9 of the top-20 slots. Policy
+`source_only+related_tests_v1` (`src/agent/context.py`) therefore shows only
+source files as candidates and lists the three highest-ranked test files of
+the same ranking separately as possibly relevant existing tests. The rule is
+the target-set rule of this evaluation, not tuned on these scores, but it was
+evaluated on the same 20 tasks.
+
+开发实验的失败大多发生在 Agent 已经看到正确文件之后（改错，或没有运行现有测试就提交），而测试或文档文件平均
+占了前 20 名中的 2.9 个位置。因此提示策略 `source_only+related_tests_v1`（`src/agent/context.py`）只把源码文件作为
+候选，并把同一排名中最靠前的 3 个测试文件单独列为"可能相关的现有测试"。这条规则就是本评估对目标集合的定义，
+不是根据这些分数调出来的，但评估用的仍是同样的 20 个任务。
+
+- Both lists gain the same: Hit@1 0.40 → 0.50, Hit@5 0.60 → 0.70, MRR
+  0.50 → 0.59.<br>
+  两份列表的提升相同：Hit@1 0.40 → 0.50，Hit@5 0.60 → 0.70，MRR 0.50 → 0.59。
+- B′ and C′ still show the same top 5 in 18/20 tasks; their top 20 differ in
+  all 20 (C′ adds 6.2 files on average). B′ vs C′ is only distinguishable
+  with a prompt of more than 5 candidates (the runs use 20).<br>
+  B′ 和 C′ 的前 5 名在 18/20 个任务中仍然相同；前 20 名全部不同（C′ 平均多出 6.2 个文件）。只有提示超过 5 个
+  候选时（实验用 20 个）才能区分 B′ 和 C′。
+- In 10 of 20 tasks the three listed tests include a test file that the
+  official evaluation uses (files touched by the dataset's test patch, read
+  on the evaluation side only).<br>
+  20 个任务中有 10 个，列出的 3 个测试文件包含官方评测实际使用的测试文件（即数据集测试补丁修改的文件，只在
+  评估侧读取）。
+- Known limitation: a directory named test/tests/testing anywhere counts as
+  test code, so e.g. Django's own `django/test/` package is never a
+  candidate. No SWE-bench Verified reference patch modifies such a file.<br>
+  已知局限：任何一层名为 test/tests/testing 的目录都会被视为测试代码，例如 Django 自带的 `django/test/` 包永远
+  不会成为候选。SWE-bench Verified 中没有任何参考补丁修改此类文件。
 
 ## Linking to repair: the comparison table / 与修复结果对应：对照表
 
