@@ -111,6 +111,37 @@ def load_tasks(
     return tasks
 
 
+def read_task_ids(path: str | os.PathLike) -> list[str]:
+    """Instance ids from a task-list file, in file order, without duplicates.
+
+    Accepted formats, chosen by extension:
+      .txt    one id per line; blank lines and lines starting with # are skipped
+      .json   a list of ids, or a list of objects with "instance_id" or "task_id"
+              (e.g. a rankings file such as experiments/bm25_results.json)
+      .jsonl  one object per line with "instance_id" or "task_id"
+              (e.g. the evaluation protocol's task_manifest.jsonl)
+    """
+    path = Path(path)
+    text = path.read_text(encoding="utf-8")
+    if path.suffix == ".json":
+        entries = json.loads(text)
+    elif path.suffix == ".jsonl":
+        entries = [json.loads(line) for line in text.splitlines() if line.strip()]
+    else:
+        entries = [
+            line.strip() for line in text.splitlines() if line.strip() and not line.lstrip().startswith("#")
+        ]
+
+    ids = []
+    for entry in entries:
+        if isinstance(entry, dict):
+            entry = entry.get("instance_id") or entry.get("task_id")
+        if not isinstance(entry, str) or not entry:
+            raise ValueError(f"{path}: cannot read an instance id from {entry!r}")
+        ids.append(entry)
+    return list(dict.fromkeys(ids))
+
+
 def load_task(instance_id: str, cache_dir: str | os.PathLike | None = None) -> Task:
     tasks = load_tasks(cache_dir)
     if instance_id not in tasks:

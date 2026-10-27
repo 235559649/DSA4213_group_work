@@ -264,3 +264,74 @@ def test_run_structural_records_timing(dataset, cache, tmp_path):
     assert "Python" in timing["measured_on"]
     expected = structural_ranking(index, [("shop/pricing.py", 3.0), ("tests/test_pricing.py", 1.0)])
     assert [f["file"] for f in task["ranked_files"]] == [c.file for c in expected]
+
+
+# ----- task lists and the ranking scripts' paths -----
+
+
+def test_read_task_ids_formats(tmp_path):
+    txt = tmp_path / "tasks.txt"
+    txt.write_text("# held-out set\nb__b-2\n\na__a-1\nb__b-2\n", encoding="utf-8")
+    assert swebench.read_task_ids(txt) == ["b__b-2", "a__a-1"]
+
+    ranking = tmp_path / "ranking.json"
+    ranking.write_text(json.dumps([{"instance_id": "a__a-1", "ranked_files": []}]), encoding="utf-8")
+    assert swebench.read_task_ids(ranking) == ["a__a-1"]
+
+    plain = tmp_path / "ids.json"
+    plain.write_text(json.dumps(["a__a-1", "c__c-3"]), encoding="utf-8")
+    assert swebench.read_task_ids(plain) == ["a__a-1", "c__c-3"]
+
+    manifest = tmp_path / "task_manifest.jsonl"
+    manifest.write_text('{"task_id": "d__d-4", "repo": "x/y"}\n\n{"task_id": "e__e-5"}\n', encoding="utf-8")
+    assert swebench.read_task_ids(manifest) == ["d__d-4", "e__e-5"]
+
+    bad = tmp_path / "bad.json"
+    bad.write_text(json.dumps([{"repo": "x/y"}]), encoding="utf-8")
+    with pytest.raises(ValueError):
+        swebench.read_task_ids(bad)
+
+
+def _script(name):
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(name, Path(__file__).parents[1] / "scripts" / f"{name}.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_ranking_pipeline_on_a_custom_task_list(dataset, cache, tmp_path):
+    """B/C rankings for new tasks, written outside experiments/."""
+    tasks = tmp_path / "test_tasks.txt"
+    tasks.write_text("acme__shop-1\n", encoding="utf-8")
+    out = tmp_path / "test"
+
+    assert _script("run_bm25_batch").main([
+        "--tasks", str(tasks), "--output", str(out / "bm25.json"),
+        "--summary", str(out / "bm25_summary.csv"), "--cache-dir", str(cache),
+    ]) == 0
+    _script("run_structural").main([
+        "--lexical", str(out / "bm25.json"), "-o", str(out / "structural.json"), "--cache-dir", str(cache),
+    ])
+    assert _script("run_rrf").main([
+        "--lexical", str(out / "bm25.json"), "--structural", str(out / "structural.json"),
+        "--output", str(out / "c.json"),
+    ]) == 0
+
+    (lexical,) = json.loads((out / "bm25.json").read_text(encoding="utf-8"))
+    (fused,) = json.loads((out / "c.json").read_text(encoding="utf-8"))
+    assert lexical["instance_id"] == fused["instance_id"] == "acme__shop-1"
+    assert lexical["ranked_files"] and fused["ranked_files"]
+    assert set(lexical["timing"]) >= {"index_build_seconds", "index_load_seconds", "bm25_seconds", "measured_on"}
+    assert fused["rrf_k"] == 60 and "rrf_seconds" in fused["timing"]
+    assert (out / "bm25_summary.csv").exists()
+
+
+def test_bm25_batch_reports_failed_tasks(dataset, cache, tmp_path):
+    code = _script("run_bm25_batch").main([
+        "acme__shop-1", "acme__shop-999", "--output", str(tmp_path / "bm25.json"),
+        "--summary", str(tmp_path / "summary.csv"), "--cache-dir", str(cache),
+    ])
+    assert code == 1  # one unknown task
+    assert [t["instance_id"] for t in json.loads((tmp_path / "bm25.json").read_text(encoding="utf-8"))] == ["acme__shop-1"]
