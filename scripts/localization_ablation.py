@@ -13,6 +13,8 @@ Variants:
   S0   structural ranking alone, proposal definition (neighbors only, no seeds)
   C    RRF(L, S), S with the seeds first, as used in the experiments (Condition C)
   C0   RRF(L, S0), the proposal's original Condition C
+  L', C'  L and C restricted to source files, as the prompt policy
+          source_only+related_tests_v1 shows them (B' and C')
 
 Reference file paths are printed only with --show-paths.
 """
@@ -26,6 +28,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from src.agent.context import is_source_file  # noqa: E402
 from src.evaluation.gold import reference_files, target_files  # noqa: E402
 from src.evaluation.localization import score_ranking, summarize  # noqa: E402
 from src.localization.keyword import BM25Retriever  # noqa: E402
@@ -38,6 +41,8 @@ VARIANTS = {
     "S0": "structural only, no seeds",
     "C": "RRF(L, S), seeds first (C as run)",
     "C0": "RRF(L, S0) (proposal's C)",
+    "L'": "L, source files only (B' prompt policy)",
+    "C'": "C, source files only (C' prompt policy)",
 }
 PRIMARY = ["hit@1", "hit@5", "recall@5", "rr"]
 EXTRA = ["hit@10", "hit@20"]
@@ -49,12 +54,17 @@ def rank_variants(index, problem_statement: str) -> dict[str, list[str]]:
     with_seeds = structural_ranking(index, lexical)
     without_seeds = structural_ranking(index, lexical, include_seeds=False)
     as_items = lambda ranking: [{"file": c.file, "rank": c.rank, "score": c.score} for c in ranking]
-    return {
+    rankings = {
         "L": [p for p, _ in lexical],
         "S0": [c.file for c in without_seeds],
         "C": [x["file"] for x in fuse_condition_c(lexical_items, as_items(with_seeds))],
         "C0": [x["file"] for x in fuse_condition_c(lexical_items, as_items(without_seeds))],
     }
+    # The prompt policy source_only+related_tests_v1 (src/agent/context.py)
+    # shows only source files; score the list the agent would see.
+    rankings["L'"] = [f for f in rankings["L"] if is_source_file(f)]
+    rankings["C'"] = [f for f in rankings["C"] if is_source_file(f)]
+    return rankings
 
 
 def compare_with_lexical(ranking: list[str], lexical: list[str]) -> dict:
