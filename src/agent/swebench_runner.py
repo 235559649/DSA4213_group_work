@@ -613,15 +613,34 @@ class SWEbenchRunner:
         environment = None
         feedback = None
 
+        # Phases of runtime_seconds, so the agent's own time can be
+        # separated from container start-up and shutdown. For D, the
+        # failure updates happen inside agent.run(), so agent_seconds
+        # includes failure_feedback.feedback_total_seconds; the initial
+        # ranking runs between set-up and agent.run() (see
+        # docs/evaluation/timing.md). None means the phase did not run.
+        timing: dict[str, float | None] = {
+            "env_setup_seconds": None,
+            "agent_seconds": None,
+            "env_teardown_seconds": None,
+        }
+
         try:
-            agent, environment = (
-                self._build_agent(
-                    instance_id=instance_id,
-                    trajectory_path=(
-                        trajectory_path
-                    ),
+            phase_started = time.perf_counter()
+            try:
+                agent, environment = (
+                    self._build_agent(
+                        instance_id=instance_id,
+                        trajectory_path=(
+                            trajectory_path
+                        ),
+                    )
                 )
-            )
+            finally:
+                # Recorded even when start-up fails, e.g. a Docker timeout.
+                timing["env_setup_seconds"] = round(
+                    time.perf_counter() - phase_started, 3
+                )
 
             if condition == 'D':
                 feedback = FailureFeedbackController(agent,
@@ -638,9 +657,15 @@ class SWEbenchRunner:
                 effective_task_path.write_text(effective_task, encoding='utf-8')
                 candidates_path.write_text(json.dumps(candidate_records, ensure_ascii=False, indent=2), encoding='utf-8')
                 prompt_candidates_path.write_text(json.dumps(prompt_candidate_records, ensure_ascii=False, indent=2), encoding='utf-8')
-            outcome = agent.run(
-                effective_task
-            )
+            phase_started = time.perf_counter()
+            try:
+                outcome = agent.run(
+                    effective_task
+                )
+            finally:
+                timing["agent_seconds"] = round(
+                    time.perf_counter() - phase_started, 3
+                )
 
         except Exception as exc:
             error = (
@@ -667,6 +692,7 @@ class SWEbenchRunner:
                     pass
 
         finally:
+            phase_started = time.perf_counter()
             if feedback is not None:
                 feedback.close()
             if environment is not None:
@@ -678,6 +704,9 @@ class SWEbenchRunner:
 
                 if callable(cleanup):
                     cleanup()
+            timing["env_teardown_seconds"] = round(
+                time.perf_counter() - phase_started, 3
+            )
 
         runtime_seconds = (
             time.time()
@@ -986,6 +1015,7 @@ class SWEbenchRunner:
             error=error,
         )
 
+        result.config["timing"] = timing
         if feedback is not None:
             result.config['failure_feedback'] = feedback.summary()
         result.save(
