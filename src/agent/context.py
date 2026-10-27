@@ -4,6 +4,9 @@ from src.agent.contracts import (
     LocalizationCandidate,
 )
 
+# No additional common repair/verification instruction is injected.
+REPAIR_GUIDANCE_VERSION = 'disabled'
+
 
 def select_prompt_candidates(
     candidates: list[LocalizationCandidate],
@@ -84,6 +87,7 @@ def format_localization_context(
             "You may inspect any file in the "
             "repository if needed."
         ),
+        "Inspect plausible implementation candidates before editing; explain evidence-based departures from the ranking.",
         "",
     ]
 
@@ -101,9 +105,12 @@ def format_localization_context(
                 f"{candidate.symbol}"
             )
 
+        # Historical C artifacts used RRF while D used RRF(L,S). Normalize
+        # this presentation-only alias; keep full saved ranking metadata intact.
+        reason = 'RRF(L,S)' if candidate.reason in {'RRF', 'RRF(L,S)'} else candidate.reason
         reason_text = (
-            f" | reason: {candidate.reason}"
-            if candidate.reason
+            f" | reason: {reason}"
+            if reason
             else ""
         )
 

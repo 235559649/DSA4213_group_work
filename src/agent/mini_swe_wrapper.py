@@ -21,7 +21,11 @@ from minisweagent.environments.local import LocalEnvironment
 from minisweagent.models import get_model
 
 from src.agent.context import augment_task_with_localization, select_prompt_candidates
-from src.agent.failure_feedback import FailureFeedbackController, LocalSourceReader
+from src.agent.context import REPAIR_GUIDANCE_VERSION
+from src.agent.failure_feedback import (
+    FailureFeedbackController, LocalSourceReader, failure_fusion_config,
+    validate_failure_limits, validate_failure_weight,
+)
 from src.agent.contracts import (
     LocalizationCandidate,
     RunResult,
@@ -54,7 +58,16 @@ class MiniSWEWrapper:
         command_timeout_seconds: int = 120,
         output_root: str | Path = "runs",
         failure_max_updates: int = 3,
+        *,
+        failure_weight: float = 1.0,
+        failure_max_recovery_updates: int = 2,
+        failure_max_diagnostic_updates: int = 1,
     ):
+        self.failure_weight = validate_failure_weight(failure_weight)
+        validate_failure_limits(failure_max_updates, failure_max_recovery_updates,
+                                failure_max_diagnostic_updates)
+        self.failure_max_recovery_updates = failure_max_recovery_updates
+        self.failure_max_diagnostic_updates = failure_max_diagnostic_updates
         self.model_name = model_name
         self.model_class = model_class
 
@@ -390,7 +403,10 @@ class MiniSWEWrapper:
         try:
             if condition == 'D':
                 feedback = FailureFeedbackController(agent, LocalSourceReader(workspace), task,
-                    run_dir / 'failure_feedback', self.failure_max_updates, localization_top_k)
+                    run_dir / 'failure_feedback', self.failure_max_updates, localization_top_k,
+                    failure_weight=self.failure_weight,
+                    max_recovery_updates=self.failure_max_recovery_updates,
+                    max_diagnostic_updates=self.failure_max_diagnostic_updates)
                 full_candidates = feedback.initial_full_candidates()
                 prompt_candidates = feedback.initial_candidates()
                 effective_task = augment_task_with_localization(task, prompt_candidates)
@@ -537,6 +553,11 @@ class MiniSWEWrapper:
             ),
 
             config={
+                **failure_fusion_config(self.failure_weight,
+                    max_updates=self.failure_max_updates,
+                    max_recovery_updates=self.failure_max_recovery_updates,
+                    max_diagnostic_updates=self.failure_max_diagnostic_updates),
+                "repair_guidance_version": REPAIR_GUIDANCE_VERSION,
                 "model_class":
                     self.model_class,
                 "step_limit":

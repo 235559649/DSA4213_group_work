@@ -25,6 +25,7 @@ from minisweagent.utils.serialize import (
 from src.agent.context import (
     augment_task_with_localization,
     select_prompt_candidates,
+    REPAIR_GUIDANCE_VERSION,
 )
 from src.agent.contracts import (
     LocalizationCandidate,
@@ -33,7 +34,10 @@ from src.agent.contracts import (
 )
 
 from src.repository.swebench import build_task_index
-from src.agent.failure_feedback import FailureFeedbackController, RemoteSourceReader
+from src.agent.failure_feedback import (
+    FailureFeedbackController, RemoteSourceReader, failure_fusion_config,
+    validate_failure_limits, validate_failure_weight,
+)
 
 
 class SWEbenchRunner:
@@ -64,7 +68,16 @@ class SWEbenchRunner:
         output_root: str | Path = "runs",
         failure_max_updates: int = 3,
         failure_repo_root: str = '/testbed',
+        *,
+        failure_weight: float = 1.0,
+        failure_max_recovery_updates: int = 2,
+        failure_max_diagnostic_updates: int = 1,
     ):
+        self.failure_weight = validate_failure_weight(failure_weight)
+        validate_failure_limits(failure_max_updates, failure_max_recovery_updates,
+                                failure_max_diagnostic_updates)
+        self.failure_max_recovery_updates = failure_max_recovery_updates
+        self.failure_max_diagnostic_updates = failure_max_diagnostic_updates
         self.model_name = model_name
         self.model_class = model_class
         self.subset = subset
@@ -636,7 +649,10 @@ class SWEbenchRunner:
             if condition == 'D':
                 feedback = FailureFeedbackController(agent,
                     RemoteSourceReader(environment.execute, self.failure_repo_root), original_task,
-                    run_dir / 'failure_feedback', self.failure_max_updates, localization_top_k)
+                    run_dir / 'failure_feedback', self.failure_max_updates, localization_top_k,
+                    failure_weight=self.failure_weight,
+                    max_recovery_updates=self.failure_max_recovery_updates,
+                    max_diagnostic_updates=self.failure_max_diagnostic_updates)
                 full_candidates = feedback.initial_full_candidates()
                 prompt_candidates = select_prompt_candidates(full_candidates, localization_top_k)
                 candidate_records = [dict(file=c.file, rank=c.rank, score=c.score,
@@ -866,6 +882,11 @@ class SWEbenchRunner:
             ),
 
             config={
+                **failure_fusion_config(self.failure_weight,
+                    max_updates=self.failure_max_updates,
+                    max_recovery_updates=self.failure_max_recovery_updates,
+                    max_diagnostic_updates=self.failure_max_diagnostic_updates),
+                "repair_guidance_version": REPAIR_GUIDANCE_VERSION,
                 "benchmark":
                     metadata.get(
                         "benchmark"
