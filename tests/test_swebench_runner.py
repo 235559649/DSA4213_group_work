@@ -482,3 +482,70 @@ def test_repository_index_metadata(
         "record_count": 3,
         "error_count": 0,
     }
+
+
+def _timing_runner(tmp_path, monkeypatch, build_agent):
+    task_config = tmp_path / "task.json"
+    task_config.write_text(
+        json.dumps({
+            "instance_id": "task-a",
+            "problem_statement": "Fix the parser bug.",
+            "benchmark": "swebench",
+            "split": "dev",
+            "repo": "example/repo",
+            "version": "1.0",
+            "base_commit": "abc123",
+        }),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        swebench_runner_module,
+        "build_task_index",
+        lambda instance_id: FakeRepositoryIndex(),
+    )
+    runner = SWEbenchRunner(output_root=tmp_path / "runs")
+    monkeypatch.setattr(runner, "_build_agent", build_agent)
+    return runner.run(instance_id="task-a", task_config=task_config, condition="A")
+
+
+def test_run_records_setup_agent_and_teardown_time(tmp_path, monkeypatch):
+    class FakeEnvironment:
+        def cleanup(self):
+            pass
+
+    class FakeAgent:
+        def __init__(self, trajectory_path):
+            self.trajectory_path = trajectory_path
+
+        def run(self, task):
+            self.trajectory_path.write_text(
+                json.dumps({"info": {"submission": "", "exit_status": "Submitted",
+                                     "model_stats": {"api_calls": 0, "instance_cost": 0}}}),
+                encoding="utf-8",
+            )
+            return {"exit_status": "Submitted", "submission": ""}
+
+    result = _timing_runner(
+        tmp_path,
+        monkeypatch,
+        lambda *, instance_id, trajectory_path: (FakeAgent(trajectory_path), FakeEnvironment()),
+    )
+
+    timing = result.config["timing"]
+    assert set(timing) == {"env_setup_seconds", "agent_seconds", "env_teardown_seconds"}
+    assert all(isinstance(v, float) and v >= 0 for v in timing.values())
+    # The phases are parts of runtime_seconds (two clocks, so allow a little slack).
+    assert sum(timing.values()) <= result.runtime_seconds + 0.05
+
+
+def test_failed_container_start_still_records_setup_time(tmp_path, monkeypatch):
+    def failing_build_agent(*, instance_id, trajectory_path):
+        raise RuntimeError("docker start-up timed out")
+
+    result = _timing_runner(tmp_path, monkeypatch, failing_build_agent)
+
+    timing = result.config["timing"]
+    assert "docker start-up timed out" in result.error
+    assert isinstance(timing["env_setup_seconds"], float)
+    assert timing["agent_seconds"] is None
+    assert isinstance(timing["env_teardown_seconds"], float)
