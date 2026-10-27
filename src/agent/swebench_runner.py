@@ -25,7 +25,7 @@ from minisweagent.utils.serialize import (
 from src.agent.context import (
     augment_task_with_localization,
     select_prompt_candidates,
-    with_repair_guidance, REPAIR_GUIDANCE_VERSION,
+    REPAIR_GUIDANCE_VERSION,
 )
 from src.agent.contracts import (
     LocalizationCandidate,
@@ -324,8 +324,6 @@ class SWEbenchRunner:
             base_config,
             override,
         )
-        config['agent']['system_template'] = with_repair_guidance(
-            config['agent'].get('system_template', ''))
 
         # mini-SWE-agent derives the official SWE-bench
         # Docker image from the instance ID.

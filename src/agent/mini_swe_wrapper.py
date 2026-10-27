@@ -21,7 +21,7 @@ from minisweagent.environments.local import LocalEnvironment
 from minisweagent.models import get_model
 
 from src.agent.context import augment_task_with_localization, select_prompt_candidates
-from src.agent.context import with_repair_guidance, REPAIR_GUIDANCE_VERSION
+from src.agent.context import REPAIR_GUIDANCE_VERSION
 from src.agent.failure_feedback import (
     FailureFeedbackController, LocalSourceReader, failure_fusion_config,
     validate_failure_limits, validate_failure_weight,
@@ -217,8 +217,6 @@ class MiniSWEWrapper:
             in source_agent_config.items()
             if key in allowed_keys
         }
-
-        agent_config['system_template'] = with_repair_guidance(agent_config.get('system_template', ''))
 
         agent_config.update(
             {
