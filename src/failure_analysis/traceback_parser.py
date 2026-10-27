@@ -16,6 +16,11 @@ _CUSTOM_EXCEPTION = re.compile(
     r"^(?P<name>(?:[A-Za-z_]\w*\.)*[A-Z][A-Za-z_0-9]*)(?::(?P<message>.*))?$"
 )
 _LOG_LABELS = {'INFO', 'DEBUG', 'WARNING', 'ERROR', 'CRITICAL', 'TRACE', 'NOTICE', 'STATUS', 'RESULT'}
+_COMPILEALL = re.compile(
+    r'^\*\*\* Sorry: (?P<name>SyntaxError|IndentationError|TabError): '
+    r'(?P<message>.*?) \((?P<path>[^,\r\n]+\.py),\s*line (?P<line>[1-9]\d*)\)\s*$'
+)
+_COMPILING = re.compile(r"^Compiling ['\"](?P<path>.+\.py)['\"]\.\.\.$")
 
 
 def clean_output(output: str) -> str:
@@ -36,10 +41,23 @@ class ExceptionDetail:
 
 
 @dataclass(frozen=True)
+class TracebackBlock:
+    """Observed frame occurrences, outer-to-inner, before one terminal error.
+
+    Repeated frames remain here; the legacy ParsedTraceback.frames stays deduped.
+    This order is proximity evidence, not a root-cause score.
+    """
+    frames: tuple[Frame, ...]
+    exception: ExceptionDetail | None
+    kind: str = 'python'
+
+
+@dataclass(frozen=True)
 class ParsedTraceback:
     frames: tuple[Frame, ...]
     exception_types: tuple[str, ...]
     exception_details: tuple[ExceptionDetail, ...] = ()
+    blocks: tuple[TracebackBlock, ...] = ()
 
 
 def _exception_detail(line: str, *, allow_custom: bool) -> ExceptionDetail | None:
@@ -67,13 +85,51 @@ def parse_traceback(output: str) -> ParsedTraceback:
     frames: list[Frame] = []
     exceptions: list[str] = []
     details: list[ExceptionDetail] = []
+    blocks: list[TracebackBlock] = []
+    occurrences: list[Frame] = []
+    block_kind = 'python'
+    compile_path = None
     awaiting_exception = False
     for line in clean_output(output).splitlines():
+        compiling = _COMPILING.fullmatch(line)
+        if compiling:
+            compile_path = compiling['path']
+            continue
+        if line.strip() == 'Traceback (most recent call last):':
+            if occurrences:
+                blocks.append(TracebackBlock(tuple(occurrences), None, block_kind))
+            occurrences = []
+            block_kind = 'python'
+            awaiting_exception = False
+            continue
+        compiled = _COMPILEALL.fullmatch(line)
+        if compiled:
+            if occurrences:
+                blocks.append(TracebackBlock(tuple(occurrences), None, block_kind))
+            path = compiled['path']
+            if compile_path and compile_path.replace('\\', '/').rsplit('/', 1)[-1] == path:
+                path = compile_path
+            compile_path = None
+            frame = Frame(path, int(compiled['line']))
+            detail = ExceptionDetail(compiled['name'], compiled['message'])
+            if frame not in frames:
+                frames.append(frame)
+            if detail.name not in exceptions:
+                exceptions.append(detail.name)
+            details.append(detail)
+            blocks.append(TracebackBlock((frame,), detail, 'compileall'))
+            occurrences = []
+            awaiting_exception = False
+            continue
         match = _FRAME.match(line) or _SHORT.match(line)
         if match:
             frame = Frame(match['path'], int(match['line']), match.groupdict().get('symbol'))
             if frame.line > 0 and frame not in frames:
                 frames.append(frame)
+            if frame.line > 0:
+                occurrences.append(frame)
+            if 'symbol' not in match.groupdict():
+                block_kind = 'pytest_short'
             awaiting_exception = True
         terminal_line = line == line.lstrip() or line.lstrip().startswith('E ')
         detail = _exception_detail(line, allow_custom=awaiting_exception and terminal_line)
@@ -85,5 +141,9 @@ def parse_traceback(output: str) -> ParsedTraceback:
             if detail.name not in exceptions:
                 exceptions.append(detail.name)
             details.append(detail)
+            blocks.append(TracebackBlock(tuple(occurrences), detail, block_kind))
+            occurrences = []
             awaiting_exception = False
-    return ParsedTraceback(tuple(frames), tuple(exceptions), tuple(details))
+    if occurrences:
+        blocks.append(TracebackBlock(tuple(occurrences), None, block_kind))
+    return ParsedTraceback(tuple(frames), tuple(exceptions), tuple(details), tuple(blocks))

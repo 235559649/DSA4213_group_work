@@ -10,7 +10,22 @@ from dataclasses import asdict, dataclass, field
 from src.failure_analysis.diagnostics import classify_failure
 from src.failure_analysis.test_parser import parse_failing_tests
 from src.failure_analysis.traceback_parser import clean_output, parse_traceback
+from src.repository.ast_parser import is_test_path
 from src.repository.indexer import RepositoryIndex, to_repo_path
+
+
+def _diverse_locations(locations: list[dict], limit: int) -> list[dict]:
+    """Near-error first, cover distinct files before additional frames."""
+    ordered = []
+    seen_files = set()
+    remaining = []
+    for location in locations:
+        if location['file'] not in seen_files:
+            ordered.append(location)
+            seen_files.add(location['file'])
+        else:
+            remaining.append(location)
+    return [dict(item) for item in (ordered + remaining)[:limit]]
 
 
 @dataclass(frozen=True)
@@ -50,6 +65,8 @@ class FailureAnalysis:
         exception = self.diagnostics.get('exception', {})
         message = exception.get('message', '')
         locations = self.diagnostics.get('source_locations', [])
+        preferred = self.diagnostics.get('preferred_locations', list(reversed(locations)))
+        selected_locations = _diverse_locations(preferred, max_locations)
         tests = self.event.get('failing_tests', [])
         assertions = self.diagnostics.get('observed_assertions', [])
         chain_details = self.diagnostics.get('exception_chain_details', [])
@@ -75,8 +92,9 @@ class FailureAnalysis:
             'observed_assertions': [text[:max_message_chars] for text in assertions[:3]],
             'omitted_assertion_count': max(0, len(assertions) - 3),
             'test_text_truncated': any(len(text) > max_message_chars for text in tests[:3] + assertions[:3]),
-            'source_locations': [dict(item) for item in locations[-max_locations:]],
-            'omitted_location_count': max(0, len(locations) - max_locations),
+            'source_locations': selected_locations,
+            'omitted_location_count': max(0, len(preferred) - len(selected_locations)),
+            'location_selection': 'near_exception_distinct_files_first',
             'location_interpretation': 'Observed source frames; not proof of root cause.',
         }
 
@@ -155,6 +173,7 @@ def analyze_failure(
     source: str = "command",
     workspace_version: str,
     index_is_current: bool,
+    ranking_strategy: str = 'path',
 ) -> FailureAnalysis:
     """Analyze ONE failed command observation (not a whole trajectory).
 
@@ -169,24 +188,44 @@ def analyze_failure(
     or silently refresh an index. Unparseable/deleted files stay unmapped.
     No file reads, command execution, model calls or reference labels are used.
     """
+    if ranking_strategy not in {'path', 'near_exception'}:
+        raise ValueError('ranking_strategy must be path or near_exception')
     parsed = parse_traceback(output)
     tests = parse_failing_tests(output)
     mappings: list[dict] = []
     by_file: dict[str, dict] = {}
+    syntax_errors = {error.path: error for error in index.errors if error.kind == 'syntax_error'}
+    syntax_files = set(syntax_errors)
+    lookup = {}
     for frame in parsed.frames:
         path = to_repo_path(frame.path, repo_root)
+        resolution = 'exact'
+        # compileall may emit only a basename. Resolve only a unique known path;
+        # ambiguous/outside/deleted paths never become source locations.
+        normalized_observed = frame.path.replace('\\', '/')
+        if path and path not in index.files and '/' not in normalized_observed and path.endswith('.py'):
+            matches = [name for name in index.files if name.rsplit('/', 1)[-1] == path]
+            if len(matches) == 1:
+                path, resolution = matches[0], 'unique_basename'
+            elif len(matches) > 1:
+                path, resolution = None, 'ambiguous_basename'
         record = index.find_enclosing(path, frame.line) if path and index_is_current else None
         status = (
             "stale_index" if not index_is_current else
+            "ambiguous_path" if resolution == 'ambiguous_basename' else
             "outside_repository" if path is None else
             "unmapped" if record is None else
             "test_only" if record.is_test else "source"
         )
-        mappings.append({
+        mapping = {
             "observed_path": frame.path, "path": path, "line": frame.line,
             "observed_symbol": frame.symbol, "entity_id": record.id if record else None,
             "symbol": record.symbol if record else None, "status": status,
-        })
+        }
+        if resolution != 'exact':
+            mapping['path_resolution'] = resolution
+        mappings.append(mapping)
+        lookup[frame] = mapping
         if status == "source":
             # Equal direct-frame evidence; no arbitrary depth/root-cause assumption.
             candidate = by_file.setdefault(path, {
@@ -198,10 +237,22 @@ def analyze_failure(
             if evidence not in candidate['evidence']:
                 candidate['evidence'].append(evidence)
 
+    terminal_block = parsed.blocks[-1] if parsed.blocks else None
+    terminal_mappings = [lookup[frame] for frame in terminal_block.frames] if terminal_block else []
+    if ranking_strategy == 'near_exception':
+        # Ignore earlier exception blocks; retain all observed evidence for audit.
+        # Dedup files by their nearest occurrence, never blacklist own libraries.
+        order = list(dict.fromkeys(m['path'] for m in reversed(terminal_mappings)
+            if m['status'] == 'source')) if terminal_block and terminal_block.exception else []
+    else:
+        order = sorted(by_file)
     candidates = []
-    for rank, path in enumerate(sorted(by_file), 1):
+    for rank, path in enumerate(order, 1):
         candidate = by_file[path]
         candidate['rank'] = rank
+        if ranking_strategy == 'near_exception':
+            candidate['score'] = 1.0 / rank
+            candidate['reason'] = 'near_exception_frame'
         candidate['evidence'].sort(key=lambda e: (e['line'], e['entity_id']))
         candidates.append(candidate)
     text = clean_output(output)
@@ -225,6 +276,10 @@ def analyze_failure(
             if (match := re.fullmatch(r'\s*E\s+(assert\s+.+)', line))
         )),
         'source_locations': [],
+        'observed_locations': [],
+        'terminal_locations': [],
+        'preferred_locations': [],
+        'ranking_strategy': ranking_strategy,
     }
     for mapping in mappings:
         if mapping['status'] == 'source':
@@ -232,6 +287,32 @@ def analyze_failure(
                         'observed_symbol': mapping['observed_symbol']}
             if location not in diagnostics['source_locations']:
                 diagnostics['source_locations'].append(location)
+    for frame, mapping in lookup.items():
+        path = mapping['path']
+        if not index_is_current or not path or path not in index.files or is_test_path(path):
+            continue
+        if mapping['status'] == 'source' or path in syntax_files:
+            location = {'file': path, 'line': frame.line, 'symbol': mapping['symbol'],
+                'observed_symbol': frame.symbol, 'mapping_status': mapping['status'],
+                'index_error_kind': 'syntax_error' if path in syntax_files else None,
+                'index_error_line': syntax_errors[path].line if path in syntax_files else None}
+            diagnostics['observed_locations'].append(location)
+    observed_lookup = {(m['file'], m['line'], m['observed_symbol']): m
+        for m in diagnostics['observed_locations']}
+    for mapping in terminal_mappings:
+        key = (mapping['path'], mapping['line'], mapping['observed_symbol'])
+        location = observed_lookup.get(key)
+        # Preserve the final frame even when outside/unknown, so recovery policy
+        # cannot mistake an earlier changed caller for the actual syntax location.
+        diagnostics['terminal_locations'].append(dict(location) if location else {
+            'file': None, 'line': mapping['line'], 'symbol': None,
+            'observed_symbol': mapping['observed_symbol'], 'mapping_status': mapping['status'],
+            'index_error_kind': None})
+    preferred = list(reversed(diagnostics['terminal_locations']))
+    preferred += list(reversed(diagnostics['observed_locations']))
+    for location in preferred:
+        if location['file'] is not None and location not in diagnostics['preferred_locations']:
+            diagnostics['preferred_locations'].append(dict(location))
     if classification['suppress_ranking']:
         # Preserve all observed mappings and diagnostics for audit; don't fuse
         # setup-only source frames as if they localized the task's defect.
@@ -290,6 +371,11 @@ class UpdateGate:
         self._applied: set[str] = set()
         self._delivered: set[str] = set()
         self._count = 0
+
+    @property
+    def remaining_updates(self) -> int:
+        """Acknowledged delivery budget; allows callers to skip heavy snapshots."""
+        return max(0, self.max_updates - self._count)
 
     @staticmethod
     def _delivery_key(result: FailureAnalysis, delivered_context: str) -> str:

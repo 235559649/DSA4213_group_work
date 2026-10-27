@@ -17,6 +17,7 @@ _FRAME = re.compile(r'^  File "[^"]+", line [1-9][0-9]*(?:, in .+)?$')
 _TERMINAL = re.compile(r'^(?:[A-Za-z_]\w*\.)*[A-Z]\w*(?::.*)?$')
 _PYTEST = re.compile(r'^=+ .*\b[1-9][0-9]* (?:failed|errors?)\b.* =+$')
 _KINDS = {'execution', 'source_display', 'expected_failure', 'unknown'}
+_BARE_SUMMARY = re.compile(r'^(?:[A-Za-z_]\w*\.)*[A-Za-z_]\w*(?:Error|Exception)\s+\S.*$')
 
 
 @dataclass(frozen=True)
@@ -30,6 +31,7 @@ class ObservationEvidence:
     reason: str
     output_sha256: str
     output_truncated: bool
+    exception_summary: str | None = None
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -89,7 +91,9 @@ def detect_observation(
         kinds.append('complete_traceback')
     if pytest_failure:
         kinds.append('pytest_failure_summary')
-    if not complete and parse_traceback(text).exception_details:
+    summaries = [line for line in text.splitlines() if _BARE_SUMMARY.fullmatch(line)]
+    parsed_details = parse_traceback(text).exception_details
+    if not complete and (parsed_details or summaries):
         kinds.append('exception_summary')
     excluded = observation_kind in {'source_display', 'expected_failure'}
     trusted = observation_kind == 'execution'
@@ -104,4 +108,6 @@ def detect_observation(
         'weak_diagnostic_only' if observed else 'no_failure_evidence'
     )
     return ObservationEvidence(returncode, status, observation_kind, tuple(kinds),
-        observed, analyze, reason, hashlib.sha256(output.encode()).hexdigest(), output_truncated)
+        observed, analyze, reason, hashlib.sha256(output.encode()).hexdigest(), output_truncated,
+        (summaries[-1][:300] if summaries else
+         f'{parsed_details[-1].name}: {parsed_details[-1].message}'[:300] if parsed_details and not complete else None))

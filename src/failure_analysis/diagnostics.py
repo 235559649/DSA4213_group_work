@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from collections.abc import Collection
+
 
 _ENVIRONMENT_HINTS = (
     'command not found', 'no module named', 'could not resolve host',
@@ -57,3 +59,29 @@ def classify_failure(
         'reason_code': 'environment_hint_only' if matched else 'observed_failure_evidence',
         'evidence': matched,
     }
+
+
+def classify_edit_failure(
+    *, exception_type: str | None, terminal_locations: list[dict],
+    modified_files: Collection[str], previously_valid_files: Collection[str],
+) -> dict:
+    """Suggest a recovery route only with caller-supplied validity evidence.
+
+    Paths must already be repo-normalized. 'Modified' alone is not causation:
+    require the actual terminal location in a currently syntax-invalid file AND
+    evidence the same file was valid before the edit. Name/Import errors are
+    never blanket-suppressed. This does not send a message or alter F itself.
+    """
+    syntax = exception_type in {
+        'SyntaxError', 'IndentationError', 'TabError',
+        'builtins.SyntaxError', 'builtins.IndentationError', 'builtins.TabError',
+    }
+    terminal = terminal_locations[-1] if terminal_locations else {}
+    path = terminal.get('file')
+    recovery = bool(syntax and path and path in modified_files and
+        path in previously_valid_files and terminal.get('index_error_kind') == 'syntax_error' and
+        terminal.get('index_error_line') == terminal.get('line'))
+    return {'route': 'edit_recovery' if recovery else 'normal_analysis',
+        'confidence': 'high' if recovery else 'unknown',
+        'reason': 'modified_previously_valid_file_now_has_syntax_error' if recovery else 'insufficient_edit_causation',
+        'file': path if recovery else None}
