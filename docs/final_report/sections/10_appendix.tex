@@ -1,0 +1,143 @@
+% =====================================================================
+% Appendix - not counted, graders not required to read it.
+% Owners: A.1 1 (prompt/trace), A.2 2 (dev ablation), A.3-A.5 5, A.6 4
+% Anything cut from the main text to meet 8 pages goes here.
+% =====================================================================
+\section*{Appendix}
+
+\subsection*{A.1 Localization hint and example trajectory}
+% Owner 1: full hint block for django-11133 (slide 7) in a verbatim environment, plus a short
+% D trajectory excerpt (sympy-18189: RecursionError -> rerank note), slide 15 / A8.
+\todo{Prompt hint example and one agent trace excerpt.}
+
+\subsection*{A.2 Development-set localization ablation}
+\begin{table}[h]
+\centering\small
+\caption{File-level ranking quality on the 20 development tasks (\texttt{docs/analysis/localization-ablation.md}).
+$S_0$/$C_0$: structural ranking as defined in the proposal (seeds excluded); $C$: seeds-head $S$ as run.
+$L'$, $C'$: restricted to source files, as shown in the prompt. Optimistic: $C$ was chosen on these tasks.}
+\label{tab:dev-ablation}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Variant & Hit@1 & Hit@5 & Recall@5 & MRR & Hit@10 & Hit@20 \\
+\midrule
+$L$: BM25 (\condB)              & 0.40 & 0.60 & 0.567 & 0.500 & 0.65 & 0.75 \\
+$S_0$: structure only           & 0.05 & 0.20 & 0.200 & 0.142 & 0.45 & 0.50 \\
+$C_0$: $\mathrm{RRF}(L,S_0)$     & 0.30 & 0.55 & 0.492 & 0.393 & 0.55 & 0.65 \\
+$C$: $\mathrm{RRF}(L,S)$, as run & 0.40 & 0.60 & 0.567 & 0.504 & 0.65 & 0.85 \\
+$L'$: source only               & 0.50 & 0.70 & 0.667 & 0.586 & 0.75 & 0.75 \\
+$C'$: source only               & 0.50 & 0.70 & 0.667 & 0.591 & 0.75 & 0.85 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{A.3 Swing tasks}
+\begin{table}[h]
+\centering\small
+\caption{The 7 tasks on which conditions disagree. \checkmark{} resolved; F3 target test still fails;
+F4 target fixed but an existing test broken. Rank = first reference file in the initial ranking of \condB{} / \condC{}
+(ranks $>20$ are outside the hint).}
+\label{tab:swing}
+\begin{tabular}{@{}lccccc>{\raggedright\arraybackslash}p{0.38\linewidth}@{}}
+\toprule
+Task & \condA & \condB & \condC & \condD & Rank \condB/\condC & What differed \\
+\midrule
+django-14311 & F4 & \checkmark & \checkmark & F4 & 5 / 5 & A, D fixed the target but broke 3 autoreload tests \\
+django-16950 & F4 & \checkmark & \checkmark & F4 & 35 / 19 & structure moved the file into C's hint \\
+sympy-18698  & \checkmark & F3 & F3 & F3 & 1 / 1 & only A fixed it \\
+sphinx-7757  & F3 & F3 & \checkmark & F3 & 97 / 110 & C fixed a file outside every hint \\
+sphinx-9320  & F3 & \checkmark & \checkmark & \checkmark & 1 / 1 & A changed a shared helper: incomplete \\
+pytest-7521  & F4 & \checkmark & \checkmark & F3 & 19 / 15 & A broke 2 capture tests; D left target failing \\
+pytest-10081 & F4 & F4 & \checkmark & \checkmark & 58 / 35 & A, B replaced the skip check; C, D kept it \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{A.4 Per-task results}
+{\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}llccccrrrrc@{}}
+\caption{Per-task outcomes on the 40 held-out tasks (slides 18--19). Pattern: all / none / swing.
+Rank = best reference file in the initial ranking. $\bullet$ = \condD{} feedback fired.}
+\label{tab:pertask}\\
+\toprule
+Task & Pattern & \condA & \condB & \condC & \condD & Rank \condB & Rank \condC & Tok \condA{} (k) & Tok \condC{} (k) & FB \\
+\midrule
+\endfirsthead
+\toprule
+Task & Pattern & \condA & \condB & \condC & \condD & Rank \condB & Rank \condC & Tok \condA{} (k) & Tok \condC{} (k) & FB \\
+\midrule
+\endhead
+django-7530  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 42 & 25 & 26 & 120 & \\
+django-10914 & all   & \checkmark & \checkmark & \checkmark & \checkmark & 804 & 818 & 24 & 44 & \\
+django-11119 & all   & \checkmark & \checkmark & \checkmark & \checkmark & 81 & 20 & 50 & 34 & \\
+django-12276 & all   & \checkmark & \checkmark & \checkmark & \checkmark & 1 & 1 & 55 & 63 & \\
+django-13212 & none  & F3 & F3 & F3 & F3 & 15 & 14 & 54 & 95 & $\bullet$ \\
+django-13590 & none  & F4 & F4 & F4 & F4 & 4 & 4 & 15 & 31 & \\
+django-14311 & swing & F4 & \checkmark & \checkmark & F4 & 5 & 5 & 76 & 52 & $\bullet$ \\
+django-15380 & all   & \checkmark & \checkmark & \checkmark & \checkmark & 2 & 2 & 56 & 23 & \\
+django-16255 & all   & \checkmark & \checkmark & \checkmark & \checkmark & 1 & 1 & 27 & 31 & \\
+django-16315 & none  & F3+4 & F3+4 & F3+4 & F3+4 & 3 & 3 & 60 & 112 & \\
+django-16877 & all   & \checkmark & \checkmark & \checkmark & \checkmark & 1 & 1 & 26 & 42 & \\
+django-16950 & swing & F4 & \checkmark & \checkmark & F4 & 35 & 19 & 99 & 62 & \\
+sympy-12489  & none  & F3 & F3+4 & F3+4 & F3 & 3 & 3 & 34 & 90 & \\
+sympy-13372  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 1 & 1 & 35 & 22 & $\bullet$ \\
+sympy-13757  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 2 & 2 & 81 & 37 & \\
+sympy-16886  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 1 & 1 & 12 & 17 & \\
+sympy-18189  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 2 & 2 & 72 & 71 & $\bullet$ \\
+sympy-18199  & none  & F3 & F3 & F3 & F3 & 6 & 6 & 57 & 41 & \\
+sympy-18698  & swing & \checkmark & F3 & F3 & F3 & 1 & 1 & 215 & 226 & \\
+sympy-19637  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 1 & 1 & 18 & 30 & $\bullet$ \\
+sympy-20428  & none  & F3 & F3 & F3 & F3 & 555 & 341 & 89 & 71 & $\bullet$ \\
+sympy-21930  & none  & F3 & F3 & F3 & F3 & 12 & 51 & 137 & 111 & \\
+sympy-22080  & none  & F3+4 & F3 & F3+4 & F3+4 & 254 & 156 & 195 & 151 & \\
+sympy-24443  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 1 & 1 & 36 & 53 & $\bullet$ \\
+sphinx-7748  & none  & F3 & F3 & F3 & F3+4 & 15 & 21 & 126 & 92 & $\bullet$ \\
+sphinx-7757  & swing & F3 & F3 & \checkmark & F3 & 97 & 110 & 116 & 81 & \\
+sphinx-8269  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 24 & 51 & 26 & 46 & \\
+sphinx-8475  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 11 & 15 & 30 & 44 & \\
+sphinx-9229  & none  & F3 & F3 & F3 & F3 & 11 & 12 & 151 & 791 & \\
+sphinx-9258  & none  & F3 & F3 & F3 & F3 & 31 & 18 & 324 & 200 & \\
+sphinx-9320  & swing & F3 & \checkmark & \checkmark & \checkmark & 1 & 1 & 37 & 23 & \\
+sphinx-9591  & none  & F3 & F3 & F3 & F3 & 32 & 29 & 122 & 86 & \\
+sphinx-9698  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 62 & 37 & 27 & 40 & \\
+sphinx-11445 & none  & F3+4 & F3+4 & F3 & F3 & 16 & 12 & 361 & 197 & \\
+pytest-7236  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 11 & 11 & 101 & 244 & $\bullet$ \\
+pytest-7324  & none  & F3 & F3 & F3 & F3 & 10 & 10 & 26 & 30 & $\bullet$ \\
+pytest-7521  & swing & F4 & \checkmark & \checkmark & F3 & 19 & 15 & 84 & 56 & \\
+pytest-7982  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 31 & 22 & 14 & 23 & \\
+pytest-8399  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 19 & 12 & 41 & 56 & \\
+pytest-10081 & swing & F4 & F4 & \checkmark & \checkmark & 58 & 35 & 42 & 55 & \\
+\bottomrule
+\end{longtable}
+}
+
+\subsection*{A.5 Stability: 8 tasks $\times$ 3 rounds}
+\begin{table}[h]
+\centering\small
+\caption{Repeated runs on 8 tasks chosen before results were seen (rounds 1\,/\,2\,/\,3).
+$^*$ = \condD{} feedback fired in that run.}
+\label{tab:stability}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Task & \condA & \condB & \condC & \condD \\
+\midrule
+django-16315 & \texttimes\,\texttimes\,\texttimes & \texttimes\,\texttimes\,\texttimes & \texttimes\,\texttimes\,\texttimes & \texttimes\,\texttimes\,\texttimes \\
+django-16877 & \checkmark\,\checkmark\,\checkmark & \checkmark\,\checkmark\,\checkmark & \checkmark\,\checkmark\,\texttimes & \checkmark\,\checkmark\,\checkmark \\
+pytest-10081 & \texttimes\,\checkmark\,\texttimes & \texttimes\,\checkmark\,\checkmark & \checkmark\,\checkmark\,\checkmark & \checkmark\,\checkmark$^*$\,\checkmark \\
+pytest-7982  & \checkmark\,\checkmark\,\checkmark & \checkmark\,\checkmark\,\checkmark & \checkmark\,\checkmark\,\checkmark & \checkmark\,\checkmark\,\checkmark \\
+sphinx-9258  & \texttimes\,\texttimes\,\texttimes & \texttimes\,\texttimes\,\texttimes & \texttimes\,\texttimes\,\texttimes & \texttimes\,\texttimes\,\texttimes \\
+sphinx-9320  & \texttimes\,\checkmark\,\checkmark & \checkmark\,\checkmark\,\checkmark & \checkmark\,\checkmark\,\checkmark & \checkmark\,\checkmark\,\checkmark \\
+sympy-18189  & \checkmark\,\checkmark\,\texttimes & \checkmark\,\checkmark\,\checkmark & \checkmark\,\checkmark\,\checkmark & \checkmark$^*$\,\checkmark\,\texttimes \\
+sympy-24443  & \checkmark\,\checkmark\,\checkmark & \checkmark\,\texttimes\,\texttimes & \checkmark\,\texttimes\,\texttimes & \checkmark$^*$\,\checkmark$^*$\,\checkmark \\
+\midrule
+Resolved (/24)          & 14 & 15 & 15 & 17 \\
+Solved in all 3 rounds (/8) & 3 & 4 & 4 & 5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{A.6 Failure-feedback details and case studies}
+% Owner 4: slide 23 table (events / runs / feedback / re-rank / resolved by repo and pattern)
+% and the two A8 case studies (django-16950 for structure, sympy-18189 for feedback).
+\todo{Failure-feedback breakdown table and case studies.}

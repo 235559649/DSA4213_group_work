@@ -1,0 +1,77 @@
+% =====================================================================
+% Owner: 5   Budget: ~2.0 pages   Source: slides 8, 10-13, 22
+% All numbers below are copied from the slides. Owner 5: re-check every
+% number against run_comparison.py / the evaluation report before submission.
+% =====================================================================
+\section*{5. Evaluation and Results}
+
+% Protocol (1 paragraph): same 40 tasks/model/prompt/env/budgets; only the hint differs.
+% Primary comparison A vs D (as pre-registered); B, C isolate components.
+% Repair: resolved = all FAIL_TO_PASS and PASS_TO_PASS pass (official harness).
+%   224 verdicts: 216 from submissions, 2 re-evaluated, 6 without submission -> extracted diff (say how).
+% Localization: Hit@1/5, Recall@5, MRR on reference-patch Python source files (tests/docs excluded).
+% Efficiency: model call that first opens a reference file, tokens, cost, agent seconds, T_loc.
+% Variability: 8 tasks x 3 rounds chosen before results; paired McNemar.
+\todo{Evaluation protocol paragraph.}
+
+\begin{table}[h]
+\centering\small
+\caption{Main results on 40 held-out tasks (one run per task and condition).
+F2P = target (FAIL\_TO\_PASS) tests; P2P = existing (PASS\_TO\_PASS) tests.}
+\label{tab:main}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & \condA{} original & \condB{} +text & \condC{} +structure & \condD{} +failures \\
+\midrule
+Resolved (/40)                          & 20 & 23 & \textbf{25} & 21 \\
+F2P pass, P2P broken (F4)               & 5  & 2  & 1  & 3  \\
+F2P fail, P2P intact                    & 12 & 12 & 11 & 13 \\
+F2P fail, P2P broken                    & 3  & 3  & 3  & 3  \\
+\midrule
+Reference file opened at call 1 (/40)   & 6  & 29 & \textbf{30} & 29 \\
+Total tokens (M)                        & 3.18 & 3.76 & 3.69 & 3.64 \\
+Tokens per resolved task (k)            & 159 & 163 & \textbf{148} & 173 \\
+Cost (\$) / cost per fix (\$)           & 0.86 / 0.043 & 1.22$^*$ / 0.053 & 1.05 / 0.042 & 0.95 / 0.045 \\
+Median agent seconds per run            & 19 & 17 & 16 & 19 \\
+\bottomrule
+\end{tabular}\\[2pt]
+{\footnotesize $^*$Two \condB{} runs lack cost data; token counts are complete.
+\todo{verify "opened at call 1" for B and D (derived from slide 20 percentages).}}
+\end{table}
+
+% RQ1 text (slide 10-11): 19 solved by all, 14 by none, 7 swing tasks decide the ranking.
+% C vs A: 6 only-C vs 1 only-A, exact McNemar p = 0.13. Noise estimate: of 30 D runs where feedback
+% never fired (= C's prompt), 3 outcomes flipped (~10%). Stability (Appendix): D 17, B 15, C 15, A 14 of 24
+% -> ordering not stable. CLAIM: no hint hurt repair; differences within run-to-run noise.
+% Patch quality (slide 13): F2P pass rates similar (24-26); C has fewest broken old tests (1 vs 5) -
+% present as a lead, not a proven mechanism; pytest-10081 as one-sentence example.
+\todo{RQ1 results paragraph(s).}
+
+% RQ2 text (slide 12): hints bring the reference file into view one call earlier; runs cost more
+% in total (A 3.18M vs C 3.69M tokens) but fixes cost less (148k vs 159k per fix); on the 6 C-only
+% tasks C used 330k vs A 454k. Hint ~550 tokens/call, ~5.5% of input. Easy tasks: hint = overhead.
+\todo{RQ2 results paragraph.}
+
+\subsection*{5.1 Comparisons and Ablations}
+
+\begin{table}[h]
+\centering\small
+\caption{Initial ranking quality on the 40 held-out tasks (counts of tasks unless stated).
+\condD's initial ranking equals \condC's on all 40 tasks.}
+\label{tab:loc}
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+ & Hit@1 & Hit@5 & Recall@5 & MRR & Hit@20 & In hint & Opened (if in top-20) \\
+\midrule
+\condB{} (BM25 $L$)            & 9 & 16 & 38.8\% & 0.320 & 27 & 30 & 27/27 \\
+\condC{} ($\mathrm{RRF}(L,S)$) & 9 & 16 & 38.8\% & 0.322 & 28 & 30 & 28/28 \\
+\condD{} (initial)             & 9 & 16 & 38.8\% & 0.322 & 28 & 30 & 27/28 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% B vs C (RQ3, structure): top-5 identical by construction (seeds-head); structure adds 1 Hit@20 and
+% moves files both ways (django +2 in hint, sympy/sphinx -1). Case django-16950: #35 -> #19, enters
+% C's hint, C 62k vs B 127k tokens. Dev-set ablation (original S vs seeds-head) -> Appendix.
+% C vs D (RQ3, failures): D lost 4 tasks to C, 3 of them in runs where feedback never fired -> noise.
+\todo{Ablation paragraphs: B vs C (structure), C vs D (failure feedback).}

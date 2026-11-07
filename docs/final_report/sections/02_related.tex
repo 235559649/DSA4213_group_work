@@ -1,0 +1,24 @@
+% =====================================================================
+% Owner: 3   Budget: ~0.7 page   Source: proposal §2 + Table 1, slide 31
+% Proposal Table 1 is too long for the main text: turn it into ~3 short paragraphs
+% (or a 4-row compact table). All keys below exist in references.bib.
+% =====================================================================
+\section*{2. Related Work and Contribution}
+
+% Agent framework: SWE-agent shows the agent-computer interface matters \cite{yang2024sweagent};
+%   mini-SWE-agent is the minimal baseline we keep fixed \cite{minisweagent}. SWE-bench / Verified \cite{jimenez2024swebench,openai2024verified}.
+% Textual & staged localization: BugLocator \cite{zhou2012buglocator}, Agentless \cite{xia2024agentless}, BM25 \cite{robertson2009bm25}.
+% Structural navigation: LocAgent \cite{chen2025locagent}, CoSIL \cite{jiang2025cosil}, RepoNav \cite{chai2026reponav}, GraphLocator \cite{liu2025graphlocator}.
+% Execution-informed: AutoCodeRover \cite{zhang2024autocoderover}, IssueExec \cite{liu2026issueexec}.
+% Fusion: RRF \cite{cormack2009rrf}.
+\todo{Related work, 3 short paragraphs.}
+
+\paragraph{Our contribution.}
+% Be explicit about what is OURS vs assembled (graders check this):
+%  C1 Python AST repository index (files, classes, functions, imports) + BM25 / import-graph / RRF ranking;
+%  C2 failure-aware refinement: traceback -> index entities -> rerank, with bounded routing
+%     (rank_update / edit_recovery / diagnostic_only), staleness & environment-error filters;
+%  C3 controlled 4-condition study on 40 held-out tasks with official harness, trajectory-level
+%     localization metrics and a manual failure taxonomy.
+% Also cite what we USE: mini-SWE-agent 2.4.6, SWE-bench harness 5.0.2, OpenRouter gpt-5.4-mini.
+\todo{Contribution paragraph (C1--C3).}

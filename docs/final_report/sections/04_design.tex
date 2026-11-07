@@ -1,0 +1,50 @@
+% =====================================================================
+% Owners: 2 (4.1-4.3), 4 (4.4)   Budget: ~1.4 pages incl. figure
+% Source: slides 3-7, docs/architecture/*.md
+% =====================================================================
+\section*{4. System Design}
+
+\begin{figure}[h]
+\centering
+% Owner 1: export slide 3 as PDF (crop) -> figures/architecture.pdf
+\IfFileExists{figures/architecture.pdf}{%
+  \includegraphics[width=\linewidth]{figures/architecture.pdf}%
+}{%
+  \fbox{\parbox[c][4.5cm][c]{0.9\linewidth}{\centering
+  \todo{figures/architecture.pdf (export from slide 3)}}}%
+}
+\caption{System overview. The mini-SWE-agent loop is unchanged; \condB--\condD{} add a ranked
+localization hint, and \condD{} reranks it when a failure yields usable evidence.}
+\label{fig:arch}
+\end{figure}
+
+\subsection*{4.1 Repository index and lexical ranking}
+% Owner 2. Python ast at base_commit -> module/class/function/method records with line span,
+% signature, text = path + symbol + source (<= 2,000 chars); internal import edges.
+% Coverage on dev set: 27,484 files, 1 unparseable (intentional syntax-error fixture).
+% BM25 per entity, file score = max over its entities (equation from slide 4).
+\todo{Index + BM25 (incl.\ file-level max equation).}
+
+\subsection*{4.2 Structural ranking and RRF fusion}
+% Owner 2. Seeds = top-10 of L; one-hop import neighbours (no tests); weight 1/r_L(q) split equally.
+% Equation for s(f) and RRF(k=60) from slide 5.
+% KEY DESIGN DECISION (must explain + disclose): original S (seeds excluded) hurt RRF -
+% django-11133 correct file 1 -> 23, MRR 0.500 -> 0.393 on dev. Seeds-head S protects L's top-10
+% so structure only adds files at ranks 11-20. Chosen on the dev set => dev numbers optimistic.
+% Dev-set table -> Appendix (tab:dev-ablation).
+\todo{Structural score, RRF, seeds-head decision.}
+
+\subsection*{4.3 Prompt policy}
+% Owner 2 (with 3). Hint lists top-20 SOURCE files; top-3 test files from the same ranking listed
+% as "possibly relevant existing tests"; labelled as navigation suggestions only. ~550 tokens per call.
+\todo{Prompt policy (3--4 sentences).}
+
+\subsection*{4.4 Failure-aware refinement (Condition D)}
+% Owner 4. Source: slide 6. Wrap env.execute() and model.query().
+% Pipeline: detect (exit status) -> parse (frames, exception, failing tests) -> map frames to index
+% entities (index refreshed with edited files) -> rank F (nearest-to-exception first, 1/rank)
+% -> RRF(L,S,F), w=1 -> short evidence note before next model call.
+% Usability rules: >=1 frame maps to indexed source entity; setup errors never rerank;
+% tests-only -> diagnostic note; stale workspace -> skipped; identical evidence not re-sent.
+% Routing caps per run: rank_update 3, edit_recovery 2, diagnostic_only 1.
+\todo{Failure-aware pipeline + usability rules (could be a 5-step list or pseudocode).}

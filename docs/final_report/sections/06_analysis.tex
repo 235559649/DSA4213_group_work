@@ -1,0 +1,58 @@
+% =====================================================================
+% Owner: 4 (costs paragraph: 5)   Budget: ~1.5 pages
+% Source: slides 14, 15, 20, 21, 24, 16 (limitations), proposal §6
+% =====================================================================
+\section*{6. Analysis of Results, Failures, Limitations, Costs, and Risks}
+
+\paragraph{The bottleneck is the fix, not the file.}
+
+\begin{table}[h]
+\centering\small
+\caption{Main cause of the 71 unresolved main-round runs, assigned by reading each failed
+patch against the official fix. No environment failures (F5) occurred.}
+\label{tab:failures}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Failure class & \condA & \condB & \condC & \condD & All \\
+\midrule
+F1 never opened the reference file       & 2 & 3 & 3 & 3 & 11 \\
+F2 opened it, misdiagnosed the cause     & 7 & 8 & 7 & 7 & 29 \\
+F3 right location, incomplete fix        & 6 & 3 & 3 & 6 & 18 \\
+F4 target fixed, existing tests broken   & 5 & 3 & 2 & 3 & 13 \\
+\midrule
+Unresolved                               & 20 & 17 & 15 & 19 & 71 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% 60/71 failures came after the reference file was opened; F2 largest and flat across conditions (7-8);
+% 12 of 29 F2 then edited a different file; 56/71 failures on the 14 tasks nobody solved.
+% Case django-13590: all four conditions edit the same line as the official fix but break list/tuple
+% lookups (P2P 140-144/145). => localization hints cannot help with "what to change".
+% Mention who labelled the failures and how (one coder? second check?) - graders will ask.
+\todo{Failure analysis paragraph + django-13590 case (3--4 sentences).}
+
+\paragraph{Why failure feedback rarely helped (RQ3).}
+% Funnel (slide 15): 52 candidate events in 23 D runs -> 15 messages delivered to 10 runs ->
+% 5 first feedbacks re-ranked files -> 1 reference file moved up (sympy-18189: #2 -> #1; task solved by
+% all conditions anyway). Held back: source unclear 12, weak signal 5, printed source 5, route limit 5,
+% environment 5, other 5. All 5 re-ranks were in sympy.
+% Interpretation: by the time the agent fails, it already has the right file; its failures are about
+% what to change. Feedback added 95 s over 40 runs.
+\todo{Failure-feedback funnel + interpretation.}
+
+\paragraph{Costs.}
+% Owner 5. T_loc vs T_agent definitions (docs/evaluation/timing.md). Index build 301 s for 40 tasks
+% (83% of C's ranking time; sympy ~19 s/task); BM25 47 s; structure+RRF 12.5 s; per-task median B 5.6 s / C 6.0 s.
+% 26 runs > 150k tokens used 47% of all tokens and resolved 2. Easy tasks: hint is overhead
+% (A 40k vs C 55k per run); swing tasks: C cheapest (79k).
+\todo{Cost paragraph (point to Table~\ref{tab:main} for totals).}
+
+\paragraph{Limitations and risks.}
+% - Small sample: 40 tasks, 4 repos, one model; stability on 8 tasks only; differences within noise.
+% - Seeds-head S and prompt policy chosen on dev set.
+% - Reference-patch files are imperfect localization targets (alternative fixes); tests != correctness.
+% - Benchmark contamination (public issues in training data).
+% - Structure-vs-regressions link is untested (mechanism).
+% - Risks: patches need human review; hints can misdirect (sphinx-7757: C solved with a file outside every hint).
+\todo{Limitations and risks (compact list).}

@@ -1,0 +1,39 @@
+% =====================================================================
+% Owner: 1   Budget: ~0.8 page   Source: slide 7, slide 8, proposal §3
+% =====================================================================
+\section*{3. Agent and Task Setup}
+
+% Task: issue text + repo at base_commit in the task's SWE-bench Docker image; output = one final patch.
+% Agent: mini-SWE-agent 2.4.6, bash tool, linear history; NOT given reference patch / test labels.
+% Stopping: submit, 250 steps, $3 per run, 60 s per command, or unrecoverable env failure.
+% Only the localization context differs across conditions (table below).
+\todo{Task, environment, observations/actions, stopping (1--2 paragraphs).}
+
+\begin{table}[h]
+\centering\small
+\caption{Experimental setup (slide 8).}
+\label{tab:setup}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Setting & Value \\
+\midrule
+Benchmark & SWE-bench Verified (rev \texttt{78f471bf}) \\
+Development set & 20 tasks: Django 6, SymPy 6, Sphinx 4, pytest 4 \\
+Held-out set & 40 tasks: Django 12, SymPy 12, Sphinx 10, pytest 6 \\
+Runs & 160 main ($40\times4$) + 64 stability ($8$ tasks $\times 2$ rounds $\times 4$) \\
+Agent & mini-SWE-agent 2.4.6, bash tool \\
+Model & \texttt{openai/gpt-5.4-mini} via OpenRouter \\
+Limits per run & 250 steps, \$3.00, 60\,s per command \\
+Evaluation & official harness, \texttt{swebench} 5.0.2 \\
+\midrule
+\condA & no hint (original mini-SWE-agent) \\
+\condB & top-20 source files from BM25 ranking $L$ \\
+\condC & top-20 source files from $\mathrm{RRF}(L,S)$ \\
+\condD & \condC{} + reranked evidence after usable runtime failures \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% What the agent sees: show the (shortened) hint block from slide 7 as a small verbatim/minipage,
+% OR move it to Appendix A.1 if pages are tight.
+\todo{Short example of the localization hint (or reference Appendix).}

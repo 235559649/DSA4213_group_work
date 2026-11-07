@@ -1,0 +1,77 @@
+\documentclass[11pt]{article}
+
+% ---- Template settings: DO NOT change font size, margins or line spacing ----
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{setspace}
+% ---- Added packages (do not affect page geometry) ----
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf,skip=4pt}
+
+\setstretch{1.10}
+\setlength{\emergencystretch}{2em}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!50!black,
+    urlcolor=blue!50!black,
+    citecolor=black
+}
+
+% TODO marker: shows up in red in the PDF so nothing is forgotten.
+% Before submission: grep -rn "\\todo" sections/ must return nothing.
+\newcommand{\todo}[1]{\leavevmode{\color{red}\small[TODO: #1]}}
+% Condition labels, keep consistent across sections
+\newcommand{\condA}{\textsf{A}}
+\newcommand{\condB}{\textsf{B}}
+\newcommand{\condC}{\textsf{C}}
+\newcommand{\condD}{\textsf{D}}
+
+% --------------------
+% Course information
+% --------------------
+\newcommand{\course}{DSA4213: Natural Language Processing for Data Science}
+\newcommand{\semester}{Semester 1, AY2026/2027}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Group Project Final Report}\\[0.4em]
+{\large Improving Repository Navigation and Bug Localization in Minimal Software Engineering Agents}\\[0.9em]
+Group ID: \underline{25}\\[0.9em]
+\course\\
+\semester
+\end{center}
+
+% ==================== MAIN TEXT (strict 8-page limit) ====================
+\input{sections/00_admin_summary}   % owner: editor (3)      ~0.5 p
+\input{sections/01_problem}         % owner: 3               ~0.6 p
+\input{sections/02_related}         % owner: 3               ~0.7 p
+\input{sections/03_setup}           % owner: 1               ~0.8 p
+\input{sections/04_design}          % owner: 2 (4.1-4.3), 4 (4.4)  ~1.4 p
+\input{sections/05_results}         % owner: 5               ~2.0 p
+\input{sections/06_analysis}        % owner: 4 (+5 for costs) ~1.5 p
+\input{sections/07_repro}           % owner: 1               ~0.3 p
+\input{sections/08_conclusion}      % owner: editor (3)      ~0.2 p
+% ==================== End of main text ====================
+\clearpage
+
+\input{sections/09_contribution}
+
+% \nocite{*} lists every entry in references.bib; delete it once all citations are in the text.
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{references}
+
+\appendix
+\input{sections/10_appendix}        % owners: 2, 4, 5
+
+\end{document}
