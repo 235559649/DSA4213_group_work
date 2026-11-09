@@ -46,11 +46,11 @@ Reference file viewed at call 1 (/40)   & 6  & 29 & \textbf{30} & 29 \\
 Model calls (total)                     & 367 & 357 & 343 & 367 \\
 Total tokens (M)                        & 3.18 & 3.76 & 3.69 & 3.64 \\
 Tokens per resolved task (k)            & 159 & 163 & \textbf{148} & 173 \\
-Cost (\$) / cost per resolved task (\$) & 0.86 / 0.043 & 1.22$^*$ / 0.053 & 1.05 / 0.042 & 0.95 / 0.045 \\
+Cost (\$) / cost per resolved task (\$) & 0.86 / 0.043 & 1.29$^*$ / 0.056 & 1.05 / 0.042 & 0.95 / 0.045 \\
 Median agent seconds per run            & 19 & 17 & 16 & 19 \\
 \bottomrule
 \end{tabular}\\[2pt]
-{\footnotesize $^*$One \condB{} run (sphinx-9229) has incomplete cost records, so \condB's cost is a lower bound; token counts are complete.}
+{\footnotesize $^*$Lower bound: two responses of one \condB{} run (sphinx-9229) lack cost records, and only its recorded \$0.066 is included; token counts are complete.}
 \end{table}
 
 \paragraph{RQ1: repair.}

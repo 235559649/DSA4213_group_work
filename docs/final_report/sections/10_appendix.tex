@@ -39,7 +39,7 @@ tests pass but existing tests break. Second, the hint is neither necessary nor s
 sphinx-7757 the reference file is outside every hint (rank 97/110), yet \condC{} fixed it; in
 sympy-18698 the file is ranked first in every hint, yet only \condA{} fixed it.
 
-\begin{center}\small
+\noindent\begin{minipage}{\linewidth}\centering\small
 \captionof{table}{The 7 tasks on which conditions disagree. \checkmark{} resolved; F3 target test still fails;
 F4 target fixed but an existing test broken. Rank = first reference file in the initial ranking of \condB{} / \condC{}
 (ranks $>20$ are outside the hint). $^\dagger$ the run ended without a submission and its extracted
@@ -58,7 +58,7 @@ pytest-7521  & F4 & \checkmark & \checkmark & F3 & 19 / 15 & A broke 2 capture t
 pytest-10081 & F4 & F4 & \checkmark & \checkmark & 58 / 35 & A, B replaced the skip check; C, D kept it \\
 \bottomrule
 \end{tabular}
-\end{center}
+\end{minipage}\par\medskip
 
 \subsection*{A.4 Per-task results}
 Table~\ref{tab:pertask} lists every main-round run. Tasks group into 19 solved in every condition
@@ -138,7 +138,7 @@ which is the same size as the main-round differences, so we do not rank the cond
 round alone. The one consistent direction is pytest-10081, which \condC{} and \condD{} solved in all three
 rounds and \condA{} in one.
 
-\begin{center}\small
+\noindent\begin{minipage}{\linewidth}\centering\small
 \captionof{table}{Repeated runs on 8 tasks chosen before results were seen (rounds 1\,/\,2\,/\,3; round 1 is
 the main round). $^*$ = \condD{} feedback was delivered in that run. Every condition changes outcome
 on at least one task across rounds.}
@@ -160,7 +160,7 @@ Resolved (/24)          & 14 & 15 & 15 & 17 \\
 Solved in all 3 rounds (/8) & 3 & 4 & 4 & 5 \\
 \bottomrule
 \end{tabular}
-\end{center}
+\end{minipage}\par\medskip
 
 \subsection*{A.6 Failure-feedback details and case studies}
 % Owner 4: slide 23 table (events / runs / feedback / re-rank / resolved by repo and pattern)
@@ -176,12 +176,12 @@ repository, most strongly where \condA{} rarely finds the file at once (Sphinx 0
 \condA{} vs \condC). Costs differ by repository too: Sphinx runs are the most expensive (130--160k tokens
 on average), and SymPy dominates ranking time (about 23\,s per task, mostly index building).
 
-\begin{center}\small
+\noindent\begin{minipage}{\linewidth}\centering\small
 \captionof{table}{Main-round results by repository. Resolved and tokens for \condA/\condB/\condC/\condD;
 localization for \condB/\condC{} (\condD's initial ranking equals \condC's). Ranking time is the
 per-task median of index build plus ranking, from the separate timing re-run (Section~6).}
 \label{tab:byrepo}
-\setlength{\tabcolsep}{3.5pt}
+\footnotesize\setlength{\tabcolsep}{2.5pt}
 \begin{tabular}{@{}lccccccc@{}}
 \toprule
  & & \multicolumn{3}{c}{\condA/\condB/\condC/\condD} & \multicolumn{3}{c}{\condB{} ; \condC} \\
@@ -191,10 +191,10 @@ Repository & Tasks & Resolved & Viewed at call 1 & Mean tokens (k) & Hit@1/5/20 
 Django  & 12 & 7/9/9/7     & 4/8/10/10  & 47/56/59/60     & 3/7/8 ; 3/7/10   & 0.368 ; 0.375 & 6.0 ; 6.4 \\
 SymPy   & 12 & 7/6/6/6     & 2/10/9/8   & 82/110/77/93    & 5/8/10 ; 5/8/9   & 0.549 ; 0.544 & 22.9 ; 23.6 \\
 Sphinx  & 10 & 3/4/5/4     & 0/7/6/5    & 132/129/160/133 & 1/1/5 ; 1/1/5    & 0.144 ; 0.143 & 1.3 ; 1.3 \\
-pytest  & 6  & 3/4/5/4     & 0/4/5/6    & 51/81/77/77     & 0/0/4 ; 0/0/4    & 0.058 ; 0.069 & 0.8 ; 0.9 \\
+pytest  & 6  & 3/4/5/4     & 0/4/5/6    & 51/80/77/77     & 0/0/4 ; 0/0/4    & 0.058 ; 0.069 & 0.8 ; 0.9 \\
 \midrule
 All     & 40 & 20/23/25/21 & 6/29/30/29 & 79/94/92/91     & 9/16/27 ; 9/16/28 & 0.320 ; 0.322 & 5.6 ; 6.0 \\
 \bottomrule
 \end{tabular}
-\end{center}
+\end{minipage}\par\medskip
 
