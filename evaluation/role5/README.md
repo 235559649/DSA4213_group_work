@@ -23,9 +23,9 @@ From the repository root, reproduce the frozen task selection (standard library 
 python experiments/heldout_seed25/scripts/reproduce.py
 ```
 
-Complete archives remain **outside Git** and have not been uploaded:
+Complete archives remain **outside Git**. The formal archive is published; the development archive remains local:
 
 - Development: `role5-full-evidence-20261028.zip`, 7,966,259 bytes, SHA-256 `2ef9db0992edefe0606c32987862956dabad4f7b7275b93294cc1b6d2face388`. See [development retrieval instructions](dev/docs/FULL_EVIDENCE.md).
-- Formal: `role5-final-evidence-20261028.zip`, 18,866,074 bytes, SHA-256 `f32a071e29017b756ca0218307d439a2e2f5ce6d166303b56452163c27a5a74c`. The local owner keeps it under `role5-final-preparation-20261109/archive/` beside the repository. See [formal retrieval instructions](final/README.md#verify-and-recover-full-evidence).
+- Formal: `role5-final-evidence-20261028.zip`, 18,866,074 bytes, SHA-256 `f32a071e29017b756ca0218307d439a2e2f5ce6d166303b56452163c27a5a74c`. Available from the [GitHub Release](https://github.com/235559649/DSA4213_group_work/releases/tag/role5-evidence-20261028) or [direct ZIP download](https://github.com/235559649/DSA4213_group_work/releases/download/role5-evidence-20261028/role5-final-evidence-20261028.zip). See [formal retrieval instructions](final/README.md#verify-and-recover-full-evidence).
 
-The owner will upload Release assets and provide real retrieval URLs. Until then, archive-based reproduction requires obtaining these exact local files from the owner; this checkout does not claim a public download already exists. The formal README explicitly documents the main-result B=22 and supplementary-inclusive B=23 scopes; choosing the report's scope is left to its owner.
+The formal archive is publicly available from the [Release](https://github.com/235559649/DSA4213_group_work/releases/tag/role5-evidence-20261028); only the development archive still requires obtaining the exact local file from the owner. The formal README explicitly documents the main-result B=22 and supplementary-inclusive B=23 scopes; the final report uses B=23/40 and states the rule in section 5.

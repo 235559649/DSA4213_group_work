@@ -4,7 +4,7 @@ The original files below are deliberately absent from this slim directory. They 
 
 - Archive: `role5-final-evidence-20261028.zip` (18,866,074 bytes).
 - ZIP SHA-256: `f32a071e29017b756ca0218307d439a2e2f5ce6d166303b56452163c27a5a74c`.
-- Availability: prepared locally; not uploaded. The owner will upload the Release asset.
+- Availability: published on [GitHub Releases](https://github.com/235559649/DSA4213_group_work/releases/tag/role5-evidence-20261028); [download the complete ZIP](https://github.com/235559649/DSA4213_group_work/releases/download/role5-evidence-20261028/role5-final-evidence-20261028.zip).
 - Each path is relative to `final-evidence/` inside the ZIP.
 - The original README is preserved as the prefix of this checkout's README; the original checksum list is preserved separately as `SOURCE_SHA256SUMS`.
 - The unchanged manifest describes the complete bundle. Use the extracted full manifest for trajectory-dependent analysis; the slim checkout intentionally lacks listed artifacts.
