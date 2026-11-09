@@ -43,9 +43,9 @@ The slim checkout retains all 232 small attempt records where recorded: `officia
 | Filename | `role5-final-evidence-20261028.zip` |
 | Compressed bytes | 18866074 |
 | SHA-256 | `f32a071e29017b756ca0218307d439a2e2f5ce6d166303b56452163c27a5a74c` |
-| Availability | Prepared locally; not uploaded; no public URL yet |
+| Availability | Published as a [GitHub Release](https://github.com/235559649/DSA4213_group_work/releases/tag/role5-evidence-20261028); [download the complete ZIP](https://github.com/235559649/DSA4213_group_work/releases/download/role5-evidence-20261028/role5-final-evidence-20261028.zip) |
 
-All archive members (3,572) passed CRC and byte-hash verification after ZIP creation. The original 3,565 files are unchanged; SHA256SUMS itself is the one file outside its own 3,564-entry list. Ask the owner for the exact ZIP before publication. The owner will upload it as a Release asset and supply its real URL.
+All archive members (3,572) passed CRC and byte-hash verification after ZIP creation. The original 3,565 files are unchanged; SHA256SUMS itself is the one file outside its own 3,564-entry list. Download the exact ZIP from the [published Release](https://github.com/235559649/DSA4213_group_work/releases/tag/role5-evidence-20261028) using the [direct asset link](https://github.com/235559649/DSA4213_group_work/releases/download/role5-evidence-20261028/role5-final-evidence-20261028.zip), then verify the SHA-256 above before extraction.
 
 ### Verify and recover full evidence
 
@@ -55,7 +55,7 @@ From `evaluation/role5/dev/`, the existing standard-library verifier can check t
 python -m tools.offline_eval verify --root ../final --checksums ../final/SHA256SUMS
 ```
 
-Check the downloaded ZIP SHA-256 against the value above, then extract into a fresh directory outside the repository:
+[Download the complete ZIP](https://github.com/235559649/DSA4213_group_work/releases/download/role5-evidence-20261028/role5-final-evidence-20261028.zip), check its SHA-256 against the value above, then extract into a fresh directory outside the repository:
 
 ```sh
 python -c "import hashlib,pathlib; p=pathlib.Path('role5-final-evidence-20261028.zip'); print(hashlib.sha256(p.read_bytes()).hexdigest())"
