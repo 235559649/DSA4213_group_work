@@ -42,11 +42,18 @@ Unresolved                               & 20 & 17 & 15 & 19 & 71 \\
 \todo{Failure-feedback funnel + interpretation.}
 
 \paragraph{Costs.}
-% Owner 5. T_loc vs T_agent definitions (docs/evaluation/timing.md). Index build 301 s for 40 tasks
-% (83% of C's ranking time; sympy ~19 s/task); BM25 47 s; structure+RRF 12.5 s; per-task median B 5.6 s / C 6.0 s.
-% 26 runs > 150k tokens used 47% of all tokens and resolved 2. Easy tasks: hint is overhead
-% (A 40k vs C 55k per run); swing tasks: C cheapest (79k).
-\todo{Cost paragraph (point to Table~\ref{tab:main} for totals).}
+% Owner 5. Sources: Role 5 cost audit (07_cost), time budget (08_time_budget) and ranking-cost
+% re-run (11_bc_cost); timing definitions in docs/evaluation/timing.md.
+API cost was small: \$0.86--\$1.22 per condition for 40 runs, about \$0.04--\$0.05 per resolved task
+(Table~\ref{tab:main}). Tokens follow a long tail: 26 of 160 runs exceeded 150k tokens, using 47\% of
+all tokens while resolving 2 tasks; the proposal's 150k-token cap would have saved about a fifth of all
+tokens at the risk of those two fixes. Localization time $T_{\mathrm{loc}}$ (index and ranking, before
+the agent starts) is dominated by indexing: 301\,s over 40 tasks (83\% of \condC's ranking time; about
+20\,s per SymPy task, under 1\,s for Sphinx and pytest), against 47\,s for BM25 and 12.5\,s for structure
+plus RRF. The median $T_{\mathrm{loc}}$ is 5.6\,s (\condB) and 6.0\,s (\condC) per task, versus 16--19\,s
+of agent time $T_{\mathrm{agent}}$; the index is built once and shared by \condB--\condD, and failure
+processing added 95\,s over all 40 \condD{} runs. Timings come from a separate re-run (Linux x86\_64,
+Python 3.10.12) whose rankings matched the main runs exactly, so they show magnitudes, not exact latencies.
 
 \paragraph{Limitations and risks.}
 % - Small sample: 40 tasks, 4 repos, one model; stability on 8 tasks only; differences within noise.

@@ -32,11 +32,18 @@ $C'$: source only               & 0.50 & 0.70 & 0.667 & 0.591 & 0.75 & 0.85 \\
 \end{table}
 
 \subsection*{A.3 Swing tasks}
-\begin{table}[h]
-\centering\small
-\caption{The 7 tasks on which conditions disagree. \checkmark{} resolved; F3 target test still fails;
+The main-round ranking of the four conditions is decided by these seven tasks, since the other 33
+have the same outcome in every condition. Two patterns stand out. First, the usual way to lose a swing
+task is a regression rather than a wrong location: four of \condA's six losses are F4, where the target
+tests pass but existing tests break. Second, the hint is neither necessary nor sufficient. In
+sphinx-7757 the reference file is outside every hint (rank 97/110), yet \condC{} fixed it; in
+sympy-18698 the file is ranked first in every hint, yet only \condA{} fixed it.
+
+\begin{center}\small
+\captionof{table}{The 7 tasks on which conditions disagree. \checkmark{} resolved; F3 target test still fails;
 F4 target fixed but an existing test broken. Rank = first reference file in the initial ranking of \condB{} / \condC{}
-(ranks $>20$ are outside the hint).}
+(ranks $>20$ are outside the hint). $^\dagger$ the run ended without a submission and its extracted
+patch was evaluated (Section~5).}
 \label{tab:swing}
 \begin{tabular}{@{}lccccc>{\raggedright\arraybackslash}p{0.38\linewidth}@{}}
 \toprule
@@ -44,21 +51,30 @@ Task & \condA & \condB & \condC & \condD & Rank \condB/\condC & What differed \\
 \midrule
 django-14311 & F4 & \checkmark & \checkmark & F4 & 5 / 5 & A, D fixed the target but broke 3 autoreload tests \\
 django-16950 & F4 & \checkmark & \checkmark & F4 & 35 / 19 & structure moved the file into C's hint \\
-sympy-18698  & \checkmark & F3 & F3 & F3 & 1 / 1 & only A fixed it \\
+sympy-18698  & \checkmark & F3$^\dagger$ & F3 & F3$^\dagger$ & 1 / 1 & only A fixed it; B, D never submitted \\
 sphinx-7757  & F3 & F3 & \checkmark & F3 & 97 / 110 & C fixed a file outside every hint \\
 sphinx-9320  & F3 & \checkmark & \checkmark & \checkmark & 1 / 1 & A changed a shared helper: incomplete \\
 pytest-7521  & F4 & \checkmark & \checkmark & F3 & 19 / 15 & A broke 2 capture tests; D left target failing \\
 pytest-10081 & F4 & F4 & \checkmark & \checkmark & 58 / 35 & A, B replaced the skip check; C, D kept it \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{center}
 
 \subsection*{A.4 Per-task results}
+Table~\ref{tab:pertask} lists every main-round run. Tasks group into 19 solved in every condition
+(\emph{all}), 14 solved in none (\emph{none}) and 7 swing tasks (Appendix~A.3). The \emph{none} tasks are
+not mainly a localization failure: in 9 of the 14 the reference file is already in \condC's top~20
+(10 of 14 for \condB), so the agent was shown the right file and still could not complete the fix.
+Token use varies widely within a condition, from 12k to 791k tokens per run; the most expensive run
+(sphinx-9229 \condC) did not resolve the task. \condD{} feedback was delivered on 10 tasks: 5 \emph{all},
+4 \emph{none} and 1 swing task (django-14311, which \condD{} lost).
+
 {\small
 \setlength{\tabcolsep}{4pt}
 \begin{longtable}{@{}llccccrrrrc@{}}
-\caption{Per-task outcomes on the 40 held-out tasks (slides 18--19). Pattern: all / none / swing.
-Rank = best reference file in the initial ranking. $\bullet$ = \condD{} feedback fired.}
+\caption{Per-task outcomes on the 40 held-out tasks. Pattern: all / none / swing.
+Rank = best reference file in the initial ranking. Tok = total tokens of the run.
+$\bullet$ = \condD{} feedback was delivered. $^\dagger$ no submission; extracted patch evaluated.}
 \label{tab:pertask}\\
 \toprule
 Task & Pattern & \condA & \condB & \condC & \condD & Rank \condB & Rank \condC & Tok \condA{} (k) & Tok \condC{} (k) & FB \\
@@ -82,14 +98,14 @@ django-16877 & all   & \checkmark & \checkmark & \checkmark & \checkmark & 1 & 1
 django-16950 & swing & F4 & \checkmark & \checkmark & F4 & 35 & 19 & 99 & 62 & \\
 sympy-12489  & none  & F3 & F3+4 & F3+4 & F3 & 3 & 3 & 34 & 90 & \\
 sympy-13372  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 1 & 1 & 35 & 22 & $\bullet$ \\
-sympy-13757  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 2 & 2 & 81 & 37 & \\
+sympy-13757  & all   & \checkmark & \checkmark$^\dagger$ & \checkmark & \checkmark & 2 & 2 & 81 & 37 & \\
 sympy-16886  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 1 & 1 & 12 & 17 & \\
 sympy-18189  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 2 & 2 & 72 & 71 & $\bullet$ \\
 sympy-18199  & none  & F3 & F3 & F3 & F3 & 6 & 6 & 57 & 41 & \\
-sympy-18698  & swing & \checkmark & F3 & F3 & F3 & 1 & 1 & 215 & 226 & \\
+sympy-18698  & swing & \checkmark & F3$^\dagger$ & F3 & F3$^\dagger$ & 1 & 1 & 215 & 226 & \\
 sympy-19637  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 1 & 1 & 18 & 30 & $\bullet$ \\
 sympy-20428  & none  & F3 & F3 & F3 & F3 & 555 & 341 & 89 & 71 & $\bullet$ \\
-sympy-21930  & none  & F3 & F3 & F3 & F3 & 12 & 51 & 137 & 111 & \\
+sympy-21930  & none  & F3$^\dagger$ & F3 & F3 & F3 & 12 & 51 & 137 & 111 & \\
 sympy-22080  & none  & F3+4 & F3 & F3+4 & F3+4 & 254 & 156 & 195 & 151 & \\
 sympy-24443  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 1 & 1 & 36 & 53 & $\bullet$ \\
 sphinx-7748  & none  & F3 & F3 & F3 & F3+4 & 15 & 21 & 126 & 92 & $\bullet$ \\
@@ -101,7 +117,7 @@ sphinx-9258  & none  & F3 & F3 & F3 & F3 & 31 & 18 & 324 & 200 & \\
 sphinx-9320  & swing & F3 & \checkmark & \checkmark & \checkmark & 1 & 1 & 37 & 23 & \\
 sphinx-9591  & none  & F3 & F3 & F3 & F3 & 32 & 29 & 122 & 86 & \\
 sphinx-9698  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 62 & 37 & 27 & 40 & \\
-sphinx-11445 & none  & F3+4 & F3+4 & F3 & F3 & 16 & 12 & 361 & 197 & \\
+sphinx-11445 & none  & F3+4 & F3+4 & F3 & F3$^\dagger$ & 16 & 12 & 361 & 197 & \\
 pytest-7236  & all   & \checkmark & \checkmark & \checkmark & \checkmark & 11 & 11 & 101 & 244 & $\bullet$ \\
 pytest-7324  & none  & F3 & F3 & F3 & F3 & 10 & 10 & 26 & 30 & $\bullet$ \\
 pytest-7521  & swing & F4 & \checkmark & \checkmark & F3 & 19 & 15 & 84 & 56 & \\
@@ -113,10 +129,19 @@ pytest-10081 & swing & F4 & F4 & \checkmark & \checkmark & 58 & 35 & 42 & 55 & \
 }
 
 \subsection*{A.5 Stability: 8 tasks $\times$ 3 rounds}
-\begin{table}[h]
-\centering\small
-\caption{Repeated runs on 8 tasks chosen before results were seen (rounds 1\,/\,2\,/\,3).
-$^*$ = \condD{} feedback fired in that run.}
+Eight tasks were drawn before any result was seen and run three times per condition (round 1 is
+the main round). Two tasks were never solved and one was always solved, so the variation comes from
+the other five. Even a task solved by every condition in the main round can fail later:
+sympy-24443 was resolved in round 1 everywhere, but \condB{} and \condC{} solved it only once in three
+rounds. Over 24 runs per condition the totals differ by at most three (\condA{} 14 to \condD{} 17),
+which is the same size as the main-round differences, so we do not rank the conditions on either
+round alone. The one consistent direction is pytest-10081, which \condC{} and \condD{} solved in all three
+rounds and \condA{} in one.
+
+\begin{center}\small
+\captionof{table}{Repeated runs on 8 tasks chosen before results were seen (rounds 1\,/\,2\,/\,3; round 1 is
+the main round). $^*$ = \condD{} feedback was delivered in that run. Every condition changes outcome
+on at least one task across rounds.}
 \label{tab:stability}
 \begin{tabular}{@{}lcccc@{}}
 \toprule
@@ -135,9 +160,41 @@ Resolved (/24)          & 14 & 15 & 15 & 17 \\
 Solved in all 3 rounds (/8) & 3 & 4 & 4 & 5 \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{center}
 
 \subsection*{A.6 Failure-feedback details and case studies}
 % Owner 4: slide 23 table (events / runs / feedback / re-rank / resolved by repo and pattern)
 % and the two A8 case studies (django-16950 for structure, sympy-18189 for feedback).
 \todo{Failure-feedback breakdown table and case studies.}
+
+\subsection*{A.7 Results by repository}
+Gains do not follow ranking quality. SymPy has by far the best initial rankings
+(MRR 0.55, 9--10 tasks with a reference file in the top~20) but no repair gain over \condA{}, which is
+the best condition there (7 vs 6). Sphinx and pytest have the weakest rankings (MRR 0.06--0.14), yet
+\condC{} resolves two more tasks than \condA{} in each. Hints change first-call viewing in every
+repository, most strongly where \condA{} rarely finds the file at once (Sphinx 0 vs 6, pytest 0 vs 5 for
+\condA{} vs \condC). Costs differ by repository too: Sphinx runs are the most expensive (130--160k tokens
+on average), and SymPy dominates ranking time (about 23\,s per task, mostly index building).
+
+\begin{center}\small
+\captionof{table}{Main-round results by repository. Resolved and tokens for \condA/\condB/\condC/\condD;
+localization for \condB/\condC{} (\condD's initial ranking equals \condC's). Ranking time is the
+per-task median of index build plus ranking, from the separate timing re-run (Section~6).}
+\label{tab:byrepo}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+ & & \multicolumn{3}{c}{\condA/\condB/\condC/\condD} & \multicolumn{3}{c}{\condB{} ; \condC} \\
+\cmidrule(lr){3-5}\cmidrule(l){6-8}
+Repository & Tasks & Resolved & Viewed at call 1 & Mean tokens (k) & Hit@1/5/20 & MRR & Ranking (s) \\
+\midrule
+Django  & 12 & 7/9/9/7     & 4/8/10/10  & 47/56/59/60     & 3/7/8 ; 3/7/10   & 0.368 ; 0.375 & 6.0 ; 6.4 \\
+SymPy   & 12 & 7/6/6/6     & 2/10/9/8   & 82/110/77/93    & 5/8/10 ; 5/8/9   & 0.549 ; 0.544 & 22.9 ; 23.6 \\
+Sphinx  & 10 & 3/4/5/4     & 0/7/6/5    & 132/129/160/133 & 1/1/5 ; 1/1/5    & 0.144 ; 0.143 & 1.3 ; 1.3 \\
+pytest  & 6  & 3/4/5/4     & 0/4/5/6    & 51/81/77/77     & 0/0/4 ; 0/0/4    & 0.058 ; 0.069 & 0.8 ; 0.9 \\
+\midrule
+All     & 40 & 20/23/25/21 & 6/29/30/29 & 79/94/92/91     & 9/16/27 ; 9/16/28 & 0.320 ; 0.322 & 5.6 ; 6.0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+

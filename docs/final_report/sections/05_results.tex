@@ -1,77 +1,117 @@
 % =====================================================================
-% Owner: 5   Budget: ~2.0 pages   Source: slides 8, 10-13, 22
-% All numbers below are copied from the slides. Owner 5: re-check every
-% number against run_comparison.py / the evaluation report before submission.
+% Owner: 5   Budget: ~2.0 pages
+% Every number below was re-checked on 2026-11-09 against the final evidence
+% package (DSA4213_final_20261028: official harness report.json per run,
+% run_result.json, labels.json, prompt_candidates.json) and the Role 5
+% analysis pages (tmp/claude-formal-charts-review-20261028).
+% Per-run first-view data: data/first_reference_view.csv (from the Role 5 analysis page 06_exploration).
 % =====================================================================
 \section*{5. Evaluation and Results}
 
-% Protocol (1 paragraph): same 40 tasks/model/prompt/env/budgets; only the hint differs.
-% Primary comparison A vs D (as pre-registered); B, C isolate components.
-% Repair: resolved = all FAIL_TO_PASS and PASS_TO_PASS pass (official harness).
-%   224 verdicts: 216 from submissions, 2 re-evaluated, 6 without submission -> extracted diff (say how).
-% Localization: Hit@1/5, Recall@5, MRR on reference-patch Python source files (tests/docs excluded).
-% Efficiency: model call that first opens a reference file, tokens, cost, agent seconds, T_loc.
-% Variability: 8 tasks x 3 rounds chosen before results; paired McNemar.
-\todo{Evaluation protocol paragraph.}
+\paragraph{Protocol.}
+All conditions ran on the same 40 held-out tasks with the same model, instructions, Docker images
+and budgets; only the localization context differs (Table~\ref{tab:setup}). The proposal's primary
+comparison is \condA{} vs \condD; \condB{} and \condC{} isolate the lexical and structural components.
+\emph{Repair:} a run is resolved when the official harness~\cite{jimenez2024swebench,swebenchharness}
+passes every \texttt{FAIL\_TO\_PASS} (F2P, target) and \texttt{PASS\_TO\_PASS} (P2P, existing) test.
+Of the 224 runs, 216 were evaluated on the submitted patch; two (sympy-12489 \condB, \condC) were
+re-evaluated on the original submission because the recorded patch file differed from it; and six
+ended without a submission (e.g.\ repeated output-format errors) and were evaluated on the patch
+extracted from their final state. Only one of the six passed (sympy-13757 \condB); counting all six as
+unresolved changes \condB{} from 23 to 22 and nothing else.
+\emph{Localization:} the usual file-level metrics~\cite{zhou2012buglocator,chen2025locagent}
+(Hit@1/5/20, Recall@5, MRR) of the initial ranking, with the reference patch's Python source files as
+targets (tests and documentation excluded; \condA{} has no ranking), plus the first model call whose
+shell command reads a target file (\texttt{cat}, \texttt{sed}, \texttt{grep}, \dots; an approximation).
+\emph{Efficiency:} model calls, tokens (including format-error retries), API cost and agent seconds;
+ranking time is measured separately (Section~6).
+\emph{Variability:} one main-round run per task and condition; 8 tasks, drawn before any result was
+seen, ran two further rounds in every condition (64 runs). Paired differences use an exact McNemar test.
 
 \begin{table}[h]
 \centering\small
-\caption{Main results on 40 held-out tasks (one run per task and condition).
-F2P = target (FAIL\_TO\_PASS) tests; P2P = existing (PASS\_TO\_PASS) tests.}
+\caption{Main results on the 40 held-out tasks (one run per task and condition).
+F2P = target tests; P2P = existing tests.}
 \label{tab:main}
 \begin{tabular}{@{}lcccc@{}}
 \toprule
  & \condA{} original & \condB{} +text & \condC{} +structure & \condD{} +failures \\
 \midrule
 Resolved (/40)                          & 20 & 23 & \textbf{25} & 21 \\
-F2P pass, P2P broken (F4)               & 5  & 2  & 1  & 3  \\
+F2P pass, P2P broken                    & 5  & 2  & 1  & 3  \\
 F2P fail, P2P intact                    & 12 & 12 & 11 & 13 \\
 F2P fail, P2P broken                    & 3  & 3  & 3  & 3  \\
 \midrule
-Reference file opened at call 1 (/40)   & 6  & 29 & \textbf{30} & 29 \\
+Reference file viewed at call 1 (/40)   & 6  & 29 & \textbf{30} & 29 \\
+Model calls (total)                     & 367 & 357 & 343 & 367 \\
 Total tokens (M)                        & 3.18 & 3.76 & 3.69 & 3.64 \\
 Tokens per resolved task (k)            & 159 & 163 & \textbf{148} & 173 \\
-Cost (\$) / cost per fix (\$)           & 0.86 / 0.043 & 1.22$^*$ / 0.053 & 1.05 / 0.042 & 0.95 / 0.045 \\
+Cost (\$) / cost per resolved task (\$) & 0.86 / 0.043 & 1.22$^*$ / 0.053 & 1.05 / 0.042 & 0.95 / 0.045 \\
 Median agent seconds per run            & 19 & 17 & 16 & 19 \\
 \bottomrule
 \end{tabular}\\[2pt]
-{\footnotesize $^*$Two \condB{} runs lack cost data; token counts are complete.
-\todo{verify "opened at call 1" for B and D (derived from slide 20 percentages).}}
+{\footnotesize $^*$One \condB{} run (sphinx-9229) has incomplete cost records, so \condB's cost is a lower bound; token counts are complete.}
 \end{table}
 
-% RQ1 text (slide 10-11): 19 solved by all, 14 by none, 7 swing tasks decide the ranking.
-% C vs A: 6 only-C vs 1 only-A, exact McNemar p = 0.13. Noise estimate: of 30 D runs where feedback
-% never fired (= C's prompt), 3 outcomes flipped (~10%). Stability (Appendix): D 17, B 15, C 15, A 14 of 24
-% -> ordering not stable. CLAIM: no hint hurt repair; differences within run-to-run noise.
-% Patch quality (slide 13): F2P pass rates similar (24-26); C has fewest broken old tests (1 vs 5) -
-% present as a lead, not a proven mechanism; pytest-10081 as one-sentence example.
-\todo{RQ1 results paragraph(s).}
+\paragraph{RQ1: repair.}
+No hint reduced repair: \condC{} resolved the most tasks (25/40), \condA{} the fewest (20/40), \condB{}
+and \condD{} 23 and 21. The ordering rests on 7 \emph{swing} tasks, since 19 tasks were resolved in every
+condition and 14 in none (Appendix~A.3). \condC{} resolved six tasks that \condA{} did not and \condA{} one
+that \condC{} did not (exact McNemar $p=0.13$); the pre-specified \condA{} vs \condD{} split is 1 vs 2
+($p=1.0$). Two observations place these gaps within run-to-run noise. On the 30 tasks where \condD's
+feedback never fired, its prompt is identical to \condC's, yet 3 outcomes differ. In the stability
+subset the order becomes \condD{} 17, \condB{} 15, \condC{} 15, \condA{} 14 of 24, and every condition
+flips at least one task across rounds (Appendix~A.5). We therefore claim that the hints did not hurt
+repair, not that any condition repairs better.
 
-% RQ2 text (slide 12): hints bring the reference file into view one call earlier; runs cost more
-% in total (A 3.18M vs C 3.69M tokens) but fixes cost less (148k vs 159k per fix); on the 6 C-only
-% tasks C used 330k vs A 454k. Hint ~550 tokens/call, ~5.5% of input. Easy tasks: hint = overhead.
-\todo{RQ2 results paragraph.}
+The conditions differ less in fixing the target than in what else they break. Target tests pass in
+25, 25, 26 and 24 runs for \condA--\condD, but \condA{} breaks existing tests in 5 of them and \condC{} in 1.
+In pytest-10081 both edit the same condition in \texttt{src/\_pytest/unittest.py}: \condA{} replaces the
+skip check with one on the parent class and breaks 1 of 63 existing tests, while \condC{} keeps the
+original check, adds the parent's and passes all 63. Passing the target tests is thus not the same as
+a correct patch, a known risk in automated program repair~\cite{smith2015cure,yu2019overfitting}.
+Whether structure causes fewer regressions is untested; we report it only as a lead.
+
+\paragraph{RQ2: exploration cost.}
+Hints bring a reference file into view about one model call earlier: at the first call the agent had
+read one in 29--30 of 40 tasks with a hint and in 6 without, and by the second call \condA{} has caught
+up (31 vs 31--34). The hint thus replaces the initial search, not later work. Hinted runs used more
+tokens in total (3.64--3.76M vs 3.18M), because the ${\sim}550$-token hint stays in the history and is
+re-sent with every call (5.5\% of input tokens). Per resolved task \condC{} was the cheapest (148k vs
+159k for \condA), and on the six tasks only \condC{} solved it used 330k tokens to \condA's 454k. The
+saving comes from harder tasks: on the 19 tasks every condition solved, the hint is pure overhead
+(mean 55k vs 40k tokens per run for \condC{} vs \condA). Against the success criterion of Section~1,
+\condC{} gives comparable repair at a lower cost \emph{per fix}, but not at a lower total cost.
 
 \subsection*{5.1 Comparisons and Ablations}
 
 \begin{table}[h]
 \centering\small
-\caption{Initial ranking quality on the 40 held-out tasks (counts of tasks unless stated).
-\condD's initial ranking equals \condC's on all 40 tasks.}
+\caption{Initial ranking quality on the 40 held-out tasks (counts of tasks unless stated); \condD's
+initial ranking is identical to \condC's. ``In hint'': a target is among the 20 source files shown
+(tests are filtered out first, so this can exceed Hit@20); ``Viewed'': the agent read a target, among
+the Hit@20 tasks.}
 \label{tab:loc}
 \begin{tabular}{@{}lccccccc@{}}
 \toprule
- & Hit@1 & Hit@5 & Recall@5 & MRR & Hit@20 & In hint & Opened (if in top-20) \\
+ & Hit@1 & Hit@5 & Recall@5 & MRR & Hit@20 & In hint & Viewed \\
 \midrule
 \condB{} (BM25 $L$)            & 9 & 16 & 38.8\% & 0.320 & 27 & 30 & 27/27 \\
 \condC{} ($\mathrm{RRF}(L,S)$) & 9 & 16 & 38.8\% & 0.322 & 28 & 30 & 28/28 \\
-\condD{} (initial)             & 9 & 16 & 38.8\% & 0.322 & 28 & 30 & 27/28 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-% B vs C (RQ3, structure): top-5 identical by construction (seeds-head); structure adds 1 Hit@20 and
-% moves files both ways (django +2 in hint, sympy/sphinx -1). Case django-16950: #35 -> #19, enters
-% C's hint, C 62k vs B 127k tokens. Dev-set ablation (original S vs seeds-head) -> Appendix.
-% C vs D (RQ3, failures): D lost 4 tasks to C, 3 of them in runs where feedback never fired -> noise.
-\todo{Ablation paragraphs: B vs C (structure), C vs D (failure feedback).}
+\paragraph{\condB{} vs \condC: what structure adds.}
+\condC{} keeps \condB's top~10 (Section~4.2), so Hit@1 and Hit@5 are identical and MRR differs by 0.002.
+Structure acts only on ranks 11--20, adding one task to Hit@20 (28 vs 27; Django $+2$, SymPy $-1$). The
+clearest gain is django-16950: its reference file moves from rank 35 to 19 and enters \condC's hint;
+both conditions resolved it, \condC{} with 62k tokens and \condB{} with 127k. On repair, \condC{} resolved
+two tasks that \condB{} did not and never the reverse, too few to attribute to structure.
+
+\paragraph{\condC{} vs \condD: what failure feedback adds.}
+\condD{} resolved four tasks fewer than \condC{} and none that \condC{} missed (django-14311,
+django-16950, sphinx-7757, pytest-7521). Feedback reached the agent in only one of these runs, and only
+as a diagnostic note (django-14311), so the gap is mostly noise rather than an effect of feedback.
+Overall, feedback was delivered in 10 of 40 \condD{} runs and re-ranked files in 5; Section~6 explains
+why it rarely changed the outcome.
