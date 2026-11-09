@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sphinx/util/docfields.py",
+    "rank": 3,
+    "score": 43.3292,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/extlinks.py",
+    "rank": 4,
+    "score": 39.9672,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/addnodes.py",
+    "rank": 5,
+    "score": 35.5368,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/application.py",
+    "rank": 7,
+    "score": 32.6334,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/cmd/build.py",
+    "rank": 10,
+    "score": 31.4755,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/domains/__init__.py",
+    "rank": 11,
+    "score": 31.142,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/intersphinx.py",
+    "rank": 13,
+    "score": 30.737,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/transforms/post_transforms/images.py",
+    "rank": 14,
+    "score": 30.5151,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/inspect.py",
+    "rank": 15,
+    "score": 30.2898,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/autodoc/__init__.py",
+    "rank": 16,
+    "score": 30.1523,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/search/__init__.py",
+    "rank": 19,
+    "score": 28.0581,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/domains/cpp.py",
+    "rank": 20,
+    "score": 27.8866,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/pycode/ast.py",
+    "rank": 22,
+    "score": 27.6495,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/apidoc.py",
+    "rank": 24,
+    "score": 26.9183,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/napoleon/docstring.py",
+    "rank": 25,
+    "score": 26.8424,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/domains/std.py",
+    "rank": 26,
+    "score": 26.3204,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/config.py",
+    "rank": 27,
+    "score": 26.3022,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/napoleon/__init__.py",
+    "rank": 28,
+    "score": 26.2765,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/autodoc/type_comment.py",
+    "rank": 29,
+    "score": 26.2081,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/writers/text.py",
+    "rank": 30,
+    "score": 26.1523,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

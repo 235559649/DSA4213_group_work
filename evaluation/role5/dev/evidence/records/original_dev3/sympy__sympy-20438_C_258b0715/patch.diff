@@ -1,0 +1,42 @@
+diff --git a/sympy/sets/sets.py b/sympy/sets/sets.py
+index 3c4aa86e36..3e6e2418f3 100644
+--- a/sympy/sets/sets.py
++++ b/sympy/sets/sets.py
+@@ -410,6 +410,22 @@ def issubset(self, other):
+         """
+         return self.is_subset(other)
+ 
++    def equals(self, other, failing_expression=False):
++        if other == 0:
++            return self is S.EmptySet
++        if not isinstance(other, Set):
++            return False
++        if self == other:
++            return True
++        a = self.is_subset(other)
++        if a is False:
++            return False
++        b = other.is_subset(self)
++        if b is False:
++            return False
++        if a is True and b is True:
++            return True
++
+     def is_proper_subset(self, other):
+         """
+         Returns True if ``self`` is a proper subset of ``other``.
+@@ -865,6 +881,14 @@ def __len__(self):
+     def __bool__(self):
+         return all([bool(s) for s in self.sets])
+ 
++    def _eval_is_subset(self, other):
++        if isinstance(other, ProductSet):
++            if len(self.sets) != len(other.sets):
++                return False
++            return fuzzy_and(s.is_subset(o) for s, o in zip(self.sets, other.sets))
++        if isinstance(other, FiniteSet) and self.is_finite_set:
++            return fuzzy_and(other._contains(e) for e in self)
++
+ 
+ class Interval(Set, EvalfMixin):
+     """

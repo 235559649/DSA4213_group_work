@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/polys/polytools.py",
+    "rank": 1,
+    "score": 0.0327868852,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/polys/polyclasses.py",
+    "rank": 2,
+    "score": 0.0322580645,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/core/compatibility.py",
+    "rank": 3,
+    "score": 0.0317460317,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/polys/densetools.py",
+    "rank": 4,
+    "score": 0.03125,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/core/sympify.py",
+    "rank": 5,
+    "score": 0.0307692308,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/utilities/iterables.py",
+    "rank": 6,
+    "score": 0.0303030303,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/polys/densebasic.py",
+    "rank": 7,
+    "score": 0.0298507463,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/core/containers.py",
+    "rank": 8,
+    "score": 0.0294117647,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/core/expr.py",
+    "rank": 9,
+    "score": 0.0289855072,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/polys/factortools.py",
+    "rank": 11,
+    "score": 0.0272121437,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/polys/densearith.py",
+    "rank": 12,
+    "score": 0.0260135135,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/polys/specialpolys.py",
+    "rank": 13,
+    "score": 0.0244812659,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/polys/monomials.py",
+    "rank": 14,
+    "score": 0.02333469,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/polys/orthopolys.py",
+    "rank": 15,
+    "score": 0.0230646872,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/solvers/solveset.py",
+    "rank": 16,
+    "score": 0.0224648594,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/core/numbers.py",
+    "rank": 17,
+    "score": 0.0222544751,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/core/exprtools.py",
+    "rank": 18,
+    "score": 0.0220739842,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/polys/euclidtools.py",
+    "rank": 19,
+    "score": 0.0220289855,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/logic/boolalg.py",
+    "rank": 20,
+    "score": 0.0220074523,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sympy/polys/polyoptions.py",
+    "rank": 21,
+    "score": 0.020987013,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  }
+]

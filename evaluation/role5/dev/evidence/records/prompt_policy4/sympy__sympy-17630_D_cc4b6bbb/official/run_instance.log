@@ -1,0 +1,60 @@
+2026-10-27 15:40:54,029 - INFO - Creating container for sympy__sympy-17630...
+2026-10-27 15:40:54,096 - INFO - Container for sympy__sympy-17630 created: 5a93bca7b9842957919ba635123bdb359f24b7bef3f29ea1d4db94aa9fdc986d
+2026-10-27 15:40:54,286 - INFO - Container for sympy__sympy-17630 started: 5a93bca7b9842957919ba635123bdb359f24b7bef3f29ea1d4db94aa9fdc986d
+2026-10-27 15:40:54,287 - INFO - Intermediate patch for sympy__sympy-17630 written to logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/sympy__sympy-17630/patch.diff, now applying to container...
+2026-10-27 15:40:54,408 - INFO - Failed to apply patch to container: git apply --verbose
+2026-10-27 15:40:54,897 - INFO - Failed to apply patch to container: git apply --verbose --3way
+2026-10-27 15:40:55,227 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-10-27 15:40:55,371 - INFO - >>>>> Applied Patch:
+patching file sympy/matrices/expressions/blockmatrix.py
+patch unexpectedly ends in middle of line
+Hunk #1 succeeded at 164 with fuzz 2.
+
+2026-10-27 15:40:55,441 - INFO - Git diff before:
+diff --git a/sympy/matrices/expressions/blockmatrix.py b/sympy/matrices/expressions/blockmatrix.py
+index 95302a05ca..80cfa14f97 100755
+--- a/sympy/matrices/expressions/blockmatrix.py
++++ b/sympy/matrices/expressions/blockmatrix.py
+@@ -164,7 +164,13 @@ def structurally_equal(self, other):
+     def _blockmul(self, other):
+         if (isinstance(other, BlockMatrix) and
+                 self.colblocksizes == other.rowblocksizes):
+-            return BlockMatrix(self.blocks*other.blocks)
++            blocks = (self.blocks*other.blocks).as_mutable()
++            for i in range(blocks.rows):
++                for j in range(blocks.cols):
++                    if blocks[i, j] == 0:
++                        blocks[i, j] = ZeroMatrix(self.rowblocksizes[i],
++                                                  other.colblocksizes[j])
++            return BlockMatrix(blocks)
+ 
+         return self * other
+2026-10-27 15:40:55,442 - INFO - Eval script for sympy__sympy-17630 written to logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/sympy__sympy-17630/eval.sh; copying to container...
+2026-10-27 15:41:00,666 - INFO - Test runtime: 5.16 seconds
+2026-10-27 15:41:00,668 - INFO - Test output for sympy__sympy-17630 written to logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/sympy__sympy-17630/test_output.txt
+2026-10-27 15:41:00,724 - INFO - Git diff after:
+diff --git a/sympy/matrices/expressions/blockmatrix.py b/sympy/matrices/expressions/blockmatrix.py
+index 95302a05ca..80cfa14f97 100755
+--- a/sympy/matrices/expressions/blockmatrix.py
++++ b/sympy/matrices/expressions/blockmatrix.py
+@@ -164,7 +164,13 @@ def structurally_equal(self, other):
+     def _blockmul(self, other):
+         if (isinstance(other, BlockMatrix) and
+                 self.colblocksizes == other.rowblocksizes):
+-            return BlockMatrix(self.blocks*other.blocks)
++            blocks = (self.blocks*other.blocks).as_mutable()
++            for i in range(blocks.rows):
++                for j in range(blocks.cols):
++                    if blocks[i, j] == 0:
++                        blocks[i, j] = ZeroMatrix(self.rowblocksizes[i],
++                                                  other.colblocksizes[j])
++            return BlockMatrix(blocks)
+ 
+         return self * other
+2026-10-27 15:41:00,724 - INFO - Grading answer for sympy__sympy-17630...
+2026-10-27 15:41:00,727 - INFO - report: {'sympy__sympy-17630': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['test_issue_17624'], 'failure': ['test_zero_matrix_add']}, 'PASS_TO_PASS': {'success': ['test_bc_matmul', 'test_bc_matadd', 'test_bc_transpose', 'test_bc_dist_diag', 'test_block_plus_ident', 'test_BlockMatrix', 'test_block_collapse_explicit_matrices', 'test_BlockMatrix_trace', 'test_BlockMatrix_Determinant', 'test_squareBlockMatrix', 'test_BlockDiagMatrix', 'test_blockcut', 'test_reblock_2x2', 'test_deblock', 'test_sort_key', 'test_matadd_sympify', 'test_matadd_of_matrices', 'test_doit_args', 'test_generic_identity'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-17630: resolved: False
+2026-10-27 15:41:00,728 - INFO - Attempting to stop container sweb.eval.sympy__sympy-17630.closedloop247-selected-D...
+2026-10-27 15:41:16,012 - INFO - Container sweb.eval.sympy__sympy-17630.closedloop247-selected-D stopped successfully.
+2026-10-27 15:41:16,013 - INFO - Attempting to remove container sweb.eval.sympy__sympy-17630.closedloop247-selected-D...
+2026-10-27 15:41:16,096 - INFO - Container sweb.eval.sympy__sympy-17630.closedloop247-selected-D removed successfully.

@@ -1,0 +1,78 @@
+{
+  "run_id": "pytest-dev__pytest-7521_B_affcc83e",
+  "task_id": "pytest-dev__pytest-7521",
+  "condition": "B",
+  "model": "openai/gpt-5.4-mini",
+  "mini_swe_agent_version": "2.4.6",
+  "status": "completed",
+  "termination_reason": "Submitted",
+  "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-7521_B_affcc83e/trajectory.json",
+  "patch_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-7521_B_affcc83e/patch.diff",
+  "runtime_seconds": 19.995754957199097,
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "api_calls": 9,
+    "cost_usd": 0.02200005
+  },
+  "config": {
+    "failure_weight": 1.0,
+    "ranking_strategy": "near_exception",
+    "fusion_policy": "weighted_rrf",
+    "k": 60,
+    "feedback_routing_policy": "evidence_increment_v3",
+    "feedback_route_limits": {
+      "rank_update": 3,
+      "edit_recovery": 2,
+      "diagnostic_only": 1
+    },
+    "repair_guidance_version": "disabled",
+    "benchmark": "swebench",
+    "split": "test",
+    "instance_id": "pytest-dev__pytest-7521",
+    "repo": "pytest-dev/pytest",
+    "version": "6.0",
+    "base_commit": "41d211c24a6781843b174379d6d6538f5c17adb9",
+    "model_class": "openrouter",
+    "repository_index": {
+      "instance_id": "pytest-dev__pytest-7521",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "41d211c24a6781843b174379d6d6538f5c17adb9",
+      "index_sha256": "2c87e300d5c1c09707ab7be27d179226b3a20fb94a0f815767b72131e044392b",
+      "file_count": 215,
+      "record_count": 5181,
+      "error_count": 0
+    },
+    "localization_source": "bm25",
+    "localization_candidate_count": 215,
+    "localization_full_ranking_size": 215,
+    "localization_top_k": 20,
+    "localization_prompt_candidate_count": 20,
+    "localization_prompt_policy": "source_only+related_tests_v1",
+    "localization_related_tests": [
+      "testing/code/test_excinfo.py",
+      "testing/test_cacheprovider.py",
+      "testing/python/approx.py"
+    ],
+    "effective_task_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-7521_B_affcc83e/effective_task.txt",
+    "localization_candidates_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-7521_B_affcc83e/localization_candidates.json",
+    "prompt_candidates_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-7521_B_affcc83e/prompt_candidates.json",
+    "step_limit": 250,
+    "cost_limit": 3.0,
+    "wall_time_limit_seconds": 0,
+    "command_timeout_seconds": 60,
+    "docker_image": "docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7521:latest",
+    "timing": {
+      "env_setup_seconds": 0.265,
+      "agent_seconds": 19.73,
+      "env_teardown_seconds": 0.0
+    }
+  },
+  "evaluation": {
+    "agent_run_completed": true,
+    "submission_present": true,
+    "patch_generated": true,
+    "official_swebench_evaluation": null
+  },
+  "error": null
+}

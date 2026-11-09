@@ -1,0 +1,16 @@
+diff --git a/sympy/sets/sets.py b/sympy/sets/sets.py
+index 3c4aa86e36..3b2be0c162 100644
+--- a/sympy/sets/sets.py
++++ b/sympy/sets/sets.py
+@@ -865,6 +865,11 @@ def __len__(self):
+     def __bool__(self):
+         return all([bool(s) for s in self.sets])
+ 
++    def _eval_is_subset(self, other):
++        if other.is_finite_set and self.is_iterable:
++            return fuzzy_and(other.contains(x) for x in self)
++        return None
++
+ 
+ class Interval(Set, EvalfMixin):
+     """

@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/solvers/diophantine.py",
+    "rank": 2,
+    "score": 0.0322580645,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/utilities/benchmarking.py",
+    "rank": 4,
+    "score": 0.03125,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/utilities/iterables.py",
+    "rank": 11,
+    "score": 0.0260135135,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/symbol.py",
+    "rank": 12,
+    "score": 0.0250626566,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/perm_groups.py",
+    "rank": 13,
+    "score": 0.0212982893,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/ntheory/generate.py",
+    "rank": 14,
+    "score": 0.0200438771,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/ntheory/residue_ntheory.py",
+    "rank": 15,
+    "score": 0.0197278912,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/named_groups.py",
+    "rank": 16,
+    "score": 0.0196380439,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/matrices/common.py",
+    "rank": 17,
+    "score": 0.0195856874,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/sets/handlers/intersection.py",
+    "rank": 18,
+    "score": 0.0193349524,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/fp_groups.py",
+    "rank": 19,
+    "score": 0.019044437,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/numbers.py",
+    "rank": 20,
+    "score": 0.018488024,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/simplify/simplify.py",
+    "rank": 21,
+    "score": 0.0182163188,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/solvers/solveset.py",
+    "rank": 22,
+    "score": 0.0181953519,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/permutations.py",
+    "rank": 23,
+    "score": 0.0176767677,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/function.py",
+    "rank": 24,
+    "score": 0.0168055556,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/ntheory/multinomial.py",
+    "rank": 25,
+    "score": 0.0167084378,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/tensor/array/__init__.py",
+    "rank": 26,
+    "score": 0.0166425968,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/ntheory/factor_.py",
+    "rank": 27,
+    "score": 0.0162471937,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/functions/elementary/trigonometric.py",
+    "rank": 28,
+    "score": 0.0161762175,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  }
+]

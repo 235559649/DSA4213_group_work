@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+local-output/
+# Evidence is intentional. Do not add broad rules for *.json, *.log, or records/.
+!evidence/**/*.log
+
+# Keep complete evidence archives outside this checkout.
+*.zip
+role5-full-evidence-*/
+# Large raw evidence is distributed only in the separate archive.
+evidence/records/**/test_output.txt
+evidence/records/**/failure_updates.jsonl
+evidence/records/**/localization_candidates.json
+evidence/records/**/trajectory.json
+evidence/records/**/initial_rankings.json

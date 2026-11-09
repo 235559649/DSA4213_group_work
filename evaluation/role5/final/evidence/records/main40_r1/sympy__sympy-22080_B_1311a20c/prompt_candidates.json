@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/utilities/lambdify.py",
+    "rank": 2,
+    "score": 52.6449,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/solveset.py",
+    "rank": 3,
+    "score": 49.1855,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/quantum/operator.py",
+    "rank": 4,
+    "score": 45.8832,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/functions/elementary/piecewise.py",
+    "rank": 5,
+    "score": 43.0974,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/ode/subscheck.py",
+    "rank": 6,
+    "score": 42.9734,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/coset_table.py",
+    "rank": 7,
+    "score": 42.7527,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/ode/ode.py",
+    "rank": 8,
+    "score": 42.2741,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/printing/latex.py",
+    "rank": 9,
+    "score": 41.5506,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/simplify/simplify.py",
+    "rank": 10,
+    "score": 41.4851,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/series/order.py",
+    "rank": 11,
+    "score": 41.1056,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/diophantine/diophantine.py",
+    "rank": 12,
+    "score": 41.0395,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/quantum/anticommutator.py",
+    "rank": 13,
+    "score": 40.7048,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/autowrap.py",
+    "rank": 14,
+    "score": 40.5894,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/interactive/printing.py",
+    "rank": 15,
+    "score": 40.436,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/series/sequences.py",
+    "rank": 16,
+    "score": 40.1747,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/function.py",
+    "rank": 17,
+    "score": 40.0447,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/series/gruntz.py",
+    "rank": 19,
+    "score": 39.6709,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/enumerative.py",
+    "rank": 20,
+    "score": 39.6207,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/polys/orderings.py",
+    "rank": 21,
+    "score": 39.0846,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/solvers.py",
+    "rank": 22,
+    "score": 38.8357,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

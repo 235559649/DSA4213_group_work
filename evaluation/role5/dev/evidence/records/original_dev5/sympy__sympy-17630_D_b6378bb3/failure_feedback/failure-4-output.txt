@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 414, in block_collapse
+    result = rule(expr)
+  File "/testbed/sympy/strategies/core.py", line 11, in exhaustive_rl
+    new, old = rule(expr), expr
+  File "/testbed/sympy/strategies/core.py", line 44, in chain_rl
+    expr = rule(expr)
+  File "/testbed/sympy/strategies/core.py", line 11, in exhaustive_rl
+    new, old = rule(expr), expr
+  File "/testbed/sympy/strategies/core.py", line 33, in conditioned_rl
+    return rule(expr)
+  File "/testbed/sympy/strategies/core.py", line 95, in switch_rl
+    return rl(expr)
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 488, in bc_matmul
+    matrices[i] = A._blockmul(B)
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 188, in _blockmul
+    return BlockMatrix(rows)
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 129, in __new__
+    raise ValueError(filldedent('''
+ValueError: 
+When there are not the same number of rows in each row's matrices or
+there are not the same number of total columns in each row, the matrix
+is not a block matrix. If this matrix is known to consist of blocks
+fully filling a 2-D space then see Matrix.irregular.

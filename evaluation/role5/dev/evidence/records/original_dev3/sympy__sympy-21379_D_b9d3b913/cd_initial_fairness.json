@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "condition_c_count": 1502,
+  "condition_d_initial_count": 1502,
+  "same_full_ranking": true,
+  "same_top_k": true,
+  "top_k": 20,
+  "evidence": "failure_feedback/initial_rankings.json"
+}

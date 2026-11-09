@@ -1,0 +1,32 @@
+{
+  "dataset_id": "SWE-bench/SWE-bench_Verified",
+  "dataset_revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+  "dataset_split": "test",
+  "dataset_sha256": "030cfd7f2a704c4c0226e7f104c725a3b41230b1d3517f9c915ad7ea5be3fa25",
+  "metadata_sha256": "99e6accf6627a86e789271ecfad0b4b80d8a5c584c64ea2bc6b78badcf8687fb",
+  "exclusions_sha256": "ed0cbe943abee5fd8151be0da3aac028abfc5b82716af4870ba62d28f5333381",
+  "source_provenance_sha256": "632886a96cb643cc04cb51020742ab9be530d1087b6593a64a3a06cc2177ad28",
+  "seed": 25,
+  "repository_order": [
+    "django/django",
+    "sympy/sympy",
+    "sphinx-doc/sphinx",
+    "pytest-dev/pytest"
+  ],
+  "quotas": {
+    "django/django": 12,
+    "sympy/sympy": 12,
+    "sphinx-doc/sphinx": 10,
+    "pytest-dev/pytest": 6
+  },
+  "stability_per_repo": 2,
+  "total_repeats_for_stability": 3,
+  "conditions": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "selection_policy": "Uniform sampling without replacement within each repository, after excluding recorded development tasks; stability tasks sampled from each selected repository subset using an independent RNG.",
+  "status": "selection_frozen_not_executed"
+}

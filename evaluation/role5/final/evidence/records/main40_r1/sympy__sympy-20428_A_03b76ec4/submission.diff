@@ -1,0 +1,25 @@
+diff --git a/sympy/polys/polyclasses.py b/sympy/polys/polyclasses.py
+index 238a0f0b25..6f91460dba 100644
+--- a/sympy/polys/polyclasses.py
++++ b/sympy/polys/polyclasses.py
+@@ -41,7 +41,7 @@ def _perify_factors(per, result, include):
+     dup_normal, dmp_normal,
+     dup_convert, dmp_convert,
+     dmp_from_sympy,
+-    dup_strip,
++    dup_strip, dmp_strip,
+     dup_degree, dmp_degree_in,
+     dmp_degree_list,
+     dmp_negative_p,
+@@ -212,6 +212,11 @@ def per(f, rep, dom=None, kill=False, ring=None):
+         if ring is None:
+             ring = f.ring
+ 
++        if lev:
++            rep = dmp_strip(rep, lev)
++        else:
++            rep = dup_strip(rep)
++
+         return DMP(rep, dom, lev, ring)
+ 
+     @classmethod

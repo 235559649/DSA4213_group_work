@@ -1,0 +1,41 @@
+diff --git a/sympy/core/relational.py b/sympy/core/relational.py
+index e2e0b7fbcc..eddb480c87 100644
+--- a/sympy/core/relational.py
++++ b/sympy/core/relational.py
+@@ -311,7 +311,7 @@ def _eval_simplify(self, **kwargs):
+             v = None
+             if dif.is_comparable:
+                 v = dif.n(2)
+-            elif dif.equals(0):  # XXX this is expensive
++            elif hasattr(dif, 'equals') and dif.equals(0):  # XXX this is expensive
+                 v = S.Zero
+             if v is not None:
+                 r = r.func._eval_relation(v, S.Zero)
+diff --git a/sympy/sets/sets.py b/sympy/sets/sets.py
+index 3c4aa86e36..51d951b49a 100644
+--- a/sympy/sets/sets.py
++++ b/sympy/sets/sets.py
+@@ -775,6 +775,23 @@ def _flatten(sets):
+                     yield s
+         return ProductSet(*_flatten(self.sets))
+ 
++    def _eval_is_subset(self, other):
++        if isinstance(other, ProductSet):
++            if len(self.sets) != len(other.sets):
++                return False
++            return fuzzy_and(s.is_subset(o) for s, o in zip(self.sets, other.sets))
++        if isinstance(other, FiniteSet):
++            if not all(a.is_finite_set for a in self.sets):
++                return None
++            return all(tuple(elem) in other for elem in self)
++
++    def _eval_is_superset(self, other):
++        if isinstance(other, ProductSet):
++            return other._eval_is_subset(self)
++        if isinstance(other, FiniteSet):
++            if not all(a.is_finite_set for a in self.sets):
++                return None
++            return all(tuple(elem) in self for elem in other)
+ 
+ 
+     def _contains(self, element):

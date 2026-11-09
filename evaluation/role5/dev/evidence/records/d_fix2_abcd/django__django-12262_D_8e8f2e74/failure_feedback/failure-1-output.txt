@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+  File "/testbed/tests/template_tests/test_custom.py", line 9, in <module>
+    from .templatetags import custom, inclusion
+  File "/testbed/tests/template_tests/templatetags/inclusion.py", line 18, in <module>
+    @register.inclusion_tag(engine.get_template('inclusion.html'))
+  File "/testbed/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/testbed/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/testbed/django/template/loaders/cached.py", line 53, in get_template
+    template = super().get_template(template_name, skip)
+  File "/testbed/django/template/loaders/base.py", line 18, in get_template
+    for origin in self.get_template_sources(template_name):
+  File "/testbed/django/template/loaders/cached.py", line 64, in get_template_sources
+    yield from loader.get_template_sources(template_name)
+  File "/testbed/django/template/loaders/filesystem.py", line 34, in get_template_sources
+    for template_dir in self.get_dirs():
+  File "/testbed/django/template/loaders/app_directories.py", line 14, in get_dirs
+    return get_app_template_dirs('templates')
+  File "/testbed/django/template/utils.py", line 103, in get_app_template_dirs
+    for app_config in apps.get_app_configs()
+  File "/testbed/django/apps/registry.py", line 144, in get_app_configs
+    self.check_apps_ready()
+  File "/testbed/django/apps/registry.py", line 134, in check_apps_ready
+    settings.INSTALLED_APPS
+  File "/testbed/django/conf/__init__.py", line 77, in __getattr__
+    self._setup(name)
+  File "/testbed/django/conf/__init__.py", line 62, in _setup
+    % (desc, ENVIRONMENT_VARIABLE))
+django.core.exceptions.ImproperlyConfigured: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.

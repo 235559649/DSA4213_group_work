@@ -1,0 +1,162 @@
+[
+  {
+    "file": "django/contrib/gis/geos/__init__.py",
+    "rank": 2,
+    "score": 0.0322580645,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/http/request.py",
+    "rank": 5,
+    "score": 0.0307692308,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/db/backends/mysql/validation.py",
+    "rank": 7,
+    "score": 0.0298507463,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/utils/deconstruct.py",
+    "rank": 8,
+    "score": 0.0294117647,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/contrib/gis/db/backends/postgis/operations.py",
+    "rank": 9,
+    "score": 0.0289855072,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/db/models/sql/compiler.py",
+    "rank": 10,
+    "score": 0.0285714286,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/utils/timezone.py",
+    "rank": 11,
+    "score": 0.0249345852,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/core/exceptions.py",
+    "rank": 12,
+    "score": 0.0242885887,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/utils/http.py",
+    "rank": 13,
+    "score": 0.0229839769,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/core/validators.py",
+    "rank": 14,
+    "score": 0.021954023,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/middleware/csrf.py",
+    "rank": 15,
+    "score": 0.0205947358,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/core/mail/message.py",
+    "rank": 16,
+    "score": 0.0201335878,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/core/mail/__init__.py",
+    "rank": 17,
+    "score": 0.0169698904,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/db/models/sql/query.py",
+    "rank": 18,
+    "score": 0.0168230796,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/utils/feedgenerator.py",
+    "rank": 19,
+    "score": 0.0168029872,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/db/backends/postgresql/operations.py",
+    "rank": 20,
+    "score": 0.0167975418,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/core/mail/backends/smtp.py",
+    "rank": 21,
+    "score": 0.0161050775,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/contrib/sites/models.py",
+    "rank": 22,
+    "score": 0.0160165485,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/contrib/gis/geoip2/base.py",
+    "rank": 23,
+    "score": 0.0158958705,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/db/transaction.py",
+    "rank": 24,
+    "score": 0.0157209531,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  }
+]

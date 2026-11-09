@@ -1,0 +1,162 @@
+[
+  {
+    "file": "src/_pytest/config/__init__.py",
+    "rank": 4,
+    "score": 55.4754,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/fixtures.py",
+    "rank": 5,
+    "score": 53.9897,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/python_api.py",
+    "rank": 6,
+    "score": 52.9457,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/python.py",
+    "rank": 8,
+    "score": 52.6805,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/logging.py",
+    "rank": 10,
+    "score": 52.0721,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/compat.py",
+    "rank": 11,
+    "score": 50.7259,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/hookspec.py",
+    "rank": 13,
+    "score": 49.7015,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/skipping.py",
+    "rank": 16,
+    "score": 49.0103,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "scripts/publish-gh-release-notes.py",
+    "rank": 18,
+    "score": 48.6182,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/capture.py",
+    "rank": 19,
+    "score": 48.5901,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/terminal.py",
+    "rank": 20,
+    "score": 48.2508,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/mark/structures.py",
+    "rank": 21,
+    "score": 47.7993,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/doctest.py",
+    "rank": 22,
+    "score": 47.303,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/config/argparsing.py",
+    "rank": 23,
+    "score": 46.5039,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/pytester.py",
+    "rank": 24,
+    "score": 46.3493,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/_io/terminalwriter.py",
+    "rank": 25,
+    "score": 46.1873,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/monkeypatch.py",
+    "rank": 28,
+    "score": 45.4471,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/config/findpaths.py",
+    "rank": 29,
+    "score": 45.2523,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "scripts/towncrier-draft-to-file.py",
+    "rank": 32,
+    "score": 44.8942,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/outcomes.py",
+    "rank": 34,
+    "score": 44.1427,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "run_id": "sympy__sympy-20438_B_a4e8e3f0",
+  "agent_wall_seconds": 120.98635260600008,
+  "legacy_runtime_seconds": 120.09564065933228,
+  "human_wait_seconds": 0.0,
+  "setup_seconds": null,
+  "indexing_seconds": 0.8809324759999981,
+  "ranking_seconds": null,
+  "localization_overhead_seconds": null,
+  "harness_seconds": null,
+  "timing_scope": {
+    "agent_wall_seconds": "From SWEbenchRunner.run() after condition normalization through Docker cleanup. Includes task loading, repository index access, localization setup, environment setup, agent execution, runtime feedback, and cleanup.",
+    "legacy_runtime_seconds": "Existing Role 1 runtime measurement starting immediately before agent/environment setup.",
+    "indexing_seconds": "Time spent obtaining repository index metadata via build_task_index.",
+    "localization_overhead_seconds": "Condition D FailureFeedbackController localization overhead when available."
+  },
+  "measurement_status": {
+    "agent_wall_seconds": "measured",
+    "legacy_runtime_seconds": "measured",
+    "indexing_seconds": "measured",
+    "setup_seconds": "not_separately_measured",
+    "ranking_seconds": "not_separately_measured",
+    "human_wait_seconds": "assumed_zero_unattended_run",
+    "harness_seconds": "not_run"
+  }
+}

@@ -1,0 +1,22 @@
+diff --git a/sphinx/ext/napoleon/docstring.py b/sphinx/ext/napoleon/docstring.py
+index d8cb75a5f..736ab3ee6 100644
+--- a/sphinx/ext/napoleon/docstring.py
++++ b/sphinx/ext/napoleon/docstring.py
+@@ -43,7 +43,7 @@ _enumerated_list_regex = re.compile(
+     r'(\d+|#|[ivxlcdm]+|[IVXLCDM]+|[a-zA-Z])'
+     r'(?(paren)\)|\.)(\s+\S|\s*$)')
+ _token_regex = re.compile(
+-    r"(,\sor\s|\sor\s|\sof\s|:\s|\sto\s|,\sand\s|\sand\s|,\s"
++    r"(,\sor\s|\sor\s|\sof\s|:\s|\sto\s|,\sand\s|\sand\s|,\s|\s*\|\s*"
+     r"|[{]|[}]"
+     r'|"(?:\\"|[^"])*"'
+     r"|'(?:\\'|[^'])*')"
+@@ -996,6 +996,8 @@ def _token_type(token: str, location: str = None) -> str:
+             location=location,
+         )
+         type_ = "literal"
++    elif token == '|':
++        type_ = 'delimiter'
+     elif token in ("optional", "default"):
+         # default is not a official keyword (yet) but supported by the
+         # reference implementation (numpydoc) and widely used

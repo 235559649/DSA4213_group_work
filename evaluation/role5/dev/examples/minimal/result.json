@@ -1,0 +1,18 @@
+{
+  "run_id": "example-D-1",
+  "task_id": "example-task",
+  "condition": "D",
+  "status": "completed",
+  "termination_reason": "Submitted",
+  "runtime_seconds": 5,
+  "usage": {
+    "api_calls": 1,
+    "cost_usd": 0.01
+  },
+  "config": {
+    "failure_feedback": {
+      "initial_localization_seconds": 1,
+      "feedback_total_seconds": 0.5
+    }
+  }
+}

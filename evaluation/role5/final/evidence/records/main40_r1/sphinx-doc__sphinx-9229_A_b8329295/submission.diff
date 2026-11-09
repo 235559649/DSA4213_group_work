@@ -1,0 +1,16 @@
+diff --git a/sphinx/ext/autodoc/__init__.py b/sphinx/ext/autodoc/__init__.py
+index 1f4c98284..5e2e05a88 100644
+--- a/sphinx/ext/autodoc/__init__.py
++++ b/sphinx/ext/autodoc/__init__.py
+@@ -1947,8 +1947,9 @@ class DataDocumenter(GenericAliasMixin, NewTypeMixin, TypeVarMixin,
+     def should_suppress_value_header(self) -> bool:
+         if super().should_suppress_value_header():
+             return True
+-        else:
+-            doc = self.get_doc()
++
++        doc = self.get_doc()
++        if doc:
+             docstring, metadata = separate_metadata('\n'.join(sum(doc, [])))
+             if 'hide-value' in metadata:
+                 return True

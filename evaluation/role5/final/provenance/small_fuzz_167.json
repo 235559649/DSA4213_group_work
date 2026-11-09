@@ -1,0 +1,1676 @@
+{
+  "checked": 167,
+  "all_equal": true,
+  "records": [
+    {
+      "run_id": "django__django-10914_A_e8c22239",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-10914_A_e8c22239/trajectory.json",
+      "trajectory_sha256": "5592e9e2048afe2fa114d67ed4bbd25b4087fac43cc11c9f30e463cbaee5be50",
+      "submission_sha256": "573b51d3af7dca8f20adb0602004e913c86dd909c2ed595e4daf1db7deb25cad",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/django__django-10914/run_instance.log",
+      "log_sha256": "40b6544ef93bb0a3f0763265381782832abec5548230270f371d641baabfc64f"
+    },
+    {
+      "run_id": "django__django-10914_B_2eafc718",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-10914_B_2eafc718/trajectory.json",
+      "trajectory_sha256": "a6183a0598f8d99a3664dc4cab8217d15df14ce76dc01b675b8761b286e12d9c",
+      "submission_sha256": "4a6a7b849d855edfce15ab69d9ab85b234b1dff259f23edeac593cde049474c1",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/django__django-10914/run_instance.log",
+      "log_sha256": "540a4515a140ef699a34d7fe6b6af061d782dd623dba40a8acf18a4964fd5881"
+    },
+    {
+      "run_id": "django__django-10914_C_a3a24824",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-10914_C_a3a24824/trajectory.json",
+      "trajectory_sha256": "f8adae03ff680dd45ce11a30f781cf3f181853b475e586ce9924a5917fe0e625",
+      "submission_sha256": "573b51d3af7dca8f20adb0602004e913c86dd909c2ed595e4daf1db7deb25cad",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/django__django-10914/run_instance.log",
+      "log_sha256": "ce29144cd71c44fc669c34a47ded405390900d6566fc8a2fa5e185834b2cc77b"
+    },
+    {
+      "run_id": "django__django-10914_D_406de82a",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-10914_D_406de82a/trajectory.json",
+      "trajectory_sha256": "2dd8d65b2f00b4ec72286f369ae3c7dd1dbf72c61ed32e0cd8248f9e0a2700b0",
+      "submission_sha256": "573b51d3af7dca8f20adb0602004e913c86dd909c2ed595e4daf1db7deb25cad",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/django__django-10914/run_instance.log",
+      "log_sha256": "d165cb20caf0f19de4142eddf54476555a0c1ea5f4da14f0eb432ca792bc4c78"
+    },
+    {
+      "run_id": "django__django-11119_A_9e3b446a",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-11119_A_9e3b446a/trajectory.json",
+      "trajectory_sha256": "c58e13f67c491a9c98318bc6fde4d28279ffc9041c6b69a726f064047a767913",
+      "submission_sha256": "2065323dcdbfcae812028d52307941075ffbba378ed379061e3332bbb3d22d29",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/django__django-11119/run_instance.log",
+      "log_sha256": "72b916fa8116961be53b78bef7814278bc85d955882179606dee5c5141c1c7a7"
+    },
+    {
+      "run_id": "django__django-11119_B_80492823",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-11119_B_80492823/trajectory.json",
+      "trajectory_sha256": "e00d42fe234addc84ab2a1e771428263e647f73be29d96fdcc42094f9ebd8f5f",
+      "submission_sha256": "2065323dcdbfcae812028d52307941075ffbba378ed379061e3332bbb3d22d29",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/django__django-11119/run_instance.log",
+      "log_sha256": "4e3c1c4b6c027100046bb600912e6061fcb0f19457802f30f3be049773b4b812"
+    },
+    {
+      "run_id": "django__django-11119_C_24d1be91",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-11119_C_24d1be91/trajectory.json",
+      "trajectory_sha256": "b72cd705f5dc3b6a14d54724a64d66904d2a8a0fb46779bdda0f1d134ccdf438",
+      "submission_sha256": "2065323dcdbfcae812028d52307941075ffbba378ed379061e3332bbb3d22d29",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/django__django-11119/run_instance.log",
+      "log_sha256": "e8571a4f7509c4e0d1dd0384e1beaaa5dd4390297df4dd4e6d5ced4a19ca79c1"
+    },
+    {
+      "run_id": "django__django-11119_D_bd692e13",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-11119_D_bd692e13/trajectory.json",
+      "trajectory_sha256": "3cb2df2cfbee56c9682125d45515d5f234b5ec6997039f5cedf052ace2cff4bf",
+      "submission_sha256": "2065323dcdbfcae812028d52307941075ffbba378ed379061e3332bbb3d22d29",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/django__django-11119/run_instance.log",
+      "log_sha256": "8fc44aed8c77399b805d2b0ad3cb810d0668004079cf3286f21c124bbbe33475"
+    },
+    {
+      "run_id": "django__django-12276_A_aaabed57",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-12276_A_aaabed57/trajectory.json",
+      "trajectory_sha256": "b20a8ef6fe9cc26092c4d9cb2853e17c5c10a9361eea8be09e7177894594532d",
+      "submission_sha256": "5520039822e1d3bff82ef4157f8746ea9a23f6a1f919a9bab9e84a21024a9b3b",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/django__django-12276/run_instance.log",
+      "log_sha256": "3cd5ae2162c584a6a75eb68ff453eac6c06dda538440cfe8be261a133be36e6a"
+    },
+    {
+      "run_id": "django__django-12276_B_ecee6c5e",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-12276_B_ecee6c5e/trajectory.json",
+      "trajectory_sha256": "606864910f5cffa753d73edff8c7c129fd040933fb2dbbe3478e85e74ba4d7d6",
+      "submission_sha256": "5520039822e1d3bff82ef4157f8746ea9a23f6a1f919a9bab9e84a21024a9b3b",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/django__django-12276/run_instance.log",
+      "log_sha256": "b3ba64313d220732cd66e61e1bbe67ecd613510a029eaf377b94c306d7ca7c45"
+    },
+    {
+      "run_id": "django__django-12276_C_afce6e9f",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-12276_C_afce6e9f/trajectory.json",
+      "trajectory_sha256": "c0511a2d32e946ef8b323bdad7fdbe337edf42766d86173c2af1b6abaa2f9f5b",
+      "submission_sha256": "5520039822e1d3bff82ef4157f8746ea9a23f6a1f919a9bab9e84a21024a9b3b",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/django__django-12276/run_instance.log",
+      "log_sha256": "1aec4d9f6cd35f29f91af40c09ccfabf852d310d73ca74280bb7f71cadac8bbb"
+    },
+    {
+      "run_id": "django__django-12276_D_0218e7e8",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-12276_D_0218e7e8/trajectory.json",
+      "trajectory_sha256": "6dbc3bd39ef504cdb3334dc59c0cdd445e249eb7d75c2cf1ea4d48e466726b1c",
+      "submission_sha256": "5520039822e1d3bff82ef4157f8746ea9a23f6a1f919a9bab9e84a21024a9b3b",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/django__django-12276/run_instance.log",
+      "log_sha256": "53115af076277e5f71a37a89870744cd54f69b92c696f8e2ebaa20c9b0660fd3"
+    },
+    {
+      "run_id": "django__django-13212_A_8ee3316d",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-13212_A_8ee3316d/trajectory.json",
+      "trajectory_sha256": "3c2f0fb94dd61086a3b1a142e2164c5583ff9540a19cdd113db9041edd813d8a",
+      "submission_sha256": "7690adb42c13d185e5430c3e3bba73a70475fa9e3137bfd8ce168e0ef24731f4",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/django__django-13212/run_instance.log",
+      "log_sha256": "c61f2c83a489134028c489345bb29db21e74330c9ab7d4c1ac0c22562157c894"
+    },
+    {
+      "run_id": "django__django-13212_B_40e31454",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-13212_B_40e31454/trajectory.json",
+      "trajectory_sha256": "0bba5bb7d0a36fcf348bc1820bbde277f93c98f18fdd21d144a493b1c4b3c73e",
+      "submission_sha256": "f0f7d79a5bff5c49653e02762a745f9ac8b1b3254d9340fe5c269f7b447538f2",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/django__django-13212/run_instance.log",
+      "log_sha256": "eb4834c12fbe6c939a52afc340715a994e89f1a17b5ced3a5175f1d9e65b18e2"
+    },
+    {
+      "run_id": "django__django-13212_C_5767b8ad",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-13212_C_5767b8ad/trajectory.json",
+      "trajectory_sha256": "26c18ffa6e8da26047378a7bed16c899dca16c05205a0f8f5bb8c61d00149116",
+      "submission_sha256": "12cd102978b9f48366c89b6b468bc39336371780e0a2e7ac0f8c478f9335df23",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/django__django-13212/run_instance.log",
+      "log_sha256": "8e4704a25bd41d3f6a252326c29b4532097f0fe6af923cf5219f65047f8ffb8e"
+    },
+    {
+      "run_id": "django__django-13212_D_17e5b774",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-13212_D_17e5b774/trajectory.json",
+      "trajectory_sha256": "045e7ac2250fde133995f83e71a4dc93a1d9b6d44bdf7e8b57f03a61462ea884",
+      "submission_sha256": "7690adb42c13d185e5430c3e3bba73a70475fa9e3137bfd8ce168e0ef24731f4",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/django__django-13212/run_instance.log",
+      "log_sha256": "96ae1e1ef08aa82e32f02f612e49d8ce2248198fd7c9d98f22bd6d4b5031ebf8"
+    },
+    {
+      "run_id": "django__django-13590_A_26f50f0d",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-13590_A_26f50f0d/trajectory.json",
+      "trajectory_sha256": "cf5e4c3242beb80e279a726f863d306af1666ee3b4c2951d3d6f88f01e0c7713",
+      "submission_sha256": "5eb31c59c471fe205cae6aad514985443168f724c172441c0464a8a486cf03dc",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/django__django-13590/run_instance.log",
+      "log_sha256": "b42eb5ca4f665099f739ebd4789e4ff2f085483e3663dac2deaad560e35f639d"
+    },
+    {
+      "run_id": "django__django-13590_B_a33dfc86",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-13590_B_a33dfc86/trajectory.json",
+      "trajectory_sha256": "40ee93ab8604bad96091c2e75788abc88b20f02575222bfbbfe0249ff187456a",
+      "submission_sha256": "cfe2faf5d0141cf9f3708d8e026337c982d8a72a3f5ec0751ba200fae27556de",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/django__django-13590/run_instance.log",
+      "log_sha256": "0a54ff9d3b25a65edfbe8b24ea0575dbf95e32ad6a1dd9d5bf453bcc968ad797"
+    },
+    {
+      "run_id": "django__django-13590_D_ae21b7ed",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-13590_D_ae21b7ed/trajectory.json",
+      "trajectory_sha256": "b2c7c4d638fbfeac8d38e1ac740f29bbd2a8993aa11947926a2210832471a17b",
+      "submission_sha256": "e0f0f55f94d6e66640388e39352d1f5d1b8765113a8c8f7596895053575fce05",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/django__django-13590/run_instance.log",
+      "log_sha256": "91d372ff096016cf1ee4c4fc70ad61140fe3a060d6f53b19766e31f6ab78b69c"
+    },
+    {
+      "run_id": "django__django-14311_A_1b3c2d5d",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-14311_A_1b3c2d5d/trajectory.json",
+      "trajectory_sha256": "6c8953228ed9e3a7e48a844a013fc5824d05f8389c5a5c435e57cca64b3fe629",
+      "submission_sha256": "f63271e1a58431d4c84ebe9acf11cddda3ed6f05b5fb48dd17fc0186a7c7fd20",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/django__django-14311/run_instance.log",
+      "log_sha256": "c98e75f25c586428778fade4d2c7a4bcd305eb6ea8166711feae8cb0d07b0545"
+    },
+    {
+      "run_id": "django__django-14311_B_70af615d",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-14311_B_70af615d/trajectory.json",
+      "trajectory_sha256": "085d33a8739e7f08ff06ee5add846f471b4dab1a861fcb0f36c5997ed4dc4a52",
+      "submission_sha256": "61cea42377997fa6d89d91e3a242603352ae41764dbae65ed9427443cd11232d",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/django__django-14311/run_instance.log",
+      "log_sha256": "0f504e9a0708e8ffe299b5e004c5b0358858e81aa68a53835559a5b4cff5f7b1"
+    },
+    {
+      "run_id": "django__django-14311_C_59c9f99b",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-14311_C_59c9f99b/trajectory.json",
+      "trajectory_sha256": "97034f14d82ce4ab79a8960c675c0a412a8da0450fea334a62e570e52558e412",
+      "submission_sha256": "52d0a27a43565483540758afe3ba63b69823f77a4feb3e78c3cb57b56d2af6cb",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/django__django-14311/run_instance.log",
+      "log_sha256": "b71c2ca2b90f2b74388bc773db478a2a25cac9136ece53c230474eb18147d7cf"
+    },
+    {
+      "run_id": "django__django-14311_D_8db29ff2",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-14311_D_8db29ff2/trajectory.json",
+      "trajectory_sha256": "3a4564edbe93c5d4bbd90ab803142c0d0d1d09210990f025f1da5bf84bd27733",
+      "submission_sha256": "f63271e1a58431d4c84ebe9acf11cddda3ed6f05b5fb48dd17fc0186a7c7fd20",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/django__django-14311/run_instance.log",
+      "log_sha256": "2e9e3318eeb0b381d127e3cba62c55196a1fe14821c9a8cc3ccfb9da471db972"
+    },
+    {
+      "run_id": "django__django-15380_A_aace3c54",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-15380_A_aace3c54/trajectory.json",
+      "trajectory_sha256": "7cdecbad3d9578369765c72f75500d5b9ea9fbebcb8a012eafee2eb93728c653",
+      "submission_sha256": "3ce80bfcfc339c4d162d4b2f56780611dd72865425e59acefbb110e2306f13cb",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/django__django-15380/run_instance.log",
+      "log_sha256": "527934a3e46f88749bc180e96908b66a5f6c3a9d5e8c8ec884ab0e0b0bf9a2f7"
+    },
+    {
+      "run_id": "django__django-15380_B_f18e5546",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-15380_B_f18e5546/trajectory.json",
+      "trajectory_sha256": "5b9a134c3c886ba41e8199f595c89dfa20af2dcd4e0dc3d42ec708f3f9ee2676",
+      "submission_sha256": "3ce80bfcfc339c4d162d4b2f56780611dd72865425e59acefbb110e2306f13cb",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/django__django-15380/run_instance.log",
+      "log_sha256": "73f2e9647a1c985294de77f0330ea978319be48294ce2d9301fb002e01d3299c"
+    },
+    {
+      "run_id": "django__django-15380_C_7d41461b",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-15380_C_7d41461b/trajectory.json",
+      "trajectory_sha256": "ea362254f1901d09b4557a37244825d17ae99526781f1f6c40667c36505e0baf",
+      "submission_sha256": "3ce80bfcfc339c4d162d4b2f56780611dd72865425e59acefbb110e2306f13cb",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/django__django-15380/run_instance.log",
+      "log_sha256": "59fdca3a03bb2797e8799440843133fcf8bf0723e15ccd5dbf76357d36a9b5be"
+    },
+    {
+      "run_id": "django__django-15380_D_a6a78453",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-15380_D_a6a78453/trajectory.json",
+      "trajectory_sha256": "8b65d89a9954d0ff941baddf22c549be6e9fdb3f2a8bd6a4233c88b427293e97",
+      "submission_sha256": "3ce80bfcfc339c4d162d4b2f56780611dd72865425e59acefbb110e2306f13cb",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/django__django-15380/run_instance.log",
+      "log_sha256": "58538eca725b5fa148c2f36b695770f3f328500703ff16dc3d26732feaeddc69"
+    },
+    {
+      "run_id": "django__django-16255_A_131f85bf",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16255_A_131f85bf/trajectory.json",
+      "trajectory_sha256": "a2285c74fb1d40e520b9e18f7feed19edb4cfb34ce8191a8cd420d635a599c01",
+      "submission_sha256": "83ed90041ac47cdb4b3502104831bd5b24745f8b689fae5d6d811a27ebb41d03",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/django__django-16255/run_instance.log",
+      "log_sha256": "2356a071122bbb0b48fa4bba432c92395cec789295a67fb6a1ccc7195b316638"
+    },
+    {
+      "run_id": "django__django-16255_B_4d4d6d27",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16255_B_4d4d6d27/trajectory.json",
+      "trajectory_sha256": "dc3fe286b08e5a38b2350753fe2c819e6668ade2e7088b585863c7f9a6f69bd2",
+      "submission_sha256": "83ed90041ac47cdb4b3502104831bd5b24745f8b689fae5d6d811a27ebb41d03",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/django__django-16255/run_instance.log",
+      "log_sha256": "09cf5545ab1f69943153f4f090641ee5ee68843dc0e4345a55a6fc26e2ed1d73"
+    },
+    {
+      "run_id": "django__django-16255_C_d9599315",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16255_C_d9599315/trajectory.json",
+      "trajectory_sha256": "d31ee252a372e197032c6addb6f46bcf2297b64986b08d32f9ae224085e9c951",
+      "submission_sha256": "83ed90041ac47cdb4b3502104831bd5b24745f8b689fae5d6d811a27ebb41d03",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/django__django-16255/run_instance.log",
+      "log_sha256": "8e3bb94e48d2a29bb099db089e5a57f992cb134761c7dfdd7a4b25a26b1a9061"
+    },
+    {
+      "run_id": "django__django-16255_D_04392345",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16255_D_04392345/trajectory.json",
+      "trajectory_sha256": "32a22d6c7f63b7812c53f9da3ae7be67785ec48c846eb9c9e9169efb77d05927",
+      "submission_sha256": "83ed90041ac47cdb4b3502104831bd5b24745f8b689fae5d6d811a27ebb41d03",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/django__django-16255/run_instance.log",
+      "log_sha256": "e797dae00c4017528783d07413af8f5cdd90dfc23ea777101a22e8195407bd00"
+    },
+    {
+      "run_id": "django__django-16315_A_c1db7f58",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16315_A_c1db7f58/trajectory.json",
+      "trajectory_sha256": "a086d8b3b5b369335752af7f6b206e198c9adbf39259a7f03ce368a2e2c7ed1d",
+      "submission_sha256": "46e88a47654272a291629d228b226e976a3038ec6d8b9fd8be6361451c105250",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/django__django-16315/run_instance.log",
+      "log_sha256": "3df4dfc284280e0525de0a8262e52dfa5d963d53bf5e85ea8f5a8935efadc8a1"
+    },
+    {
+      "run_id": "django__django-16315_B_818d0b1e",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16315_B_818d0b1e/trajectory.json",
+      "trajectory_sha256": "97914fbea6b32733d11f87f323a6c7615b83e414fba4c6811082e6be179d1ea1",
+      "submission_sha256": "46e88a47654272a291629d228b226e976a3038ec6d8b9fd8be6361451c105250",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/django__django-16315/run_instance.log",
+      "log_sha256": "3320cbb8fb7f710a85019c3b5a5adfaef1eecd02e2acf1185bf18e2ed090d5d0"
+    },
+    {
+      "run_id": "django__django-16315_C_b93f8276",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16315_C_b93f8276/trajectory.json",
+      "trajectory_sha256": "e3b0efea5db9cc4248b91564d2f79b4c0ab2fa86c4430c9a1cadd383dfa26234",
+      "submission_sha256": "1858fd594596e08466998250094781d6e597b2b6f120c730ed02c2ed436486fd",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/django__django-16315/run_instance.log",
+      "log_sha256": "296f37cec0f0d3bbfabc82022d18c02cde19e9d9ff585438cad7a92c207698da"
+    },
+    {
+      "run_id": "django__django-16315_D_de5d7e35",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16315_D_de5d7e35/trajectory.json",
+      "trajectory_sha256": "863bd99ef53f515844524620d1199f3b0b447d5e8a146c34a25fb67dd55439ae",
+      "submission_sha256": "6c62d8e7a6c13ecfe66c267a959b57de5908da02a0d2e932c43c33db17dbe13c",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/django__django-16315/run_instance.log",
+      "log_sha256": "6b837644f2b65a1a83568ec4120be53d5a8cbd4ef80ed661b7c777d61e85bd5f"
+    },
+    {
+      "run_id": "django__django-16877_A_3b6bbac8",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16877_A_3b6bbac8/trajectory.json",
+      "trajectory_sha256": "6989f7e9bb7f0c92baa82f125a51ea75df8a2e6266a734486c528e558991f9b0",
+      "submission_sha256": "89802900ae6d7aa26d09552f24007c9280c9dec765120b90de52583cfab35811",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/django__django-16877/run_instance.log",
+      "log_sha256": "bad7e67453f30a883354937bce0b5dcabe2ee308bf9eefbdeddfc57bb55c4507"
+    },
+    {
+      "run_id": "django__django-16877_B_dc5940ae",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16877_B_dc5940ae/trajectory.json",
+      "trajectory_sha256": "e2e233920ee0de0eb6b729f47c58ef6334f420dced30d705ab86b8b393f9f1fc",
+      "submission_sha256": "89802900ae6d7aa26d09552f24007c9280c9dec765120b90de52583cfab35811",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/django__django-16877/run_instance.log",
+      "log_sha256": "2d7a63a2e0bad6053088a945e44bc697831b608abc28c9f6e41ec9977ca0db39"
+    },
+    {
+      "run_id": "django__django-16877_C_9e3a42cd",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16877_C_9e3a42cd/trajectory.json",
+      "trajectory_sha256": "f8700d7d0d853a95da6610befa63f23d7e6a9e9c365023497a9479d195a7401d",
+      "submission_sha256": "89802900ae6d7aa26d09552f24007c9280c9dec765120b90de52583cfab35811",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/django__django-16877/run_instance.log",
+      "log_sha256": "c50855fb2c2c97a864fea3e4ed6d6352b9ae68e89ec89586839545644e800dd6"
+    },
+    {
+      "run_id": "django__django-16877_D_0ee67b22",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16877_D_0ee67b22/trajectory.json",
+      "trajectory_sha256": "5e0ff2fb9a3470cce1b339b28dd11feb82ebd06c327d307b5a6c61c8874be72e",
+      "submission_sha256": "89802900ae6d7aa26d09552f24007c9280c9dec765120b90de52583cfab35811",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/django__django-16877/run_instance.log",
+      "log_sha256": "a709804bb13852ea26f7eaedd0a236ad2e6778eaeec40ae3bcb8ad8fa5d6bd17"
+    },
+    {
+      "run_id": "django__django-16950_A_6cb48bef",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16950_A_6cb48bef/trajectory.json",
+      "trajectory_sha256": "7931813ece9aed56a3920c6a50524226152936775542743466752bb286bc0225",
+      "submission_sha256": "9329f77a3b627a98fa503977ddcd28c10ae67e7a9d19efeef52e8fbc8c155191",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/django__django-16950/run_instance.log",
+      "log_sha256": "f0213d0184e10d8fe44d62fdd2f4f6d97ef3e1e9fc70090d2797d3c71c821cb0"
+    },
+    {
+      "run_id": "django__django-16950_D_ffd53c08",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16950_D_ffd53c08/trajectory.json",
+      "trajectory_sha256": "b0b2e7c8fd984a988f5d9c805d976f01f05c1766bfbb336b9c1b0abece75a317",
+      "submission_sha256": "e794135eca8e4752535200a16997af34dcca83c6785f6dff1c605b6d049366b1",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/django__django-16950/run_instance.log",
+      "log_sha256": "b32dde6f7af1e404612fc5e55978b5e817ba33e7bb060e3e6bbda7f18d0d096a"
+    },
+    {
+      "run_id": "django__django-7530_B_88d2ffc6",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-7530_B_88d2ffc6/trajectory.json",
+      "trajectory_sha256": "2ae2c18aea4070d3a103ba3c204d9a8226cbdb6c588e5ec58efd6feeb113f649",
+      "submission_sha256": "8ee1707068e062fdc6af2c098c958b6739ebbd367901f896c28fdc08044b9689",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/django__django-7530/run_instance.log",
+      "log_sha256": "8b61586fa6676028d468acff1c0a8f38d18b08dc41f32a2dac7b295d86e81e4a"
+    },
+    {
+      "run_id": "pytest-dev__pytest-7236_B_f1a0af85",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-7236_B_f1a0af85/trajectory.json",
+      "trajectory_sha256": "ce302fa033a6cae8888904dfe6c487eb167d3373d2e22ba21ef63a8eae32eca3",
+      "submission_sha256": "579696de258324c527402b2de405a671e94ce63a4aba6a3a4f3c1ae53ef508aa",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/pytest-dev__pytest-7236/run_instance.log",
+      "log_sha256": "42384178618aa50713823c180fd192cf5bc0dc1daa8c51724b3cbf1f85079c94"
+    },
+    {
+      "run_id": "pytest-dev__pytest-7236_C_1c5f5472",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-7236_C_1c5f5472/trajectory.json",
+      "trajectory_sha256": "0fb16b356c20630ff130c8c51e8793b3ccddef1a66cc1766340cc2eb2963c888",
+      "submission_sha256": "01e7f80859f626bb0d764dc13b14e11fed084a1632bbfc93e0c1a1fa64893d16",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/pytest-dev__pytest-7236/run_instance.log",
+      "log_sha256": "3662e5a6888a6da69f3ecd05f5b28f886312f5bd1199ac64acf2b38e5b9a6c8d"
+    },
+    {
+      "run_id": "pytest-dev__pytest-7236_D_ac1ebc06",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-7236_D_ac1ebc06/trajectory.json",
+      "trajectory_sha256": "1800774e9d040ef65c271e9e0b95fd382f9d26f0fa5f72095e2b1fd8bf70b8bc",
+      "submission_sha256": "c9418cc8969ce4ebc055de3209e606b794cab302c7202967e387d1bcc798202a",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/pytest-dev__pytest-7236/run_instance.log",
+      "log_sha256": "3c22588fd1b466e8e2bef60fb5080e806764c7cc0f8dbf4040ba55acfc99946d"
+    },
+    {
+      "run_id": "pytest-dev__pytest-7324_C_2c3b429a",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-7324_C_2c3b429a/trajectory.json",
+      "trajectory_sha256": "97a3fb6859447bb601a99437af9a260bf9d79752a9712f3334e5838c9bd23f96",
+      "submission_sha256": "281e8eeef39ccbdd89439a879a999e7b58fe0ad3792f1e24462396a6bf0e63ea",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/pytest-dev__pytest-7324/run_instance.log",
+      "log_sha256": "8a078d89d594b4a34a876a80eb76e985a796c8f31a2e32935351815ff0cc9853"
+    },
+    {
+      "run_id": "pytest-dev__pytest-7324_D_2a98f99a",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-7324_D_2a98f99a/trajectory.json",
+      "trajectory_sha256": "8a1cce57d25588c786f100ac7896f82684c40da3e4fd8fbb7cf3bf93c3981faa",
+      "submission_sha256": "8fdb657fe44e4f37012a57f9a06867a4e8a9316fd36355017f5dea8daaa9ce22",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/pytest-dev__pytest-7324/run_instance.log",
+      "log_sha256": "c64b2f959073ec0ae4567d596d4070c3800b93901f4d5213bf6667d67f6a1c5c"
+    },
+    {
+      "run_id": "pytest-dev__pytest-7521_A_03de1874",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-7521_A_03de1874/trajectory.json",
+      "trajectory_sha256": "061c370291cd422c58b86fea7f17397b6e218877556ce4ea1bc0241688892afc",
+      "submission_sha256": "0edb112374ae727e68b3628d5d3cc1e2c52a65016f697265e1b094d505559caa",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/pytest-dev__pytest-7521/run_instance.log",
+      "log_sha256": "61b88706781a20e84ec31e9939b83a37a9fc8abb315e0f45c06b05265511f74d"
+    },
+    {
+      "run_id": "pytest-dev__pytest-7521_B_affcc83e",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-7521_B_affcc83e/trajectory.json",
+      "trajectory_sha256": "69196bdacdbb688257f7da444594e4718c9f4488ceff62c03efc42f9cd3d6ad4",
+      "submission_sha256": "127638e0b5eef52a85014e78b3a8e9fb9b7de1dddb1edfc745929b280afa39fb",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/pytest-dev__pytest-7521/run_instance.log",
+      "log_sha256": "00079597b97d3c748fdbf19d0fb8b7ea5fe53fa3f79c6451fec43254a8ca980c"
+    },
+    {
+      "run_id": "pytest-dev__pytest-7521_C_54184a5b",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-7521_C_54184a5b/trajectory.json",
+      "trajectory_sha256": "0cef75f7a0dd0feb22249ca1217c9952851ed325bf3f4158facfc1342d214ff0",
+      "submission_sha256": "127638e0b5eef52a85014e78b3a8e9fb9b7de1dddb1edfc745929b280afa39fb",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/pytest-dev__pytest-7521/run_instance.log",
+      "log_sha256": "77ce95ffcef8ec78b1335fac23d0d80dea899e0403f46d5e7d19134cadfacec0"
+    },
+    {
+      "run_id": "pytest-dev__pytest-7521_D_7c02610f",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-7521_D_7c02610f/trajectory.json",
+      "trajectory_sha256": "f10f4f66fe7cb55f89bd330c2e6c885da92fe88dd73308e53950d04571d50688",
+      "submission_sha256": "1b9bbcfaf159dfaf856b5c7ad0f76443dd4af6d20cd3982693d501e7cc8c1a02",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/pytest-dev__pytest-7521/run_instance.log",
+      "log_sha256": "9abf10217fdd4c0a2e323ed8d1c60f22fef5f3fce1d9d72646a7c8fe6163b9fc"
+    },
+    {
+      "run_id": "pytest-dev__pytest-8399_A_d7066db3",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-8399_A_d7066db3/trajectory.json",
+      "trajectory_sha256": "2e0ca143dbde9ef09237aad6faf68cd9b00c3dcac04c5e350eb07a6a6c12df41",
+      "submission_sha256": "36f6ec3d7cc5e546bf272d551f476e42b4e26d15c37b880ccfea5bdb249c542a",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/pytest-dev__pytest-8399/run_instance.log",
+      "log_sha256": "7d9d2ccfbaaeea14764b64d2ce40a7f1b36f4bd161a9805984f7441b206b0fdb"
+    },
+    {
+      "run_id": "pytest-dev__pytest-8399_B_a35b2a53",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-8399_B_a35b2a53/trajectory.json",
+      "trajectory_sha256": "4fc2d714173542209e7a9dac784c966ecc5c3a30840748e037758eb83bbf4e82",
+      "submission_sha256": "36f6ec3d7cc5e546bf272d551f476e42b4e26d15c37b880ccfea5bdb249c542a",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/pytest-dev__pytest-8399/run_instance.log",
+      "log_sha256": "3ab406fca3cab387b81b0a7e30053789198d383e3c66ea0c6654f660bafa884b"
+    },
+    {
+      "run_id": "pytest-dev__pytest-8399_C_a58d94b5",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-8399_C_a58d94b5/trajectory.json",
+      "trajectory_sha256": "27d6926e2909b4713aff2b18e9a708a4cf4e879508e0989ab0e1a73b795fb2fd",
+      "submission_sha256": "36f6ec3d7cc5e546bf272d551f476e42b4e26d15c37b880ccfea5bdb249c542a",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/pytest-dev__pytest-8399/run_instance.log",
+      "log_sha256": "6631a9bbd83090bc810cbb9ebb9ca229adea4f7c20d2ac7af0ea7ea3310cf1f7"
+    },
+    {
+      "run_id": "pytest-dev__pytest-8399_D_e303039c",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-8399_D_e303039c/trajectory.json",
+      "trajectory_sha256": "d892c1edc60f6b5f4b101dce3a47e834f6bcde752439ec1fa6e713cf1f2d43ae",
+      "submission_sha256": "36f6ec3d7cc5e546bf272d551f476e42b4e26d15c37b880ccfea5bdb249c542a",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/pytest-dev__pytest-8399/run_instance.log",
+      "log_sha256": "9eed1dd77b05c066c3f0c1f29f1074812fa246f208460572b9c471986eefce58"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-11445_A_8a01fc97",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-11445_A_8a01fc97/trajectory.json",
+      "trajectory_sha256": "59f78206b38c3557c4a5e40fc729896943179d335dc25d06e0d16412702e1b68",
+      "submission_sha256": "750dd7db42c1790ef4b6e652867470f1d0d3277557ea8f6bf767ad5f1fc3735b",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sphinx-doc__sphinx-11445/run_instance.log",
+      "log_sha256": "74e06bd8ad8840300e9aa091a79c2f8a3af5fd45ecf179ea2490cac564de82e5"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-11445_B_5d0f1ee3",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-11445_B_5d0f1ee3/trajectory.json",
+      "trajectory_sha256": "22ba3574d76130fa5ce4a2e399a6bf4ed1d4387707878aa73c604cf43441aad4",
+      "submission_sha256": "aa7d7d57bd720277e4a3f2122738a7781bb47045cdfa8a83fe64f019c6e2b32b",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sphinx-doc__sphinx-11445/run_instance.log",
+      "log_sha256": "6bc441581eb6fee8e8d9012f9858e19e02b23081af59c0e1840660fc182cab3d"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-7748_A_6f2b5a4e",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-7748_A_6f2b5a4e/trajectory.json",
+      "trajectory_sha256": "512edc8f96863a98e65474867efb7ba14a78637a0b2ec4d0273d2da795cbe3ec",
+      "submission_sha256": "95753999e89a0c8aba0cb1b40b64221823e10cb0789b758bc9b8b16a8b8b612c",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sphinx-doc__sphinx-7748/run_instance.log",
+      "log_sha256": "9e51cbda81216a2b4ff09c6d52a1d23f1c9156a4a0a2f56838488ba0c96a81ea"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-7748_C_146dbdd5",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-7748_C_146dbdd5/trajectory.json",
+      "trajectory_sha256": "309f9dcbc711c3b07f587630be282b8e3df06a530534fff08bd907e27fed4f98",
+      "submission_sha256": "df29a6cac6f49baa8a8e5bda87c6d20a1762699a000719f12aadae5784f83689",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sphinx-doc__sphinx-7748/run_instance.log",
+      "log_sha256": "8d914566e57c8edfc6d424cf0daeb662b41e878915de4018a6e970c26d22dcc1"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-7757_A_28266cbe",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-7757_A_28266cbe/trajectory.json",
+      "trajectory_sha256": "819d1df280079aa48a4b82a2e1b5711018b9f55c6dfa872f31d480e7a4554b63",
+      "submission_sha256": "94ab8f8a698f16cb52a3caa71c842ff4fc418404d0bcf378d3e92ef093d50328",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sphinx-doc__sphinx-7757/run_instance.log",
+      "log_sha256": "4be11576e595882cdb658ce5f96050aef1ad848aeb4ed480571fc8c1d119fd0a"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-7757_C_7e728149",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-7757_C_7e728149/trajectory.json",
+      "trajectory_sha256": "c23f9c9454c656ed15a9cf007dcf517742a48af2694869ddd7847d24ae959e35",
+      "submission_sha256": "c89f4d71d4aac887e0003ec691e0bd17af234d1622d9afa832cf4f033b7e6d64",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sphinx-doc__sphinx-7757/run_instance.log",
+      "log_sha256": "a3604ca0a6bf7bb95b4a6c0ce21b50fd2630fc84517a9fe0f0549c2c6239c192"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-8269_A_60ff79df",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-8269_A_60ff79df/trajectory.json",
+      "trajectory_sha256": "591f9231254e98396c819b7bd7b46cc39e143e8ae953ce4b891526441d91be34",
+      "submission_sha256": "9930867fb908ee61de61b9c00b4c164af96faef1d5d6a0b9fa8e956ea8a22c26",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sphinx-doc__sphinx-8269/run_instance.log",
+      "log_sha256": "9f6708cf8e92897761ed14683dc8919eea40c888664f0ffe7d7949e1cf6940c4"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-8269_B_3d325305",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-8269_B_3d325305/trajectory.json",
+      "trajectory_sha256": "1a34f2c560773b12589aab2d3db78584ee260e0200aa602c0637b82c0dd2676b",
+      "submission_sha256": "9930867fb908ee61de61b9c00b4c164af96faef1d5d6a0b9fa8e956ea8a22c26",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sphinx-doc__sphinx-8269/run_instance.log",
+      "log_sha256": "6a55bc6c40c3d932371d64576f57cc963c9df0846beabaefc20e646a3cb57235"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-8269_C_513a5284",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-8269_C_513a5284/trajectory.json",
+      "trajectory_sha256": "ee74ef604cbcd48c8c37e5ba52a07fd1ea54ec7dd674ccaba4454b867d07ecda",
+      "submission_sha256": "967aa9cc3b546fb63239626822bbf0c5cd19604238c55365a763a3d4a76157fa",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sphinx-doc__sphinx-8269/run_instance.log",
+      "log_sha256": "34fcfea02e4804baae3c6038ce14c95b51a51020099a91eb81192ac0c90aa82c"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-8269_D_309d62a8",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-8269_D_309d62a8/trajectory.json",
+      "trajectory_sha256": "4f7e77c50028a88c6495c1e1b0e55fc678060bd42003a347a2e297f884811818",
+      "submission_sha256": "b2836c77fff4cd2f7d9ae164bb1da0447bc806e5d59763134e64fc33663b2024",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sphinx-doc__sphinx-8269/run_instance.log",
+      "log_sha256": "a76430c11e91d567ab6ce0e8134dac9693b46fe052b0326d858fabb5e133ddb7"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-8475_A_b5858c87",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-8475_A_b5858c87/trajectory.json",
+      "trajectory_sha256": "12cad667c7e8c862e87fce314fdd6fd91226e642102d2ba3e3a0809f4b40f5a6",
+      "submission_sha256": "a84d73e3b0135c6588f1c23051d277dacf73393fc4b408d1ed6877c489f52f45",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sphinx-doc__sphinx-8475/run_instance.log",
+      "log_sha256": "b527f9151451ac2b41a291575a50d191bf988c484644278c0e905704887e6a18"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-8475_B_2f2f2ce0",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-8475_B_2f2f2ce0/trajectory.json",
+      "trajectory_sha256": "bfdf43d99a473a19adcaf33da625c34def57949b851d803add9d6cd368d77d4a",
+      "submission_sha256": "8a9725217a4d60e5794753427717c89fa9dd4de3b5d3a743bb4e728ae7efa317",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sphinx-doc__sphinx-8475/run_instance.log",
+      "log_sha256": "1aa2f67929a9b67a397450e6b5d851412853a6e19b1e8c509fd22f2bbf48c059"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-8475_C_9517513f",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-8475_C_9517513f/trajectory.json",
+      "trajectory_sha256": "9d4586bc8b92b82b7ef70cbc4a87e38bc1508993712e452f5a0cd06ffc24fe8e",
+      "submission_sha256": "922690883d5a85d213a5836d62fdaedd7fa6c593241e8e0003d25ff164011ff3",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sphinx-doc__sphinx-8475/run_instance.log",
+      "log_sha256": "bb34b01e854b600b0ee72eb9355457640d2c6c8a52570c55b4c9422998fd2a4a"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-8475_D_61074e1e",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-8475_D_61074e1e/trajectory.json",
+      "trajectory_sha256": "9145164dfeac4946a1fec6cbce6139e35e44b5f8df84d142ebeb156c97826787",
+      "submission_sha256": "8a9725217a4d60e5794753427717c89fa9dd4de3b5d3a743bb4e728ae7efa317",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sphinx-doc__sphinx-8475/run_instance.log",
+      "log_sha256": "962dc0672662f0fb9b31dda5c396a764476c7e79f607d57376418a2cc663c4d3"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9229_A_b8329295",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9229_A_b8329295/trajectory.json",
+      "trajectory_sha256": "96d9fc08634e8880a32a05bd29bcac914a571ebdc5bf0f9c72dfe1fac5e12d95",
+      "submission_sha256": "5f98dc2ef3b3effd6d827538d4d822c73047e32fd2536ed570503c2573f46a0a",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sphinx-doc__sphinx-9229/run_instance.log",
+      "log_sha256": "f19159ab2c324eb210102182744d155c0ccf10c4e80c3435ef6e398e2632ac1f"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9229_B_ae469bd9",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9229_B_ae469bd9/trajectory.json",
+      "trajectory_sha256": "057c60e139a0d0ecd0c6ddc0f4606e1e0f914a72a108311b007c448ac9645aee",
+      "submission_sha256": "1b19974c3f9cd1b8dbd5fe8dcd16abff265782e39e85e52801ae2500cef518a1",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sphinx-doc__sphinx-9229/run_instance.log",
+      "log_sha256": "e5beb8d6a2f9d1c497e6aac4da43f8328e2b4876f159e23407ccc96971522f26"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9258_A_6cd14ec3",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9258_A_6cd14ec3/trajectory.json",
+      "trajectory_sha256": "d16b3db5ebb1bfc1a32651e6084cfed70fae55cf65d4ab303b092cf0231e31be",
+      "submission_sha256": "131c8e578e356dee45fb08ede32705d991cd26116ac7e9096c24419190da152a",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sphinx-doc__sphinx-9258/run_instance.log",
+      "log_sha256": "d9a45205c6955358b419971fc1872f38d91ee2b1a08b1ff4b7ae84ff11348656"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9258_B_613aa52d",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9258_B_613aa52d/trajectory.json",
+      "trajectory_sha256": "8fb32babc27f5cfefd9db0d55ef037dc5990da1e3883c35a288b2099860e1490",
+      "submission_sha256": "d604c5f97f9bd6c746dc4246d22fc8f2b7a853ed44a676c347900cd7209d12dd",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sphinx-doc__sphinx-9258/run_instance.log",
+      "log_sha256": "0d9081e990031b8aaa61b85be09675a4c90484ccb212dbcc5aaa72a4fc980d5d"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9258_C_509c9889",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9258_C_509c9889/trajectory.json",
+      "trajectory_sha256": "66b16bf7ea4a3a2ba1073a55998329c81632cd4c9cf3ff337e1ce1d67d4f52f8",
+      "submission_sha256": "981177901a3173b0f8c835287f4bd58e6bc2ecf908d3a559d2c7e7bd29fba29e",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sphinx-doc__sphinx-9258/run_instance.log",
+      "log_sha256": "b6ba23617679c53f6944f496efaf7b31b96cacb7e780f2d8203751565325343d"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9258_D_faca6d09",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9258_D_faca6d09/trajectory.json",
+      "trajectory_sha256": "ec25d65852feb15f2b0d8fe7b9eab07525a223bc98003798ce32bb4ab95c90c0",
+      "submission_sha256": "7dfebbf38bd4f195c01cbbf1fdd5ba4947d3a4c7e940215a6150ca4c630a4845",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sphinx-doc__sphinx-9258/run_instance.log",
+      "log_sha256": "5566c4ecd98e0ffd57a1f03bb184ed61d74ee8d624a3d28008868e04f5958ce7"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9320_A_7b44ce64",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9320_A_7b44ce64/trajectory.json",
+      "trajectory_sha256": "628e638c408bfbaecb7d6d4f9b852c8d6047a5aa7e9c1a97b2073205e6ea2f2d",
+      "submission_sha256": "83426dddcf2292bcc9e8bb6f1e2b73ee5a09696d3261b524d103f63e28465809",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sphinx-doc__sphinx-9320/run_instance.log",
+      "log_sha256": "838ec03fffeab2143c8befe4d194dd750ad1b8aaeee302ee2f3a609f6d30c8f8"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9591_A_fd59dcb8",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9591_A_fd59dcb8/trajectory.json",
+      "trajectory_sha256": "3db9f386fe91fa5d2bbd8a315c153334ba7742b601f56a7ea881a76e53842ee4",
+      "submission_sha256": "35810da7f411151ed13982f321c1c19e9e2f97313148e52826780edda55e1660",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sphinx-doc__sphinx-9591/run_instance.log",
+      "log_sha256": "fea2d3b6563b58c3c37666f9f7df891a0e5d2583f2c20c6bde914fc3fd5ed4c6"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9591_B_fb31267b",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9591_B_fb31267b/trajectory.json",
+      "trajectory_sha256": "d08b675bc4f788ad806bce6d8da7453f283b6bb19396f4b6573aa68463b4e588",
+      "submission_sha256": "002ed7281569c88a8b98cd469bc5905d9e07ce081cf3dbbc2f1d8f3c4f9e6d17",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sphinx-doc__sphinx-9591/run_instance.log",
+      "log_sha256": "a4f1417981d44de1e24a1d1cbb50430e0c489de1be5db8073b71840a34c8298e"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9591_C_bc47e1a4",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9591_C_bc47e1a4/trajectory.json",
+      "trajectory_sha256": "bff66dd05dc098600a4fad53fa33bafd3e3e0d4186f0244c7cb65fb200443323",
+      "submission_sha256": "d3c449281de6ca359358ea65d6089a630dbbbeb686edc021f4d11072bf61a7dd",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sphinx-doc__sphinx-9591/run_instance.log",
+      "log_sha256": "fab320978470d229669b3818d5529374e63a8fc94f547b973d7bbcb6d320becc"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9591_D_5ff140dd",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9591_D_5ff140dd/trajectory.json",
+      "trajectory_sha256": "006af3c204917f1f8a89ba0df65e369620c665413de270859a7f7d5e8b09bd5a",
+      "submission_sha256": "ca0842ef5711b47cbc3dae029229e370ee409de3ef834eee68c900350190ffa9",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sphinx-doc__sphinx-9591/run_instance.log",
+      "log_sha256": "4b66bf981a29f2d2155e6d2a68595c11f321b819ffe59683e203df2cc1fbebe2"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9698_A_f7bb67ea",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9698_A_f7bb67ea/trajectory.json",
+      "trajectory_sha256": "426183f3da48864a96ac3213ac70a3fda088dddd46fd2ed6df47a5646158ca80",
+      "submission_sha256": "a012fe0bb8d53e6d811a89e1c979a90346f30b957669ad5b1f7146c6f1208117",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sphinx-doc__sphinx-9698/run_instance.log",
+      "log_sha256": "4724fe789e78928c0936bc4bd5ec98e62498f9f76f3ca7d30bb2f9d9efc7fcf5"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9698_B_65331027",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9698_B_65331027/trajectory.json",
+      "trajectory_sha256": "62651bd1f9e0c63f916b68e7dee2abf2a764b3c08b6f4b501da65cd76dfab6a6",
+      "submission_sha256": "a012fe0bb8d53e6d811a89e1c979a90346f30b957669ad5b1f7146c6f1208117",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sphinx-doc__sphinx-9698/run_instance.log",
+      "log_sha256": "b7a21811e144cef4cb4a7df305cb18e03062538f6ee90c52741d977035d2ec5f"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9698_C_3e809001",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9698_C_3e809001/trajectory.json",
+      "trajectory_sha256": "6a30dc2633b5ae169cc771c88fd3407a2effa3511b4b935c23f50ab3a45d8743",
+      "submission_sha256": "a012fe0bb8d53e6d811a89e1c979a90346f30b957669ad5b1f7146c6f1208117",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sphinx-doc__sphinx-9698/run_instance.log",
+      "log_sha256": "1a5db07c5629efd86d906723425db5d07a2f0dd019197f9a9e9d7548779ce9c0"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9698_D_2d136634",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9698_D_2d136634/trajectory.json",
+      "trajectory_sha256": "c8d98bb519be239983c303150bc3108133fa7835ec3adceefa848c526e478cd0",
+      "submission_sha256": "a012fe0bb8d53e6d811a89e1c979a90346f30b957669ad5b1f7146c6f1208117",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sphinx-doc__sphinx-9698/run_instance.log",
+      "log_sha256": "44539c4f07071f58c04efab105dea16d300985e910c640f153d00c0504ea8aae"
+    },
+    {
+      "run_id": "sympy__sympy-12489_A_850e612d",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-12489_A_850e612d/trajectory.json",
+      "trajectory_sha256": "77926fea2621f1452e92a06948f94f6f80d3974a4b3ba75128d8fdc49097a3b2",
+      "submission_sha256": "5e2ed00e8d79857820c34f50774d95a536200393ae7a739328fde69ec6351135",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sympy__sympy-12489/run_instance.log",
+      "log_sha256": "4d31187548dcb6201fb6f03cb6dcfc3dac56a25fa9cfa2959218d15f4162f099"
+    },
+    {
+      "run_id": "sympy__sympy-12489_D_5e09c7cf",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-12489_D_5e09c7cf/trajectory.json",
+      "trajectory_sha256": "ff24868bc0d5a99c047f8c0299390c6a92e7fd0c7d5cbf811d4105308e674291",
+      "submission_sha256": "37d6fbfa13e33dac281c7304fb60a237c6dbba10c9fd851b4b7f52e40a77ff1e",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sympy__sympy-12489/run_instance.log",
+      "log_sha256": "c08d3efb747e584787b4ffe8f182e4493b060928951f6bbdbaf72d553218168f"
+    },
+    {
+      "run_id": "sympy__sympy-13372_A_8c0525b0",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-13372_A_8c0525b0/trajectory.json",
+      "trajectory_sha256": "ca0f9ad30067c0d597f7d2c8dbcd9fafa0b0383cea5703c2a31b007542b8cdf5",
+      "submission_sha256": "b68dd96a1d0c165886b23410222529716616c21fe988582ac08ac5a334c4ca30",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sympy__sympy-13372/run_instance.log",
+      "log_sha256": "b0eea25ac59be3821c5212fd4bfb26efa14a9065b7fbe6d2a39253a31c96d6ea"
+    },
+    {
+      "run_id": "sympy__sympy-13372_B_b08ae129",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-13372_B_b08ae129/trajectory.json",
+      "trajectory_sha256": "2eb471f5f7a1c7fcf8b68e5c02805c4243d9f115a4a1d26be5c1c33d36a2f298",
+      "submission_sha256": "21ce7e1442e75cb7c68c875866d555efc43feb7fa21351f6b569a27e91ffc8ff",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sympy__sympy-13372/run_instance.log",
+      "log_sha256": "8049464389d2c7b78a7c31248c497965611a88e058afcdbb2014f50998029c52"
+    },
+    {
+      "run_id": "sympy__sympy-13372_C_91b7d976",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-13372_C_91b7d976/trajectory.json",
+      "trajectory_sha256": "2f642fb8170e7a92f845d774229c22b4088f9dcb4ff3c6cdd467bd7c86775368",
+      "submission_sha256": "21ce7e1442e75cb7c68c875866d555efc43feb7fa21351f6b569a27e91ffc8ff",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sympy__sympy-13372/run_instance.log",
+      "log_sha256": "6d89bfcef86bb3782e4927d97dea865a3d59554a41e8ca9fe5c549b2e1e52988"
+    },
+    {
+      "run_id": "sympy__sympy-13372_D_cff93429",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-13372_D_cff93429/trajectory.json",
+      "trajectory_sha256": "912c10e13842cb9b3906fc77749ffa6984a25996207f3e225826763f8421fedb",
+      "submission_sha256": "21ce7e1442e75cb7c68c875866d555efc43feb7fa21351f6b569a27e91ffc8ff",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sympy__sympy-13372/run_instance.log",
+      "log_sha256": "10778cf7548d6817442baa41a70f8e191be7ef4f8d560ab8be098a76887b1de4"
+    },
+    {
+      "run_id": "sympy__sympy-13757_A_f59ceb7f",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-13757_A_f59ceb7f/trajectory.json",
+      "trajectory_sha256": "db5eb126901f101d922b0379fda6230deed56f48de03b66ca98b96a812141c90",
+      "submission_sha256": "e02cce76edb720a23bcd6ebb626a9f6e8f1ae3ea9bfd28a0281d3a49ccf61f1c",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sympy__sympy-13757/run_instance.log",
+      "log_sha256": "0cd7e48ac5ab281c0ee4a23ddbe86578853b32119c3b440d76d040814c911ba4"
+    },
+    {
+      "run_id": "sympy__sympy-13757_C_15735e67",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-13757_C_15735e67/trajectory.json",
+      "trajectory_sha256": "2885dc9db2866af8af23faa01cfb91ac3e7b2d03ace81c52bb0659d765b1fbe9",
+      "submission_sha256": "63ef0c7ddf72041a66aa65e09b1743afd91b06455dcff9f6cfa39295d0a838e5",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sympy__sympy-13757/run_instance.log",
+      "log_sha256": "c6b5f63e9bd23fdc36578eb85d89bc4732680429480a4b31281fbb9a9631fb67"
+    },
+    {
+      "run_id": "sympy__sympy-13757_D_6ab57af4",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-13757_D_6ab57af4/trajectory.json",
+      "trajectory_sha256": "24989d9f047736a51bf2dc9d82bd95bdd2009d6b60e09c9d1028326542ff7cc9",
+      "submission_sha256": "e02cce76edb720a23bcd6ebb626a9f6e8f1ae3ea9bfd28a0281d3a49ccf61f1c",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sympy__sympy-13757/run_instance.log",
+      "log_sha256": "e6f43e7971a4acc73899e1a6d4db63bda81e0c8001a58eabbaa859fb56c1b161"
+    },
+    {
+      "run_id": "sympy__sympy-16886_A_679a9994",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-16886_A_679a9994/trajectory.json",
+      "trajectory_sha256": "9d48f087cf4c2e4e96ebdf59ea96d3e536b916a47486b345ad6af4aa34ac3719",
+      "submission_sha256": "a50328b99218b5ba1700715b18873104fd3521660e654c38c0d041a458b15849",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sympy__sympy-16886/run_instance.log",
+      "log_sha256": "2ad5a74f16db7c051c12b19ba07fe28935d1af28ede807a6e7f29a8a321b7a18"
+    },
+    {
+      "run_id": "sympy__sympy-16886_B_efd1545e",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-16886_B_efd1545e/trajectory.json",
+      "trajectory_sha256": "44c87386d3a8de697489a92c877efe80cfef6940c5c6b7ca35a589794d340911",
+      "submission_sha256": "a50328b99218b5ba1700715b18873104fd3521660e654c38c0d041a458b15849",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sympy__sympy-16886/run_instance.log",
+      "log_sha256": "dbfe80b3d0e5b9889907886dee04b20297654af6eb16d219fcf32810d6a68d7b"
+    },
+    {
+      "run_id": "sympy__sympy-16886_C_b1ba2a07",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-16886_C_b1ba2a07/trajectory.json",
+      "trajectory_sha256": "8e4e168564dab0a2985082f6881e847c97915a7f0a39f808fa819ea8e2bdc46d",
+      "submission_sha256": "a50328b99218b5ba1700715b18873104fd3521660e654c38c0d041a458b15849",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sympy__sympy-16886/run_instance.log",
+      "log_sha256": "209a3cf74a604f7364189adbf140416da16a42b2813d8efae6b6634f7cf9da73"
+    },
+    {
+      "run_id": "sympy__sympy-16886_D_b0d51fa7",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-16886_D_b0d51fa7/trajectory.json",
+      "trajectory_sha256": "7e1c2c0fa893def049fe1b3da4c632aa7329f13f0434301ec1c276457d1712a0",
+      "submission_sha256": "a50328b99218b5ba1700715b18873104fd3521660e654c38c0d041a458b15849",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sympy__sympy-16886/run_instance.log",
+      "log_sha256": "f197a8cd664a6c8eff3b5a4ad5400e14f274d9cb270275711f59361b12af0c37"
+    },
+    {
+      "run_id": "sympy__sympy-18189_A_83b71170",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18189_A_83b71170/trajectory.json",
+      "trajectory_sha256": "d25d01e7662876db905747d6dda60eb1973c47cfd9c8bd5d13fb1494ad150296",
+      "submission_sha256": "10189ce6e8dfae864b295a89204755ba2bf71fa42ac4224230d45ebc012708a8",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sympy__sympy-18189/run_instance.log",
+      "log_sha256": "609b8ac529ef3a8dc7e574371853638caf8b79bc8d22eb0197813621ffc78351"
+    },
+    {
+      "run_id": "sympy__sympy-18189_B_a5fdeec2",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18189_B_a5fdeec2/trajectory.json",
+      "trajectory_sha256": "41a64f4ee4fed8e0621218f1618ea99ce0b508c67ca7866d8c9438884fb597ce",
+      "submission_sha256": "fdd883eb6232fe687e313af03db79b078e828b9a967554243740448585eb5c04",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sympy__sympy-18189/run_instance.log",
+      "log_sha256": "2449f30c4b92e74295e752ace14f8cf7a074d141557d540760959a9e29bfdcf7"
+    },
+    {
+      "run_id": "sympy__sympy-18189_C_97a57089",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18189_C_97a57089/trajectory.json",
+      "trajectory_sha256": "b24ce162812b85b64eeb55ec06471cb3f08e92daf84776161329c621f4a27d28",
+      "submission_sha256": "10189ce6e8dfae864b295a89204755ba2bf71fa42ac4224230d45ebc012708a8",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sympy__sympy-18189/run_instance.log",
+      "log_sha256": "63b5684a5f1302e7476dbdf2ce8fa3ed2bb0907df8b9405ccbe9e44902ba1abd"
+    },
+    {
+      "run_id": "sympy__sympy-18189_D_734cd82b",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18189_D_734cd82b/trajectory.json",
+      "trajectory_sha256": "03a046d3f692036e6c868f3ac8ef2c0060d1ba02250d78e895d10492ccf45556",
+      "submission_sha256": "10189ce6e8dfae864b295a89204755ba2bf71fa42ac4224230d45ebc012708a8",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sympy__sympy-18189/run_instance.log",
+      "log_sha256": "a94535edade4743dd56d480328b8843ec360bbbacffe61c73777cbf88b5d3aa7"
+    },
+    {
+      "run_id": "sympy__sympy-18199_A_fdbf4b56",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18199_A_fdbf4b56/trajectory.json",
+      "trajectory_sha256": "9b7822d4440687bff44eb3a0057fdc3603c29987d602b42dbfaaed061f4afb2a",
+      "submission_sha256": "2a04d1a3bbebe9b4e9eb4a977433db4341d3592f51caeaaee84fdd07e79e9619",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sympy__sympy-18199/run_instance.log",
+      "log_sha256": "8fbcedbc016fc6bb2c23f7a8a688f3dd41b80bc8b85b727536149b70fc901917"
+    },
+    {
+      "run_id": "sympy__sympy-18199_B_a2dac61e",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18199_B_a2dac61e/trajectory.json",
+      "trajectory_sha256": "203e8f89a02bcde9200323735f34b36305eb317612b6abfe25c69f482c78685f",
+      "submission_sha256": "dc039700d201dd2e12144ef12ea4786b422f4e489e71fc8a5b78bf1437251743",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sympy__sympy-18199/run_instance.log",
+      "log_sha256": "9122e6da8f094d9750edb8389e45284cf91187e39b4617cc99fad67db02a0179"
+    },
+    {
+      "run_id": "sympy__sympy-18199_C_d99c5e6d",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18199_C_d99c5e6d/trajectory.json",
+      "trajectory_sha256": "62cb1f201fdea813e06a5aaebce7f2385198a2751e697f8397764d668f033e4f",
+      "submission_sha256": "5410d5cbaf211d85138362bb5108f2da1157a10975000a14934cea8bcad895f2",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sympy__sympy-18199/run_instance.log",
+      "log_sha256": "163989e4753de0b379d02507f7b16c216f2a734f89c63b33a1a38dd1a49ae326"
+    },
+    {
+      "run_id": "sympy__sympy-18199_D_4deab122",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18199_D_4deab122/trajectory.json",
+      "trajectory_sha256": "b455fc8b30f8ad46531d52ecf06796d8ecbd528a1255fddf2c7be02ffda1effe",
+      "submission_sha256": "dc039700d201dd2e12144ef12ea4786b422f4e489e71fc8a5b78bf1437251743",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sympy__sympy-18199/run_instance.log",
+      "log_sha256": "d88cb75ece0b1867e82d58622ee20936f967aff4bd6e144615be526a77b31df5"
+    },
+    {
+      "run_id": "sympy__sympy-18698_A_00775e39",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18698_A_00775e39/trajectory.json",
+      "trajectory_sha256": "63d551ed6f492c88f1983728a949b240c6eec8972b32d6472741deeea781cf00",
+      "submission_sha256": "ef1a2e2ee84a83f006d2eda4006064f721b5091f7d062405f8c2200b7344a8cd",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sympy__sympy-18698/run_instance.log",
+      "log_sha256": "f2fdbe46740952e0f1bb10dc2e56849e3df455bd5714fdd1e78ee6ef946e7ad3"
+    },
+    {
+      "run_id": "sympy__sympy-18698_C_59b81164",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18698_C_59b81164/trajectory.json",
+      "trajectory_sha256": "f89d6a120b4ac97b22bdbec10b579b1e437678eacc007714349fe9a0ae81d159",
+      "submission_sha256": "8eb72624063fe3c84c6f0e1d75414930d6a511cc27465522438fe999a0070840",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sympy__sympy-18698/run_instance.log",
+      "log_sha256": "ecceac8f0854342488cb01e09f03eede55586e637ed30c21e2f8b0d48bf03ada"
+    },
+    {
+      "run_id": "sympy__sympy-19637_A_44bf8314",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-19637_A_44bf8314/trajectory.json",
+      "trajectory_sha256": "6eefb246adbdd5b4b0600d257d426dd68e117c1a6441f931213cdb23581b06d4",
+      "submission_sha256": "b390b959e90cbcbc769629d4055aac6662564970cb11b5d58e2a251725321e76",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sympy__sympy-19637/run_instance.log",
+      "log_sha256": "9bc39290767d6b55879357f33a7cd85384e34d5fce28e43c7e69321217410e16"
+    },
+    {
+      "run_id": "sympy__sympy-19637_B_b3a4f8a2",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-19637_B_b3a4f8a2/trajectory.json",
+      "trajectory_sha256": "41036024427c8ff0f34e75164bad91827e71d0bd6fb3a062d526480d62001128",
+      "submission_sha256": "2a56426423157f22dbc27e367a33f877cd97505180dd9e4ce89f1d51b5927653",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sympy__sympy-19637/run_instance.log",
+      "log_sha256": "fc391e3fc30d1f0c6dc36b57dc9613e25cafce39ed6a545e3b5c3dc9a09b2c28"
+    },
+    {
+      "run_id": "sympy__sympy-19637_C_ff4b6db4",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-19637_C_ff4b6db4/trajectory.json",
+      "trajectory_sha256": "4987c11d1b2cbffcb2684d1dbaca6733e061dbd6954e921d888a97b7eca4765c",
+      "submission_sha256": "6c39913e33cc3c5581e0851792a49f62b9ec5e3226e56d48157218024fc1f80f",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sympy__sympy-19637/run_instance.log",
+      "log_sha256": "0f8291912d95dfdac975d2f048d4aee73aee6d1ab296b2757e4af7a89bf4fd45"
+    },
+    {
+      "run_id": "sympy__sympy-19637_D_290f7857",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-19637_D_290f7857/trajectory.json",
+      "trajectory_sha256": "1e64225415d3047ad2ce2a66726782fd3f36dc7be904a285c1df2d3671e1377a",
+      "submission_sha256": "757f43b7b576c40f9825300d1850f6e0f755e44fe172ad3db8fa06cd963f4add",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sympy__sympy-19637/run_instance.log",
+      "log_sha256": "7ad015b1372c1309d51a987cdb7b2c46da584b3c64e3fea85c724b282a569982"
+    },
+    {
+      "run_id": "sympy__sympy-20428_A_03b76ec4",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-20428_A_03b76ec4/trajectory.json",
+      "trajectory_sha256": "fc85ec504d73ce20c23ed548072cc00c886db6d18b1fed7defeb20c26a1f7cdc",
+      "submission_sha256": "0ada79d0ef4bfd92b51b95b686833fb8ad0ee1c6ceb6ff85319f67da14c398d8",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sympy__sympy-20428/run_instance.log",
+      "log_sha256": "e8015bb4159412dad7c2890793941469effc6eded994014d0d96b60b48fc9778"
+    },
+    {
+      "run_id": "sympy__sympy-20428_B_1d844ec1",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-20428_B_1d844ec1/trajectory.json",
+      "trajectory_sha256": "81423df2f922e16def49327c838e5f1d43c01a66e2e346c5c5f05b40bfcd1499",
+      "submission_sha256": "ecba408a27cf94e33d7a0ab9a26799af9faf3a60bc93e5cfec1cb1358936f147",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sympy__sympy-20428/run_instance.log",
+      "log_sha256": "b504892041435c010c3710d5c043fb4a0602f8d2b2ee844a5bd6850942767291"
+    },
+    {
+      "run_id": "sympy__sympy-20428_D_250e1edb",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-20428_D_250e1edb/trajectory.json",
+      "trajectory_sha256": "8d228da11581da810f2276fc849e4d0d81fb4e10c16194085d16068c90336d43",
+      "submission_sha256": "ba7347e525fa5094ad4bc1f616524d11e970c9ed567a93e3bcad76d45997d9bc",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sympy__sympy-20428/run_instance.log",
+      "log_sha256": "a43c995ab399cefd96344651773ee14ab3a5e5086897f5bf412fecc6952925b1"
+    },
+    {
+      "run_id": "sympy__sympy-21930_B_a0d0d965",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-21930_B_a0d0d965/trajectory.json",
+      "trajectory_sha256": "3534db285b421fe0bd41c78c2bf5befde330854de6b229761e5ef614137f3049",
+      "submission_sha256": "1e9a5c929eccb88c2e8e0cb17a5152165c0c5f73a58784f6864e9621464d4f6b",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sympy__sympy-21930/run_instance.log",
+      "log_sha256": "f36d3898b997fee51581de1a2ddfffe8eb0cb7d929db750f37b160ba5e09d8ae"
+    },
+    {
+      "run_id": "sympy__sympy-21930_C_a1d630cf",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-21930_C_a1d630cf/trajectory.json",
+      "trajectory_sha256": "50790de1c3d37d5e5ce2a69077a4c91ceeb2ee61b24dd0c9f822cfcc42389302",
+      "submission_sha256": "a149521e5e90a61cbfb8613952d96eaddf1f74f6d943a1280c9d8fdb6baee264",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sympy__sympy-21930/run_instance.log",
+      "log_sha256": "8ca256605737a42b9e618d1686a1e1602ae99a13f904889aa38b5fa17dd0f0ae"
+    },
+    {
+      "run_id": "sympy__sympy-21930_D_3eb4d69d",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-21930_D_3eb4d69d/trajectory.json",
+      "trajectory_sha256": "e0013ec6c4ffae2c279c4ef239352885cd76c6775ac737ab554ca98c7f7f9d97",
+      "submission_sha256": "b953f0efe140cfe53587ccfb2e6de0a73d10531d65d8633557b0d373451c64dd",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sympy__sympy-21930/run_instance.log",
+      "log_sha256": "31f6ff1c507f609d150e9750345dc5d7cd15a87fbb4b63732b28afd6dd18b744"
+    },
+    {
+      "run_id": "sympy__sympy-22080_A_f5887b39",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-22080_A_f5887b39/trajectory.json",
+      "trajectory_sha256": "8797fbba190fbde228dc472802d67f97b248fc9eeb476518c3c0f56a95ccdf2b",
+      "submission_sha256": "d60a50c82a03fb15663aad9d2cb53e40780f9af70437fc9b54f51758e27ed444",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sympy__sympy-22080/run_instance.log",
+      "log_sha256": "3b433dc110c4a9554ffda8efd0fce2fb49f11fdfa73b813f37feb042afe2ef9a"
+    },
+    {
+      "run_id": "sympy__sympy-22080_B_1311a20c",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-22080_B_1311a20c/trajectory.json",
+      "trajectory_sha256": "c6422751df609082c002332f20d487e7b0d14c2b658a8e75b49befe616f31f08",
+      "submission_sha256": "4563d347d880674d5eec96864f12e5c595b2cb11d2e8e9c22d3e17ea857fcc97",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sympy__sympy-22080/run_instance.log",
+      "log_sha256": "2c1f8605c6f33b644261fafb1d9124df5702ade2c1360f70574b2cd9076ce840"
+    },
+    {
+      "run_id": "sympy__sympy-22080_C_9da95ebd",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-22080_C_9da95ebd/trajectory.json",
+      "trajectory_sha256": "917b8fd7d51cf54c85a85e9608609421bdde440d5087a056396e58524e8af1a0",
+      "submission_sha256": "36c5786c475452b852a00a8b801b102c2f8fa73fe75514e0dfb921a8b2cc8825",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sympy__sympy-22080/run_instance.log",
+      "log_sha256": "8e3ff5a4a6bde03e3c5b9e7c1e856d28cbf492a3b727157772003c2b0740abcd"
+    },
+    {
+      "run_id": "sympy__sympy-22080_D_02c0a852",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-22080_D_02c0a852/trajectory.json",
+      "trajectory_sha256": "700e727d88f440e679cfc86bf613fec0188803dc244623ccf9a981ee7158f96c",
+      "submission_sha256": "dc3d5287ab304df03e61d68c0e567514616d527f7f81b713291b05dfd38d2a76",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sympy__sympy-22080/run_instance.log",
+      "log_sha256": "31cd6506c124a8b6bd38feac38e09bd9a4c010cfdac3091716d694969bb40cad"
+    },
+    {
+      "run_id": "sympy__sympy-24443_A_4d001242",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-24443_A_4d001242/trajectory.json",
+      "trajectory_sha256": "524e5f7dd97891d3a092266a83889ed5c708b33d60f99366f99c13a47a3f5b5b",
+      "submission_sha256": "c62f235bbef0517cf1fab6d75bead0681f413a0d7b7a7dc21bac046a63856a86",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-A/final_r1_A/sympy__sympy-24443/run_instance.log",
+      "log_sha256": "27f637e663076fc0ef83a35497e589bcc706213a169eeebbc74d89f48df3ef09"
+    },
+    {
+      "run_id": "sympy__sympy-24443_B_7896eb4c",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-24443_B_7896eb4c/trajectory.json",
+      "trajectory_sha256": "b054428dbdd7a478f65015e1b743dffeb5206798bf773891747afc155f13b169",
+      "submission_sha256": "ac2cb59f92af3806a577eb0a5ad437fbd2d73b9eaadf6a840957a61bb6bd0e18",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-B/final_r1_B/sympy__sympy-24443/run_instance.log",
+      "log_sha256": "8fd1d0ca51392912c7bf8f8dcdb8d7dae9b500e65802e1e8fda6b0d2e71adb60"
+    },
+    {
+      "run_id": "sympy__sympy-24443_C_2f961cf5",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-24443_C_2f961cf5/trajectory.json",
+      "trajectory_sha256": "b937a58c1e9b3c9586638e91837ad06337e053d266cf2500b075c74919520d64",
+      "submission_sha256": "887343bf93ba7a503bd88aaa05c1b3e6b9582b2081e1bde459000066e54c8161",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-C/final_r1_C/sympy__sympy-24443/run_instance.log",
+      "log_sha256": "2e9fb1c8e109e6aa83358dd5cc991a5d10e2a960bd02af15d24d2345ee93b66c"
+    },
+    {
+      "run_id": "sympy__sympy-24443_D_ea668e2f",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-24443_D_ea668e2f/trajectory.json",
+      "trajectory_sha256": "8fc1a4dc3ace83bdbc45bfcf9475f67cc049edd4ab45647ace3599eafec50c7e",
+      "submission_sha256": "57ac3ff67b0f28db0138907ab52830a5a7b095b4f6b618a887e5e08dfa20d1f7",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r1-D/final_r1_D/sympy__sympy-24443/run_instance.log",
+      "log_sha256": "8ab42fd4780207d66d46a5d32d694d9387819e9ee3d1c65121a6b77888fa33a2"
+    },
+    {
+      "run_id": "django__django-16315_A_d4212474",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16315_A_d4212474/trajectory.json",
+      "trajectory_sha256": "8e086085f22f711208714786d4a3960828811dcd3befb2f8f5a912ca6dcc07eb",
+      "submission_sha256": "46e88a47654272a291629d228b226e976a3038ec6d8b9fd8be6361451c105250",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-A/final_r2_A/django__django-16315/run_instance.log",
+      "log_sha256": "7d9a83d5e886fd120586fdd0e0ba8784f1b8d128ce92eb063c1bd3378eb65a5e"
+    },
+    {
+      "run_id": "django__django-16315_B_ad3099af",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16315_B_ad3099af/trajectory.json",
+      "trajectory_sha256": "f69bd4365b240186c65dab844a68ad9f431a15761a67220877ab9a6d3e419fe9",
+      "submission_sha256": "46e88a47654272a291629d228b226e976a3038ec6d8b9fd8be6361451c105250",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-B/final_r2_B/django__django-16315/run_instance.log",
+      "log_sha256": "f7e044c5038c1cb764d4779d62c9938d7d271b4cec9ff91fc13d43dfde829bb6"
+    },
+    {
+      "run_id": "django__django-16315_C_d997d716",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16315_C_d997d716/trajectory.json",
+      "trajectory_sha256": "4da4e453e635ceba5aed97112ccf30f583550a57292e9e25afc19bebbc9a033d",
+      "submission_sha256": "46e88a47654272a291629d228b226e976a3038ec6d8b9fd8be6361451c105250",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-C/final_r2_C/django__django-16315/run_instance.log",
+      "log_sha256": "090cf112d1a6c652b3b7cfc53ede9425f58c8787f64d33764a1d9dbacc244c54"
+    },
+    {
+      "run_id": "django__django-16315_D_87bbdc4d",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16315_D_87bbdc4d/trajectory.json",
+      "trajectory_sha256": "35df9215695135f02c50772ef2dc3e518dc851c6c3ad18b016ec45fea21c6ae5",
+      "submission_sha256": "474f4fef2085088da5ef492735463d1437e4ad7d1262745a9b71fc5a3c1d4054",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-D/final_r2_D/django__django-16315/run_instance.log",
+      "log_sha256": "a8e46d029f850e1f276ed754adf0adffe2fdf6250d7ab28aaa4188e4138cf3a1"
+    },
+    {
+      "run_id": "django__django-16877_A_9fd51e0c",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16877_A_9fd51e0c/trajectory.json",
+      "trajectory_sha256": "34f63c6ec5f1067a36b3dc15625ccf2d557ce82d857c76048de92693fd440e0e",
+      "submission_sha256": "89802900ae6d7aa26d09552f24007c9280c9dec765120b90de52583cfab35811",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-A/final_r2_A/django__django-16877/run_instance.log",
+      "log_sha256": "432789703e9aa7c642c125d1ebaa6c65829058f7fb51c64bc144882d536cf85f"
+    },
+    {
+      "run_id": "django__django-16877_B_f00d65ba",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16877_B_f00d65ba/trajectory.json",
+      "trajectory_sha256": "083eb08059aa0bd718e51d3b909fc0c2b5906331d3397ab6596ba33d268640f8",
+      "submission_sha256": "89802900ae6d7aa26d09552f24007c9280c9dec765120b90de52583cfab35811",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-B/final_r2_B/django__django-16877/run_instance.log",
+      "log_sha256": "6ef26ecfb6a67382ed00c84aa4b3fa00cf5a9037511caafcbd66068253e3dbbd"
+    },
+    {
+      "run_id": "django__django-16877_C_c153d259",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16877_C_c153d259/trajectory.json",
+      "trajectory_sha256": "cf359ac00e2f03b4a98438520e152c34f4f484d8cf8b848762421d21c2871816",
+      "submission_sha256": "89802900ae6d7aa26d09552f24007c9280c9dec765120b90de52583cfab35811",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-C/final_r2_C/django__django-16877/run_instance.log",
+      "log_sha256": "e67cca5ba9418764188d0e3c717898fa71e31bbe23b027c6314231bb60e2de4c"
+    },
+    {
+      "run_id": "django__django-16877_D_710faa2c",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16877_D_710faa2c/trajectory.json",
+      "trajectory_sha256": "7606eccf10b38d1408faa9eae8a4e14e6a0048580290b8399edf28934311d301",
+      "submission_sha256": "89802900ae6d7aa26d09552f24007c9280c9dec765120b90de52583cfab35811",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-D/final_r2_D/django__django-16877/run_instance.log",
+      "log_sha256": "ba303979a0a9425a06baa057f7b85182819621cd1b908d473fef97aba7f0d09d"
+    },
+    {
+      "run_id": "pytest-dev__pytest-10081_A_7c8ceed2",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/pytest-dev__pytest-10081_A_7c8ceed2/trajectory.json",
+      "trajectory_sha256": "f5cd9888f46a731083e2059aba20bb5bb384b1d8cb80f091b5814b08c19b78e0",
+      "submission_sha256": "151b4b14c13bc23c49126f07a1e19fdedb86ffc8c620af890bca8ff5b553d434",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-A/final_r2_A/pytest-dev__pytest-10081/run_instance.log",
+      "log_sha256": "5afbc6c7db7b3a0ed7b418d707ac03660135e6049246b105cc7a828f7d29cb8d"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9258_A_96301286",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9258_A_96301286/trajectory.json",
+      "trajectory_sha256": "9dd148b58ae2b33b60c8e30e4a498520231a26f327bef9dece5bc11145e6d305",
+      "submission_sha256": "f6afa62717fb760beb93c8a206b26c2e1a09b6f514d9a5d3ceb1020b97592c82",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-A/final_r2_A/sphinx-doc__sphinx-9258/run_instance.log",
+      "log_sha256": "808bd001db18d2c172f3da2962320fdd423e5edc6209349af1e5385c08f5554c"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9258_B_3f52f57f",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9258_B_3f52f57f/trajectory.json",
+      "trajectory_sha256": "a3ef6261cfae0fbee1a3654fc9324a228d652ef45abffcc12c08e8d11e2b7ac2",
+      "submission_sha256": "43b99dd688d03a7932a7ddd9d1aee13a562bb96c3cf2cc4415e230ee181e63fa",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-B/final_r2_B/sphinx-doc__sphinx-9258/run_instance.log",
+      "log_sha256": "ec09acf19c6378e0e37b6da09f6065a5dde22beb3aa4622cea9e92b561dcc0eb"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9258_C_4d0c10ba",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9258_C_4d0c10ba/trajectory.json",
+      "trajectory_sha256": "066e77f6dd3fb73bc357a111252ebc8315d4fd1617d6b5fda2c138667caa2996",
+      "submission_sha256": "404cdbebdf1413dfa9d5b4aded602aa7c66eb6ea31229761999c87338ae73702",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-C/final_r2_C/sphinx-doc__sphinx-9258/run_instance.log",
+      "log_sha256": "63f169b53a733c2b46c34d64fa0e6300504ece881e38d72dc60c1741e256c888"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9258_D_70a41f35",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9258_D_70a41f35/trajectory.json",
+      "trajectory_sha256": "9ba268a8066d0f72eafd4b8b0b98dcd4eb8575b8db9b09a2f758b185a8d14970",
+      "submission_sha256": "624262f12acd0497d3b846bcec4e69413bc43959e41eca49f0ed5cfd0888c041",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-D/final_r2_D/sphinx-doc__sphinx-9258/run_instance.log",
+      "log_sha256": "53ccfb1c5ccad17cf15f071fb27b4ad7b19d1a6572c0e44da5985be62db7b40e"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9320_A_d6d2d7dd",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9320_A_d6d2d7dd/trajectory.json",
+      "trajectory_sha256": "43ec0a0c850fa9fd37ac809673fb85411977438e4b5b089609fb0c8155b17d43",
+      "submission_sha256": "7e9ef4a7b6be08232b6a601f8f4888c1c0d0b35bd6d509666122cb8efc053c69",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-A/final_r2_A/sphinx-doc__sphinx-9320/run_instance.log",
+      "log_sha256": "7807f7eeb1ae730d8f3c6f12707f4bcf783dfe7f75e9286b217a8f8b2f8f8635"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9320_C_a6ba524b",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9320_C_a6ba524b/trajectory.json",
+      "trajectory_sha256": "5b8831c3976257d238a938cd3884befa3975aaa103e896ff054131df7a50ccd1",
+      "submission_sha256": "7e9ef4a7b6be08232b6a601f8f4888c1c0d0b35bd6d509666122cb8efc053c69",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-C/final_r2_C/sphinx-doc__sphinx-9320/run_instance.log",
+      "log_sha256": "23db61f1ba98fb1d39dd67e280151f12f546821d337f8dc820649caed87bf5aa"
+    },
+    {
+      "run_id": "sympy__sympy-18189_A_7c24ae41",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18189_A_7c24ae41/trajectory.json",
+      "trajectory_sha256": "4921d71cc411b3f023d3da8c8d7fbca1c09430225d3b288d66fa3322b8395777",
+      "submission_sha256": "10189ce6e8dfae864b295a89204755ba2bf71fa42ac4224230d45ebc012708a8",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-A/final_r2_A/sympy__sympy-18189/run_instance.log",
+      "log_sha256": "d55f33945e6850720d7fc4841e241ba714faf72a337936c08413b07296980594"
+    },
+    {
+      "run_id": "sympy__sympy-18189_B_5e4e2cbf",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18189_B_5e4e2cbf/trajectory.json",
+      "trajectory_sha256": "dd8178509e640f441fbde57f985c13744d239a1a62f5f122256ba3ececf2056c",
+      "submission_sha256": "10189ce6e8dfae864b295a89204755ba2bf71fa42ac4224230d45ebc012708a8",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-B/final_r2_B/sympy__sympy-18189/run_instance.log",
+      "log_sha256": "c508355d371d1c2e9cfd99fd879cf30ac3deea098bf7c1e07bdb844b563f274e"
+    },
+    {
+      "run_id": "sympy__sympy-18189_C_76b807fb",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18189_C_76b807fb/trajectory.json",
+      "trajectory_sha256": "f9b27d3020cd9a6ea418ac67c7ebe67ce2acbd99e3cc94c27e1472263ba2f87b",
+      "submission_sha256": "10189ce6e8dfae864b295a89204755ba2bf71fa42ac4224230d45ebc012708a8",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-C/final_r2_C/sympy__sympy-18189/run_instance.log",
+      "log_sha256": "5158170f0220b1f25bb17acc2177d808aa74c398a049f3fcda84cd0d3481f8f5"
+    },
+    {
+      "run_id": "sympy__sympy-18189_D_43477efa",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18189_D_43477efa/trajectory.json",
+      "trajectory_sha256": "0efa2be34cd260f2825c089b9aad1eaafcc212225e6ecb8eab4b4451abdba7df",
+      "submission_sha256": "10189ce6e8dfae864b295a89204755ba2bf71fa42ac4224230d45ebc012708a8",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-D/final_r2_D/sympy__sympy-18189/run_instance.log",
+      "log_sha256": "3cbc010667da7fa730daed431907101879b11f0244f538ed65cbab340a6c2e14"
+    },
+    {
+      "run_id": "sympy__sympy-24443_A_2a28a141",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-24443_A_2a28a141/trajectory.json",
+      "trajectory_sha256": "fcf30a70710ba04174052953b47360c320b4873c66e62a73dac21116ada0487e",
+      "submission_sha256": "f91c08edf9bbec4fe0c577dceca21ab80694c2682eacc84f0c7b3a2b4cef523e",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-A/final_r2_A/sympy__sympy-24443/run_instance.log",
+      "log_sha256": "52dc4fd7e3bdf497e4151a82333074b50b07dde490617895e0a580d51d1a1c98"
+    },
+    {
+      "run_id": "sympy__sympy-24443_B_dc997a10",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-24443_B_dc997a10/trajectory.json",
+      "trajectory_sha256": "aa5699a9980c90cc43aba863cc027acf4fcf818a5a0bab2ef545aa3ea5d80a92",
+      "submission_sha256": "fecde798b22a15f05bb4dacc03db20d039abe259329ea8b69ebf16bb0de12bd2",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-B/final_r2_B/sympy__sympy-24443/run_instance.log",
+      "log_sha256": "b8f4c4701dfb35e423d131ce518e3f10110d47becb5ec7c7f4b30a7c1155a3b2"
+    },
+    {
+      "run_id": "sympy__sympy-24443_C_44d9c2f1",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-24443_C_44d9c2f1/trajectory.json",
+      "trajectory_sha256": "fc833ec79c6fece29303b42f2da28bb1ade9d08d4b88823079931d815d9ec977",
+      "submission_sha256": "7d14c758e68cbfe92189f4d53f06f0eddda86dab10ffb7f266c89cc8d75e01ab",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-C/final_r2_C/sympy__sympy-24443/run_instance.log",
+      "log_sha256": "3c08597633344c91b8305cb845eccddbc5942370007b0f19a81a8dfe72b14c3a"
+    },
+    {
+      "run_id": "sympy__sympy-24443_D_3adc1c77",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-24443_D_3adc1c77/trajectory.json",
+      "trajectory_sha256": "6fd7e434d022dd953042530ab8ff540109d10fe96573ad4dde522ddac918309f",
+      "submission_sha256": "3a5f3136b9bc82e00637ab346c5f8a15087c2934e5877eb431af98d41ba75f55",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r2-D/final_r2_D/sympy__sympy-24443/run_instance.log",
+      "log_sha256": "51d1aa3c8255e173311826ae71457ce78da059a6aaeca9cc0cfc74bb80452be1"
+    },
+    {
+      "run_id": "django__django-16315_A_07a28507",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16315_A_07a28507/trajectory.json",
+      "trajectory_sha256": "3ec89ad2e5b9dbbe4617d4214ea506eedcc3724bc98dd364cd5d6b47b08ed147",
+      "submission_sha256": "520bc1fa7e54b435d7334cc4a6aa071578108bdd893c7c58645f7d639c51ab07",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-A/final_r3_A/django__django-16315/run_instance.log",
+      "log_sha256": "b42106924fe9c849d0f10b6352a9e962dcedab9cc7c26d53bad0e7c9b7f06b30"
+    },
+    {
+      "run_id": "django__django-16315_B_4b8178ea",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16315_B_4b8178ea/trajectory.json",
+      "trajectory_sha256": "b7c1ee13a56c890bb6baf59432d32e0ded026c3284cf8e59cd87004e257c21d7",
+      "submission_sha256": "98091ba2a1843a60e138a7a505a89ec9f9a23749b835df7d3713fb5d488464b0",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-B/final_r3_B/django__django-16315/run_instance.log",
+      "log_sha256": "1867761b6bc90e8adcb6366688c1b136ad0f83f57de31d75268f57d607df0d28"
+    },
+    {
+      "run_id": "django__django-16315_C_2faef20b",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16315_C_2faef20b/trajectory.json",
+      "trajectory_sha256": "dd6c27fec96d544b461d2951f2c9f990bea8f3e75da09a30c5808773b59f5072",
+      "submission_sha256": "47c1aedb8503fa66c13a6a27ec628978bf4b284b24a826bab76a66d25778f025",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-C/final_r3_C/django__django-16315/run_instance.log",
+      "log_sha256": "e6b978779875f549813cf23f88f3c44df4a8a657dac6e8eb40a4e4da5728e5d7"
+    },
+    {
+      "run_id": "django__django-16315_D_997a3d7e",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16315_D_997a3d7e/trajectory.json",
+      "trajectory_sha256": "bd36c45702a233e41c9e7413071c369ccd04996cad90d698f82e7b1885e72d84",
+      "submission_sha256": "6c62d8e7a6c13ecfe66c267a959b57de5908da02a0d2e932c43c33db17dbe13c",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-D/final_r3_D/django__django-16315/run_instance.log",
+      "log_sha256": "44e211ca7661607b49b6cc8e6e85a1d62b42a7d226457f09c1098a31be4d78b3"
+    },
+    {
+      "run_id": "django__django-16877_A_aecff237",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16877_A_aecff237/trajectory.json",
+      "trajectory_sha256": "bb276f5bbe6ef696b781dfa0659dc46a70eb43c7224185794fc2cd59907f00bd",
+      "submission_sha256": "89802900ae6d7aa26d09552f24007c9280c9dec765120b90de52583cfab35811",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-A/final_r3_A/django__django-16877/run_instance.log",
+      "log_sha256": "9ecbb38444eee243e855aac81f75fb11d956af19742dae50ed08b31218aee22b"
+    },
+    {
+      "run_id": "django__django-16877_B_480fa858",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16877_B_480fa858/trajectory.json",
+      "trajectory_sha256": "84bfe207992524dbd2172b46bae9a02fc44695cd9c7b67a57d080cb8ab329519",
+      "submission_sha256": "34bf5287cd84786e0a446ecc858e0ce3892db261928c7bd205f761131b2b76e4",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-B/final_r3_B/django__django-16877/run_instance.log",
+      "log_sha256": "832b24bf5534be3f36b230ca6a6a64bd14d4cd1897c0ba8bf53f5ceef66ee0bb"
+    },
+    {
+      "run_id": "django__django-16877_C_1fd3b407",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16877_C_1fd3b407/trajectory.json",
+      "trajectory_sha256": "a8f0d4b49d0ce409dd202e5a635b396c847bc1f07d46658891735e2e569f339a",
+      "submission_sha256": "018edc3b295eb180999b15536b03bc057ca226fee2de2882dc9666db796282d2",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-C/final_r3_C/django__django-16877/run_instance.log",
+      "log_sha256": "f6a98aef24fd70f27b901d8b0a50e765a85d3585a3e4f1174c878881792cd3b5"
+    },
+    {
+      "run_id": "django__django-16877_D_498c7e45",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-16877_D_498c7e45/trajectory.json",
+      "trajectory_sha256": "1611be8189134bebd70e64963b5c5123483ec75eb4d2a7173db27eab85308e09",
+      "submission_sha256": "89802900ae6d7aa26d09552f24007c9280c9dec765120b90de52583cfab35811",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-D/final_r3_D/django__django-16877/run_instance.log",
+      "log_sha256": "8f606b05923071a6f74dafa78142637a02e9af10baf243be859e4a4cd2774fdc"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9258_A_1e50c219",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9258_A_1e50c219/trajectory.json",
+      "trajectory_sha256": "1695d69da1812e22c57256ff2fe7bd848589c0128e80564e7e2a6197eef0896f",
+      "submission_sha256": "ab22cb00d7d7d8ab6ea21260fcbb2853c93650cf3aea0c296f4755d6f56be28e",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-A/final_r3_A/sphinx-doc__sphinx-9258/run_instance.log",
+      "log_sha256": "0b38a770be1960aefd70929f95f2fe6a286327371ec13f49d3bd882fa2ea1f1f"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9258_B_93cda759",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9258_B_93cda759/trajectory.json",
+      "trajectory_sha256": "5c1b2fd5c0ffa40275e1ba3e1edf918f5ae68da7ccdc19aecd7c6fb3ffead779",
+      "submission_sha256": "f4f41e298695c62b1952e900d5ec614f2987fdfd10b3f21a0df877d417041446",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-B/final_r3_B/sphinx-doc__sphinx-9258/run_instance.log",
+      "log_sha256": "7eaf316e209a4aa3378d67a580ca394dbc9999445ee1d74337cb0c4157de3d1a"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9258_C_b11e43b4",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9258_C_b11e43b4/trajectory.json",
+      "trajectory_sha256": "761a2c27dc6b91cff3b809052c4de213d6bd8c44a7de5cd5960e4e00834208ed",
+      "submission_sha256": "373750aa4c4df2e07897b8b4c6c2ea2974fa1ff2cdb74f19d51c4f9ca2d9ea70",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-C/final_r3_C/sphinx-doc__sphinx-9258/run_instance.log",
+      "log_sha256": "9c4b05c30f14e1d0c5b8ccef4cd681dff6265feb00bf8e85bb31a2ae60f13fb1"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9258_D_39d87af2",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9258_D_39d87af2/trajectory.json",
+      "trajectory_sha256": "6629848f6f8bcda6b777acde7d092a7ffddf9c46d6e0e136f4eb2c2fc9beea65",
+      "submission_sha256": "ce9609dfaac05e05e5af82c556bfc928b323aabb6d9d07d057efc29f9dc26a82",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-D/final_r3_D/sphinx-doc__sphinx-9258/run_instance.log",
+      "log_sha256": "9c688a6979e29877aa3428f630a7dbd22f99149b86fbe37692c55e217a0abdc2"
+    },
+    {
+      "run_id": "sphinx-doc__sphinx-9320_B_2e399be9",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9320_B_2e399be9/trajectory.json",
+      "trajectory_sha256": "2e5a222d483cac6eb1cd3c586dfc0eaf5eee2006076eb122de10d232ef140240",
+      "submission_sha256": "7825e9a54897ef13ec3fb1e2462e7adbae5347a7c7d9b502a12d72e414bb48f9",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-B/final_r3_B/sphinx-doc__sphinx-9320/run_instance.log",
+      "log_sha256": "efad36927f42902f51740b4de65a04a10b2d0ae46d8273dc0047b7c40a985243"
+    },
+    {
+      "run_id": "sympy__sympy-18189_B_4edbd3a1",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18189_B_4edbd3a1/trajectory.json",
+      "trajectory_sha256": "d0650c8b58a78fd88a08a2069a671dee028470a8d825651a9ea00c511a63edb3",
+      "submission_sha256": "23a5d3ca81e2b46772d114c745e637fa7f60c9daff57c16528b1698ba55a88e2",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-B/final_r3_B/sympy__sympy-18189/run_instance.log",
+      "log_sha256": "7e3aef4967d4c560d154bff8f0c10a16cef4464adb7adc10bcc8ec2d5778c72e"
+    },
+    {
+      "run_id": "sympy__sympy-18189_C_f1d0d49e",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18189_C_f1d0d49e/trajectory.json",
+      "trajectory_sha256": "769b79b23954024319a00a9362e79eaff2c25c5f4a3384995cfe1b5d8635a492",
+      "submission_sha256": "6dc33ce30b026dcfc2071809a0ebdbe9dfc2b143df98f497a9b82d9a43fd080d",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-C/final_r3_C/sympy__sympy-18189/run_instance.log",
+      "log_sha256": "7210e80d7973c8238a81fe9b21050a44cf9858347d54067da0bdf478b1b6be26"
+    },
+    {
+      "run_id": "sympy__sympy-18189_D_76a00f84",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-18189_D_76a00f84/trajectory.json",
+      "trajectory_sha256": "4e4fe36af939414d9d73ab18d56668e97cf474e4918b545d98e7346d1d95ce6c",
+      "submission_sha256": "4fe5d23b7f4c880760ebe8b41f9a8b7d34d95f924d9f1aad481732db7635c8d5",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-D/final_r3_D/sympy__sympy-18189/run_instance.log",
+      "log_sha256": "18875e7719d97d2e0bbb1332a88e59f2892b5332af72d8846f5aff24c46d80dc"
+    },
+    {
+      "run_id": "sympy__sympy-24443_A_7335be25",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-24443_A_7335be25/trajectory.json",
+      "trajectory_sha256": "4f86cd3482a2415b72ab288583ee0569f36ab9daac92e22ef88010472ee67817",
+      "submission_sha256": "70a879c5d59d0d4a42aa001b3436cfc4ca3160225615c59f6142657a21527eb7",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-A/final_r3_A/sympy__sympy-24443/run_instance.log",
+      "log_sha256": "c7385449c78c19be6bffa65dfc3fbee3f569d239f876f1593a5974d697f440ed"
+    },
+    {
+      "run_id": "sympy__sympy-24443_C_fa8c63d8",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-24443_C_fa8c63d8/trajectory.json",
+      "trajectory_sha256": "f5862eaf8db3d8d494118f17ed31b8218b897baf1490aef837502743307e8da9",
+      "submission_sha256": "54f16a815d663b5ed1191f52dd84e9d33ebbca3c764d6d92e8502a61756feb88",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-C/final_r3_C/sympy__sympy-24443/run_instance.log",
+      "log_sha256": "db192b158d149ea4f4c505103c0cb645c4f5fa9d108a7f654a60d29616e7acdb"
+    },
+    {
+      "run_id": "sympy__sympy-24443_D_f0099c53",
+      "modification_lines_equal": true,
+      "comparison_method": "Per file, ordered + and - modification lines; ignore @@, context and index lines",
+      "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-24443_D_f0099c53/trajectory.json",
+      "trajectory_sha256": "ff50105cefe207dde052b255208fc7c4b2f2f4a7d2c929218a01706b1e7e81fb",
+      "submission_sha256": "806e1da45688672fbc041bebacf82f187e93f136afe794a10aab5da3c2336150",
+      "log_path": "/root/projects/DSA4213_final_20261028/role5_eval/work/harness/logs/evaluation/final-r3-D/final_r3_D/sympy__sympy-24443/run_instance.log",
+      "log_sha256": "a5b823f7499c8e440af5a9074fe9fbd9c85f68c1201459fcea9d9deb92c9d946"
+    }
+  ]
+}

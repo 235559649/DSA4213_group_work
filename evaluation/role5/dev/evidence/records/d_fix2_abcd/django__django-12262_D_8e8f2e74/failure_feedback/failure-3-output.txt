@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "/testbed/django/template/library.py", line 316, in import_library
+    module = import_module(name)
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 941, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 941, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'template_tests'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 11, in <module>
+  File "/testbed/django/template/engine.py", line 51, in __init__
+    self.template_libraries = self.get_template_libraries(libraries)
+  File "/testbed/django/template/engine.py", line 93, in get_template_libraries
+    loaded[name] = import_library(path)
+  File "/testbed/django/template/library.py", line 320, in import_library
+    "trying to load '%s': %s" % (name, e)
+django.template.library.InvalidTemplateLibrary: Invalid template library specified. ImportError raised when trying to load 'template_tests.templatetags.custom': No module named 'template_tests'

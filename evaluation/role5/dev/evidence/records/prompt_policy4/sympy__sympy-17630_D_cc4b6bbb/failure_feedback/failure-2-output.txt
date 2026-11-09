@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 393, in block_collapse
+    result = rule(expr)
+  File "/testbed/sympy/strategies/core.py", line 11, in exhaustive_rl
+    new, old = rule(expr), expr
+  File "/testbed/sympy/strategies/core.py", line 44, in chain_rl
+    expr = rule(expr)
+  File "/testbed/sympy/strategies/core.py", line 11, in exhaustive_rl
+    new, old = rule(expr), expr
+  File "/testbed/sympy/strategies/core.py", line 33, in conditioned_rl
+    return rule(expr)
+  File "/testbed/sympy/strategies/core.py", line 95, in switch_rl
+    return rl(expr)
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 467, in bc_matmul
+    matrices[i] = A._blockmul(B)
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 167, in _blockmul
+    return BlockMatrix(self.blocks*other.blocks)
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 86, in __new__
+    raise ValueError(filldedent('''
+ValueError: 
+expecting a sequence of 1 or more rows containing Matrices.

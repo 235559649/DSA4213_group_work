@@ -1,0 +1,16 @@
+diff --git a/src/_pytest/unittest.py b/src/_pytest/unittest.py
+index 773f545af..7407f03b7 100644
+--- a/src/_pytest/unittest.py
++++ b/src/_pytest/unittest.py
+@@ -175,6 +175,11 @@ class TestCaseFunction(Function):
+         self._addexcinfo(rawexcinfo)
+ 
+     def addSkip(self, testcase, reason):
++        # If ``--pdb`` postponed ``tearDown``, a skip should not keep that
++        # deferred cleanup around because skipped tests do not have a running
++        # test body to inspect in the debugger.
++        if self._explicit_tearDown is not None:
++            self._explicit_tearDown = None
+         try:
+             skip(reason)
+         except skip.Exception:

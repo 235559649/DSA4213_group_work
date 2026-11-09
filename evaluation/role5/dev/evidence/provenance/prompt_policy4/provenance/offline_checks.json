@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-10-27T15:12:13.754300+08:00",
+  "exit_code": 0,
+  "passed": true,
+  "api_calls": 0,
+  "network_blocked": true,
+  "model_credentials_unset": true,
+  "project_snapshot_unchanged": true,
+  "log": "/root/projects/DSA4213_group_work/personal_trials/prompt_policy_four_tasks_20261027/provenance/offline_checks.log"
+}

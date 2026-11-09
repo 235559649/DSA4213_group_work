@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sphinx/domains/__init__.py",
+    "rank": 1,
+    "score": 35.9422,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "tests/test_ext_autodoc.py",
+    "rank": 2,
+    "score": 35.0366,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "tests/test_environment_indexentries.py",
+    "rank": 3,
+    "score": 33.0758,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/search/__init__.py",
+    "rank": 4,
+    "score": 32.8377,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "tests/test_project.py",
+    "rank": 5,
+    "score": 32.2246,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "tests/test_ext_apidoc.py",
+    "rank": 6,
+    "score": 31.8295,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "doc/usage/extensions/example_google.py",
+    "rank": 7,
+    "score": 31.5941,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "doc/usage/extensions/example_numpy.py",
+    "rank": 8,
+    "score": 31.5941,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/addnodes.py",
+    "rank": 9,
+    "score": 31.3007,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "tests/roots/test-ext-autodoc/target/__init__.py",
+    "rank": 10,
+    "score": 31.2378,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/errors.py",
+    "rank": 11,
+    "score": 31.2077,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/autodoc/__init__.py",
+    "rank": 12,
+    "score": 30.2545,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "tests/test_ext_autodoc_autoclass.py",
+    "rank": 13,
+    "score": 30.0559,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "tests/roots/test-ext-autodoc/target/sort_by_all.py",
+    "rank": 14,
+    "score": 29.6973,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/todo.py",
+    "rank": 15,
+    "score": 29.2942,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/napoleon/__init__.py",
+    "rank": 16,
+    "score": 29.2314,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "tests/test_domain_rst.py",
+    "rank": 17,
+    "score": 29.158,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "tests/test_util_inspect.py",
+    "rank": 18,
+    "score": 29.0952,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/extlinks.py",
+    "rank": 19,
+    "score": 28.4173,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "tests/test_ext_autodoc_configs.py",
+    "rank": 20,
+    "score": 28.1562,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

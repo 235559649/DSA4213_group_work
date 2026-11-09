@@ -1,0 +1,3 @@
+TemplateSyntaxError 'simple_keyword_only_default' received unexpected keyword argument 'kwarg'
+TemplateSyntaxError 'simple_keyword_only_default' received unexpected keyword argument 'greeting'
+TemplateSyntaxError 'simple_keyword_only_default' received unexpected keyword argument 'greeting'

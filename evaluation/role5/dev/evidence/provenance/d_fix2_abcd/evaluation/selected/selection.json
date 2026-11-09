@@ -1,0 +1,110 @@
+[
+  {
+    "task_id": "sympy__sympy-21379",
+    "condition": "A",
+    "attempt": 1,
+    "run_id": "sympy__sympy-21379_A_7a93a156",
+    "result_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-21379_A_7a93a156/run_result.json",
+    "patch_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-21379_A_7a93a156/patch.diff",
+    "patch_sha256": "55c76ca145b26b95e39e410b708cea43741890b55245f08430aaa69885dd96f5"
+  },
+  {
+    "task_id": "sympy__sympy-21379",
+    "condition": "B",
+    "attempt": 1,
+    "run_id": "sympy__sympy-21379_B_08d73eba",
+    "result_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-21379_B_08d73eba/run_result.json",
+    "patch_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-21379_B_08d73eba/patch.diff",
+    "patch_sha256": "0c81254b184876b774918dd5d418b3122aeaff42b3f2798f3398696910285fa4"
+  },
+  {
+    "task_id": "sympy__sympy-21379",
+    "condition": "C",
+    "attempt": 1,
+    "run_id": "sympy__sympy-21379_C_fcc8739d",
+    "result_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-21379_C_fcc8739d/run_result.json",
+    "patch_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-21379_C_fcc8739d/patch.diff",
+    "patch_sha256": "30497b2aa7742f0b5c7e81e249774a414b0192be7983fe8d3f4bfa5fc560f2f5"
+  },
+  {
+    "task_id": "sympy__sympy-21379",
+    "condition": "D",
+    "attempt": 1,
+    "run_id": "sympy__sympy-21379_D_d53c8237",
+    "result_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/run_result.json",
+    "patch_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/patch.diff",
+    "patch_sha256": "20664cf58db71d4c04d2a383f96bb1055952e1060deca6177915041812a8bb45"
+  },
+  {
+    "task_id": "django__django-12262",
+    "condition": "A",
+    "attempt": 1,
+    "run_id": "django__django-12262_A_fdb03f0c",
+    "result_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/django__django-12262_A_fdb03f0c/run_result.json",
+    "patch_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/django__django-12262_A_fdb03f0c/patch.diff",
+    "patch_sha256": "98ea370e279ef1ea1678cd5cbaf26fb2f6b892d4bcabea4ce6cabab8f23b634f"
+  },
+  {
+    "task_id": "django__django-12262",
+    "condition": "B",
+    "attempt": 1,
+    "run_id": "django__django-12262_B_0cb25592",
+    "result_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/django__django-12262_B_0cb25592/run_result.json",
+    "patch_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/django__django-12262_B_0cb25592/patch.diff",
+    "patch_sha256": "0873408cf12f74d65f76cfe411f844b49457a5df314e52b5e3d896a1399d2648"
+  },
+  {
+    "task_id": "django__django-12262",
+    "condition": "C",
+    "attempt": 1,
+    "run_id": "django__django-12262_C_f7bea977",
+    "result_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/django__django-12262_C_f7bea977/run_result.json",
+    "patch_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/django__django-12262_C_f7bea977/patch.diff",
+    "patch_sha256": "2d75e1b212cebd636edca438098a828de51780c7093ebb0823ffe1a334e55a1f"
+  },
+  {
+    "task_id": "django__django-12262",
+    "condition": "D",
+    "attempt": 1,
+    "run_id": "django__django-12262_D_8e8f2e74",
+    "result_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/django__django-12262_D_8e8f2e74/run_result.json",
+    "patch_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/django__django-12262_D_8e8f2e74/patch.diff",
+    "patch_sha256": "e88a22aa975c7bd397b0a9ec7b7d25608ea98f0f473d1dcece443d15d8c1f400"
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "A",
+    "attempt": 2,
+    "run_id": "sympy__sympy-20438_A_f83ce396",
+    "result_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_2/runs/sympy__sympy-20438_A_f83ce396/run_result.json",
+    "patch_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_2/runs/sympy__sympy-20438_A_f83ce396/patch.diff",
+    "patch_sha256": "af6a9096ac53a48398b0185494de011d227948c3e3c568177ffa9ab958907411"
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "B",
+    "attempt": 1,
+    "run_id": "sympy__sympy-20438_B_156e5618",
+    "result_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-20438_B_156e5618/run_result.json",
+    "patch_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-20438_B_156e5618/patch.diff",
+    "patch_sha256": "c3af528d2ae19e4c48af3e92c3b2a3175db7b527fb3e335fdaeab486d22b8a3d"
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "C",
+    "attempt": 1,
+    "run_id": "sympy__sympy-20438_C_9370bc0e",
+    "result_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-20438_C_9370bc0e/run_result.json",
+    "patch_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-20438_C_9370bc0e/patch.diff",
+    "patch_sha256": "c11e4cecadaf839d59f2bdddf5dabc2416504fde3490994f07882e2e1d613f35"
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "D",
+    "attempt": 1,
+    "run_id": "sympy__sympy-20438_D_f3f4271b",
+    "result_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/run_result.json",
+    "patch_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/patch.diff",
+    "patch_sha256": "33aabed626168147a8ecf79956a60b3e98f9b5a5fe1faa36dcc63ca9940826f8"
+  }
+]

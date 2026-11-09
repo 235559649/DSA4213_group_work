@@ -1,0 +1,74 @@
+[
+  {
+    "task_id": "sympy__sympy-21379",
+    "condition": "A",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-21379",
+    "condition": "B",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-21379",
+    "condition": "C",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-21379",
+    "condition": "D",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "django__django-12262",
+    "condition": "A",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "django__django-12262",
+    "condition": "B",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "django__django-12262",
+    "condition": "C",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "django__django-12262",
+    "condition": "D",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "A",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "B",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "C",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "D",
+    "repeat_id": 1,
+    "attempt_id": 1
+  }
+]

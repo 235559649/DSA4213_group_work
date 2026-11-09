@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/core/evalf.py",
+    "rank": 1,
+    "score": 0.0327868852,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/containers.py",
+    "rank": 2,
+    "score": 0.0322580645,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/operations.py",
+    "rank": 3,
+    "score": 0.0317460317,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/function.py",
+    "rank": 4,
+    "score": 0.03125,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/utilities/pytest.py",
+    "rank": 5,
+    "score": 0.0307692308,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/polys/polyoptions.py",
+    "rank": 6,
+    "score": 0.0303030303,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/geometry/ellipse.py",
+    "rank": 7,
+    "score": 0.0298507463,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "release/fabfile.py",
+    "rank": 9,
+    "score": 0.0289855072,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/integrals/risch.py",
+    "rank": 10,
+    "score": 0.0285714286,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/sympify.py",
+    "rank": 11,
+    "score": 0.0277777778,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/compatibility.py",
+    "rank": 12,
+    "score": 0.0274178404,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/relational.py",
+    "rank": 13,
+    "score": 0.0251414205,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/expr.py",
+    "rank": 14,
+    "score": 0.0250156348,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/basic.py",
+    "rank": 15,
+    "score": 0.0236472388,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/numbers.py",
+    "rank": 16,
+    "score": 0.0234036797,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/geometry/line.py",
+    "rank": 17,
+    "score": 0.0223470662,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/mul.py",
+    "rank": 18,
+    "score": 0.0220238095,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/functions/elementary/exponential.py",
+    "rank": 19,
+    "score": 0.0215053763,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/polys/polytools.py",
+    "rank": 20,
+    "score": 0.0207336523,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/functions/elementary/complexes.py",
+    "rank": 21,
+    "score": 0.0203470357,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  }
+]

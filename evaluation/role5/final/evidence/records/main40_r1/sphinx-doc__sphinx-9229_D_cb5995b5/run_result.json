@@ -1,0 +1,116 @@
+{
+  "run_id": "sphinx-doc__sphinx-9229_D_cb5995b5",
+  "task_id": "sphinx-doc__sphinx-9229",
+  "condition": "D",
+  "model": "openai/gpt-5.4-mini",
+  "mini_swe_agent_version": "2.4.6",
+  "status": "completed",
+  "termination_reason": "Submitted",
+  "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9229_D_cb5995b5/trajectory.json",
+  "patch_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9229_D_cb5995b5/patch.diff",
+  "runtime_seconds": 18.07809281349182,
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "api_calls": 7,
+    "cost_usd": 0.024752999999999997
+  },
+  "config": {
+    "failure_weight": 1.0,
+    "ranking_strategy": "near_exception",
+    "fusion_policy": "weighted_rrf",
+    "k": 60,
+    "feedback_routing_policy": "evidence_increment_v3",
+    "feedback_route_limits": {
+      "rank_update": 3,
+      "edit_recovery": 2,
+      "diagnostic_only": 1
+    },
+    "repair_guidance_version": "disabled",
+    "benchmark": "swebench",
+    "split": "test",
+    "instance_id": "sphinx-doc__sphinx-9229",
+    "repo": "sphinx-doc/sphinx",
+    "version": "4.1",
+    "base_commit": "876fa81e0a038cda466925b85ccf6c5452e0f685",
+    "model_class": "openrouter",
+    "repository_index": {
+      "instance_id": "sphinx-doc__sphinx-9229",
+      "repo": "sphinx-doc/sphinx",
+      "base_commit": "876fa81e0a038cda466925b85ccf6c5452e0f685",
+      "index_sha256": "433a748ec721273557cb1bb803ef82331ea54a7a10480b5c7847c4461db6e3d5",
+      "file_count": 541,
+      "record_count": 7594,
+      "error_count": 0
+    },
+    "localization_source": "rrf_l_s_f",
+    "localization_candidate_count": 541,
+    "localization_full_ranking_size": 541,
+    "localization_top_k": 20,
+    "localization_prompt_candidate_count": 20,
+    "localization_prompt_policy": "source_only+related_tests_v1",
+    "localization_related_tests": [
+      "tests/test_ext_napoleon_docstring.py",
+      "sphinx/testing/path.py",
+      "tests/test_metadata.py"
+    ],
+    "effective_task_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9229_D_cb5995b5/effective_task.txt",
+    "localization_candidates_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9229_D_cb5995b5/localization_candidates.json",
+    "prompt_candidates_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9229_D_cb5995b5/prompt_candidates.json",
+    "step_limit": 250,
+    "cost_limit": 3.0,
+    "wall_time_limit_seconds": 0,
+    "command_timeout_seconds": 60,
+    "docker_image": "docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-9229:latest",
+    "timing": {
+      "env_setup_seconds": 0.226,
+      "agent_seconds": 16.15,
+      "env_teardown_seconds": 0.001
+    },
+    "failure_feedback": {
+      "failure_weight": 1.0,
+      "ranking_strategy": "near_exception",
+      "fusion_policy": "weighted_rrf",
+      "k": 60,
+      "feedback_routing_policy": "evidence_increment_v3",
+      "feedback_route_limits": {
+        "rank_update": 3,
+        "edit_recovery": 2,
+        "diagnostic_only": 1
+      },
+      "max_updates": 3,
+      "context_top_k": 20,
+      "feedback_route_counts": {
+        "rank_update": 0,
+        "edit_recovery": 0,
+        "diagnostic_only": 0
+      },
+      "ranking_updates_applied": 0,
+      "recovery_messages_applied": 0,
+      "diagnostic_messages_applied": 0,
+      "observations_recorded": 15,
+      "failures_observed": 0,
+      "actions_observed": 15,
+      "process_failures": 0,
+      "evidence_observations": 0,
+      "analyses_completed": 0,
+      "runtime_snapshots_attempted": 0,
+      "updates_applied": 0,
+      "localization_overhead_seconds": 1.7150872160200379,
+      "initial_localization_seconds": 1.6982605340017471,
+      "feedback_total_seconds": 0.0167914049961837,
+      "initial_LS_fixed": true,
+      "failure_signal": "status_or_observation_v2_first_eligible",
+      "provenance_policy": "execution_metadata_or_conservative_single_command_form",
+      "deduplication": "delivered_evidence_increment_and_final_context_with_workspace_and_index_scope",
+      "log_directory": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-9229_D_cb5995b5/failure_feedback"
+    }
+  },
+  "evaluation": {
+    "agent_run_completed": true,
+    "submission_present": true,
+    "patch_generated": true,
+    "official_swebench_evaluation": null
+  },
+  "error": null
+}

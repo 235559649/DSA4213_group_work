@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/core/evalf.py",
+    "rank": 1,
+    "score": 110.9661,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/containers.py",
+    "rank": 2,
+    "score": 75.3787,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/operations.py",
+    "rank": 3,
+    "score": 69.3709,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/function.py",
+    "rank": 4,
+    "score": 68.4479,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/pytest.py",
+    "rank": 5,
+    "score": 66.1345,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/polys/polyoptions.py",
+    "rank": 6,
+    "score": 60.5317,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/geometry/ellipse.py",
+    "rank": 7,
+    "score": 58.5913,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "release/fabfile.py",
+    "rank": 9,
+    "score": 57.2154,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/integrals/risch.py",
+    "rank": 10,
+    "score": 57.211,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/quantum/qapply.py",
+    "rank": 11,
+    "score": 56.2452,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/sympify.py",
+    "rank": 12,
+    "score": 54.8455,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/integrals/rubi/__init__.py",
+    "rank": 13,
+    "score": 54.6767,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/relational.py",
+    "rank": 14,
+    "score": 53.5437,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/compatibility.py",
+    "rank": 15,
+    "score": 53.5187,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/polys/polytools.py",
+    "rank": 16,
+    "score": 53.2966,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/secondquant.py",
+    "rank": 17,
+    "score": 53.0704,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/expr.py",
+    "rank": 18,
+    "score": 52.9767,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/basic.py",
+    "rank": 19,
+    "score": 52.9597,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/codegen/ast.py",
+    "rank": 20,
+    "score": 52.5462,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/polys/ring_series.py",
+    "rank": 21,
+    "score": 52.0148,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

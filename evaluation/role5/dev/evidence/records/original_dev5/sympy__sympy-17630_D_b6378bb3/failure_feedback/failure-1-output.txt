@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 167, in _blockmul
+    return BlockMatrix(self.blocks*other.blocks)
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 86, in __new__
+    raise ValueError(filldedent('''
+ValueError: 
+expecting a sequence of 1 or more rows containing Matrices.

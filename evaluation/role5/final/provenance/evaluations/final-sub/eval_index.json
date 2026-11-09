@@ -1,0 +1,79 @@
+{
+  "created_at": "2026-10-28T10:49:52+00:00",
+  "swebench_version": "5.0.2",
+  "dataset_name": "/root/projects/DSA4213_final_20261028/role5_eval/dataset/swebench_verified_78f471bf_test.parquet",
+  "split": "test",
+  "prefix": "final-sub",
+  "work_dir": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub",
+  "patch_source": "submission",
+  "batches": [
+    {
+      "harness_run_id": "final-sub-r1-B",
+      "model_name_or_path": "final-sub_r1_B",
+      "round": 1,
+      "condition": "B",
+      "instances": 1
+    },
+    {
+      "harness_run_id": "final-sub-r1-C",
+      "model_name_or_path": "final-sub_r1_C",
+      "round": 1,
+      "condition": "C",
+      "instances": 1
+    }
+  ],
+  "evaluations": {
+    "sympy__sympy-12489_B_f24e5863": {
+      "harness_run_id": "final-sub-r1-B",
+      "patch_source": "submission",
+      "patch_source_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-12489_B_f24e5863/trajectory.json",
+      "patch_sha256": "e15061a0055d9818ccee299bb5af8da963ce00b8c2f18030ade988479cb3e2c8",
+      "log_dir": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub/logs/evaluation/final-sub-r1-B/final-sub_r1_B/sympy__sympy-12489",
+      "report_path": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub/logs/evaluation/final-sub-r1-B/final-sub_r1_B/sympy__sympy-12489/report.json",
+      "resolved": false,
+      "evaluated_patch_sha256": "e15061a0055d9818ccee299bb5af8da963ce00b8c2f18030ade988479cb3e2c8",
+      "patch_applied": true,
+      "status": "evaluated",
+      "history": [
+        {
+          "harness_run_id": "final-sub-r1-B",
+          "patch_source": "submission",
+          "patch_source_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-12489_B_f24e5863/trajectory.json",
+          "patch_sha256": "e15061a0055d9818ccee299bb5af8da963ce00b8c2f18030ade988479cb3e2c8",
+          "log_dir": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub/logs/evaluation/final-sub-r1-B/final-sub_r1_B/sympy__sympy-12489",
+          "report_path": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub/logs/evaluation/final-sub-r1-B/final-sub_r1_B/sympy__sympy-12489/report.json",
+          "resolved": false,
+          "evaluated_patch_sha256": "e15061a0055d9818ccee299bb5af8da963ce00b8c2f18030ade988479cb3e2c8",
+          "patch_applied": true,
+          "status": "evaluated"
+        }
+      ]
+    },
+    "sympy__sympy-12489_C_168aa814": {
+      "harness_run_id": "final-sub-r1-C",
+      "patch_source": "submission",
+      "patch_source_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-12489_C_168aa814/trajectory.json",
+      "patch_sha256": "5a3037083edaee463e8fa7e74124aaad9f66f39bbef007f2013d75cdfdfbf249",
+      "log_dir": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub/logs/evaluation/final-sub-r1-C/final-sub_r1_C/sympy__sympy-12489",
+      "report_path": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub/logs/evaluation/final-sub-r1-C/final-sub_r1_C/sympy__sympy-12489/report.json",
+      "resolved": false,
+      "evaluated_patch_sha256": "5a3037083edaee463e8fa7e74124aaad9f66f39bbef007f2013d75cdfdfbf249",
+      "patch_applied": true,
+      "status": "evaluated",
+      "history": [
+        {
+          "harness_run_id": "final-sub-r1-C",
+          "patch_source": "submission",
+          "patch_source_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-12489_C_168aa814/trajectory.json",
+          "patch_sha256": "5a3037083edaee463e8fa7e74124aaad9f66f39bbef007f2013d75cdfdfbf249",
+          "log_dir": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub/logs/evaluation/final-sub-r1-C/final-sub_r1_C/sympy__sympy-12489",
+          "report_path": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub/logs/evaluation/final-sub-r1-C/final-sub_r1_C/sympy__sympy-12489/report.json",
+          "resolved": false,
+          "evaluated_patch_sha256": "5a3037083edaee463e8fa7e74124aaad9f66f39bbef007f2013d75cdfdfbf249",
+          "patch_applied": true,
+          "status": "evaluated"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/physics/control/lti.py",
+    "rank": 1,
+    "score": 58.5363,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/_print_helpers.py",
+    "rank": 2,
+    "score": 55.6389,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/diophantine/diophantine.py",
+    "rank": 3,
+    "score": 54.6503,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/exprtools.py",
+    "rank": 4,
+    "score": 53.4718,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/matchpy_connector.py",
+    "rank": 6,
+    "score": 52.8904,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/printing/latex.py",
+    "rank": 7,
+    "score": 52.2695,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/categories/diagram_drawing.py",
+    "rank": 8,
+    "score": 51.1466,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/polys/ring_series.py",
+    "rank": 10,
+    "score": 50.4659,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/quantum/sho1d.py",
+    "rank": 11,
+    "score": 50.3096,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/secondquant.py",
+    "rank": 12,
+    "score": 50.0893,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/calculus/util.py",
+    "rank": 13,
+    "score": 50.0669,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/quantum/commutator.py",
+    "rank": 14,
+    "score": 50.0366,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/interactive/printing.py",
+    "rank": 15,
+    "score": 50.0107,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/assumptions.py",
+    "rank": 16,
+    "score": 48.8061,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/basic.py",
+    "rank": 17,
+    "score": 48.7889,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/coset_table.py",
+    "rank": 19,
+    "score": 48.5417,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/integrals/risch.py",
+    "rank": 22,
+    "score": 47.7133,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/polyhedron.py",
+    "rank": 23,
+    "score": 47.3671,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/expr.py",
+    "rank": 24,
+    "score": 47.3357,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/quantum/qapply.py",
+    "rank": 25,
+    "score": 47.142,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

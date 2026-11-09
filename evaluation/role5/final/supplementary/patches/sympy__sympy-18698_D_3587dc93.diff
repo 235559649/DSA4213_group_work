@@ -1,0 +1,22 @@
+diff --git a/sympy/polys/polytools.py b/sympy/polys/polytools.py
+3:--- a/sympy/polys/polytools.py
+4:+++ b/sympy/polys/polytools.py
+COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT
+diff --git a/sympy/polys/polytools.py b/sympy/polys/polytools.py
+index c9e77a901f..8de4513436 100755
+--- a/sympy/polys/polytools.py
++++ b/sympy/polys/polytools.py
+@@ -5880,12 +5880,12 @@ def _sorted_factors(factors, method):
+         def key(obj):
+             poly, exp = obj
+             rep = poly.rep.rep
+-            return (exp, len(rep), len(poly.gens), rep)
++            return (exp, poly.degree(), len(poly.gens), rep)
+     else:
+         def key(obj):
+             poly, exp = obj
+             rep = poly.rep.rep
+-            return (len(rep), len(poly.gens), exp, rep)
++            return (poly.degree(), len(poly.gens), exp, rep)
+ 
+     return sorted(factors, key=key)

@@ -1,0 +1,162 @@
+[
+  {
+    "file": "django/core/management/__init__.py",
+    "rank": 1,
+    "score": 64.1651,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/migrations/autodetector.py",
+    "rank": 2,
+    "score": 62.2684,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/base.py",
+    "rank": 3,
+    "score": 58.2221,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/commands/test.py",
+    "rank": 4,
+    "score": 53.3341,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/commands/sqlmigrate.py",
+    "rank": 6,
+    "score": 45.7137,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/commands/migrate.py",
+    "rank": 8,
+    "score": 45.3411,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/commands/startproject.py",
+    "rank": 10,
+    "score": 42.576,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/commands/squashmigrations.py",
+    "rank": 11,
+    "score": 42.3485,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/commands/showmigrations.py",
+    "rank": 12,
+    "score": 40.5165,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/commands/shell.py",
+    "rank": 15,
+    "score": 39.8372,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/migrations/questioner.py",
+    "rank": 17,
+    "score": 38.6263,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/auth/management/commands/createsuperuser.py",
+    "rank": 19,
+    "score": 38.4209,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/commands/inspectdb.py",
+    "rank": 20,
+    "score": 38.2763,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/utils/datastructures.py",
+    "rank": 21,
+    "score": 38.0893,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/commands/makemigrations.py",
+    "rank": 23,
+    "score": 37.4657,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/migrations/graph.py",
+    "rank": 24,
+    "score": 37.3238,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/options.py",
+    "rank": 25,
+    "score": 37.0701,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/commands/sqlflush.py",
+    "rank": 26,
+    "score": 35.5922,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/commands/flush.py",
+    "rank": 27,
+    "score": 35.3595,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/utils/autoreload.py",
+    "rank": 28,
+    "score": 35.1439,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

@@ -1,0 +1,11 @@
+diff --git a/sphinx/parsers.py b/sphinx/parsers.py
+index 3bcd69f52..c729ac31e 100755
+--- a/sphinx/parsers.py
++++ b/sphinx/parsers.py
+@@ -76,7 +76,6 @@ class RSTParser(docutils.parsers.rst.Parser, Parser):
+         else:
+             inputlines = inputstring
+ 
+-        self.decorate(inputlines)
+         self.statemachine.run(inputlines, document, inliner=self.inliner)
+         self.finish_parse()

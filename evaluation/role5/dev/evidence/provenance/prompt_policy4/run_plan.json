@@ -1,0 +1,98 @@
+[
+  {
+    "task_id": "sphinx-doc__sphinx-8595",
+    "condition": "A",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-8595",
+    "condition": "B",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-8595",
+    "condition": "C",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-8595",
+    "condition": "D",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-17630",
+    "condition": "A",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-17630",
+    "condition": "B",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-17630",
+    "condition": "C",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-17630",
+    "condition": "D",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-23262",
+    "condition": "A",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-23262",
+    "condition": "B",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-23262",
+    "condition": "C",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-23262",
+    "condition": "D",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "A",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "B",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "C",
+    "repeat_id": 1,
+    "attempt_id": 1
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "D",
+    "repeat_id": 1,
+    "attempt_id": 1
+  }
+]

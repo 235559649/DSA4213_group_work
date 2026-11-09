@@ -1,0 +1,3 @@
+simple_keyword_only_default - Expected result: 42
+simple_keyword_only_default - Expected result: 37
+TemplateSyntaxError 'simple_unlimited_args_kwargs' received multiple values for keyword argument 'eggs'

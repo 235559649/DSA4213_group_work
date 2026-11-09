@@ -1,0 +1,57 @@
+import pattern not found
+Traceback (most recent call last):
+  File "/testbed/sympy/core/assumptions.py", line 454, in getit
+    return self._assumptions[fact]
+KeyError: 'zero'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "/testbed/sympy/core/basic.py", line 949, in subs
+    rv = rv._subs(old, new, **kwargs)
+  File "/testbed/sympy/core/cache.py", line 72, in wrapper
+    retval = cfunc(*args, **kwargs)
+  File "/testbed/sympy/core/basic.py", line 1063, in _subs
+    rv = fallback(self, old, new)
+  File "/testbed/sympy/core/basic.py", line 1040, in fallback
+    rv = self.func(*args)
+  File "/testbed/sympy/core/cache.py", line 72, in wrapper
+    retval = cfunc(*args, **kwargs)
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/cache.py", line 72, in wrapper
+    retval = cfunc(*args, **kwargs)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/functions/elementary/exponential.py", line 369, in eval
+    if arg.is_zero:
+  File "/testbed/sympy/core/assumptions.py", line 458, in getit
+    return _ask(fact, self)
+  File "/testbed/sympy/core/assumptions.py", line 513, in _ask
+    _ask(pk, obj)
+  File "/testbed/sympy/core/assumptions.py", line 513, in _ask
+    _ask(pk, obj)
+  File "/testbed/sympy/core/assumptions.py", line 513, in _ask
+    _ask(pk, obj)
+  File "/testbed/sympy/core/assumptions.py", line 501, in _ask
+    a = evaluate(obj)
+  File "/testbed/sympy/functions/elementary/hyperbolic.py", line 254, in _eval_is_real
+    return (im%pi).is_zero
+  File "/testbed/sympy/core/decorators.py", line 266, in _func
+    return func(self, other)
+  File "/testbed/sympy/core/decorators.py", line 136, in binary_op_wrapper
+    return func(self, other)
+  File "/testbed/sympy/core/expr.py", line 280, in __mod__
+    return Mod(self, other)
+  File "/testbed/sympy/core/cache.py", line 72, in wrapper
+    retval = cfunc(*args, **kwargs)
+  File "/testbed/sympy/core/function.py", line 473, in __new__
+    result = super().__new__(cls, *args, **options)
+  File "/testbed/sympy/core/cache.py", line 72, in wrapper
+    retval = cfunc(*args, **kwargs)
+  File "/testbed/sympy/core/function.py", line 285, in __new__
+    evaluated = cls.eval(*args)
+  File "/testbed/sympy/core/mod.py", line 172, in eval
+    if p.has(Piecewise) or q.has(Piecewise):
+NameError: name 'Piecewise' is not defined

@@ -1,0 +1,30 @@
+diff --git a/sphinx/ext/napoleon/docstring.py b/sphinx/ext/napoleon/docstring.py
+index d8cb75a5f..d438e141b 100644
+--- a/sphinx/ext/napoleon/docstring.py
++++ b/sphinx/ext/napoleon/docstring.py
+@@ -58,13 +58,19 @@ def _convert_type_spec(_type: str, translations: Dict[str, str] = {}) -> str:
+     """Convert type specification to reference in reST."""
+     if _type in translations:
+         return translations[_type]
+-    else:
+-        if _type == 'None':
+-            return ':obj:`None`'
+-        else:
+-            return ':class:`%s`' % _type
+ 
+-    return _type
++    if _type == 'None':
++        return ':obj:`None`'
++
++    if '|' in _type:
++        return ' | '.join(_convert_type_spec(part.strip(), translations)
++                         for part in _type.split('|'))
++
++    if ' or ' in _type:
++        return ' or '.join(_convert_type_spec(part.strip(), translations)
++                         for part in _type.split(' or '))
++
++    return ':class:`%s`' % _type
+ 
+ 
+ class GoogleDocstring:

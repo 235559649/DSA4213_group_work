@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 412, in block_collapse
+    result = rule(expr)
+  File "/testbed/sympy/strategies/core.py", line 11, in exhaustive_rl
+    new, old = rule(expr), expr
+  File "/testbed/sympy/strategies/core.py", line 44, in chain_rl
+    expr = rule(expr)
+  File "/testbed/sympy/strategies/core.py", line 11, in exhaustive_rl
+    new, old = rule(expr), expr
+  File "/testbed/sympy/strategies/core.py", line 33, in conditioned_rl
+    return rule(expr)
+  File "/testbed/sympy/strategies/core.py", line 95, in switch_rl
+    return rl(expr)
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 486, in bc_matmul
+    matrices[i] = A._blockmul(B)
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 186, in _blockmul
+    return BlockMatrix(rows)
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 108, in __new__
+    ok = len(set([i.rows for i in r])) == 1
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 108, in <listcomp>
+    ok = len(set([i.rows for i in r])) == 1
+AttributeError: 'Zero' object has no attribute 'rows'

@@ -1,0 +1,72 @@
+{
+  "harness_runs": [
+    {
+      "harness_run_id": "final-sub-r1-B",
+      "command": [
+        "/root/projects/DSA4213_group_work/.venv/bin/python",
+        "-m",
+        "swebench.harness.run_evaluation",
+        "--dataset_name",
+        "/root/projects/DSA4213_final_20261028/role5_eval/dataset/swebench_verified_78f471bf_test.parquet",
+        "--split",
+        "test",
+        "--predictions_path",
+        "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub/predictions/final-sub-r1-B.jsonl",
+        "--run_id",
+        "final-sub-r1-B",
+        "--max_workers",
+        "2",
+        "--timeout",
+        "1800",
+        "--instance_ids",
+        "sympy__sympy-12489"
+      ],
+      "instances": [
+        "sympy__sympy-12489"
+      ],
+      "predictions": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub/predictions/final-sub-r1-B.jsonl",
+      "predictions_sha256": "10abd95a695eb8fde3ef190c42eaab5c5ece82f9870af4efeeeee15450db7f90",
+      "started_at": "2026-10-28T10:49:12+00:00",
+      "finished_at": "2026-10-28T10:49:32+00:00",
+      "returncode": 0,
+      "stdout_log": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub/harness_stdout/final-sub-r1-B.log"
+    },
+    {
+      "harness_run_id": "final-sub-r1-C",
+      "command": [
+        "/root/projects/DSA4213_group_work/.venv/bin/python",
+        "-m",
+        "swebench.harness.run_evaluation",
+        "--dataset_name",
+        "/root/projects/DSA4213_final_20261028/role5_eval/dataset/swebench_verified_78f471bf_test.parquet",
+        "--split",
+        "test",
+        "--predictions_path",
+        "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub/predictions/final-sub-r1-C.jsonl",
+        "--run_id",
+        "final-sub-r1-C",
+        "--max_workers",
+        "2",
+        "--timeout",
+        "1800",
+        "--instance_ids",
+        "sympy__sympy-12489"
+      ],
+      "instances": [
+        "sympy__sympy-12489"
+      ],
+      "predictions": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub/predictions/final-sub-r1-C.jsonl",
+      "predictions_sha256": "8ff050c44c99305879336170d8e381662306b44210850bfc5cb7eefcb442d65c",
+      "started_at": "2026-10-28T10:49:32+00:00",
+      "finished_at": "2026-10-28T10:49:52+00:00",
+      "returncode": 0,
+      "stdout_log": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/final-sub/harness_stdout/final-sub-r1-C.log"
+    }
+  ],
+  "index": "/root/projects/DSA4213_final_20261028/role5_eval/work/index/run_index.json",
+  "dataset_name": "/root/projects/DSA4213_final_20261028/role5_eval/dataset/swebench_verified_78f471bf_test.parquet",
+  "split": "test",
+  "prefix": "final-sub",
+  "swebench_version": "5.0.2",
+  "patch_source": "submission"
+}

@@ -1,0 +1,20 @@
+diff --git a/sympy/printing/pycode.py b/sympy/printing/pycode.py
+index 1877c3f92a..df98b32d08 100755
+--- a/sympy/printing/pycode.py
++++ b/sympy/printing/pycode.py
+@@ -256,6 +256,16 @@ def _print_Sum(self, expr):
+             function=self._print(expr.function),
+             loops=' '.join(loops))
+ 
++
++    def _print_tuple(self, expr):
++        if len(expr) == 1:
++            return "(%s,)" % self._print(expr[0])
++        else:
++            return "(%s)" % self.stringify(expr, ", ")
++
++    def _print_Tuple(self, expr):
++        return self._print_tuple(expr)
++
+     def _print_ImaginaryUnit(self, expr):
+         return '1j'

@@ -1,0 +1,28 @@
+{
+  "run_id": "sphinx-doc__sphinx-8595_A_d3f56a5a",
+  "agent_wall_seconds": 12.843957045000934,
+  "legacy_runtime_seconds": 12.746119499206543,
+  "human_wait_seconds": 0,
+  "setup_seconds": null,
+  "indexing_seconds": 0.09720914599893149,
+  "ranking_seconds": null,
+  "localization_overhead_seconds": null,
+  "harness_seconds": 21.74,
+  "timing_scope": {
+    "agent_wall_seconds": "From SWEbenchRunner.run() after condition normalization through Docker cleanup. Includes task loading, repository index access, localization setup, environment setup, agent execution, runtime feedback, and cleanup.",
+    "legacy_runtime_seconds": "Existing Role 1 runtime measurement starting immediately before agent/environment setup.",
+    "indexing_seconds": "Time spent obtaining repository index metadata via build_task_index.",
+    "localization_overhead_seconds": "Condition D FailureFeedbackController localization overhead when available.",
+    "harness_seconds": "Wall-clock duration measured by /usr/bin/time around the fresh official SWE-bench Harness evaluation."
+  },
+  "measurement_status": {
+    "agent_wall_seconds": "measured",
+    "legacy_runtime_seconds": "measured",
+    "indexing_seconds": "measured",
+    "setup_seconds": "not_separately_measured",
+    "ranking_seconds": "not_separately_measured",
+    "human_wait_seconds": "assumed_zero_unattended_run",
+    "harness_seconds": "measured"
+  },
+  "harness_timing_run_id": "dev5-sphinx-doc-sphinx-8595-A-d3f56a5a"
+}

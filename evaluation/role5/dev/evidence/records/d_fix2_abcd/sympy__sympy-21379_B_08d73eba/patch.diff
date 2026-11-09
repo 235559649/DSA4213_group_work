@@ -1,0 +1,23 @@
+diff --git a/sympy/functions/elementary/hyperbolic.py b/sympy/functions/elementary/hyperbolic.py
+index 860989f7c1..76b903c1fa 100755
+--- a/sympy/functions/elementary/hyperbolic.py
++++ b/sympy/functions/elementary/hyperbolic.py
+@@ -245,10 +245,15 @@ def _eval_is_real(self):
+         if arg.is_real:
+             return True
+ 
+-        # if `im` is of the form n*pi
+-        # else, check if it is a number
++        # Only attempt to deduce realness from the imaginary part when it is
++        # already clear that the imaginary part is a multiple of pi.  This
++        # avoids triggering expensive/fragile polynomial machinery on symbolic
++        # expressions such as Piecewise.
+         re, im = arg.as_real_imag()
+-        return (im%pi).is_zero
++        if im.is_zero:
++            return True
++        if getattr(im, 'is_multiple', None) and im.is_multiple(pi):
++            return True
+ 
+     def _eval_is_extended_real(self):
+         if self.args[0].is_extended_real:

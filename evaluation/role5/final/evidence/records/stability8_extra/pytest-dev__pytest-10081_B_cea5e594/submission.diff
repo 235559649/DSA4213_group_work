@@ -1,0 +1,41 @@
+diff --git a/src/_pytest/unittest.py b/src/_pytest/unittest.py
+index 851e4943b..77426c956 100644
+--- a/src/_pytest/unittest.py
++++ b/src/_pytest/unittest.py
+@@ -184,6 +184,7 @@ class TestCaseFunction(Function):
+     nofuncargs = True
+     _excinfo: Optional[List[_pytest._code.ExceptionInfo[BaseException]]] = None
+     _testcase: Optional["unittest.TestCase"] = None
++    _skipped_by_pytest: bool = False
+ 
+     def _getobj(self):
+         assert self.parent is not None
+@@ -204,9 +205,10 @@ class TestCaseFunction(Function):
+             self._request._fillfixtures()
+ 
+     def teardown(self) -> None:
+-        if self._explicit_tearDown is not None:
++        if self._explicit_tearDown is not None and not self._skipped_by_pytest:
+             self._explicit_tearDown()
+             self._explicit_tearDown = None
++        self._skipped_by_pytest = False
+         self._testcase = None
+         self._obj = None
+ 
+@@ -262,6 +264,7 @@ class TestCaseFunction(Function):
+         self._addexcinfo(rawexcinfo)
+ 
+     def addSkip(self, testcase: "unittest.TestCase", reason: str) -> None:
++        self._skipped_by_pytest = True
+         try:
+             raise pytest.skip.Exception(reason, _use_item_location=True)
+         except skip.Exception:
+@@ -316,7 +319,7 @@ class TestCaseFunction(Function):
+             # Arguably we could always postpone tearDown(), but this changes the moment where the
+             # TestCase instance interacts with the results object, so better to only do it
+             # when absolutely needed.
+-            if self.config.getoption("usepdb") and not _is_skipped(self.obj):
++            if self.config.getoption("usepdb") and not _is_skipped(self.parent.obj):
+                 self._explicit_tearDown = self._testcase.tearDown
+                 setattr(self._testcase, "tearDown", lambda *args: None)
+ 

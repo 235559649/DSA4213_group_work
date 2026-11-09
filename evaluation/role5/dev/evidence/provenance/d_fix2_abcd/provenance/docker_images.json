@@ -1,0 +1,26 @@
+[
+  {
+    "task_id": "sympy__sympy-21379",
+    "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-21379:latest",
+    "id": "sha256:5a10d273b1b5ae6e4d70c0242dc9c9ecb2e111945e6aa8093b7d1e4160b4dc3b",
+    "repo_digests": [
+      "swebench/sweb.eval.x86_64.sympy_1776_sympy-21379@sha256:5a10d273b1b5ae6e4d70c0242dc9c9ecb2e111945e6aa8093b7d1e4160b4dc3b"
+    ]
+  },
+  {
+    "task_id": "django__django-12262",
+    "image": "swebench/sweb.eval.x86_64.django_1776_django-12262:latest",
+    "id": "sha256:23c0777e08a37bd0643f7638eaca9c57d1ee16fca79b6312b8d6de7fd1b5e7da",
+    "repo_digests": [
+      "swebench/sweb.eval.x86_64.django_1776_django-12262@sha256:23c0777e08a37bd0643f7638eaca9c57d1ee16fca79b6312b8d6de7fd1b5e7da"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-20438:latest",
+    "id": "sha256:39b73ea4ac249445471138bcf090361b7c5aee24f9d4e01f273ffc86414573c9",
+    "repo_digests": [
+      "swebench/sweb.eval.x86_64.sympy_1776_sympy-20438@sha256:39b73ea4ac249445471138bcf090361b7c5aee24f9d4e01f273ffc86414573c9"
+    ]
+  }
+]

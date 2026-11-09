@@ -1,0 +1,1687 @@
+{
+  "schema_version": 1,
+  "archive_name": "role5-full-evidence-20261028.zip",
+  "archive_root": "role5-full-evidence-20261028",
+  "sha256": "2ef9db0992edefe0606c32987862956dabad4f7b7275b93294cc1b6d2face388",
+  "bytes": 7966259,
+  "evidence_file_count": 1044,
+  "omitted_file_count": 239,
+  "availability": "Prepared locally; not uploaded",
+  "download_url": null,
+  "restoration": "Extract separately and use that directory's evidence/manifest.json.",
+  "omitted_files": [
+    {
+      "id": "file-0001",
+      "path": "evidence/records/d_fix1/django__django-12262_D_6fa50936/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/django__django-12262_D_6fa50936/failure_feedback/failure_updates.jsonl",
+      "bytes": 490432,
+      "sha256": "b3fc165b1d57691271768ed62467c9c16f4d6fb26b4bc5bcc5921490048de8f6"
+    },
+    {
+      "id": "file-0002",
+      "path": "evidence/records/d_fix1/django__django-12262_D_6fa50936/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/django__django-12262_D_6fa50936/failure_feedback/initial_rankings.json",
+      "bytes": 543186,
+      "sha256": "9751a25fff53448cc4fdf56bda66753cbdfe79bc44683bf77fe05348e7ac81f1"
+    },
+    {
+      "id": "file-0003",
+      "path": "evidence/records/d_fix1/django__django-12262_D_6fa50936/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/django__django-12262_D_6fa50936/localization_candidates.json",
+      "bytes": 285116,
+      "sha256": "d0005d86dceb324928cb31bdc433d742b51acfc3eebe5b74cf07bf74bf8c7bfb"
+    },
+    {
+      "id": "file-0004",
+      "path": "evidence/records/d_fix1/django__django-12262_D_6fa50936/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/django__django-12262_D_6fa50936/official/test_output.txt",
+      "bytes": 19506,
+      "sha256": "5e854d941cbdd2ec18fdfc27fb1f3035d3760e4e91d2fb29e96b33c0552ee78a"
+    },
+    {
+      "id": "file-0005",
+      "path": "evidence/records/d_fix1/django__django-12262_D_6fa50936/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/django__django-12262_D_6fa50936/trajectory.json",
+      "bytes": 188187,
+      "sha256": "215fefb7f56ef3f616142a86b214292f22038cc52fb98383650b8e6cd628e251"
+    },
+    {
+      "id": "file-0006",
+      "path": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/failure_feedback/failure_updates.jsonl",
+      "bytes": 429487,
+      "sha256": "4c35a852ab1e0f6b284b6fdea74fc707555e83e4dac7d82558c25a943bf45bdb"
+    },
+    {
+      "id": "file-0007",
+      "path": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/failure_feedback/initial_rankings.json",
+      "bytes": 612657,
+      "sha256": "bb048e3fd9feb68561617537a77e65145fbadae152e353d6d0b8d3e1cc236523"
+    },
+    {
+      "id": "file-0008",
+      "path": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/localization_candidates.json",
+      "bytes": 251654,
+      "sha256": "53d0cd88ba4c4b335457f5c642cd6f1f5f96d53f74af72cbd9e5e8e1e70eae37"
+    },
+    {
+      "id": "file-0009",
+      "path": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/official/test_output.txt",
+      "bytes": 19486,
+      "sha256": "10c2d96379bc9321fe4bb12de76750be8569a5beb2981b990a22784e1b5eddf3"
+    },
+    {
+      "id": "file-0010",
+      "path": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/trajectory.json",
+      "bytes": 219978,
+      "sha256": "53ce8e7365155b7a1b9105b85a2dcc8b915019e5adb5d8f505088c24159932fa"
+    },
+    {
+      "id": "file-0011",
+      "path": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/failure_feedback/failure_updates.jsonl",
+      "bytes": 950201,
+      "sha256": "5e30c31e2d33793a3cc63a27700706e1859be899289f6c9d6080de4165212f35"
+    },
+    {
+      "id": "file-0012",
+      "path": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/failure_feedback/initial_rankings.json",
+      "bytes": 650679,
+      "sha256": "c307e9565035161d5121d085bb7dfbff4de8a26cdeba26b5538b1b7d8b9930c3"
+    },
+    {
+      "id": "file-0013",
+      "path": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/localization_candidates.json",
+      "bytes": 261332,
+      "sha256": "f3fa3a82c895a24af03bc9f71acf270b7cc059ff1fc777ebb0ea97b5473f6353"
+    },
+    {
+      "id": "file-0014",
+      "path": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/official/test_output.txt",
+      "bytes": 451302,
+      "sha256": "22ba038bf961ebc5d1f93f315ff3deed56e9d7fa750eaba5c52e7fda24f3b090"
+    },
+    {
+      "id": "file-0015",
+      "path": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/trajectory.json",
+      "bytes": 185380,
+      "sha256": "04575d05289c430d48c9af68db50ed56f9eb85f4e37f0acac8b2325a619bade0"
+    },
+    {
+      "id": "file-0016",
+      "path": "evidence/records/d_fix2_abcd/django__django-12262_A_fdb03f0c/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/django__django-12262_A_fdb03f0c/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0017",
+      "path": "evidence/records/d_fix2_abcd/django__django-12262_A_fdb03f0c/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/django__django-12262_A_fdb03f0c/official/test_output.txt",
+      "bytes": 18362,
+      "sha256": "cb8b9a9ff274571cdfc262579ccebad12ccd3c489ebab65d9f52d29cb335b7e0"
+    },
+    {
+      "id": "file-0018",
+      "path": "evidence/records/d_fix2_abcd/django__django-12262_A_fdb03f0c/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/django__django-12262_A_fdb03f0c/trajectory.json",
+      "bytes": 164336,
+      "sha256": "eb9dbc2aa8589b197e29c35ca7cefa0dccc29ee79e2c9345ecebab0859c64bc8"
+    },
+    {
+      "id": "file-0019",
+      "path": "evidence/records/d_fix2_abcd/django__django-12262_B_0cb25592/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/django__django-12262_B_0cb25592/localization_candidates.json",
+      "bytes": 269600,
+      "sha256": "131ce622fcbc8e676c9cea420d42c325e526533dcc13c742dc87919d29b458ec"
+    },
+    {
+      "id": "file-0020",
+      "path": "evidence/records/d_fix2_abcd/django__django-12262_B_0cb25592/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/django__django-12262_B_0cb25592/official/test_output.txt",
+      "bytes": 17498,
+      "sha256": "3992eeedc2243f29eba4ea8dbaba2f9fe804a479c5ede69512c76a529f8bace3"
+    },
+    {
+      "id": "file-0021",
+      "path": "evidence/records/d_fix2_abcd/django__django-12262_B_0cb25592/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/django__django-12262_B_0cb25592/trajectory.json",
+      "bytes": 179437,
+      "sha256": "7986765387698bf244bfa8196b553a02c94e5a6f86e9f1d4ca107474f26bd1bf"
+    },
+    {
+      "id": "file-0022",
+      "path": "evidence/records/d_fix2_abcd/django__django-12262_C_f7bea977/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/django__django-12262_C_f7bea977/localization_candidates.json",
+      "bytes": 276986,
+      "sha256": "59d7e39f31503ad72f966a73f682dfd95fac15817825a8af1179db17d1e729c6"
+    },
+    {
+      "id": "file-0023",
+      "path": "evidence/records/d_fix2_abcd/django__django-12262_C_f7bea977/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/django__django-12262_C_f7bea977/official/test_output.txt",
+      "bytes": 16649,
+      "sha256": "f678d4e9ff14cbc9bb31e086cb676feeda6e487ad3254931d3cebfdec4d4829e"
+    },
+    {
+      "id": "file-0024",
+      "path": "evidence/records/d_fix2_abcd/django__django-12262_C_f7bea977/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/django__django-12262_C_f7bea977/trajectory.json",
+      "bytes": 123862,
+      "sha256": "1789ef2b29d4566a1c88d94b3b90be8575f588dc5268837c9e4155956beadc78"
+    },
+    {
+      "id": "file-0025",
+      "path": "evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/failure_feedback/failure_updates.jsonl",
+      "bytes": 1457053,
+      "sha256": "05e35ce9aca7797814625f38f75f28e0a7cd5712b13e76e126c15ddc0fd84e02"
+    },
+    {
+      "id": "file-0026",
+      "path": "evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/failure_feedback/initial_rankings.json",
+      "bytes": 543112,
+      "sha256": "a5c9e2bc5b33400259328cfa72786f1cdc6c7c1bdd9e344919ac544de368a268"
+    },
+    {
+      "id": "file-0027",
+      "path": "evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/localization_candidates.json",
+      "bytes": 285116,
+      "sha256": "d0005d86dceb324928cb31bdc433d742b51acfc3eebe5b74cf07bf74bf8c7bfb"
+    },
+    {
+      "id": "file-0028",
+      "path": "evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/official/test_output.txt",
+      "bytes": 18836,
+      "sha256": "2af21cdfb661c36201c26a1070d61f42e1c7677429c263906846f1162d1b0591"
+    },
+    {
+      "id": "file-0029",
+      "path": "evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/trajectory.json",
+      "bytes": 238621,
+      "sha256": "35bffe75ef65b298f6fe9c1914a24172733fec4ef0c77724424750ddcba0dbfd"
+    },
+    {
+      "id": "file-0030",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_771ea469/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_A_771ea469/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0031",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_771ea469/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_A_771ea469/trajectory.json",
+      "bytes": 163195,
+      "sha256": "46b0bf8beda5218afb78b60316a6a9335a0adae5fb8eb2e5fad5e54e983ed407"
+    },
+    {
+      "id": "file-0032",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_f83ce396/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_A_f83ce396/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0033",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_f83ce396/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_A_f83ce396/official/test_output.txt",
+      "bytes": 18265,
+      "sha256": "e040bb6517cf47ea774dd15b2f9a6fb75f5c5e2223d71dea47b0543ad094cd67"
+    },
+    {
+      "id": "file-0034",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_f83ce396/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_A_f83ce396/trajectory.json",
+      "bytes": 195567,
+      "sha256": "4e1a8f18ff2d51742ee19ead99fc4dddf9b3d5398827428d3e138a93bdd6c529"
+    },
+    {
+      "id": "file-0035",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_B_156e5618/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_B_156e5618/localization_candidates.json",
+      "bytes": 238328,
+      "sha256": "bc7253ac2c08ea36d05df4ab00fa24c2c220cac3a8c5cd6e7f275a6be02c7f1c"
+    },
+    {
+      "id": "file-0036",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_B_156e5618/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_B_156e5618/official/test_output.txt",
+      "bytes": 21484,
+      "sha256": "664800f364eec471900f5ef1664e12bab633ce1f8e44dceb72406d46d4a4d434"
+    },
+    {
+      "id": "file-0037",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_B_156e5618/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_B_156e5618/trajectory.json",
+      "bytes": 165905,
+      "sha256": "897d00801c2d1c51329ba437106b510176d6c89483d10357df424f0ab9b7c21e"
+    },
+    {
+      "id": "file-0038",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_C_9370bc0e/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_C_9370bc0e/localization_candidates.json",
+      "bytes": 244409,
+      "sha256": "0a353471fe8bfa14ea49f77ad6fabeecf506b19b3f290d654ff010172b4db729"
+    },
+    {
+      "id": "file-0039",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_C_9370bc0e/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_C_9370bc0e/official/test_output.txt",
+      "bytes": 21549,
+      "sha256": "8aa888969fdbaefc5b33a79e5385ecf8d47c1086f7247e0438efe7a55c310c60"
+    },
+    {
+      "id": "file-0040",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_C_9370bc0e/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_C_9370bc0e/trajectory.json",
+      "bytes": 173046,
+      "sha256": "7c37170a9fed19846dc4fd12977138e87f50d54d329da95697c5251dea9a2054"
+    },
+    {
+      "id": "file-0041",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/failure_feedback/failure_updates.jsonl",
+      "bytes": 673826,
+      "sha256": "9b083aeecdf7d062d7a9a9f2ace8a2528139ebf7be30ffebef068499017c1824"
+    },
+    {
+      "id": "file-0042",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/failure_feedback/initial_rankings.json",
+      "bytes": 612668,
+      "sha256": "c434720fd1e566b8c376c200ab4aa98683050dcf773d803adb1ee74b6758ccf6"
+    },
+    {
+      "id": "file-0043",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/localization_candidates.json",
+      "bytes": 251654,
+      "sha256": "53d0cd88ba4c4b335457f5c642cd6f1f5f96d53f74af72cbd9e5e8e1e70eae37"
+    },
+    {
+      "id": "file-0044",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/official/test_output.txt",
+      "bytes": 17665,
+      "sha256": "574a20143a7bb84accbed5eac3852d490528e0053f67b62734c7427c32658e21"
+    },
+    {
+      "id": "file-0045",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/trajectory.json",
+      "bytes": 160293,
+      "sha256": "04da4f519461e3ea9a63e50e411c6a32998f89eb9b9671418e6d33c02b7f8b6e"
+    },
+    {
+      "id": "file-0046",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-21379_A_7a93a156/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-21379_A_7a93a156/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0047",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-21379_A_7a93a156/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-21379_A_7a93a156/official/test_output.txt",
+      "bytes": 453937,
+      "sha256": "db1636f92c964bdd58f354a8ed2606cb58f9f0067b0bdf9546d5aec987fcfc32"
+    },
+    {
+      "id": "file-0048",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-21379_A_7a93a156/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-21379_A_7a93a156/trajectory.json",
+      "bytes": 257372,
+      "sha256": "6d9cb613ad067670082e35f34edf8cb955a2ae43552b4160cba543273b4f5cb8"
+    },
+    {
+      "id": "file-0049",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-21379_B_08d73eba/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-21379_B_08d73eba/localization_candidates.json",
+      "bytes": 247667,
+      "sha256": "b462ce578a04c087d3291080df7070b46d28709902dff1384079214818991054"
+    },
+    {
+      "id": "file-0050",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-21379_B_08d73eba/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-21379_B_08d73eba/official/test_output.txt",
+      "bytes": 452774,
+      "sha256": "82b9610445dd8ee200657ec7084399dbf99398e45111a7a577607ba3cc73ca72"
+    },
+    {
+      "id": "file-0051",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-21379_B_08d73eba/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-21379_B_08d73eba/trajectory.json",
+      "bytes": 145221,
+      "sha256": "d1fe41bbfde91cd3b2851c1f22c399670ab897902c469d6e0b9a81fb645ddcd9"
+    },
+    {
+      "id": "file-0052",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-21379_C_fcc8739d/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-21379_C_fcc8739d/localization_candidates.json",
+      "bytes": 253822,
+      "sha256": "2ecc3735c80ae3a3b42c21831cd011e6bd281a83be9fe49a608b651405ad554e"
+    },
+    {
+      "id": "file-0053",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-21379_C_fcc8739d/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-21379_C_fcc8739d/official/test_output.txt",
+      "bytes": 452953,
+      "sha256": "2b5377ca773de01ceb1e3cf826fc405f3f370c09227ec23cb548b9cb4f2228d5"
+    },
+    {
+      "id": "file-0054",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-21379_C_fcc8739d/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-21379_C_fcc8739d/trajectory.json",
+      "bytes": 141513,
+      "sha256": "59d35d4034ce68ed02825592904c4ffee5fef5e73cfaf91d2aa045cf2b0d7439"
+    },
+    {
+      "id": "file-0055",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/failure_feedback/failure_updates.jsonl",
+      "bytes": 5298112,
+      "sha256": "f9a6c05b33eb9f6c47696f7ef9475a8cca9474d0d1cbc4623478074c4c863282"
+    },
+    {
+      "id": "file-0056",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/failure_feedback/initial_rankings.json",
+      "bytes": 650719,
+      "sha256": "8dc7193591e44487424a17c4297e720cc873aa26ab578c28fb20db8c9d762a35"
+    },
+    {
+      "id": "file-0057",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/localization_candidates.json",
+      "bytes": 261332,
+      "sha256": "f3fa3a82c895a24af03bc9f71acf270b7cc059ff1fc777ebb0ea97b5473f6353"
+    },
+    {
+      "id": "file-0058",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/official/test_output.txt",
+      "bytes": 452665,
+      "sha256": "ede30a751ef8804c057abb95a0a01314af0de65eb1657cf01aad7a8af67e9f9d"
+    },
+    {
+      "id": "file-0059",
+      "path": "evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/trajectory.json",
+      "bytes": 312167,
+      "sha256": "0815f8a3ec3936c6e7d5f0a1b3924451d730e3b418c39b6cdf2ca40e621db828"
+    },
+    {
+      "id": "file-0060",
+      "path": "evidence/records/original_dev3/django__django-12262_A_4aedcb24/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_A_4aedcb24/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0061",
+      "path": "evidence/records/original_dev3/django__django-12262_A_4aedcb24/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_A_4aedcb24/official/test_output.txt",
+      "bytes": 15974,
+      "sha256": "9ed5b58956df03b12fa332f7750ae014eda0f4541f81e4bbbf143dffa56e447c"
+    },
+    {
+      "id": "file-0062",
+      "path": "evidence/records/original_dev3/django__django-12262_A_4aedcb24/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_A_4aedcb24/trajectory.json",
+      "bytes": 55193,
+      "sha256": "e89547872e384cfc596c3e3ddf9ef49b7c853c638645e69330a84ac95f39a09e"
+    },
+    {
+      "id": "file-0063",
+      "path": "evidence/records/original_dev3/django__django-12262_A_a44e4d1e/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_A_a44e4d1e/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0064",
+      "path": "evidence/records/original_dev3/django__django-12262_B_07bad546/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_B_07bad546/localization_candidates.json",
+      "bytes": 269600,
+      "sha256": "131ce622fcbc8e676c9cea420d42c325e526533dcc13c742dc87919d29b458ec"
+    },
+    {
+      "id": "file-0065",
+      "path": "evidence/records/original_dev3/django__django-12262_B_07bad546/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_B_07bad546/official/test_output.txt",
+      "bytes": 19330,
+      "sha256": "f0f75801a75862e83a62a278ed12f1058367cae68ff234fddab36a332366844b"
+    },
+    {
+      "id": "file-0066",
+      "path": "evidence/records/original_dev3/django__django-12262_B_07bad546/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_B_07bad546/trajectory.json",
+      "bytes": 146530,
+      "sha256": "385efa0c2bbcb809f7234cb0a8c9d18617511d0fbc901747cd66ce288bbac09b"
+    },
+    {
+      "id": "file-0067",
+      "path": "evidence/records/original_dev3/django__django-12262_B_682184bf/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_B_682184bf/localization_candidates.json",
+      "bytes": 269600,
+      "sha256": "131ce622fcbc8e676c9cea420d42c325e526533dcc13c742dc87919d29b458ec"
+    },
+    {
+      "id": "file-0068",
+      "path": "evidence/records/original_dev3/django__django-12262_C_530a2f4d/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_C_530a2f4d/localization_candidates.json",
+      "bytes": 276986,
+      "sha256": "59d7e39f31503ad72f966a73f682dfd95fac15817825a8af1179db17d1e729c6"
+    },
+    {
+      "id": "file-0069",
+      "path": "evidence/records/original_dev3/django__django-12262_C_530a2f4d/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_C_530a2f4d/official/test_output.txt",
+      "bytes": 18617,
+      "sha256": "32bebc9f42c471d6e69760cd838637c6b02065ce2b367e45803ab12749f853f9"
+    },
+    {
+      "id": "file-0070",
+      "path": "evidence/records/original_dev3/django__django-12262_C_530a2f4d/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_C_530a2f4d/trajectory.json",
+      "bytes": 90669,
+      "sha256": "8af42ec3986b00d89e247f47616c8210e5695c12db52791c1c317d11f8e41aba"
+    },
+    {
+      "id": "file-0071",
+      "path": "evidence/records/original_dev3/django__django-12262_C_f998ec07/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_C_f998ec07/localization_candidates.json",
+      "bytes": 276986,
+      "sha256": "59d7e39f31503ad72f966a73f682dfd95fac15817825a8af1179db17d1e729c6"
+    },
+    {
+      "id": "file-0072",
+      "path": "evidence/records/original_dev3/django__django-12262_D_e10b202e/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_D_e10b202e/failure_feedback/failure_updates.jsonl",
+      "bytes": 485762,
+      "sha256": "22e45a8dc2140eea446b26374266247558bfba192708ba3394c1fab4b465818c"
+    },
+    {
+      "id": "file-0073",
+      "path": "evidence/records/original_dev3/django__django-12262_D_e10b202e/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_D_e10b202e/failure_feedback/initial_rankings.json",
+      "bytes": 543164,
+      "sha256": "6f41085bb7f735aaabfe968d6959d997a80afbf809f2708f4e7d318a4fe5d924"
+    },
+    {
+      "id": "file-0074",
+      "path": "evidence/records/original_dev3/django__django-12262_D_e10b202e/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_D_e10b202e/localization_candidates.json",
+      "bytes": 285116,
+      "sha256": "d0005d86dceb324928cb31bdc433d742b51acfc3eebe5b74cf07bf74bf8c7bfb"
+    },
+    {
+      "id": "file-0075",
+      "path": "evidence/records/original_dev3/django__django-12262_D_e10b202e/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_D_e10b202e/official/test_output.txt",
+      "bytes": 20401,
+      "sha256": "b985be2eef800cb7baa22d5fb57f59d3972740f3d93bc51080b8e6060d7f40fa"
+    },
+    {
+      "id": "file-0076",
+      "path": "evidence/records/original_dev3/django__django-12262_D_e10b202e/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/django__django-12262_D_e10b202e/trajectory.json",
+      "bytes": 149306,
+      "sha256": "16ee60a91f6d585d00fb6828ff691471375c52c96d304c18c2120a793fd7608c"
+    },
+    {
+      "id": "file-0077",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_A_24b09c2b/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_A_24b09c2b/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0078",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0079",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/official/test_output.txt",
+      "bytes": 18720,
+      "sha256": "21147e5e7a75441488a3bc7331de24415b6ee707bf6f60e80738e4291aa6d5af"
+    },
+    {
+      "id": "file-0080",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/trajectory.json",
+      "bytes": 184249,
+      "sha256": "9a66eb8990b93e254b48512d95b6f607f6ddf83de3199dc513c1df684a2889bc"
+    },
+    {
+      "id": "file-0081",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/localization_candidates.json",
+      "bytes": 238328,
+      "sha256": "bc7253ac2c08ea36d05df4ab00fa24c2c220cac3a8c5cd6e7f275a6be02c7f1c"
+    },
+    {
+      "id": "file-0082",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/official/test_output.txt",
+      "bytes": 17866,
+      "sha256": "d43048e29d3c98fcf8ba79cd52507a3a47e96aef4fc91c674f29b4261298ff2a"
+    },
+    {
+      "id": "file-0083",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/trajectory.json",
+      "bytes": 144889,
+      "sha256": "0a6e03b6ac2a8e2a37524e693d58438e6ad41aaf43f01cef3d358f43cbfa4f69"
+    },
+    {
+      "id": "file-0084",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_B_a4e8e3f0/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_B_a4e8e3f0/localization_candidates.json",
+      "bytes": 238328,
+      "sha256": "bc7253ac2c08ea36d05df4ab00fa24c2c220cac3a8c5cd6e7f275a6be02c7f1c"
+    },
+    {
+      "id": "file-0085",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/localization_candidates.json",
+      "bytes": 244409,
+      "sha256": "0a353471fe8bfa14ea49f77ad6fabeecf506b19b3f290d654ff010172b4db729"
+    },
+    {
+      "id": "file-0086",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/official/test_output.txt",
+      "bytes": 18670,
+      "sha256": "6c3807d171b70f93282e143266d1f95cdf85a179cf2e724c760027028b0034f2"
+    },
+    {
+      "id": "file-0087",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/trajectory.json",
+      "bytes": 202540,
+      "sha256": "14b85d0f1806f79f93fcbaf2482775a99d488f654d3b93d6fc6a9ffa3d0cbb19"
+    },
+    {
+      "id": "file-0088",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_C_84d97108/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_C_84d97108/localization_candidates.json",
+      "bytes": 244409,
+      "sha256": "0a353471fe8bfa14ea49f77ad6fabeecf506b19b3f290d654ff010172b4db729"
+    },
+    {
+      "id": "file-0089",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/failure_feedback/failure_updates.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "file-0090",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/failure_feedback/initial_rankings.json",
+      "bytes": 612635,
+      "sha256": "4400748012e838c68674c877c9ef5007244ba22e7661f33d1417d726ac5a28db"
+    },
+    {
+      "id": "file-0091",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/localization_candidates.json",
+      "bytes": 251654,
+      "sha256": "53d0cd88ba4c4b335457f5c642cd6f1f5f96d53f74af72cbd9e5e8e1e70eae37"
+    },
+    {
+      "id": "file-0092",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/official/test_output.txt",
+      "bytes": 17752,
+      "sha256": "47373844ea20a1285b7080de73d36ddc2241036410edb1168185ce0cdcbcd7d0"
+    },
+    {
+      "id": "file-0093",
+      "path": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/trajectory.json",
+      "bytes": 109260,
+      "sha256": "04eecbb6e0c403e5e6fd4315f80794a8d21ad7070e73d98c6b1231f5424c9cf9"
+    },
+    {
+      "id": "file-0094",
+      "path": "evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0095",
+      "path": "evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/official/test_output.txt",
+      "bytes": 451851,
+      "sha256": "af403cb1f9f7743b3aead656104133b97b77d8cbea0aa08fb03873d76e9c48a1"
+    },
+    {
+      "id": "file-0096",
+      "path": "evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/trajectory.json",
+      "bytes": 138984,
+      "sha256": "51458c6a7e168e87537333defe53aa1d153bce30f62bdcbf69bcf52bdc8be243"
+    },
+    {
+      "id": "file-0097",
+      "path": "evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/localization_candidates.json",
+      "bytes": 247667,
+      "sha256": "b462ce578a04c087d3291080df7070b46d28709902dff1384079214818991054"
+    },
+    {
+      "id": "file-0098",
+      "path": "evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/official/test_output.txt",
+      "bytes": 452756,
+      "sha256": "a692c9d3ed048e7fd5223377506c82c80008477f939aee71e84464b1b68f60ce"
+    },
+    {
+      "id": "file-0099",
+      "path": "evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/trajectory.json",
+      "bytes": 103717,
+      "sha256": "c79ac0a91795593443f83e70fa54803bc199daa788ddc564d87c662c5e4d3696"
+    },
+    {
+      "id": "file-0100",
+      "path": "evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/localization_candidates.json",
+      "bytes": 253822,
+      "sha256": "2ecc3735c80ae3a3b42c21831cd011e6bd281a83be9fe49a608b651405ad554e"
+    },
+    {
+      "id": "file-0101",
+      "path": "evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/official/test_output.txt",
+      "bytes": 451606,
+      "sha256": "2a3512f69d5a8d4bc23e79cefe4525f2fd1f794bded55ed0c00f5f96e77d8b26"
+    },
+    {
+      "id": "file-0102",
+      "path": "evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/trajectory.json",
+      "bytes": 297956,
+      "sha256": "fac764bdb45b2aa44a8fc81d1caa78a74658e34d3b02b42e09869840d610a444"
+    },
+    {
+      "id": "file-0103",
+      "path": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/failure_feedback/failure_updates.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "file-0104",
+      "path": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/failure_feedback/initial_rankings.json",
+      "bytes": 650696,
+      "sha256": "7117da2038d3c2ffc9f0f7e806bc040bb9f9e6a556a161a84026a8b0634bf27e"
+    },
+    {
+      "id": "file-0105",
+      "path": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/localization_candidates.json",
+      "bytes": 261332,
+      "sha256": "f3fa3a82c895a24af03bc9f71acf270b7cc059ff1fc777ebb0ea97b5473f6353"
+    },
+    {
+      "id": "file-0106",
+      "path": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/official/test_output.txt",
+      "bytes": 451547,
+      "sha256": "ae475a94ce8c2368a90b21c08f49aaad153864957a580570424d2ce097503622"
+    },
+    {
+      "id": "file-0107",
+      "path": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/trajectory.json",
+      "bytes": 117210,
+      "sha256": "9eb48ab3fd2d24cbb97aa69b92ad7a4c0a5d65c3021c4160a94e00118510d986"
+    },
+    {
+      "id": "file-0108",
+      "path": "evidence/records/original_dev5/django__django-11133_A_847146cd/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_A_847146cd/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0109",
+      "path": "evidence/records/original_dev5/django__django-11133_A_8e19ca5c/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_A_8e19ca5c/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0110",
+      "path": "evidence/records/original_dev5/django__django-11133_A_8e19ca5c/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_A_8e19ca5c/official/test_output.txt",
+      "bytes": 1704510,
+      "sha256": "869780d4a4fc73417cfe8981dc981e6384964d1cd90dc5a621b234d9870c2e94"
+    },
+    {
+      "id": "file-0111",
+      "path": "evidence/records/original_dev5/django__django-11133_A_8e19ca5c/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_A_8e19ca5c/trajectory.json",
+      "bytes": 93448,
+      "sha256": "6c3d4799b92056aeeb0820fd428ec76df7a71f7ecc05c9bcd15b36d708878851"
+    },
+    {
+      "id": "file-0112",
+      "path": "evidence/records/original_dev5/django__django-11133_B_6077748b/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_B_6077748b/localization_candidates.json",
+      "bytes": 289162,
+      "sha256": "a571a754ded0bfd6ef77c8cd91ea1f6e16d94377f78c54f91b90b3989249aa74"
+    },
+    {
+      "id": "file-0113",
+      "path": "evidence/records/original_dev5/django__django-11133_B_6077748b/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_B_6077748b/official/test_output.txt",
+      "bytes": 1703892,
+      "sha256": "fe9e1cba5124f23be235618cb1d9b2a85cbda1ad2e0c719fc8cad1c91af20cc2"
+    },
+    {
+      "id": "file-0114",
+      "path": "evidence/records/original_dev5/django__django-11133_B_6077748b/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_B_6077748b/trajectory.json",
+      "bytes": 125436,
+      "sha256": "f03f71ce31e4a06ac7b8a3f769687df355fd98e034228e990b288c765d915593"
+    },
+    {
+      "id": "file-0115",
+      "path": "evidence/records/original_dev5/django__django-11133_B_e267b44c/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_B_e267b44c/localization_candidates.json",
+      "bytes": 289162,
+      "sha256": "a571a754ded0bfd6ef77c8cd91ea1f6e16d94377f78c54f91b90b3989249aa74"
+    },
+    {
+      "id": "file-0116",
+      "path": "evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/localization_candidates.json",
+      "bytes": 296778,
+      "sha256": "125d03a454e561006c9af0fe3d1e2b64d08b850e961270cf949a6f722e9ced5b"
+    },
+    {
+      "id": "file-0117",
+      "path": "evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/official/test_output.txt",
+      "bytes": 1703949,
+      "sha256": "52bbeb3ec55eb1f7a9e575748c9f73afb0c7c54a67242675591ffd52e2a5773a"
+    },
+    {
+      "id": "file-0118",
+      "path": "evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/trajectory.json",
+      "bytes": 102382,
+      "sha256": "2d28ad378b3df267472687ff83806b7efcf1af6486a7d1cef6a6d16004860cbf"
+    },
+    {
+      "id": "file-0119",
+      "path": "evidence/records/original_dev5/django__django-11133_C_b97e534e/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_C_b97e534e/localization_candidates.json",
+      "bytes": 296778,
+      "sha256": "125d03a454e561006c9af0fe3d1e2b64d08b850e961270cf949a6f722e9ced5b"
+    },
+    {
+      "id": "file-0120",
+      "path": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_D_8a58c59e/failure_feedback/failure_updates.jsonl",
+      "bytes": 518057,
+      "sha256": "36522a977144f60932dce3f7de8adfced61250ede1083e0118383fb5cea8d78d"
+    },
+    {
+      "id": "file-0121",
+      "path": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_D_8a58c59e/failure_feedback/initial_rankings.json",
+      "bytes": 600757,
+      "sha256": "3ec511b57da45c6b65e1637138459fb688d23630dd00ac8072d32aab63483d99"
+    },
+    {
+      "id": "file-0122",
+      "path": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_D_8a58c59e/localization_candidates.json",
+      "bytes": 305503,
+      "sha256": "549b79f4e6497674b9a2212b190f5d13c2d08d669f9fd60c2aab9b6519bece37"
+    },
+    {
+      "id": "file-0123",
+      "path": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_D_8a58c59e/official/test_output.txt",
+      "bytes": 1704446,
+      "sha256": "1b458a5f53a403c479105f436249ac1406a1452a989b2c291f3ebc3677e22de0"
+    },
+    {
+      "id": "file-0124",
+      "path": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/django__django-11133_D_8a58c59e/trajectory.json",
+      "bytes": 116282,
+      "sha256": "58c5bc16c5672bc9dab9f1404082a9133634d83520794942fa358a5a512a65f8"
+    },
+    {
+      "id": "file-0125",
+      "path": "evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0126",
+      "path": "evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/official/test_output.txt",
+      "bytes": 36108,
+      "sha256": "26c7ee6d904cca6ae927b1e12001de7aac50349ca81e46b0c52dfbf553d57fbe"
+    },
+    {
+      "id": "file-0127",
+      "path": "evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/trajectory.json",
+      "bytes": 81319,
+      "sha256": "b55beaa141bd3a8e0d2d6db89265475831252e9b7714bbb242ce0e482cf4daed"
+    },
+    {
+      "id": "file-0128",
+      "path": "evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/localization_candidates.json",
+      "bytes": 33600,
+      "sha256": "50946e49b181eb239423a02fe22580508b2bd3ad2fe681a59ca1f5faaac9df44"
+    },
+    {
+      "id": "file-0129",
+      "path": "evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/official/test_output.txt",
+      "bytes": 34173,
+      "sha256": "6e62976527934cf3dc02e43026f6aa3109eff3fe70e4de1bb9da40b5b61b0a5d"
+    },
+    {
+      "id": "file-0130",
+      "path": "evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/trajectory.json",
+      "bytes": 109352,
+      "sha256": "e19b699fe3cd90f57b94305503a2685dcf8ca4ced261394b51ba90c5806727ee"
+    },
+    {
+      "id": "file-0131",
+      "path": "evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/localization_candidates.json",
+      "bytes": 34910,
+      "sha256": "14d9cffdfffd034cc17bd11c790ab82d502d2e905d7e4d67c05dbc9c54a8106c"
+    },
+    {
+      "id": "file-0132",
+      "path": "evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/official/test_output.txt",
+      "bytes": 34173,
+      "sha256": "b28b56d48eb7f3a0a94d0864fe9083e9ef0e9e58ad5d9ea450a7220d85783b89"
+    },
+    {
+      "id": "file-0133",
+      "path": "evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/trajectory.json",
+      "bytes": 112059,
+      "sha256": "88a47d591a28f00bdb6c6966aa48ba837d3f4b25810119857d4ecc47fb630348"
+    },
+    {
+      "id": "file-0134",
+      "path": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/failure_feedback/failure_updates.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "file-0135",
+      "path": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/failure_feedback/initial_rankings.json",
+      "bytes": 105862,
+      "sha256": "7cbe7c02ddbf75311270b4efad1c7831e61b5b3908e1068d2351e40d52ec9d38"
+    },
+    {
+      "id": "file-0136",
+      "path": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/localization_candidates.json",
+      "bytes": 35930,
+      "sha256": "48effeca9f1775fa390261a432e3327edc990a759ed1e9eadf73dcf8578d9344"
+    },
+    {
+      "id": "file-0137",
+      "path": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/official/test_output.txt",
+      "bytes": 33914,
+      "sha256": "4cce1ff86b1ccf92088865216a9b220624a3123acb59e6d506aaea95857fcd76"
+    },
+    {
+      "id": "file-0138",
+      "path": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/trajectory.json",
+      "bytes": 107581,
+      "sha256": "2043db43544f16c335d7904ed6296b5c7060f48f7b57ea6610085461acf2f3f2"
+    },
+    {
+      "id": "file-0139",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_5511cc61/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_5511cc61/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0140",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0141",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/official/test_output.txt",
+      "bytes": 387481,
+      "sha256": "15bd390c62b31d81be13386fcd65788d04260df18e3c1327ebdd7a5016244c67"
+    },
+    {
+      "id": "file-0142",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/trajectory.json",
+      "bytes": 64871,
+      "sha256": "2cc590005d7b63179881eb93193166fab1628e403fe1f5c93ec160a7f7712337"
+    },
+    {
+      "id": "file-0143",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/localization_candidates.json",
+      "bytes": 86748,
+      "sha256": "2d59e14122ec819e1a34c539ede21e4b5f471505ae8612d746dc8e3bdc44dd5b"
+    },
+    {
+      "id": "file-0144",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/official/test_output.txt",
+      "bytes": 387027,
+      "sha256": "6d987b9e2281d234d3a9a5b41e42825d982380b2de542b49f47288efbb800584"
+    },
+    {
+      "id": "file-0145",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/trajectory.json",
+      "bytes": 82882,
+      "sha256": "321d620590e583dda42b44e8013dc63ac4d3519cba501e20d278270cb9322731"
+    },
+    {
+      "id": "file-0146",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_c6db48c1/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_c6db48c1/localization_candidates.json",
+      "bytes": 86748,
+      "sha256": "2d59e14122ec819e1a34c539ede21e4b5f471505ae8612d746dc8e3bdc44dd5b"
+    },
+    {
+      "id": "file-0147",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/localization_candidates.json",
+      "bytes": 89070,
+      "sha256": "52c017dbbc2a65da3a9407abaac73cdfa34eaa1bace7284b7199efba816f5007"
+    },
+    {
+      "id": "file-0148",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/official/test_output.txt",
+      "bytes": 387027,
+      "sha256": "188398bed8b914bb3841be345238296e8b284364abd6802f97e03ec17ede4dc7"
+    },
+    {
+      "id": "file-0149",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/trajectory.json",
+      "bytes": 75111,
+      "sha256": "554f07b5087ec939c55ab22359fe2d9159a95690c1fe8979f0e103239ff7f7d9"
+    },
+    {
+      "id": "file-0150",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_b90d1a12/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_b90d1a12/localization_candidates.json",
+      "bytes": 89070,
+      "sha256": "52c017dbbc2a65da3a9407abaac73cdfa34eaa1bace7284b7199efba816f5007"
+    },
+    {
+      "id": "file-0151",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/failure_feedback/failure_updates.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "file-0152",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/failure_feedback/initial_rankings.json",
+      "bytes": 209585,
+      "sha256": "2caa7a7116afcef744f1e1abf5a4e0db7ddbbf3ff54a6f0f57ef7aecfc6a6241"
+    },
+    {
+      "id": "file-0153",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/localization_candidates.json",
+      "bytes": 91720,
+      "sha256": "972f421047783146cba4d1e4f58d4ae0b191ba55b3c257a65ef9d5cbc4a233a1"
+    },
+    {
+      "id": "file-0154",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/official/test_output.txt",
+      "bytes": 387027,
+      "sha256": "c63f2eb83de36dbf9594bad0e768601cb42064d96f7eaf6ab995e7b4efe86419"
+    },
+    {
+      "id": "file-0155",
+      "path": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/trajectory.json",
+      "bytes": 100070,
+      "sha256": "1d76c7723a2d2f7b898e0e2d17a27958f48727235baf606c9a4b6dc0c5b623f1"
+    },
+    {
+      "id": "file-0156",
+      "path": "evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0157",
+      "path": "evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/official/test_output.txt",
+      "bytes": 407100,
+      "sha256": "7012dd23321995569d00064b239c5f125374af886eb118a24f9a5e5cb4af0413"
+    },
+    {
+      "id": "file-0158",
+      "path": "evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/trajectory.json",
+      "bytes": 125086,
+      "sha256": "8578495a7e6bb6e2b62b1021dd3f2603c0af11e8dc6ce32b59c0e0785cad2e16"
+    },
+    {
+      "id": "file-0159",
+      "path": "evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/localization_candidates.json",
+      "bytes": 220015,
+      "sha256": "b57bb68f91418435afbfd0298257aa67654c4b910a4f3be151c904c7bcfc92f6"
+    },
+    {
+      "id": "file-0160",
+      "path": "evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/official/test_output.txt",
+      "bytes": 407019,
+      "sha256": "c3b35f0f12a624d465d60f0c17594e9b4990f7d24f0c0f976b166d675cfd422f"
+    },
+    {
+      "id": "file-0161",
+      "path": "evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/trajectory.json",
+      "bytes": 135288,
+      "sha256": "7327d230eec54cb25cc8b3b88622f7d7797846fc2a297594c9b511b216f6f284"
+    },
+    {
+      "id": "file-0162",
+      "path": "evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/localization_candidates.json",
+      "bytes": 225546,
+      "sha256": "f32c83eb36c0f1a37ca53c89ea30a142d72b1e21a59113c47ce419f6147828f3"
+    },
+    {
+      "id": "file-0163",
+      "path": "evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/official/test_output.txt",
+      "bytes": 407036,
+      "sha256": "475f5b3f98eb6961cb1cc1ce3fc93e434a419375b69fef2b0893acdd314ecfbc"
+    },
+    {
+      "id": "file-0164",
+      "path": "evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/trajectory.json",
+      "bytes": 108791,
+      "sha256": "606a33e1a661d38a1c45ce740faffd00c669597012a86aad998bb2683768bc3a"
+    },
+    {
+      "id": "file-0165",
+      "path": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/failure_feedback/failure_updates.jsonl",
+      "bytes": 1210391,
+      "sha256": "d6a91b1b22112944e0623c08445a35d7798ca9313fc56ee0c04d0d451545fccb"
+    },
+    {
+      "id": "file-0166",
+      "path": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/failure_feedback/initial_rankings.json",
+      "bytes": 647028,
+      "sha256": "ea67ee974aef2171462ea8a6fe6e2ab4ea47154a96870496de4ede1b9c0371ae"
+    },
+    {
+      "id": "file-0167",
+      "path": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/localization_candidates.json",
+      "bytes": 232231,
+      "sha256": "44f40af4aeb7112b162c6d17edb98ce7b2ef8a53a019e0c8e2e5f2dcf96b62ad"
+    },
+    {
+      "id": "file-0168",
+      "path": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/official/test_output.txt",
+      "bytes": 407504,
+      "sha256": "ac6e4051f7fd661961b53d6f8e8e1be6b0363642e73cfeea3c765e9b2a5ad166"
+    },
+    {
+      "id": "file-0169",
+      "path": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/trajectory.json",
+      "bytes": 167846,
+      "sha256": "c20dbc45514e4268f2e5a1b5ce6e994416d7c85134962ed338d434ecc472d3e2"
+    },
+    {
+      "id": "file-0170",
+      "path": "evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0171",
+      "path": "evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/official/test_output.txt",
+      "bytes": 473156,
+      "sha256": "fb543036bb454ae923903796a0e73e21ddad71e4da8960c7760b73891ba714b0"
+    },
+    {
+      "id": "file-0172",
+      "path": "evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/trajectory.json",
+      "bytes": 195532,
+      "sha256": "71613b35c5833b903168f84c923cd134620584709939e1251ad7c619c0da47e2"
+    },
+    {
+      "id": "file-0173",
+      "path": "evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/localization_candidates.json",
+      "bytes": 253821,
+      "sha256": "70af3d9ff7b39cba81ae11ab4ead4abac55d59a4c05923a372826dfa90995531"
+    },
+    {
+      "id": "file-0174",
+      "path": "evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/official/test_output.txt",
+      "bytes": 473777,
+      "sha256": "1d9049ed2321adaf76f06102eb3e0018f6ee29a0ba5146ce53665d067ccfd1a6"
+    },
+    {
+      "id": "file-0175",
+      "path": "evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/trajectory.json",
+      "bytes": 180359,
+      "sha256": "87c28fca75463783b24a8ff3dc058d89b1cce6ff425a856d95f56d8f770b8413"
+    },
+    {
+      "id": "file-0176",
+      "path": "evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/localization_candidates.json",
+      "bytes": 260265,
+      "sha256": "a6acc8b0c1d061fd820dde3f1e0fa2bc61b61b4a178c766f0c28945ca3ac0967"
+    },
+    {
+      "id": "file-0177",
+      "path": "evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/official/test_output.txt",
+      "bytes": 473350,
+      "sha256": "3df0c8e59316f55e45306e00adcc6af40dd6e27f46adc55dabc1f4c866d1aa25"
+    },
+    {
+      "id": "file-0178",
+      "path": "evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/trajectory.json",
+      "bytes": 138489,
+      "sha256": "659938987051669f2a5b0f908a95e8ef67545ba5aa5f25e5aa6372ad7a14f36e"
+    },
+    {
+      "id": "file-0179",
+      "path": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/failure_feedback/failure_updates.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "file-0180",
+      "path": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/failure_feedback/initial_rankings.json",
+      "bytes": 744507,
+      "sha256": "904b8b33f5c734e6d7cfae185b120e82a519dadb607cb667690d47dfd4459795"
+    },
+    {
+      "id": "file-0181",
+      "path": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/localization_candidates.json",
+      "bytes": 267960,
+      "sha256": "68a3c9280a4cb0281e017154b7cbf51a1408be14df7c994490a86a836f3f8f60"
+    },
+    {
+      "id": "file-0182",
+      "path": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/official/test_output.txt",
+      "bytes": 473258,
+      "sha256": "02906677fe582123ec3be399f9f88eb1483f9d266ef574e73b24f6205599c862"
+    },
+    {
+      "id": "file-0183",
+      "path": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/trajectory.json",
+      "bytes": 231105,
+      "sha256": "b46a1756640bbe247ab28da81d2da96f5ff640b7062ce0ab09b1f413e608b617"
+    },
+    {
+      "id": "file-0184",
+      "path": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_A_da55590b/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_A_da55590b/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0185",
+      "path": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_A_da55590b/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_A_da55590b/official/test_output.txt",
+      "bytes": 387481,
+      "sha256": "f8d6306097a46b710b8d4b23866890a24c639a1b1c2c26bc95c02a8aa6d082b9"
+    },
+    {
+      "id": "file-0186",
+      "path": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_A_da55590b/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_A_da55590b/trajectory.json",
+      "bytes": 120724,
+      "sha256": "4840f2cb86cd735bcb660efa3ef91e2474e76d1d335269b6bcb9800cc2b9f692"
+    },
+    {
+      "id": "file-0187",
+      "path": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_B_62bf81ad/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_B_62bf81ad/localization_candidates.json",
+      "bytes": 86748,
+      "sha256": "2d59e14122ec819e1a34c539ede21e4b5f471505ae8612d746dc8e3bdc44dd5b"
+    },
+    {
+      "id": "file-0188",
+      "path": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_B_62bf81ad/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_B_62bf81ad/official/test_output.txt",
+      "bytes": 387027,
+      "sha256": "742db2c00a97f5ed52eece95e4528beca37cbe9e3f0a93f119dd9e2a5521f4b4"
+    },
+    {
+      "id": "file-0189",
+      "path": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_B_62bf81ad/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_B_62bf81ad/trajectory.json",
+      "bytes": 120212,
+      "sha256": "1bedf2c00fb58df25d9a9ad341b164188760d516731eb11d3d1d6879f3b253db"
+    },
+    {
+      "id": "file-0190",
+      "path": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_C_9980e05c/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_C_9980e05c/localization_candidates.json",
+      "bytes": 89070,
+      "sha256": "52c017dbbc2a65da3a9407abaac73cdfa34eaa1bace7284b7199efba816f5007"
+    },
+    {
+      "id": "file-0191",
+      "path": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_C_9980e05c/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_C_9980e05c/official/test_output.txt",
+      "bytes": 387027,
+      "sha256": "884bf355b2ca1f6e87c2e68a8e63f9b589702f47f77644432f26afdff4857517"
+    },
+    {
+      "id": "file-0192",
+      "path": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_C_9980e05c/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_C_9980e05c/trajectory.json",
+      "bytes": 194546,
+      "sha256": "f7e6972cda97fbb47ff00d6c57277f616a863e52b86585464925306dec4153ce"
+    },
+    {
+      "id": "file-0193",
+      "path": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/failure_feedback/failure_updates.jsonl",
+      "bytes": 225787,
+      "sha256": "a6904f467def64c1b3e9d72449b8beb5764a10dacec4122761dcb16290dfc070"
+    },
+    {
+      "id": "file-0194",
+      "path": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/failure_feedback/initial_rankings.json",
+      "bytes": 209601,
+      "sha256": "4700a83d1476a281f614567f4e085a520552d0e659c893c5239cf7fdf9fa798a"
+    },
+    {
+      "id": "file-0195",
+      "path": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/localization_candidates.json",
+      "bytes": 91720,
+      "sha256": "972f421047783146cba4d1e4f58d4ae0b191ba55b3c257a65ef9d5cbc4a233a1"
+    },
+    {
+      "id": "file-0196",
+      "path": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/official/test_output.txt",
+      "bytes": 387549,
+      "sha256": "7054354e36ceb33b7b460600e5475157804f22edabab8b53abc37f24e52528e9"
+    },
+    {
+      "id": "file-0197",
+      "path": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/trajectory.json",
+      "bytes": 166668,
+      "sha256": "1677e22a963c93ce5e60972d7ec6e0020b4f8e51faa89e08ac3a88488d2ef162"
+    },
+    {
+      "id": "file-0198",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-17630_A_f5105730/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-17630_A_f5105730/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0199",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-17630_A_f5105730/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-17630_A_f5105730/official/test_output.txt",
+      "bytes": 407033,
+      "sha256": "28d4b1cffcbf30d8e019e943766b8122e1b164d6a54888f7609e549dbfab2ba2"
+    },
+    {
+      "id": "file-0200",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-17630_A_f5105730/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-17630_A_f5105730/trajectory.json",
+      "bytes": 143553,
+      "sha256": "0486929942b591fec9fc33f9f597b774fa1de6a1055e6c28bb0a607b6d7e7c69"
+    },
+    {
+      "id": "file-0201",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-17630_B_ff6c411c/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-17630_B_ff6c411c/localization_candidates.json",
+      "bytes": 220015,
+      "sha256": "b57bb68f91418435afbfd0298257aa67654c4b910a4f3be151c904c7bcfc92f6"
+    },
+    {
+      "id": "file-0202",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-17630_B_ff6c411c/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-17630_B_ff6c411c/official/test_output.txt",
+      "bytes": 407269,
+      "sha256": "a2c07afbeb69be8d1f1038d3e71315c6f4d6eacc4fa5af623c66c9cf597e620f"
+    },
+    {
+      "id": "file-0203",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-17630_B_ff6c411c/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-17630_B_ff6c411c/trajectory.json",
+      "bytes": 293623,
+      "sha256": "6c883a74a616a65f260a67b3fc0d201d26f223bee71e8bf66db574d290a252f7"
+    },
+    {
+      "id": "file-0204",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-17630_C_e01fd7b2/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-17630_C_e01fd7b2/localization_candidates.json",
+      "bytes": 225546,
+      "sha256": "f32c83eb36c0f1a37ca53c89ea30a142d72b1e21a59113c47ce419f6147828f3"
+    },
+    {
+      "id": "file-0205",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-17630_C_e01fd7b2/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-17630_C_e01fd7b2/official/test_output.txt",
+      "bytes": 407205,
+      "sha256": "c5af907acd8a2d3a4545264f051410b39d453514b370356a73cfaef16d0fdec9"
+    },
+    {
+      "id": "file-0206",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-17630_C_e01fd7b2/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-17630_C_e01fd7b2/trajectory.json",
+      "bytes": 237754,
+      "sha256": "9420ee22775162de8a50efcab1bc1636a761a45d5c3e1c897554692e4e1cb71b"
+    },
+    {
+      "id": "file-0207",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/failure_feedback/failure_updates.jsonl",
+      "bytes": 982345,
+      "sha256": "8a5d8ec424b92a88a95df10d1531f96e065818d9ec36e33e70169288447558d2"
+    },
+    {
+      "id": "file-0208",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/failure_feedback/initial_rankings.json",
+      "bytes": 647015,
+      "sha256": "11c2fd06ec59eacfb21c4c34111bd9805768ea8ea2fcd65ec09c44c560d0b205"
+    },
+    {
+      "id": "file-0209",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/localization_candidates.json",
+      "bytes": 232231,
+      "sha256": "44f40af4aeb7112b162c6d17edb98ce7b2ef8a53a019e0c8e2e5f2dcf96b62ad"
+    },
+    {
+      "id": "file-0210",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/official/test_output.txt",
+      "bytes": 407014,
+      "sha256": "8e00932d7a685f423205b6d781f3bb8e716925be077dde8d56acdd84e0fd7a75"
+    },
+    {
+      "id": "file-0211",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/trajectory.json",
+      "bytes": 139750,
+      "sha256": "bfb638b99e0a20abc82b8c611644b8f0f6d9d046e8ea2988900b3ebbe1fbce64"
+    },
+    {
+      "id": "file-0212",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-20438_A_239283e3/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-20438_A_239283e3/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0213",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-20438_A_239283e3/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-20438_A_239283e3/official/test_output.txt",
+      "bytes": 19569,
+      "sha256": "084ae0718a3ddbf8e14a702006d539e85af4f6faf6e956a78c15a4b58234c938"
+    },
+    {
+      "id": "file-0214",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-20438_A_239283e3/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-20438_A_239283e3/trajectory.json",
+      "bytes": 228614,
+      "sha256": "b2541546ecd3427cc0d99fd18c265390f6e9c3928f7bc476bdab497a1f7017a3"
+    },
+    {
+      "id": "file-0215",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-20438_B_8d10db20/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-20438_B_8d10db20/localization_candidates.json",
+      "bytes": 238328,
+      "sha256": "bc7253ac2c08ea36d05df4ab00fa24c2c220cac3a8c5cd6e7f275a6be02c7f1c"
+    },
+    {
+      "id": "file-0216",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-20438_B_8d10db20/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-20438_B_8d10db20/official/test_output.txt",
+      "bytes": 18281,
+      "sha256": "bc6dda46b70e758f42e90518efeae4f23411cad6af984c3d116678afa1fc44e1"
+    },
+    {
+      "id": "file-0217",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-20438_B_8d10db20/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-20438_B_8d10db20/trajectory.json",
+      "bytes": 188662,
+      "sha256": "55032fce1cdefefbf34da201a5e6f4465a522b05724b3ce2f6284cb21ccdb617"
+    },
+    {
+      "id": "file-0218",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-20438_C_98fe91f2/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-20438_C_98fe91f2/localization_candidates.json",
+      "bytes": 244409,
+      "sha256": "0a353471fe8bfa14ea49f77ad6fabeecf506b19b3f290d654ff010172b4db729"
+    },
+    {
+      "id": "file-0219",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-20438_C_98fe91f2/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-20438_C_98fe91f2/official/test_output.txt",
+      "bytes": 19141,
+      "sha256": "9ae71fea36270456bdf396768ff4867587f380362d86ac286857456fb56e3c9c"
+    },
+    {
+      "id": "file-0220",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-20438_C_98fe91f2/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-20438_C_98fe91f2/trajectory.json",
+      "bytes": 259929,
+      "sha256": "c4c2d3cfa8ab7b29c9811e11800fc5e40a76ff77007df82a04b8f362d6aa4f6e"
+    },
+    {
+      "id": "file-0221",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/failure_feedback/failure_updates.jsonl",
+      "bytes": 1049934,
+      "sha256": "9c8841dd7d9e7c74d65763965ab345fb414d44383b45d6799e43a4539d50a99a"
+    },
+    {
+      "id": "file-0222",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/failure_feedback/initial_rankings.json",
+      "bytes": 612635,
+      "sha256": "6e2ea308a4aa8733dbaf39fe76d9f589b530352d44a5d0c48f24296e0da65806"
+    },
+    {
+      "id": "file-0223",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/localization_candidates.json",
+      "bytes": 251654,
+      "sha256": "53d0cd88ba4c4b335457f5c642cd6f1f5f96d53f74af72cbd9e5e8e1e70eae37"
+    },
+    {
+      "id": "file-0224",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/official/test_output.txt",
+      "bytes": 18176,
+      "sha256": "1552e6fcb089ca8f95e58ea518be71b62eb8ad74914ac3cb9c982036fec906b0"
+    },
+    {
+      "id": "file-0225",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/trajectory.json",
+      "bytes": 215219,
+      "sha256": "2133f777c0e1200b3a7c99e15adaecae08fa5639722b42003460f4ca1978a719"
+    },
+    {
+      "id": "file-0226",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-23262_A_493f0768/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-23262_A_493f0768/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "file-0227",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-23262_A_493f0768/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-23262_A_493f0768/official/test_output.txt",
+      "bytes": 481306,
+      "sha256": "85ada512a2926de3e81ae77a7bc3e26294a25178e4f9af1cb19543bd35fb5f6d"
+    },
+    {
+      "id": "file-0228",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-23262_A_493f0768/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-23262_A_493f0768/trajectory.json",
+      "bytes": 233298,
+      "sha256": "d71166eeac4c97f5b366a42cc370bfdefcc8476467efe87c9e6a4c90657db843"
+    },
+    {
+      "id": "file-0229",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-23262_B_fedf4112/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-23262_B_fedf4112/localization_candidates.json",
+      "bytes": 253821,
+      "sha256": "70af3d9ff7b39cba81ae11ab4ead4abac55d59a4c05923a372826dfa90995531"
+    },
+    {
+      "id": "file-0230",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-23262_B_fedf4112/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-23262_B_fedf4112/official/test_output.txt",
+      "bytes": 473256,
+      "sha256": "8e87d0ff510dec14104e873cede0072d163086f84ddf31fb9f5962e2a28c46e5"
+    },
+    {
+      "id": "file-0231",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-23262_B_fedf4112/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-23262_B_fedf4112/trajectory.json",
+      "bytes": 245447,
+      "sha256": "065519d3ebb01d0e3027a1e87b846c4732018d43a49645b21244d3012aa4d160"
+    },
+    {
+      "id": "file-0232",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-23262_C_6a2d9a25/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-23262_C_6a2d9a25/localization_candidates.json",
+      "bytes": 260265,
+      "sha256": "a6acc8b0c1d061fd820dde3f1e0fa2bc61b61b4a178c766f0c28945ca3ac0967"
+    },
+    {
+      "id": "file-0233",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-23262_C_6a2d9a25/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-23262_C_6a2d9a25/official/test_output.txt",
+      "bytes": 473198,
+      "sha256": "3ff6578e488dfc372a8250518f807a9d34d9bc5680e99c76319adb23f4add8c7"
+    },
+    {
+      "id": "file-0234",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-23262_C_6a2d9a25/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-23262_C_6a2d9a25/trajectory.json",
+      "bytes": 222672,
+      "sha256": "240864ac247ffd5d62592df863a0838827cc4869c9944de8c36628a03ce16ab5"
+    },
+    {
+      "id": "file-0235",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/failure_feedback/failure_updates.jsonl",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/failure_feedback/failure_updates.jsonl",
+      "bytes": 513112,
+      "sha256": "6baaa1aa5f5aa03ac28c213cdf825678cfe1089127c13bcb9374582cd89d9c7b"
+    },
+    {
+      "id": "file-0236",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/failure_feedback/initial_rankings.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/failure_feedback/initial_rankings.json",
+      "bytes": 744526,
+      "sha256": "f70bc24b89e54196e6016a5ec64cd82ea776859a0afebd2422e4ea9bf4d2c52f"
+    },
+    {
+      "id": "file-0237",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/localization_candidates.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/localization_candidates.json",
+      "bytes": 267960,
+      "sha256": "68a3c9280a4cb0281e017154b7cbf51a1408be14df7c994490a86a836f3f8f60"
+    },
+    {
+      "id": "file-0238",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/official/test_output.txt",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/official/test_output.txt",
+      "bytes": 472860,
+      "sha256": "6dff720cf7c2bc16643b7afd4a3273f6874842158a99f96f050e65d68bcfd2ee"
+    },
+    {
+      "id": "file-0239",
+      "path": "evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/trajectory.json",
+      "archive_member": "role5-full-evidence-20261028/evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/trajectory.json",
+      "bytes": 312424,
+      "sha256": "c9c8e7db4b54c9cfd07fae26c92a84871cce0fba5aa468702ab4569c1d9c99fd"
+    }
+  ]
+}

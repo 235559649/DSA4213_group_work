@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/core/singleton.py",
+    "rank": 1,
+    "score": 0.0327868852,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/printing/printer.py",
+    "rank": 2,
+    "score": 0.0322580645,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/permutations.py",
+    "rank": 3,
+    "score": 0.0317460317,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/liealgebras/root_system.py",
+    "rank": 4,
+    "score": 0.03125,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/physics/quantum/operatorset.py",
+    "rank": 5,
+    "score": 0.0307692308,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/operations.py",
+    "rank": 6,
+    "score": 0.0303030303,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/utilities/lambdify.py",
+    "rank": 7,
+    "score": 0.0298507463,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/solvers/solvers.py",
+    "rank": 8,
+    "score": 0.0294117647,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/utilities/exceptions.py",
+    "rank": 9,
+    "score": 0.0289855072,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/sympify.py",
+    "rank": 10,
+    "score": 0.0285714286,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/compatibility.py",
+    "rank": 11,
+    "score": 0.0272424018,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/physics/quantum/represent.py",
+    "rank": 12,
+    "score": 0.025712414,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/basic.py",
+    "rank": 13,
+    "score": 0.0246876411,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/logic/boolalg.py",
+    "rank": 14,
+    "score": 0.0238565782,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/physics/quantum/state.py",
+    "rank": 15,
+    "score": 0.022605364,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/function.py",
+    "rank": 16,
+    "score": 0.0219687875,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/sets/sets.py",
+    "rank": 17,
+    "score": 0.0219114219,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/physics/quantum/spin.py",
+    "rank": 18,
+    "score": 0.020979021,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/solvers/recurr.py",
+    "rank": 19,
+    "score": 0.0197616972,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/integrals/risch.py",
+    "rank": 20,
+    "score": 0.0197530864,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  }
+]

@@ -1,0 +1,617 @@
+{
+  "seed": 25,
+  "n": 40,
+  "status": "provisional_text_annotation",
+  "cells": {
+    "weak_complete": 23,
+    "weak_incomplete": 5,
+    "strong_complete": 8,
+    "strong_incomplete": 4
+  },
+  "tasks": [
+    {
+      "instance_id": "django__django-13590",
+      "localization": "strong",
+      "reproduction": "incomplete",
+      "evidence_lines": "5-9",
+      "evidence": [
+        {
+          "lines": "5-9",
+          "quote": "This project passes named 2-tuples as arguments to range queryset filters. This works fine on 2.2. On 3.0 it causes the following error: TypeError: __new__() missing 1 required positional argument: 'far'.\nThis happens because django.db.models.sql.query.Query.resolve_lookup_value goes into the tuple elements to resolve lookups and then attempts to reconstitute the tuple with the resolved elements.\nWhen it attempts to construct the new tuple it preserves the type (the named tuple) but it passes a iterator to it's constructor.\nNamedTuples don't have the code path for copying an iterator, and so it errors on insufficient arguments.\nThe fix is to * expand the contents of the iterator into the constructor."
+        }
+      ],
+      "repo": "django/django",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "django__django-16315",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "9-21",
+      "evidence": [
+        {
+          "lines": "9-21",
+          "quote": "\tclass Meta:\n\t\tdb_table = \"Activity_BlackListed\"\n\tblacklistid = models.IntegerField(primary_key=True, db_column=\"BlacklistID\")\n\tsectorid = models.IntegerField(null=True, blank=True, db_column=\"SectorID\")\n\t...\nqs.bulk_create(instances, update_conflicts=True, update_fields=[\"sectorid\", ...], unique_fields=[\"blacklistid\"])\nThe \"INSERT\" code does take into account the db_columns\nINSERT INTO \"Activity_BlackListed\" (\"BlacklistID\",...) VALUES (%s, ...),\nThe code which is generated for \"ON CONFLICT\" uses the field name and not the db_column which leads to a syntax error\n'ON CONFLICT(\"blacklistid\") DO UPDATE SET \"sectorid\" = EXCLUDED.\"sectorid\", ...\nPostgreSQL returns ERROR: column \"blacklistid\" does not exist at character 1508\nWhat should be generated is I think:\n'ON CONFLICT(\"BlacklistID\") DO UPDATE SET \"SectorID\" = EXCLUDED.\"SectorID\", ..."
+        }
+      ],
+      "repo": "django/django",
+      "in_stability_subset": true
+    },
+    {
+      "instance_id": "django__django-16877",
+      "localization": "weak",
+      "reproduction": "incomplete",
+      "evidence_lines": "1-6",
+      "evidence": [
+        {
+          "lines": "1-6",
+          "quote": "New template filter `escapeseq`\nDescription\n\t\nFollowing #34574, and after some conversations within the security team, it seems appropriate to provide a new template filter escapeseq which would be to escape what safeseq is to safe. An example of usage would be:\n{{ some_list|escapeseq|join:\",\" }}\nwhere each item of some_list is escaped before applying the join operation. This usage makes sense in a context where autoescape is off."
+        }
+      ],
+      "repo": "django/django",
+      "in_stability_subset": true
+    },
+    {
+      "instance_id": "django__django-10914",
+      "localization": "weak",
+      "reproduction": "incomplete",
+      "evidence_lines": "6-7",
+      "evidence": [
+        {
+          "lines": "6-7",
+          "quote": "What I would like to see is a warning that in absence of explicitly configured FILE_UPLOAD_PERMISSIONS, the permissions for a file uploaded to FileSystemStorage might not be consistent depending on whether a MemoryUploadedFile or a TemporaryUploadedFile was used for temporary storage of the uploaded data (which, with the default FILE_UPLOAD_HANDLERS, in turn depends on the uploaded data size).\nThe tempfile.NamedTemporaryFile + os.rename sequence causes the resulting file permissions to be 0o0600 on some systems (I experience it here on CentOS 7.4.1708 and Python 3.6.5). In all probability, the implementation of Python's built-in tempfile module explicitly sets such permissions for temporary files due to security considerations."
+        }
+      ],
+      "repo": "django/django",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "django__django-12276",
+      "localization": "strong",
+      "reproduction": "complete",
+      "evidence_lines": "1;6",
+      "evidence": [
+        {
+          "lines": "1",
+          "quote": "FileInput shouldn't display required attribute when initial data exists."
+        },
+        {
+          "lines": "6",
+          "quote": "I think that ClearableFileInput.use_required_attribute() (​https://github.com/django/django/blob/e703b93a656b78b9b444bb3a9980e305ed002a70/django/forms/widgets.py#L454) should be moved to FileInput.use_required_attribute() so that required is not output on the html input element that represents FileInput when a file is already set (e.g. already saved on a model instance that is being edited)."
+        }
+      ],
+      "repo": "django/django",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "django__django-7530",
+      "localization": "weak",
+      "reproduction": "incomplete",
+      "evidence_lines": "1-4",
+      "evidence": [
+        {
+          "lines": "1-4",
+          "quote": "makemigrations router.allow_migrate() calls for consistency checks use incorrect (app_label, model) pairs\nDescription\n\t\nAs reported in ticket:27200#comment:14, I makemigrations incorrectly calls allow_migrate() for each app with all the models in the project rather than for each app with the app's models. It broke the router I use because it was passing invalid combinations for shards since not all shards have the same models."
+        }
+      ],
+      "repo": "django/django",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "django__django-13212",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "4-6",
+      "evidence": [
+        {
+          "lines": "4-6",
+          "quote": "It is sometimes desirable to include the provide value in a custom error message. For example:\n“blah” is not a valid email.\nBy making built-in validators provide value to ValidationError, one can override an error message and use a %(value)s placeholder."
+        }
+      ],
+      "repo": "django/django",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "django__django-15380",
+      "localization": "strong",
+      "reproduction": "incomplete",
+      "evidence_lines": "4-29",
+      "evidence": [
+        {
+          "lines": "4-29",
+          "quote": "Migration autodetector crashes when renaming a model and field in a single step:\n$ python manage.py makemigrations\nDid you rename the test_one.MyModel model to MyModel2? [y/N] y\nTraceback (most recent call last):\n File \"manage.py\", line 22, in <module>\n\tmain()\n File \"manage.py\", line 18, in main\n\texecute_from_command_line(sys.argv)\n File \"/django/django/core/management/__init__.py\", line 419, in execute_from_command_line\n\tutility.execute()\n File \"/django/django/core/management/__init__.py\", line 413, in execute\n\tself.fetch_command(subcommand).run_from_argv(self.argv)\n File \"/django/django/core/management/base.py\", line 354, in run_from_argv\n\tself.execute(*args, **cmd_options)\n File \"/django/django/core/management/base.py\", line 398, in execute\n\toutput = self.handle(*args, **options)\n File \"/django/django/core/management/base.py\", line 89, in wrapped\n\tres = handle_func(*args, **kwargs)\n File \"/django/django/core/management/commands/makemigrations.py\", line 172, in handle\n\tchanges = autodetector.changes(\n File \"/django/django/db/migrations/autodetector.py\", line 43, in changes\n\tchanges = self._detect_changes(convert_apps, graph)\n File \"/django/django/db/migrations/autodetector.py\", line 182, in _detect_changes\n\tself.generate_renamed_fields()\n File \"/django/django/db/migrations/autodetector.py\", line 823, in generate_renamed_fields\n\tnew_model_state = self.to_state.models[app_label, old_model_name]"
+        }
+      ],
+      "repo": "django/django",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "django__django-14311",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "1;6-7",
+      "evidence": [
+        {
+          "lines": "1",
+          "quote": "Allow autoreloading of `python -m custom_module runserver`"
+        },
+        {
+          "lines": "6-7",
+          "quote": "The original fix [1] only attempted to deal with -m foo.bar where bar is a package and __main__.py exists under foo/bar.\nWhen a dotted name for a module (for example, foo.bar.baz where baz.py resides under foo/bar) is specified like -m foo.bar.baz, the resulting arguments end up being -m foo.bar, which is uncalled for."
+        }
+      ],
+      "repo": "django/django",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "django__django-11119",
+      "localization": "strong",
+      "reproduction": "incomplete",
+      "evidence_lines": "4",
+      "evidence": [
+        {
+          "lines": "4",
+          "quote": "In Engine.render_to_string, a Context is created without specifying the engine autoescape attribute. So if you create en engine with autoescape=False and then call its render_to_string() method, the result will always be autoescaped. It was probably overlooked in [19a5f6da329d58653bcda85]."
+        }
+      ],
+      "repo": "django/django",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "django__django-16950",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "9-34",
+      "evidence": [
+        {
+          "lines": "9-34",
+          "quote": "class UUIDModel(models.Model):\n\tpkid = models.BigAutoField(primary_key=True, editable=False)\n\tid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)\n\tclass Meta:\n\t\tabstract = True\nclass Thing(UUIDModel):\n\tname = models.CharField(max_length=191)\nclass SubThing(models.Model):\n\tname = models.CharField(max_length=191)\n\tthing = models.ForeignKey(\n\t\t'bugapp.Thing',\n\t\tto_field='id',\n\t\ton_delete = models.CASCADE,\n\t\trelated_name='subthings',\n\t)\nAnd the following admin.py file:\nclass SubThingInline(admin.StackedInline):\n\tmodel = SubThing\n@admin.register(Thing)\nclass ThingAdmin(admin.ModelAdmin):\n\tlist_display = ('name',)\n\tordering = ('pkid',)\n\tinlines = (SubThingInline,)\nWhen logging into the admin, if you delete all of the entries for \"subthings\", add a name, and save the model, it will work. As soon as you try to add a subthing alongside the main Thing, it fails with the following exception:\n​https://dpaste.com/8EU4FF6RW\nIt shows that the value of \"id\" in the Thing model is being set to null."
+        }
+      ],
+      "repo": "django/django",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "django__django-16255",
+      "localization": "strong",
+      "reproduction": "complete",
+      "evidence_lines": "4;16-29",
+      "evidence": [
+        {
+          "lines": "4",
+          "quote": "When sitemap contains not items, but supports returning lastmod for an item, it fails with a ValueError:"
+        },
+        {
+          "lines": "16-29",
+          "quote": " File \"/usr/local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py\", line 170, in get_latest_lastmod\n\treturn max([self.lastmod(item) for item in self.items()])\nException Type: ValueError at /sitemap.xml\nException Value: max() arg is an empty sequence\nSomething like this might be a solution:\n\t def get_latest_lastmod(self):\n\t\t if not hasattr(self, \"lastmod\"):\n\t\t\t return None\n\t\t if callable(self.lastmod):\n\t\t\t try:\n\t\t\t\t return max([self.lastmod(item) for item in self.items()])\n-\t\t\texcept TypeError:\n+\t\t\texcept (TypeError, ValueError):\n\t\t\t\t return None"
+        }
+      ],
+      "repo": "django/django",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sympy__sympy-16886",
+      "localization": "strong",
+      "reproduction": "complete",
+      "evidence_lines": "1-5",
+      "evidence": [
+        {
+          "lines": "1-5",
+          "quote": "Morse encoding for \"1\" is not correct\nThe current Morse mapping in simpy.crypto.crypto contains an incorrect mapping of \n`\"----\": \"1\"`   \n\nThe correct mapping is `\".----\": \"1\"`."
+        }
+      ],
+      "repo": "sympy/sympy",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sympy__sympy-12489",
+      "localization": "strong",
+      "reproduction": "incomplete",
+      "evidence_lines": "2-6",
+      "evidence": [
+        {
+          "lines": "2-6",
+          "quote": "I stumbled across a subclassing issue with `combinatorics.Permutation`:\nThe object creation is done in `Permutation.__new__`, but internally the function `_af_new` is used (which itself is a reference to the static method `Permutation._af_new`). This method eventually creates the object calling `Basic.__new__(Perm, perm)` (`Perm` is a reference to `Permutation`).\nIn the end, this makes subclassing `Permutation` impossible (besides overriding `Permutation._af_new` as always instances of `Permutation` are returned.\n\nAn elegant solution would be to stick to Python's instance creation mechanisms, i.e. use classmethods where appropriate (`__new__` is one) and use the mandatory reference to the class (the first argument of a classmethod) the method is called on for instance creation."
+        }
+      ],
+      "repo": "sympy/sympy",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sympy__sympy-18698",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "2-7",
+      "evidence": [
+        {
+          "lines": "2-7",
+          "quote": "The example below is wrong in the sense that we should have (x*_2 - 5_x + 6, 3) and not 2 factors of multiplicity 3.\n\n```\n>  sqf_list(  (x**2 + 1)  * (x - 1)**2 * (x - 2)**3 * (x - 3)**3  )\n\n>  (1, [(x**2 + 1, 1), (x - 1, 2), (x - 3, 3), (x - 2, 3)])"
+        }
+      ],
+      "repo": "sympy/sympy",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sympy__sympy-22080",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "7-23",
+      "evidence": [
+        {
+          "lines": "7-23",
+          "quote": ">>> from sympy import Mod, lambdify, symbols\n>>> x, y = symbols('x y')\n>>> expr = -Mod(x, y)\n>>> f = lambdify([x, y], expr)\n>>> f(3, 7)\n-3\n>>> inspect.getsource(f)\ndef _lambdifygenerated(x, y):\n    return (-mod(x, y))\n\n\n>>> g = lambdify([x, y], expr, modules=[])\n>>> g(3, 7)\n4\n>>> inspect.getsource(g)\ndef _lambdifygenerated(x, y):\n    return (-x % y)"
+        }
+      ],
+      "repo": "sympy/sympy",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sympy__sympy-13757",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "5-18",
+      "evidence": [
+        {
+          "lines": "5-18",
+          "quote": ">>> Poly(x)*x\nPoly(x**2, x, domain='ZZ')\n\n>>> x*Poly(x)\nx*Poly(x, x, domain='ZZ')\n\n>>> -2*Poly(x)\nPoly(-2*x, x, domain='ZZ')\n\n>>> S(-2)*Poly(x)\n-2*Poly(x, x, domain='ZZ')\n\n>>> Poly(x)*S(-2)\nPoly(-2*x, x, domain='ZZ')"
+        }
+      ],
+      "repo": "sympy/sympy",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sympy__sympy-18199",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "1-2",
+      "evidence": [
+        {
+          "lines": "1-2",
+          "quote": "nthroot_mod function misses one root of x = 0 mod p.\nWhen in the equation x**n = a mod p , when a % p == 0. Then x = 0 mod p is also a root of this equation. But right now `nthroot_mod` does not check for this condition. `nthroot_mod(17*17, 5 , 17)` has a root `0 mod 17`. But it does not return it."
+        }
+      ],
+      "repo": "sympy/sympy",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sympy__sympy-24443",
+      "localization": "strong",
+      "reproduction": "complete",
+      "evidence_lines": "3-15",
+      "evidence": [
+        {
+          "lines": "3-15",
+          "quote": "In [1]: from sympy.combinatorics import *\n   ...: from sympy.combinatorics.homomorphisms import homomorphism\n   ...: D3 = DihedralGroup(3)\n   ...: T = homomorphism(D3, D3, D3.generators, D3.generators)\n\nValueError: The given images do not define a homomorphism\n```\n\nThe issue is in the internal `_image()` function, where it handles the case of a `PermutationGroup`:\n\nhttps://github.com/sympy/sympy/blob/809c53c077485ca48a206cee78340389cb83b7f1/sympy/combinatorics/homomorphisms.py#L336-L337\n\nWhen `r[i]` is an inverted generator, the `in gens` test fails."
+        }
+      ],
+      "repo": "sympy/sympy",
+      "in_stability_subset": true
+    },
+    {
+      "instance_id": "sympy__sympy-13372",
+      "localization": "strong",
+      "reproduction": "complete",
+      "evidence_lines": "3-23",
+      "evidence": [
+        {
+          "lines": "3-23",
+          "quote": ">>> Mul(x, Max(0, y), evaluate=False).evalf()\nx*Max(0, y)\n>>> Mul(Max(0, y), x, evaluate=False).evalf()\nTraceback (most recent call last):\n  File \"./sympy/core/evalf.py\", line 1285, in evalf\n    rf = evalf_table[x.func]\nKeyError: Max\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"./sympy/core/evalf.py\", line 1394, in evalf\n    result = evalf(self, prec + 4, options)\n  File \"./sympy/core/evalf.py\", line 1286, in evalf\n    r = rf(x, prec, options)\n  File \"./sympy/core/evalf.py\", line 538, in evalf_mul\n    arg = evalf(arg, prec, options)\n  File \"./sympy/core/evalf.py\", line 1308, in evalf\n    r = re, im, reprec, imprec\nUnboundLocalError: local variable 'reprec' referenced before assignment"
+        }
+      ],
+      "repo": "sympy/sympy",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sympy__sympy-18189",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "3-7",
+      "evidence": [
+        {
+          "lines": "3-7",
+          "quote": "In [10]: diophantine(n**4 + m**4 - 2**4 - 3**4, syms=(m,n), permute=True)\nOut[10]: {(-3, -2), (-3, 2), (-2, -3), (-2, 3), (2, -3), (2, 3), (3, -2), (3, 2)}\n\nIn [11]: diophantine(n**4 + m**4 - 2**4 - 3**4, syms=(n,m), permute=True)\nOut[11]: {(3, 2)}"
+        }
+      ],
+      "repo": "sympy/sympy",
+      "in_stability_subset": true
+    },
+    {
+      "instance_id": "sympy__sympy-19637",
+      "localization": "strong",
+      "reproduction": "complete",
+      "evidence_lines": "1-7",
+      "evidence": [
+        {
+          "lines": "1-7",
+          "quote": "kernS: 'kern' referenced before assignment\nfrom sympy.core.sympify import kernS\n\ntext = \"(2*x)/(x-1)\"\nexpr = kernS(text)  \n//  hit = kern in s\n// UnboundLocalError: local variable 'kern' referenced before assignment"
+        }
+      ],
+      "repo": "sympy/sympy",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sympy__sympy-20428",
+      "localization": "strong",
+      "reproduction": "complete",
+      "evidence_lines": "7-27;40-48",
+      "evidence": [
+        {
+          "lines": "7-27",
+          "quote": ">>> from sympy import *\n>>> x = symbols(\"x\")\n>>> f = Poly(sympify(\"-117968192370600*18**(1/3)/(217603955769048*(24201 + 253*sqrt(9165))**(1/3) + 2273005839412*sqrt(9165)*(24201 + 253*sqrt(9165))**(1/3)) - 15720318185*2**(2/3)*3**(1/3)*(24201 + 253*sqrt(9165))**(2/3)/(217603955769048*(24201 + 253*sqrt(9165))**(1/3) + 2273005839412*sqrt(9165)*(24201 + 253*sqrt(9165))**(1/3)) + 15720318185*12**(1/3)*(24201 + 253*sqrt(9165))**(2/3)/(217603955769048*(24201 + 253*sqrt(9165))**(1/3) + 2273005839412*sqrt(9165)*(24201 + 253*sqrt(9165))**(1/3)) + 117968192370600*2**(1/3)*3**(2/3)/(217603955769048*(24201 + 253*sqrt(9165))**(1/3) + 2273005839412*sqrt(9165)*(24201 + 253*sqrt(9165))**(1/3))\"), x)\n>>> coeff, bad_poly = f.clear_denoms()\n>>> coeff\n(217603955769048*(24201 + 253*sqrt(9165))**(1/3) + 2273005839412*sqrt(9165)*(24201 + 253*sqrt(9165))**(1/3)\n>>> bad_poly\nPoly(0, x, domain='EX'))\n```\n\nThe result prints like the zero polynomial but behaves inconsistently:\n\n```\n>>> bad_poly\nPoly(0, x, domain='EX')\n>>> bad_poly.is_zero\nFalse\n>>> bad_poly.as_expr()\n0\n>>> _.is_zero\nTrue"
+        },
+        {
+          "lines": "40-48",
+          "quote": "  File \"/Users/ehren/Documents/esym26/sympy/polys/polytools.py\", line 1227, in terms_gcd\n    J, result = f.rep.terms_gcd()\n  File \"/Users/ehren/Documents/esym26/sympy/polys/polyclasses.py\", line 410, in terms_gcd\n    J, F = dmp_terms_gcd(f.rep, f.lev, f.dom)\n  File \"/Users/ehren/Documents/esym26/sympy/polys/densebasic.py\", line 1681, in dmp_terms_gcd\n    G = monomial_min(*list(F.keys()))\n  File \"/Users/ehren/Documents/esym26/sympy/polys/monomials.py\", line 359, in monomial_min\n    M = list(monoms[0])\nIndexError: tuple index out of range"
+        }
+      ],
+      "repo": "sympy/sympy",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sympy__sympy-21930",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "7-16",
+      "evidence": [
+        {
+          "lines": "7-16",
+          "quote": "In [1]: import sympy as sp\n        from sympy.physics.secondquant import B, Bd, Commutator\n        sp.init_printing()\n\nIn [2]: a = sp.Symbol('0')\n\nIn [3]: Commutator(Bd(a)**2, B(a))\nOut[3]: \\displaystyle - \\left[b_{0},b^\\dagger_{0}^{2}\\right]\n```\nSo, it doesn't render correctly, and that's because the double superscript `\"b^\\dagger_{0}^{2}\"`. It should be correct by adding curly brackets `\"{b^\\dagger_{0}}^{2}\"`"
+        }
+      ],
+      "repo": "sympy/sympy",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-7757",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "7-16",
+      "evidence": [
+        {
+          "lines": "7-16",
+          "quote": "Build following document:\n```\n.. py:function:: foo(a, b=0, /, c=1)\n```\n\nResult:\n<img width=\"148\" alt=\"スクリーンショット 2020-05-30 23 43 01\" src=\"https://user-images.githubusercontent.com/748828/83331159-4eab4a80-a2cf-11ea-9559-9b17cc56bc01.png\">\n\n**Expected behavior**\nThe default value is shown."
+        }
+      ],
+      "repo": "sphinx-doc/sphinx",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-9320",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "5-18",
+      "evidence": [
+        {
+          "lines": "5-18",
+          "quote": "- I'm running `sphinx-quickstart` in a folder with a conf.py already existing. \n- It says *\"Please enter a new root path name (or just Enter to exit)\"*. \n- However, upon pressing 'Enter' it returns an error message *\"Please enter a valid path name\"*. \n\n\n**To Reproduce**\nSteps to reproduce the behavior:\n```\n$ sphinx-quickstart\n$ sphinx-quickstart\n```\n\n**Expected behavior**\nAfter pressing Enter, sphinx-quickstart exits. "
+        }
+      ],
+      "repo": "sphinx-doc/sphinx",
+      "in_stability_subset": true
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8269",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "9-24",
+      "evidence": [
+        {
+          "lines": "9-24",
+          "quote": "$ sphinx-quickstart --project proj --sep --author me --release 1.0 --language en\n$ # https://google.com/test.txt does not exist, the server replies with a 404.\n$ echo '\\n`foo <https://google.com/test.txt#test>`_' >>source/index.rst\n$ make linkcheck\n```\n\n**Expected behavior**\n*Actual*\n```\n(line   22) broken    https://google.com/test.txt#test - Anchor 'test' not found\n```\n\n*Expected output*\nSame as when `linkcheck_anchors=False`.\n```\n(line   22) broken    https://google.com/test.txt#test - 404 Client Error: Not Found for url: https://google.com/test.txt"
+        }
+      ],
+      "repo": "sphinx-doc/sphinx",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-7748",
+      "localization": "weak",
+      "reproduction": "incomplete",
+      "evidence_lines": "1-2",
+      "evidence": [
+        {
+          "lines": "1-2",
+          "quote": "autodoc_docstring_signature with overloaded methods\nWhen using swig to wrap C++ classes for python, if they have overloaded methods, I believe the convention is to place the signatures for each of the overloaded C++ methods at the start of the docstring. Currently, `autodoc_docstring_signature` can only pick up the first one. It would be nice to be able to pick up all of them."
+        }
+      ],
+      "repo": "sphinx-doc/sphinx",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-9591",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "9-33;55-69",
+      "evidence": [
+        {
+          "lines": "9-33",
+          "quote": "class Point:\n    \"\"\"\n    A class representing a point.\n\n    Attributes:\n        x: Position X.\n        y: Position Y.\n    \"\"\"\n    x: int\n    y: int\n\n\nclass Square:\n    \"\"\"A class representing a square figure.\"\"\"\n    #: Square's start position (top-left corner).\n    start: Point\n    #: Square width.\n    width: int\n    #: Square height.\n    height: int\n\n    @property\n    def end(self) -> Point:\n        \"\"\"Square's end position (bottom-right corner).\"\"\"\n        return Point(self.start.x + self.width, self.start.y + self.height)"
+        },
+        {
+          "lines": "55-69",
+          "quote": "### How to Reproduce\n\n```\n$ git clone https://github.com/jack1142/sphinx-issue-9585\n$ cd sphinx-issue-9585\n$ pip install sphinx\n$ cd docs\n$ make html\n$ # open _build/html/index.html and see the issue\n```\n\n\n### Expected behavior\n\nI expected the documented type in property's type annotation to be cross-referenced."
+        }
+      ],
+      "repo": "sphinx-doc/sphinx",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8475",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "10-15",
+      "evidence": [
+        {
+          "lines": "10-15",
+          "quote": "Some websites will enter infinite redirect loops with HEAD requests. In this case, the GET fallback is ignored as the exception is of type `TooManyRedirects` and the link is reported as broken.\nThis extends the except clause to retry with a GET request for such scenarios.\n\n### Detail\n\nClassifying this as a bug fix as URLs like https://idr.openmicroscopy.org/webclient/?show=well-119093 used to pass the linkchecking prior to Sphinx 3.2.0 but are now failing as HEAD requests have been enforced (#7936)."
+        }
+      ],
+      "repo": "sphinx-doc/sphinx",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-9698",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "4;12-20",
+      "evidence": [
+        {
+          "lines": "4",
+          "quote": "An index entry with parens was registered for `py:method` directive with `:property:` option. It should not have parens."
+        },
+        {
+          "lines": "12-20",
+          "quote": ".. py:method:: Foo.bar\n   :property:\n\n.. py:property:: Foo.baz\n```\n\n### Expected behavior\n\nAn index entry for the property should not have parens."
+        }
+      ],
+      "repo": "sphinx-doc/sphinx",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "2-14",
+      "evidence": [
+        {
+          "lines": "2-14",
+          "quote": "Please add a support for specifying multiple types acceptable for a parameter/attribute/variable.\nUse case:\nImagine that there is a function that accepts both `bytes` and `str`. The docstring would look like:\n\n``` restructuredtext\ndef foo(text):\n    \"\"\"Bar\n\n    :param text: a text\n    :type text: bytes | str\n\n    \"\"\"\n```"
+        }
+      ],
+      "repo": "sphinx-doc/sphinx",
+      "in_stability_subset": true
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-11445",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "4-18",
+      "evidence": [
+        {
+          "lines": "4-18",
+          "quote": "If `rst_prolog` is set, then any documents that contain a domain directive as the first heading (eg `:mod:`) do not render the heading correctly or include the heading in the toctree.\n\nIn the example below, if the heading of `docs/mypackage.rst` were `mypackage2` instead of `:mod:mypackage2` then the heading displays correctly.\nSimilarly, if you do not set `rst_prolog` then the heading will display correctly.\n\nThis appears to have been broken for some time because I can reproduce it in v4.0.0 of Sphinx\n\n### How to Reproduce\n\n```bash\n$ sphinx-quickstart --no-sep --project mypackage --author me -v 0.1.0 --release 0.1.0 --language en docs\n$ echo -e 'Welcome\\n=======\\n\\n.. toctree::\\n\\n   mypackage\\n' > docs/index.rst\n$ echo -e ':mod:`mypackage2`\\n=================\\n\\nContent\\n\\nSubheading\\n----------\\n' > docs/mypackage.rst\n$ echo -e 'rst_prolog = \"\"\"\\n.. |psf| replace:: Python Software Foundation\\n\"\"\"\\n' >> docs/conf.py\n$ sphinx-build -b html . _build"
+        }
+      ],
+      "repo": "sphinx-doc/sphinx",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-9229",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "16-34;52-67",
+      "evidence": [
+        {
+          "lines": "16-34",
+          "quote": "ScaffoldOpts = Dict[str, Any]\n\"\"\"Dictionary with PyScaffold's options, see ``pyscaffold.api.create_project``.\nShould be treated as immutable (if required, copy before changing).\n\nPlease notice some behaviours given by the options **SHOULD** be observed. For example,\nfiles should be overwritten when the **force** option is ``True``. Similarly when\n**pretend** is ``True``, no operation should be really performed, but any action should\nbe logged as if realized.\n\"\"\"\n\nFileContents = Union[str, None]\n\"\"\"When the file content is ``None``, the file should not be written to\ndisk (empty files are represented by an empty string ``\"\"`` as content).\n\"\"\"\n\nFileOp = Callable[[Path, FileContents, ScaffoldOpts], Union[Path, None]]\n\"\"\"Signature of functions considered file operations::\n\n    Callable[[Path, FileContents, ScaffoldOpts], Union[Path, None]]"
+        },
+        {
+          "lines": "52-67",
+          "quote": "2. When I run:\n```bash\n$ sphinx-quickstart\n```\n3. Uncomment the `import os ... sys.path.insert(0, os.path.abspath('.'))` path adjustment in `conf.py`\n4. Add `extensions = ['sphinx.ext.autodoc']` to the generated `conf.py`, and `file <api/file>` to the toctree in `index.rst`.\n5. Run\n```bash\n$ sphinx-apidoc -f -o api .\n$ make html\n$ ( cd _build/html && python3 -m http.server )\n```\n6. Then opening http://127.0.0.1:8000/api/file.html in the browser should show the reported inconsistency.\n\n**Expected behavior**\nThe docs should show the contents in the docstrings for all the type aliases instead of the the ``alias of ...`` default text."
+        }
+      ],
+      "repo": "sphinx-doc/sphinx",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "pytest-dev__pytest-7982",
+      "localization": "weak",
+      "reproduction": "incomplete",
+      "evidence_lines": "1-6",
+      "evidence": [
+        {
+          "lines": "1-6",
+          "quote": "Symlinked directories not collected since pytest 6.1.0\nWhen there is a symlink to a directory in a test directory, is is just skipped over, but it should be followed and collected as usual.\n\nThis regressed in b473e515bc57ff1133fe650f1e7e6d7e22e5d841 (included in 6.1.0). For some reason I added a `follow_symlinks=False` in there, I don't remember why, but it does not match the previous behavior and should be removed.\n\nPR for this is coming up."
+        }
+      ],
+      "repo": "pytest-dev/pytest",
+      "in_stability_subset": true
+    },
+    {
+      "instance_id": "pytest-dev__pytest-7324",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "1-6",
+      "evidence": [
+        {
+          "lines": "1-6",
+          "quote": "Pytest crashes the interpreter on debug build for 3.8+\nShort reproducer\n```py\n>>> Expression.compile(\"False\")\npython: Python/compile.c:3559: compiler_nameop: Assertion `!_PyUnicode_EqualToASCIIString(name, \"None\") && !_PyUnicode_EqualToASCIIString(name, \"True\") && !_PyUnicode_EqualToASCIIString(name, \"False\")' failed.\n[1]    29440 abort (core dumped)  python"
+        }
+      ],
+      "repo": "pytest-dev/pytest",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8399",
+      "localization": "strong",
+      "reproduction": "complete",
+      "evidence_lines": "9-25",
+      "evidence": [
+        {
+          "lines": "9-25",
+          "quote": "import unittest\n\nclass Tests(unittest.TestCase):\n    @classmethod\n    def setUpClass(cls):\n        pass\n\n    def test_1(self):\n        pass\n```\n```\n~$  pytest --fixtures\n...\nunittest_setUpClass_fixture_Tests [class scope] -- ../Platform/.venv/lib/python3.6/site-packages/_pytest/unittest.py:145\n    /home/ubuntu/src/Platform/.venv/lib/python3.6/site-packages/_pytest/unittest.py:145: no docstring available\n```\nThe expected (and previously implemented behavior) is that this fixture's name would start with an underscore, and would therefore only get printed if the additional `-v` flag was used. As it stands, I don't see a way to hide such generated fixtures which will not have a docstring."
+        }
+      ],
+      "repo": "pytest-dev/pytest",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "pytest-dev__pytest-10081",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "13-29;39-53",
+      "evidence": [
+        {
+          "lines": "13-29",
+          "quote": "Running `pytest --pdb` will run the `tearDown()` of `unittest.TestCase` classes that are decorated with `unittest.skip` on the class level.\n\nIdentical to #7215 , but with the `skip()` on the class level rather than on the function level.\n\nMinimal test (adapted from #7215), `test_repro_skip_class.py`:\n```python\nimport unittest\n\n@unittest.skip(\"hello\")\nclass MyTestCase(unittest.TestCase):\n    def setUp(self):\n        xxx\n    def test_one(self):\n        pass\n    def tearDown(self):\n        xxx\n```"
+        },
+        {
+          "lines": "39-53",
+          "quote": "Test is properly skipped normally:\n```\n$ pytest test_repro_skip_class.py\n===================================== test session starts ======================================\nplatform linux -- Python 3.10.5, pytest-7.1.2, pluggy-1.0.0\nrootdir: [...]\ncollected 1 item                                                                               \n\ntest_repro_skip_class.py s                                                               [100%]\n\n====================================== 1 skipped in 0.01s ======================================\n```\nbut when running with `--pdb`, the teardown seems executed:\n```\n$ pytest --pdb test_repro_skip_class.py"
+        }
+      ],
+      "repo": "pytest-dev/pytest",
+      "in_stability_subset": true
+    },
+    {
+      "instance_id": "pytest-dev__pytest-7236",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "5-15;48-50;83",
+      "evidence": [
+        {
+          "lines": "5-15",
+          "quote": "import unittest\n\nclass MyTestCase(unittest.TestCase):\n    def setUp(self):\n        xxx\n    @unittest.skip(\"hello\")\n    def test_one(self):\n        pass\n    def tearDown(self):\n        xxx\n```"
+        },
+        {
+          "lines": "48-50",
+          "quote": "but when running with `--pdb`, the teardown seems executed:\n```\n$ pytest --pdb test_repro.py "
+        },
+        {
+          "lines": "83",
+          "quote": "I would have expected the test to be skipped, even with `--pdb`. With `pytest==5.4.1`, test was also skipped with `--pdb`, so this seem something that have changes between 5.4.2 and 5.4.1."
+        }
+      ],
+      "repo": "pytest-dev/pytest",
+      "in_stability_subset": false
+    },
+    {
+      "instance_id": "pytest-dev__pytest-7521",
+      "localization": "weak",
+      "reproduction": "complete",
+      "evidence_lines": "28-35;79-87",
+      "evidence": [
+        {
+          "lines": "28-35",
+          "quote": "I've distilled a reproducer:\n\n```python\ndef test_cafd_includes_carriage_return(capfd):\n    print('Greetings from DOS', end='\\r')\n    out, err = capfd.readouterr()\n    assert out.endswith('\\r')\n```"
+        },
+        {
+          "lines": "79-87",
+          "quote": "capfd = <_pytest.capture.CaptureFixture object at 0x7f1ddd3219a0>\n\n    def test_cafd_includes_carriage_return(capfd):\n        print('Greetings from DOS', end='\\r')\n        out, err = capfd.readouterr()\n>       assert out.endswith('\\r')\nE       AssertionError: assert False\nE        +  where False = <built-in method endswith of str object at 0x7f1ddd314b20>('\\r')\nE        +    where <built-in method endswith of str object at 0x7f1ddd314b20> = 'Greetings from DOS\\n'.endswith"
+        }
+      ],
+      "repo": "pytest-dev/pytest",
+      "in_stability_subset": false
+    }
+  ]
+}

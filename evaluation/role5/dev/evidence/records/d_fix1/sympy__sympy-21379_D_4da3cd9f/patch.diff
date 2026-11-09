@@ -1,0 +1,24 @@
+diff --git a/sympy/core/mod.py b/sympy/core/mod.py
+index b4f3de2523..f428d8bc44 100755
+--- a/sympy/core/mod.py
++++ b/sympy/core/mod.py
+@@ -36,6 +36,7 @@ class Mod(Function):
+ 
+     @classmethod
+     def eval(cls, p, q):
++        from sympy import Piecewise
+         from sympy.core.add import Add
+         from sympy.core.mul import Mul
+         from sympy.core.singleton import S
+@@ -166,6 +167,11 @@ def doit(p, q):
+         # XXX other possibilities?
+ 
+         # extract gcd; any further simplification should be done by the user
++        # Piecewise arguments can reach here from assumption checks. Avoid
++        # calling polynomial gcd machinery on them because it raises a
++        # PolynomialError for non-polynomial generators.
++        if p.has(Piecewise) or q.has(Piecewise):
++            return cls(p, q, evaluate=False)
+         G = gcd(p, q)
+         if G != 1:
+             p, q = [

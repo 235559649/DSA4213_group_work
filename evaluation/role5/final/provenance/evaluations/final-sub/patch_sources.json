@@ -1,0 +1,12 @@
+{
+  "sympy__sympy-12489_B_f24e5863": {
+    "patch_source": "submission",
+    "patch_source_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-12489_B_f24e5863/trajectory.json",
+    "patch_sha256": "e15061a0055d9818ccee299bb5af8da963ce00b8c2f18030ade988479cb3e2c8"
+  },
+  "sympy__sympy-12489_C_168aa814": {
+    "patch_source": "submission",
+    "patch_source_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-12489_C_168aa814/trajectory.json",
+    "patch_sha256": "5a3037083edaee463e8fa7e74124aaad9f66f39bbef007f2013d75cdfdfbf249"
+  }
+}

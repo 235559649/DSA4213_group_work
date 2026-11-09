@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/crypto/crypto.py",
+    "rank": 1,
+    "score": 0.0327868852,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/ntheory/modular.py",
+    "rank": 2,
+    "score": 0.0322580645,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/perm_groups.py",
+    "rank": 3,
+    "score": 0.0317460317,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/sets/sets.py",
+    "rank": 4,
+    "score": 0.03125,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/util.py",
+    "rank": 5,
+    "score": 0.0307692308,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/evalf.py",
+    "rank": 6,
+    "score": 0.0303030303,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/physics/quantum/tensorproduct.py",
+    "rank": 7,
+    "score": 0.0298507463,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/physics/quantum/operatorset.py",
+    "rank": 8,
+    "score": 0.0294117647,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/printing/pretty/pretty_symbology.py",
+    "rank": 9,
+    "score": 0.0289855072,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/integrals/risch.py",
+    "rank": 10,
+    "score": 0.0285714286,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/utilities/iterables.py",
+    "rank": 11,
+    "score": 0.0253530167,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/permutations.py",
+    "rank": 12,
+    "score": 0.023140717,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/polys/modulargcd.py",
+    "rank": 13,
+    "score": 0.022863862,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/compatibility.py",
+    "rank": 14,
+    "score": 0.0225590833,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/numbers.py",
+    "rank": 15,
+    "score": 0.0222922502,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/symbol.py",
+    "rank": 16,
+    "score": 0.0209737014,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/physics/quantum/represent.py",
+    "rank": 17,
+    "score": 0.0208536983,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/logic/boolalg.py",
+    "rank": 18,
+    "score": 0.0205780135,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/tensor_can.py",
+    "rank": 19,
+    "score": 0.0186868687,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/add.py",
+    "rank": 20,
+    "score": 0.0185737977,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  }
+]

@@ -1,0 +1,77 @@
+diff --git a/django/db/backends/mysql/operations.py b/django/db/backends/mysql/operations.py
+index 76ca815765..7bbcedbc89 100644
+--- a/django/db/backends/mysql/operations.py
++++ b/django/db/backends/mysql/operations.py
+@@ -451,8 +451,8 @@ class DatabaseOperations(BaseDatabaseOperations):
+ 
+             fields = ", ".join(
+                 [
+-                    field_sql % {"field": field}
+-                    for field in map(self.quote_name, update_fields)
++                    field_sql % {"field": self.quote_name(field.column)}
++                    for field in update_fields
+                 ]
+             )
+             return conflict_suffix_sql % {"fields": fields}
+diff --git a/django/db/backends/postgresql/operations.py b/django/db/backends/postgresql/operations.py
+index 62273fc43c..b6187fc156 100644
+--- a/django/db/backends/postgresql/operations.py
++++ b/django/db/backends/postgresql/operations.py
+@@ -354,11 +354,11 @@ class DatabaseOperations(BaseDatabaseOperations):
+             return "ON CONFLICT DO NOTHING"
+         if on_conflict == OnConflict.UPDATE:
+             return "ON CONFLICT(%s) DO UPDATE SET %s" % (
+-                ", ".join(map(self.quote_name, unique_fields)),
++                ", ".join(self.quote_name(field.column) for field in unique_fields),
+                 ", ".join(
+                     [
+-                        f"{field} = EXCLUDED.{field}"
+-                        for field in map(self.quote_name, update_fields)
++                        f"{self.quote_name(field.column)} = EXCLUDED.{self.quote_name(field.column)}"
++                        for field in update_fields
+                     ]
+                 ),
+             )
+diff --git a/django/db/backends/sqlite3/operations.py b/django/db/backends/sqlite3/operations.py
+index bb84d52071..4787f97c42 100644
+--- a/django/db/backends/sqlite3/operations.py
++++ b/django/db/backends/sqlite3/operations.py
+@@ -418,11 +418,11 @@ class DatabaseOperations(BaseDatabaseOperations):
+             and self.connection.features.supports_update_conflicts_with_target
+         ):
+             return "ON CONFLICT(%s) DO UPDATE SET %s" % (
+-                ", ".join(map(self.quote_name, unique_fields)),
++                ", ".join(self.quote_name(field.column) for field in unique_fields),
+                 ", ".join(
+                     [
+-                        f"{field} = EXCLUDED.{field}"
+-                        for field in map(self.quote_name, update_fields)
++                        f"{self.quote_name(field.column)} = EXCLUDED.{self.quote_name(field.column)}"
++                        for field in update_fields
+                     ]
+                 ),
+             )
+diff --git a/django/db/models/query.py b/django/db/models/query.py
+index be8580f2c4..9836d64cc6 100644
+--- a/django/db/models/query.py
++++ b/django/db/models/query.py
+@@ -740,8 +740,8 @@ class QuerySet(AltersData):
+                         "bulk_create() can only be used with concrete fields "
+                         "in unique_fields."
+                     )
+-            return OnConflict.UPDATE
+-        return None
++            return OnConflict.UPDATE, update_fields, unique_fields
++        return None, None, None
+ 
+     def bulk_create(
+         self,
+@@ -788,7 +788,7 @@ class QuerySet(AltersData):
+             unique_fields = [
+                 opts.pk.name if name == "pk" else name for name in unique_fields
+             ]
+-        on_conflict = self._check_bulk_create_options(
++        on_conflict, update_fields, unique_fields = self._check_bulk_create_options(
+             ignore_conflicts,
+             update_conflicts,
+             update_fields,

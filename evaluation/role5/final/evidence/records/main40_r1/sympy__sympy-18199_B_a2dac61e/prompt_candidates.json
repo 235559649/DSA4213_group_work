@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/solvers/solveset.py",
+    "rank": 1,
+    "score": 50.3825,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/ode.py",
+    "rank": 2,
+    "score": 44.3877,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/functions/special/hyper.py",
+    "rank": 3,
+    "score": 42.1961,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/deutils.py",
+    "rank": 4,
+    "score": 41.9467,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/ntheory/modular.py",
+    "rank": 5,
+    "score": 41.1584,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/ntheory/residue_ntheory.py",
+    "rank": 6,
+    "score": 40.6328,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/liealgebras/type_e.py",
+    "rank": 7,
+    "score": 39.488,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/printing/pretty/stringpict.py",
+    "rank": 8,
+    "score": 38.9014,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/bivariate.py",
+    "rank": 9,
+    "score": 38.4465,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/holonomic/holonomic.py",
+    "rank": 10,
+    "score": 38.1735,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/sets/fancysets.py",
+    "rank": 11,
+    "score": 38.0621,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/integrals/risch.py",
+    "rank": 12,
+    "score": 37.9719,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/functions/elementary/miscellaneous.py",
+    "rank": 13,
+    "score": 37.6407,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/operations.py",
+    "rank": 14,
+    "score": 37.1861,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/diophantine.py",
+    "rank": 15,
+    "score": 37.0297,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/pde.py",
+    "rank": 16,
+    "score": 36.84,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/function.py",
+    "rank": 17,
+    "score": 36.7201,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/printing/latex.py",
+    "rank": 18,
+    "score": 36.6057,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/liealgebras/type_a.py",
+    "rank": 19,
+    "score": 36.5872,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/concrete/guess.py",
+    "rank": 20,
+    "score": 36.4466,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

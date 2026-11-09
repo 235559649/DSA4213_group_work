@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sphinx/domains/__init__.py",
+    "rank": 1,
+    "score": 35.9422,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/search/__init__.py",
+    "rank": 4,
+    "score": 32.8377,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/addnodes.py",
+    "rank": 9,
+    "score": 31.3007,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/errors.py",
+    "rank": 11,
+    "score": 31.2077,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/autodoc/__init__.py",
+    "rank": 12,
+    "score": 30.2545,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/todo.py",
+    "rank": 15,
+    "score": 29.2942,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/napoleon/__init__.py",
+    "rank": 16,
+    "score": 29.2314,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/extlinks.py",
+    "rank": 19,
+    "score": 28.4173,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/inventory.py",
+    "rank": 21,
+    "score": 28.0028,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/napoleon/iterators.py",
+    "rank": 22,
+    "score": 27.6267,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/parsers.py",
+    "rank": 23,
+    "score": 27.6088,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/stemmer/porter.py",
+    "rank": 25,
+    "score": 27.5036,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/application.py",
+    "rank": 29,
+    "score": 26.6199,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/docfields.py",
+    "rank": 31,
+    "score": 26.2667,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/writers/text.py",
+    "rank": 35,
+    "score": 25.4464,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/osutil.py",
+    "rank": 36,
+    "score": 25.4357,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/transforms/__init__.py",
+    "rank": 37,
+    "score": 25.2686,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/config.py",
+    "rank": 38,
+    "score": 25.0944,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/setup_command.py",
+    "rank": 39,
+    "score": 24.8342,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/environment/__init__.py",
+    "rank": 40,
+    "score": 24.8024,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

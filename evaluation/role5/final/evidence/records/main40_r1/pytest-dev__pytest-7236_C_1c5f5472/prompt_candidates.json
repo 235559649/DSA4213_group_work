@@ -1,0 +1,162 @@
+[
+  {
+    "file": "src/_pytest/debugging.py",
+    "rank": 1,
+    "score": 0.0327868852,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/python_api.py",
+    "rank": 2,
+    "score": 0.0322580645,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/capture.py",
+    "rank": 6,
+    "score": 0.0303030303,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/unittest.py",
+    "rank": 11,
+    "score": 0.0275980206,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/compat.py",
+    "rank": 12,
+    "score": 0.0254787407,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/outcomes.py",
+    "rank": 13,
+    "score": 0.0249345852,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/reports.py",
+    "rank": 14,
+    "score": 0.0233926129,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/pytester.py",
+    "rank": 15,
+    "score": 0.0231382979,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/fixtures.py",
+    "rank": 16,
+    "score": 0.0230983672,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/terminal.py",
+    "rank": 17,
+    "score": 0.0217289171,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/config/__init__.py",
+    "rank": 18,
+    "score": 0.0215224767,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/nose.py",
+    "rank": 19,
+    "score": 0.0214912281,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/_code/code.py",
+    "rank": 20,
+    "score": 0.0210446795,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/doctest.py",
+    "rank": 21,
+    "score": 0.0207883091,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/config/exceptions.py",
+    "rank": 22,
+    "score": 0.0196226415,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/pytest/__init__.py",
+    "rank": 23,
+    "score": 0.0190350021,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/_code/__init__.py",
+    "rank": 24,
+    "score": 0.0172973578,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/__init__.py",
+    "rank": 25,
+    "score": 0.0160322565,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/_io/__init__.py",
+    "rank": 26,
+    "score": 0.0158730159,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "src/_pytest/config/argparsing.py",
+    "rank": 34,
+    "score": 0.0125,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  }
+]

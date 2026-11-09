@@ -1,0 +1,10 @@
+{
+  "max_updates": 3,
+  "context_top_k": 20,
+  "failures_observed": 1,
+  "updates_applied": 1,
+  "localization_overhead_seconds": 9.974450286999854,
+  "initial_LS_fixed": true,
+  "failure_signal": "single_action_first_eligible_per_decision",
+  "log_directory": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/django__django-11133_D_8a58c59e/failure_feedback"
+}

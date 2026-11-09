@@ -1,0 +1,119 @@
+{
+  "run_id": "django__django-12262_C_530a2f4d",
+  "task_id": "django__django-12262",
+  "condition": "C",
+  "model": "openai/gpt-5.4-mini",
+  "mini_swe_agent_version": "2.4.6",
+  "status": "completed",
+  "termination_reason": "Submitted",
+  "trajectory_path": "/root/projects/DSA4213_group_work/experiments/dev3_extra_abcd_v1/runs/django__django-12262_C_530a2f4d/trajectory.json",
+  "patch_path": "/root/projects/DSA4213_group_work/experiments/dev3_extra_abcd_v1/runs/django__django-12262_C_530a2f4d/patch.diff",
+  "runtime_seconds": 13.470355033874512,
+  "usage": {
+    "input_tokens": 30393,
+    "output_tokens": 917,
+    "cached_input_tokens": 22656,
+    "total_tokens": 31310,
+    "api_calls": 6,
+    "cost_usd": 0.01162845
+  },
+  "experiment_id": "dev3_extra_abcd_v1",
+  "protocol_version": "v0.1",
+  "repeat_id": 1,
+  "attempt_id": 2,
+  "planned_run_key": "django__django-12262_C_r1",
+  "config": {
+    "benchmark": "swebench",
+    "split": "test",
+    "instance_id": "django__django-12262",
+    "repo": "django/django",
+    "version": "3.1",
+    "base_commit": "69331bb851c34f05bc77e9fc24020fe6908b9cd5",
+    "model_class": "openrouter",
+    "repository_index": {
+      "instance_id": "django__django-12262",
+      "repo": "django/django",
+      "base_commit": "69331bb851c34f05bc77e9fc24020fe6908b9cd5",
+      "index_sha256": "778fe0c3853ccfd29df614b207cb0956166d664d168c76a7d038e0e5f955caef",
+      "file_count": 2588,
+      "record_count": 35571,
+      "error_count": 0
+    },
+    "localization_source": "rrf_l_s",
+    "localization_candidate_count": 1626,
+    "localization_full_ranking_size": 1626,
+    "localization_top_k": 20,
+    "localization_prompt_candidate_count": 20,
+    "effective_task_path": "/root/projects/DSA4213_group_work/experiments/dev3_extra_abcd_v1/runs/django__django-12262_C_530a2f4d/effective_task.txt",
+    "localization_candidates_path": "/root/projects/DSA4213_group_work/experiments/dev3_extra_abcd_v1/runs/django__django-12262_C_530a2f4d/localization_candidates.json",
+    "prompt_candidates_path": "/root/projects/DSA4213_group_work/experiments/dev3_extra_abcd_v1/runs/django__django-12262_C_530a2f4d/prompt_candidates.json",
+    "usage_path": "/root/projects/DSA4213_group_work/experiments/dev3_extra_abcd_v1/runs/django__django-12262_C_530a2f4d/usage.jsonl",
+    "usage_record_count": 6,
+    "timings_path": "/root/projects/DSA4213_group_work/experiments/dev3_extra_abcd_v1/runs/django__django-12262_C_530a2f4d/timings.json",
+    "step_limit": 250,
+    "cost_limit": 3.0,
+    "wall_time_limit_seconds": 0,
+    "command_timeout_seconds": 60,
+    "docker_image": "docker.io/swebench/sweb.eval.x86_64.django_1776_django-12262:latest"
+  },
+  "evaluation": {
+    "agent_run_completed": true,
+    "submission_present": true,
+    "patch_generated": true,
+    "official_swebench_evaluation": {
+      "dataset": "SWE-bench/SWE-bench_Verified",
+      "dataset_revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+      "dataset_split": "test",
+      "experiment_partition": "development",
+      "evaluation_run_id": "dev3-django-django-12262-C-530a2f4d",
+      "artifacts": {
+        "report": "evaluation/report.json",
+        "test_output": "evaluation/test_output.txt",
+        "run_instance_log": "evaluation/run_instance.log",
+        "aggregate_report": "evaluation/aggregate_report.json"
+      },
+      "resolved": false,
+      "patch_exists": true,
+      "patch_successfully_applied": true,
+      "infra_failure": false,
+      "FAIL_TO_PASS": {
+        "passed": 2,
+        "failed": 2,
+        "success_tests": [
+          "test_inclusion_tags (template_tests.test_custom.InclusionTagTests)",
+          "test_simple_tags (template_tests.test_custom.SimpleTagTests)"
+        ],
+        "failure_tests": [
+          "test_inclusion_tag_errors (template_tests.test_custom.InclusionTagTests)",
+          "test_simple_tag_errors (template_tests.test_custom.SimpleTagTests)"
+        ]
+      },
+      "PASS_TO_PASS": {
+        "passed": 18,
+        "failed": 0,
+        "success_tests": [
+          "test_decorated_filter (template_tests.test_custom.CustomFilterTests)",
+          "test_filter (template_tests.test_custom.CustomFilterTests)",
+          "test_15070_use_l10n (template_tests.test_custom.InclusionTagTests)",
+          "test_include_tag_missing_context (template_tests.test_custom.InclusionTagTests)",
+          "test_inclusion_tag_registration (template_tests.test_custom.InclusionTagTests)",
+          "test_inclusion_tags_from_template (template_tests.test_custom.InclusionTagTests)",
+          "test_no_render_side_effect (template_tests.test_custom.InclusionTagTests)",
+          "test_render_context_is_cleared (template_tests.test_custom.InclusionTagTests)",
+          "test_simple_tag_escaping_autoescape_off (template_tests.test_custom.SimpleTagTests)",
+          "test_simple_tag_explicit_escaping (template_tests.test_custom.SimpleTagTests)",
+          "test_simple_tag_format_html_escaping (template_tests.test_custom.SimpleTagTests)",
+          "test_simple_tag_missing_context (template_tests.test_custom.SimpleTagTests)",
+          "test_simple_tag_naive_escaping (template_tests.test_custom.SimpleTagTests)",
+          "test_simple_tag_registration (template_tests.test_custom.SimpleTagTests)",
+          "test_load_annotated_function (template_tests.test_custom.TemplateTagLoadingTests)",
+          "test_load_error (template_tests.test_custom.TemplateTagLoadingTests)",
+          "test_load_error_egg (template_tests.test_custom.TemplateTagLoadingTests)",
+          "test_load_working_egg (template_tests.test_custom.TemplateTagLoadingTests)"
+        ],
+        "failure_tests": []
+      }
+    }
+  },
+  "error": null
+}

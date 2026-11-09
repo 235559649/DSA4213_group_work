@@ -1,0 +1,29 @@
+diff --git a/sympy/polys/polytools.py b/sympy/polys/polytools.py
+index c9e77a901f..0f3b3951e1 100755
+--- a/sympy/polys/polytools.py
++++ b/sympy/polys/polytools.py
+@@ -5881,13 +5881,23 @@ def key(obj):
+             poly, exp = obj
+             rep = poly.rep.rep
+             return (exp, len(rep), len(poly.gens), rep)
++
++        factors = sorted(factors, key=key)
++
++        merged = []
++        for poly, exp in factors:
++            if merged and merged[-1][1] == exp:
++                merged[-1] = (merged[-1][0] * poly, exp)
++            else:
++                merged.append((poly, exp))
++        return merged
+     else:
+         def key(obj):
+             poly, exp = obj
+             rep = poly.rep.rep
+             return (len(rep), len(poly.gens), exp, rep)
+ 
+-    return sorted(factors, key=key)
++        return sorted(factors, key=key)
+ 
+ 
+ def _factors_product(factors):

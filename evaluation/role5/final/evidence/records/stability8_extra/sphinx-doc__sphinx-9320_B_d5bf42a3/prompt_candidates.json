@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sphinx/cmd/quickstart.py",
+    "rank": 1,
+    "score": 79.4088,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/locale/__init__.py",
+    "rank": 2,
+    "score": 47.8509,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/__init__.py",
+    "rank": 3,
+    "score": 44.9012,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/transforms/post_transforms/images.py",
+    "rank": 8,
+    "score": 42.8495,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/events.py",
+    "rank": 13,
+    "score": 39.5605,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/environment/collectors/toctree.py",
+    "rank": 14,
+    "score": 39.208,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/addnodes.py",
+    "rank": 15,
+    "score": 38.9704,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/application.py",
+    "rank": 16,
+    "score": 38.2333,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/intersphinx.py",
+    "rank": 17,
+    "score": 38.1533,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/setup_command.py",
+    "rank": 18,
+    "score": 37.9631,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/doctest.py",
+    "rank": 19,
+    "score": 37.8863,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/fileutil.py",
+    "rank": 20,
+    "score": 37.732,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/domains/std.py",
+    "rank": 21,
+    "score": 37.4941,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/inventory.py",
+    "rank": 23,
+    "score": 37.1305,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "utils/checks.py",
+    "rank": 24,
+    "score": 36.8991,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/stemmer/porter.py",
+    "rank": 25,
+    "score": 36.8532,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/typing.py",
+    "rank": 26,
+    "score": 36.8495,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/texescape.py",
+    "rank": 27,
+    "score": 36.8312,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/domains/__init__.py",
+    "rank": 28,
+    "score": 36.7088,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/domains/c.py",
+    "rank": 29,
+    "score": 36.3976,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

@@ -1,0 +1,56 @@
+diff --git a/sympy/core/relational.py b/sympy/core/relational.py
+index e2e0b7fbcc..21c51f472a 100644
+--- a/sympy/core/relational.py
++++ b/sympy/core/relational.py
+@@ -302,6 +302,7 @@ def equals(self, other, failing_expression=False):
+ 
+     def _eval_simplify(self, **kwargs):
+         from .add import Add
++        from sympy.sets.sets import Set
+         r = self
+         r = r.func(*[i.simplify(**kwargs) for i in r.args])
+         if r.is_Relational:
+@@ -311,6 +312,9 @@ def _eval_simplify(self, **kwargs):
+             v = None
+             if dif.is_comparable:
+                 v = dif.n(2)
++            elif isinstance(dif, Set):
++                if dif.is_empty:
++                    v = S.Zero
+             elif dif.equals(0):  # XXX this is expensive
+                 v = S.Zero
+             if v is not None:
+diff --git a/sympy/sets/sets.py b/sympy/sets/sets.py
+index 3c4aa86e36..4420d64f85 100644
+--- a/sympy/sets/sets.py
++++ b/sympy/sets/sets.py
+@@ -865,6 +865,14 @@ def __len__(self):
+     def __bool__(self):
+         return all([bool(s) for s in self.sets])
+ 
++    def _eval_is_subset(self, other):
++        if isinstance(other, ProductSet):
++            if len(self.sets) != len(other.sets):
++                return False
++            return fuzzy_and(s.is_subset(o) for s, o in zip(self.sets, other.sets))
++        elif isinstance(other, FiniteSet) and self.is_finite_set:
++            return fuzzy_and(other.contains(t) for t in self)
++
+ 
+ class Interval(Set, EvalfMixin):
+     """
+diff --git a/sympy/sets/tests/test_sets.py b/sympy/sets/tests/test_sets.py
+index d29a046072..3f91e08d37 100644
+--- a/sympy/sets/tests/test_sets.py
++++ b/sympy/sets/tests/test_sets.py
+@@ -1011,6 +1011,10 @@ def test_product_basic():
+     assert set(coin**2) == {(HH, HH), (HH, TT), (TT, HH), (TT, TT)}
+ 
+     assert (d4*d4).is_subset(d6*d6)
++    assert (FiniteSet(1, 2) * FiniteSet(3, 4)).is_subset(
++        FiniteSet((1, 3), (1, 4), (2, 3), (2, 4)))
++    assert not (FiniteSet(1, 2) * FiniteSet(3, 4)).is_subset(
++        FiniteSet((1, 3), (1, 4), (2, 3)))
+ 
+     assert square.complement(Interval(-oo, oo)*Interval(-oo, oo)) == Union(
+         (Interval(-oo, 0, True, True) +

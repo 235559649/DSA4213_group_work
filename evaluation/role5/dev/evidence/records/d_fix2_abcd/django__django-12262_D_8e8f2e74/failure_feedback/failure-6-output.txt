@@ -1,0 +1,4 @@
+simple_keyword_only_default - Expected result: 42
+TemplateSyntaxError 'simple_keyword_only_default' received unexpected keyword argument 'greeting'
+TemplateSyntaxError 'simple_keyword_only_default' received unexpected keyword argument 'greeting'
+TemplateSyntaxError 'simple_keyword_only_param' did not receive value(s) for the argument(s): 'kwarg'

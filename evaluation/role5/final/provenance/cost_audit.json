@@ -1,0 +1,2346 @@
+{
+  "django__django-10914_A_e8c22239": {
+    "selected": true,
+    "cost_usd": 0.011551800000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.011551800000000001,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-10914_B_2eafc718": {
+    "selected": true,
+    "cost_usd": 0.014412900000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.014412900000000001,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-10914_C_a3a24824": {
+    "selected": true,
+    "cost_usd": 0.01876005,
+    "complete": true,
+    "recorded_cost_usd": 0.01876005,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-10914_D_406de82a": {
+    "selected": true,
+    "cost_usd": 0.010386749999999998,
+    "complete": true,
+    "recorded_cost_usd": 0.010386749999999998,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-11119_A_9e3b446a": {
+    "selected": true,
+    "cost_usd": 0.014286150000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.014286150000000001,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-11119_B_80492823": {
+    "selected": true,
+    "cost_usd": 0.012935249999999999,
+    "complete": true,
+    "recorded_cost_usd": 0.012935249999999999,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-11119_C_24d1be91": {
+    "selected": true,
+    "cost_usd": 0.0160461,
+    "complete": true,
+    "recorded_cost_usd": 0.0160461,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-11119_D_bd692e13": {
+    "selected": true,
+    "cost_usd": 0.012942,
+    "complete": true,
+    "recorded_cost_usd": 0.012942,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-12276_A_aaabed57": {
+    "selected": true,
+    "cost_usd": 0.019610699999999995,
+    "complete": true,
+    "recorded_cost_usd": 0.019610699999999995,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-12276_B_ecee6c5e": {
+    "selected": true,
+    "cost_usd": 0.015615000000000002,
+    "complete": true,
+    "recorded_cost_usd": 0.015615000000000002,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-12276_C_afce6e9f": {
+    "selected": true,
+    "cost_usd": 0.021739050000000003,
+    "complete": true,
+    "recorded_cost_usd": 0.021739050000000003,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-12276_D_0218e7e8": {
+    "selected": true,
+    "cost_usd": 0.0210357,
+    "complete": true,
+    "recorded_cost_usd": 0.0210357,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-13212_A_8ee3316d": {
+    "selected": true,
+    "cost_usd": 0.0159051,
+    "complete": true,
+    "recorded_cost_usd": 0.0159051,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-13212_B_40e31454": {
+    "selected": true,
+    "cost_usd": 0.0166188,
+    "complete": true,
+    "recorded_cost_usd": 0.0166188,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-13212_C_5767b8ad": {
+    "selected": true,
+    "cost_usd": 0.04492815,
+    "complete": true,
+    "recorded_cost_usd": 0.04492815,
+    "api_calls": 10,
+    "response_count": 10,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-13212_D_17e5b774": {
+    "selected": true,
+    "cost_usd": 0.0126489,
+    "complete": true,
+    "recorded_cost_usd": 0.0126489,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-13590_A_5b383612": {
+    "selected": false,
+    "cost_usd": null,
+    "complete": null,
+    "recorded_cost_usd": null,
+    "api_calls": null,
+    "response_count": 0,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-13590_A_26f50f0d": {
+    "selected": true,
+    "cost_usd": 0.0083151,
+    "complete": true,
+    "recorded_cost_usd": 0.0083151,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-13590_B_b88a7e84": {
+    "selected": false,
+    "cost_usd": null,
+    "complete": null,
+    "recorded_cost_usd": null,
+    "api_calls": null,
+    "response_count": 0,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-13590_B_a33dfc86": {
+    "selected": true,
+    "cost_usd": 0.011890350000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.011890350000000001,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-13590_C_112bc181": {
+    "selected": false,
+    "cost_usd": null,
+    "complete": null,
+    "recorded_cost_usd": null,
+    "api_calls": null,
+    "response_count": 0,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-13590_C_977ec749": {
+    "selected": true,
+    "cost_usd": 0.010970549999999999,
+    "complete": true,
+    "recorded_cost_usd": 0.010970549999999999,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-13590_D_d573d499": {
+    "selected": false,
+    "cost_usd": null,
+    "complete": null,
+    "recorded_cost_usd": null,
+    "api_calls": null,
+    "response_count": 0,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-13590_D_ae21b7ed": {
+    "selected": true,
+    "cost_usd": 0.0103407,
+    "complete": true,
+    "recorded_cost_usd": 0.0103407,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-14311_A_1b3c2d5d": {
+    "selected": true,
+    "cost_usd": 0.03214365,
+    "complete": true,
+    "recorded_cost_usd": 0.03214365,
+    "api_calls": 10,
+    "response_count": 10,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-14311_B_70af615d": {
+    "selected": true,
+    "cost_usd": 0.0219228,
+    "complete": true,
+    "recorded_cost_usd": 0.0219228,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-14311_C_59c9f99b": {
+    "selected": true,
+    "cost_usd": 0.02972055,
+    "complete": true,
+    "recorded_cost_usd": 0.02972055,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-14311_D_8db29ff2": {
+    "selected": true,
+    "cost_usd": 0.0156648,
+    "complete": true,
+    "recorded_cost_usd": 0.0156648,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-15380_A_aace3c54": {
+    "selected": true,
+    "cost_usd": 0.0215514,
+    "complete": true,
+    "recorded_cost_usd": 0.0215514,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-15380_B_f18e5546": {
+    "selected": true,
+    "cost_usd": 0.010295400000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.010295400000000001,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-15380_C_7d41461b": {
+    "selected": true,
+    "cost_usd": 0.0102615,
+    "complete": true,
+    "recorded_cost_usd": 0.0102615,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-15380_D_a6a78453": {
+    "selected": true,
+    "cost_usd": 0.023378249999999996,
+    "complete": true,
+    "recorded_cost_usd": 0.023378249999999996,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16255_A_131f85bf": {
+    "selected": true,
+    "cost_usd": 0.0099594,
+    "complete": true,
+    "recorded_cost_usd": 0.0099594,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16255_B_4d4d6d27": {
+    "selected": true,
+    "cost_usd": 0.012802049999999999,
+    "complete": true,
+    "recorded_cost_usd": 0.012802049999999999,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16255_C_d9599315": {
+    "selected": true,
+    "cost_usd": 0.010724250000000003,
+    "complete": true,
+    "recorded_cost_usd": 0.010724250000000003,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16255_D_04392345": {
+    "selected": true,
+    "cost_usd": 0.008429850000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.008429850000000001,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16315_A_874f5ebe": {
+    "selected": false,
+    "cost_usd": null,
+    "complete": null,
+    "recorded_cost_usd": null,
+    "api_calls": null,
+    "response_count": 0,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16315_A_c1db7f58": {
+    "selected": true,
+    "cost_usd": 0.018789599999999997,
+    "complete": true,
+    "recorded_cost_usd": 0.018789599999999997,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16315_B_d9383bf5": {
+    "selected": false,
+    "cost_usd": null,
+    "complete": null,
+    "recorded_cost_usd": null,
+    "api_calls": null,
+    "response_count": 0,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16315_B_818d0b1e": {
+    "selected": true,
+    "cost_usd": 0.31692105000000004,
+    "complete": true,
+    "recorded_cost_usd": 0.31692105000000004,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16315_C_b93f8276": {
+    "selected": true,
+    "cost_usd": 0.0293799,
+    "complete": true,
+    "recorded_cost_usd": 0.0293799,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16315_D_de5d7e35": {
+    "selected": true,
+    "cost_usd": 0.03544575,
+    "complete": true,
+    "recorded_cost_usd": 0.03544575,
+    "api_calls": 13,
+    "response_count": 13,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16877_A_3b6bbac8": {
+    "selected": true,
+    "cost_usd": 0.010022699999999999,
+    "complete": true,
+    "recorded_cost_usd": 0.010022699999999999,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16877_B_dc5940ae": {
+    "selected": true,
+    "cost_usd": 0.01823595,
+    "complete": true,
+    "recorded_cost_usd": 0.01823595,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16877_C_9e3a42cd": {
+    "selected": true,
+    "cost_usd": 0.0142104,
+    "complete": true,
+    "recorded_cost_usd": 0.0142104,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16877_D_0ee67b22": {
+    "selected": true,
+    "cost_usd": 0.0153834,
+    "complete": true,
+    "recorded_cost_usd": 0.0153834,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16950_A_6cb48bef": {
+    "selected": true,
+    "cost_usd": 0.0234984,
+    "complete": true,
+    "recorded_cost_usd": 0.0234984,
+    "api_calls": 13,
+    "response_count": 13,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16950_B_71620503": {
+    "selected": true,
+    "cost_usd": 0.029758499999999997,
+    "complete": true,
+    "recorded_cost_usd": 0.029758499999999997,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16950_C_1e300bc7": {
+    "selected": true,
+    "cost_usd": 0.0195636,
+    "complete": true,
+    "recorded_cost_usd": 0.0195636,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16950_D_ffd53c08": {
+    "selected": true,
+    "cost_usd": 0.017474849999999997,
+    "complete": true,
+    "recorded_cost_usd": 0.017474849999999997,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-7530_A_41fb4319": {
+    "selected": true,
+    "cost_usd": 0.0113856,
+    "complete": true,
+    "recorded_cost_usd": 0.0113856,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-7530_B_88d2ffc6": {
+    "selected": true,
+    "cost_usd": 0.0167796,
+    "complete": true,
+    "recorded_cost_usd": 0.0167796,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-7530_C_1d160e84": {
+    "selected": true,
+    "cost_usd": 0.027816599999999997,
+    "complete": true,
+    "recorded_cost_usd": 0.027816599999999997,
+    "api_calls": 10,
+    "response_count": 10,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-7530_D_630671b0": {
+    "selected": true,
+    "cost_usd": 0.0368184,
+    "complete": true,
+    "recorded_cost_usd": 0.0368184,
+    "api_calls": 13,
+    "response_count": 13,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-10081_A_c11dbeec": {
+    "selected": true,
+    "cost_usd": 0.014058600000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.014058600000000001,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-10081_B_0a023c1e": {
+    "selected": true,
+    "cost_usd": 0.04277505000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.04277505000000001,
+    "api_calls": 15,
+    "response_count": 15,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-10081_C_0342dd26": {
+    "selected": true,
+    "cost_usd": 0.018038250000000002,
+    "complete": true,
+    "recorded_cost_usd": 0.018038250000000002,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-10081_D_837a52c6": {
+    "selected": true,
+    "cost_usd": 0.015253500000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.015253500000000001,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7236_A_67190478": {
+    "selected": true,
+    "cost_usd": 0.028855049999999997,
+    "complete": true,
+    "recorded_cost_usd": 0.028855049999999997,
+    "api_calls": 10,
+    "response_count": 10,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7236_B_f1a0af85": {
+    "selected": true,
+    "cost_usd": 0.0262629,
+    "complete": true,
+    "recorded_cost_usd": 0.0262629,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7236_C_1c5f5472": {
+    "selected": true,
+    "cost_usd": 0.06804075,
+    "complete": true,
+    "recorded_cost_usd": 0.06804075,
+    "api_calls": 16,
+    "response_count": 16,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7236_D_ac1ebc06": {
+    "selected": true,
+    "cost_usd": 0.027448950000000003,
+    "complete": true,
+    "recorded_cost_usd": 0.027448950000000003,
+    "api_calls": 11,
+    "response_count": 11,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7324_A_4d50ce13": {
+    "selected": true,
+    "cost_usd": 0.010634699999999999,
+    "complete": true,
+    "recorded_cost_usd": 0.010634699999999999,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7324_B_ee680a13": {
+    "selected": true,
+    "cost_usd": 0.011401199999999998,
+    "complete": true,
+    "recorded_cost_usd": 0.011401199999999998,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7324_C_2c3b429a": {
+    "selected": true,
+    "cost_usd": 0.01257465,
+    "complete": true,
+    "recorded_cost_usd": 0.01257465,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7324_D_2a98f99a": {
+    "selected": true,
+    "cost_usd": 0.0502239,
+    "complete": true,
+    "recorded_cost_usd": 0.0502239,
+    "api_calls": 14,
+    "response_count": 14,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7521_A_03de1874": {
+    "selected": true,
+    "cost_usd": 0.02099775,
+    "complete": true,
+    "recorded_cost_usd": 0.02099775,
+    "api_calls": 11,
+    "response_count": 11,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7521_B_affcc83e": {
+    "selected": true,
+    "cost_usd": 0.02200005,
+    "complete": true,
+    "recorded_cost_usd": 0.02200005,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7521_C_54184a5b": {
+    "selected": true,
+    "cost_usd": 0.01673205,
+    "complete": true,
+    "recorded_cost_usd": 0.01673205,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7521_D_7c02610f": {
+    "selected": true,
+    "cost_usd": 0.0165714,
+    "complete": true,
+    "recorded_cost_usd": 0.0165714,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7982_A_65d4763a": {
+    "selected": true,
+    "cost_usd": 0.00684435,
+    "complete": true,
+    "recorded_cost_usd": 0.00684435,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7982_B_7fd77c1e": {
+    "selected": true,
+    "cost_usd": 0.0113076,
+    "complete": true,
+    "recorded_cost_usd": 0.0113076,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7982_C_ce15714c": {
+    "selected": true,
+    "cost_usd": 0.00996645,
+    "complete": true,
+    "recorded_cost_usd": 0.00996645,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7982_D_3089db11": {
+    "selected": true,
+    "cost_usd": 0.008664,
+    "complete": true,
+    "recorded_cost_usd": 0.008664,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-8399_A_d7066db3": {
+    "selected": true,
+    "cost_usd": 0.01304835,
+    "complete": true,
+    "recorded_cost_usd": 0.01304835,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-8399_B_a35b2a53": {
+    "selected": true,
+    "cost_usd": 0.0161397,
+    "complete": true,
+    "recorded_cost_usd": 0.0161397,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-8399_C_a58d94b5": {
+    "selected": true,
+    "cost_usd": 0.0216294,
+    "complete": true,
+    "recorded_cost_usd": 0.0216294,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-8399_D_e303039c": {
+    "selected": true,
+    "cost_usd": 0.013085849999999998,
+    "complete": true,
+    "recorded_cost_usd": 0.013085849999999998,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-11445_A_ecb50325": {
+    "selected": false,
+    "cost_usd": null,
+    "complete": false,
+    "recorded_cost_usd": 0.0382212,
+    "api_calls": 13,
+    "response_count": 12,
+    "zero_or_missing_cost_responses": [],
+    "issues": [
+      "Recorded 12 responses for 13 API calls",
+      "OpenRouter cost-recording runtime exception"
+    ]
+  },
+  "sphinx-doc__sphinx-11445_A_8a01fc97": {
+    "selected": true,
+    "cost_usd": 0.0661521,
+    "complete": true,
+    "recorded_cost_usd": 0.0661521,
+    "api_calls": 24,
+    "response_count": 24,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-11445_B_5d0f1ee3": {
+    "selected": true,
+    "cost_usd": 0.07583235,
+    "complete": true,
+    "recorded_cost_usd": 0.07583235,
+    "api_calls": 17,
+    "response_count": 17,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-11445_C_023e52bc": {
+    "selected": true,
+    "cost_usd": 0.04883085000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.04883085000000001,
+    "api_calls": 16,
+    "response_count": 16,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-11445_D_fa2973b6": {
+    "selected": false,
+    "cost_usd": null,
+    "complete": false,
+    "recorded_cost_usd": 0.013366649999999999,
+    "api_calls": 5,
+    "response_count": 4,
+    "zero_or_missing_cost_responses": [],
+    "issues": [
+      "Recorded 4 responses for 5 API calls",
+      "OpenRouter cost-recording runtime exception"
+    ]
+  },
+  "sphinx-doc__sphinx-11445_D_1d75e3fb": {
+    "selected": true,
+    "cost_usd": 0.06811904999999999,
+    "complete": true,
+    "recorded_cost_usd": 0.06811904999999999,
+    "api_calls": 28,
+    "response_count": 28,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-7748_A_6f2b5a4e": {
+    "selected": true,
+    "cost_usd": 0.041423249999999995,
+    "complete": true,
+    "recorded_cost_usd": 0.041423249999999995,
+    "api_calls": 12,
+    "response_count": 12,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-7748_B_192457dc": {
+    "selected": true,
+    "cost_usd": 0.0260112,
+    "complete": true,
+    "recorded_cost_usd": 0.0260112,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-7748_C_146dbdd5": {
+    "selected": true,
+    "cost_usd": 0.030149850000000006,
+    "complete": true,
+    "recorded_cost_usd": 0.030149850000000006,
+    "api_calls": 10,
+    "response_count": 10,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-7748_D_e7c4cda3": {
+    "selected": true,
+    "cost_usd": 0.0666345,
+    "complete": true,
+    "recorded_cost_usd": 0.0666345,
+    "api_calls": 16,
+    "response_count": 16,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-7757_A_28266cbe": {
+    "selected": true,
+    "cost_usd": 0.026633099999999996,
+    "complete": true,
+    "recorded_cost_usd": 0.026633099999999996,
+    "api_calls": 11,
+    "response_count": 11,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-7757_B_c8911eee": {
+    "selected": true,
+    "cost_usd": 0.049341,
+    "complete": true,
+    "recorded_cost_usd": 0.049341,
+    "api_calls": 12,
+    "response_count": 12,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-7757_C_7e728149": {
+    "selected": true,
+    "cost_usd": 0.0239043,
+    "complete": true,
+    "recorded_cost_usd": 0.0239043,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-7757_D_c78a10e3": {
+    "selected": true,
+    "cost_usd": 0.0393606,
+    "complete": true,
+    "recorded_cost_usd": 0.0393606,
+    "api_calls": 10,
+    "response_count": 10,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-8269_A_60ff79df": {
+    "selected": true,
+    "cost_usd": 0.0102264,
+    "complete": true,
+    "recorded_cost_usd": 0.0102264,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-8269_B_3d325305": {
+    "selected": true,
+    "cost_usd": 0.012349199999999998,
+    "complete": true,
+    "recorded_cost_usd": 0.012349199999999998,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-8269_C_513a5284": {
+    "selected": true,
+    "cost_usd": 0.016820250000000002,
+    "complete": true,
+    "recorded_cost_usd": 0.016820250000000002,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-8269_D_309d62a8": {
+    "selected": true,
+    "cost_usd": 0.0196128,
+    "complete": true,
+    "recorded_cost_usd": 0.0196128,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-8475_A_b5858c87": {
+    "selected": true,
+    "cost_usd": 0.011336699999999998,
+    "complete": true,
+    "recorded_cost_usd": 0.011336699999999998,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-8475_B_2f2f2ce0": {
+    "selected": true,
+    "cost_usd": 0.008176200000000002,
+    "complete": true,
+    "recorded_cost_usd": 0.008176200000000002,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-8475_C_9517513f": {
+    "selected": true,
+    "cost_usd": 0.015777000000000003,
+    "complete": true,
+    "recorded_cost_usd": 0.015777000000000003,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-8475_D_61074e1e": {
+    "selected": true,
+    "cost_usd": 0.014316,
+    "complete": true,
+    "recorded_cost_usd": 0.014316,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9229_A_b8329295": {
+    "selected": true,
+    "cost_usd": 0.03567915000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.03567915000000001,
+    "api_calls": 12,
+    "response_count": 12,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9229_B_ae469bd9": {
+    "selected": true,
+    "cost_usd": null,
+    "complete": false,
+    "recorded_cost_usd": 0.06641069999999999,
+    "api_calls": 20,
+    "response_count": 20,
+    "zero_or_missing_cost_responses": [
+      {
+        "message_index": 44,
+        "cost": 0
+      },
+      {
+        "message_index": 53,
+        "cost": 0
+      }
+    ],
+    "issues": [
+      "Response usage.cost is zero or missing"
+    ]
+  },
+  "sphinx-doc__sphinx-9229_C_8f1b2a89": {
+    "selected": true,
+    "cost_usd": 0.13855815000000002,
+    "complete": true,
+    "recorded_cost_usd": 0.13855815000000002,
+    "api_calls": 27,
+    "response_count": 27,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9229_D_cb5995b5": {
+    "selected": true,
+    "cost_usd": 0.024752999999999997,
+    "complete": true,
+    "recorded_cost_usd": 0.024752999999999997,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9258_A_6cd14ec3": {
+    "selected": true,
+    "cost_usd": 0.06584085000000002,
+    "complete": true,
+    "recorded_cost_usd": 0.06584085000000002,
+    "api_calls": 14,
+    "response_count": 14,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9258_B_613aa52d": {
+    "selected": true,
+    "cost_usd": 0.02695215,
+    "complete": true,
+    "recorded_cost_usd": 0.02695215,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9258_C_509c9889": {
+    "selected": true,
+    "cost_usd": 0.04379955000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.04379955000000001,
+    "api_calls": 11,
+    "response_count": 11,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9258_D_faca6d09": {
+    "selected": true,
+    "cost_usd": 0.02411235,
+    "complete": true,
+    "recorded_cost_usd": 0.02411235,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9320_A_7b44ce64": {
+    "selected": true,
+    "cost_usd": 0.012235800000000002,
+    "complete": true,
+    "recorded_cost_usd": 0.012235800000000002,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9320_B_8a7a784e": {
+    "selected": true,
+    "cost_usd": 0.01223175,
+    "complete": true,
+    "recorded_cost_usd": 0.01223175,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9320_C_9de05b32": {
+    "selected": true,
+    "cost_usd": 0.00937395,
+    "complete": true,
+    "recorded_cost_usd": 0.00937395,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9320_D_6797daf5": {
+    "selected": true,
+    "cost_usd": 0.00796395,
+    "complete": true,
+    "recorded_cost_usd": 0.00796395,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9591_A_fd59dcb8": {
+    "selected": true,
+    "cost_usd": 0.0273315,
+    "complete": true,
+    "recorded_cost_usd": 0.0273315,
+    "api_calls": 10,
+    "response_count": 10,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9591_B_fb31267b": {
+    "selected": true,
+    "cost_usd": 0.025385099999999997,
+    "complete": true,
+    "recorded_cost_usd": 0.025385099999999997,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9591_C_bc47e1a4": {
+    "selected": true,
+    "cost_usd": 0.02552205,
+    "complete": true,
+    "recorded_cost_usd": 0.02552205,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9591_D_5ff140dd": {
+    "selected": true,
+    "cost_usd": 0.0333234,
+    "complete": true,
+    "recorded_cost_usd": 0.0333234,
+    "api_calls": 11,
+    "response_count": 11,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9698_A_f7bb67ea": {
+    "selected": true,
+    "cost_usd": 0.010819950000000002,
+    "complete": true,
+    "recorded_cost_usd": 0.010819950000000002,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9698_B_65331027": {
+    "selected": true,
+    "cost_usd": 0.01966785,
+    "complete": true,
+    "recorded_cost_usd": 0.01966785,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9698_C_3e809001": {
+    "selected": true,
+    "cost_usd": 0.0146937,
+    "complete": true,
+    "recorded_cost_usd": 0.0146937,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9698_D_2d136634": {
+    "selected": true,
+    "cost_usd": 0.01248945,
+    "complete": true,
+    "recorded_cost_usd": 0.01248945,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-12489_A_850e612d": {
+    "selected": true,
+    "cost_usd": 0.0130572,
+    "complete": true,
+    "recorded_cost_usd": 0.0130572,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-12489_B_f24e5863": {
+    "selected": true,
+    "cost_usd": 0.02205045,
+    "complete": true,
+    "recorded_cost_usd": 0.02205045,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-12489_C_168aa814": {
+    "selected": true,
+    "cost_usd": 0.026596499999999995,
+    "complete": true,
+    "recorded_cost_usd": 0.026596499999999995,
+    "api_calls": 10,
+    "response_count": 10,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-12489_D_5e09c7cf": {
+    "selected": true,
+    "cost_usd": 0.01484235,
+    "complete": true,
+    "recorded_cost_usd": 0.01484235,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-13372_A_8c0525b0": {
+    "selected": true,
+    "cost_usd": 0.01580355,
+    "complete": true,
+    "recorded_cost_usd": 0.01580355,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-13372_B_b08ae129": {
+    "selected": true,
+    "cost_usd": 0.0106644,
+    "complete": true,
+    "recorded_cost_usd": 0.0106644,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-13372_C_91b7d976": {
+    "selected": true,
+    "cost_usd": 0.00994365,
+    "complete": true,
+    "recorded_cost_usd": 0.00994365,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-13372_D_cff93429": {
+    "selected": true,
+    "cost_usd": 0.011986199999999999,
+    "complete": true,
+    "recorded_cost_usd": 0.011986199999999999,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-13757_A_f59ceb7f": {
+    "selected": true,
+    "cost_usd": 0.022270050000000003,
+    "complete": true,
+    "recorded_cost_usd": 0.022270050000000003,
+    "api_calls": 12,
+    "response_count": 12,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-13757_B_ef22049a": {
+    "selected": true,
+    "cost_usd": 0.036988650000000005,
+    "complete": true,
+    "recorded_cost_usd": 0.036988650000000005,
+    "api_calls": 16,
+    "response_count": 16,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-13757_C_15735e67": {
+    "selected": true,
+    "cost_usd": 0.0139512,
+    "complete": true,
+    "recorded_cost_usd": 0.0139512,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-13757_D_6ab57af4": {
+    "selected": true,
+    "cost_usd": 0.018440099999999997,
+    "complete": true,
+    "recorded_cost_usd": 0.018440099999999997,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-16886_A_679a9994": {
+    "selected": true,
+    "cost_usd": 0.006345600000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.006345600000000001,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-16886_B_efd1545e": {
+    "selected": true,
+    "cost_usd": 0.0074074499999999995,
+    "complete": true,
+    "recorded_cost_usd": 0.0074074499999999995,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-16886_C_b1ba2a07": {
+    "selected": true,
+    "cost_usd": 0.0071352,
+    "complete": true,
+    "recorded_cost_usd": 0.0071352,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-16886_D_b0d51fa7": {
+    "selected": true,
+    "cost_usd": 0.00939195,
+    "complete": true,
+    "recorded_cost_usd": 0.00939195,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18189_A_83b71170": {
+    "selected": true,
+    "cost_usd": 0.019348499999999998,
+    "complete": true,
+    "recorded_cost_usd": 0.019348499999999998,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18189_B_a5fdeec2": {
+    "selected": true,
+    "cost_usd": 0.021124500000000004,
+    "complete": true,
+    "recorded_cost_usd": 0.021124500000000004,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18189_C_97a57089": {
+    "selected": true,
+    "cost_usd": 0.019872599999999997,
+    "complete": true,
+    "recorded_cost_usd": 0.019872599999999997,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18189_D_734cd82b": {
+    "selected": true,
+    "cost_usd": 0.0254679,
+    "complete": true,
+    "recorded_cost_usd": 0.0254679,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18199_A_fdbf4b56": {
+    "selected": true,
+    "cost_usd": 0.01891035,
+    "complete": true,
+    "recorded_cost_usd": 0.01891035,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18199_B_a2dac61e": {
+    "selected": true,
+    "cost_usd": 0.012756300000000002,
+    "complete": true,
+    "recorded_cost_usd": 0.012756300000000002,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18199_C_d99c5e6d": {
+    "selected": true,
+    "cost_usd": 0.01471485,
+    "complete": true,
+    "recorded_cost_usd": 0.01471485,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18199_D_4deab122": {
+    "selected": true,
+    "cost_usd": 0.017300250000000003,
+    "complete": true,
+    "recorded_cost_usd": 0.017300250000000003,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18698_A_00775e39": {
+    "selected": true,
+    "cost_usd": 0.042890700000000004,
+    "complete": true,
+    "recorded_cost_usd": 0.042890700000000004,
+    "api_calls": 13,
+    "response_count": 13,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18698_B_588405f3": {
+    "selected": true,
+    "cost_usd": 0.07736339999999998,
+    "complete": true,
+    "recorded_cost_usd": 0.07736339999999998,
+    "api_calls": 23,
+    "response_count": 23,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18698_C_59b81164": {
+    "selected": true,
+    "cost_usd": 0.0497847,
+    "complete": true,
+    "recorded_cost_usd": 0.0497847,
+    "api_calls": 20,
+    "response_count": 20,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18698_D_3587dc93": {
+    "selected": true,
+    "cost_usd": 0.04887059999999999,
+    "complete": true,
+    "recorded_cost_usd": 0.04887059999999999,
+    "api_calls": 23,
+    "response_count": 23,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-19637_A_44bf8314": {
+    "selected": true,
+    "cost_usd": 0.00833835,
+    "complete": true,
+    "recorded_cost_usd": 0.00833835,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-19637_B_b3a4f8a2": {
+    "selected": true,
+    "cost_usd": 0.011496300000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.011496300000000001,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-19637_C_ff4b6db4": {
+    "selected": true,
+    "cost_usd": 0.0113259,
+    "complete": true,
+    "recorded_cost_usd": 0.0113259,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-19637_D_290f7857": {
+    "selected": true,
+    "cost_usd": 0.01679205,
+    "complete": true,
+    "recorded_cost_usd": 0.01679205,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-20428_A_03b76ec4": {
+    "selected": true,
+    "cost_usd": 0.02670825,
+    "complete": true,
+    "recorded_cost_usd": 0.02670825,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-20428_B_1d844ec1": {
+    "selected": true,
+    "cost_usd": 0.029158949999999996,
+    "complete": true,
+    "recorded_cost_usd": 0.029158949999999996,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-20428_C_7f184abb": {
+    "selected": true,
+    "cost_usd": 0.030261749999999997,
+    "complete": true,
+    "recorded_cost_usd": 0.030261749999999997,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-20428_D_250e1edb": {
+    "selected": true,
+    "cost_usd": 0.024330749999999998,
+    "complete": true,
+    "recorded_cost_usd": 0.024330749999999998,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-21930_A_39af80e5": {
+    "selected": true,
+    "cost_usd": 0.0286815,
+    "complete": true,
+    "recorded_cost_usd": 0.0286815,
+    "api_calls": 16,
+    "response_count": 16,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-21930_B_a0d0d965": {
+    "selected": true,
+    "cost_usd": 0.02945895,
+    "complete": true,
+    "recorded_cost_usd": 0.02945895,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-21930_C_a1d630cf": {
+    "selected": true,
+    "cost_usd": 0.038412150000000006,
+    "complete": true,
+    "recorded_cost_usd": 0.038412150000000006,
+    "api_calls": 12,
+    "response_count": 12,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-21930_D_3eb4d69d": {
+    "selected": true,
+    "cost_usd": 0.028558950000000003,
+    "complete": true,
+    "recorded_cost_usd": 0.028558950000000003,
+    "api_calls": 12,
+    "response_count": 12,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-22080_A_f5887b39": {
+    "selected": true,
+    "cost_usd": 0.04145490000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.04145490000000001,
+    "api_calls": 15,
+    "response_count": 15,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-22080_B_1311a20c": {
+    "selected": true,
+    "cost_usd": 0.03717195,
+    "complete": true,
+    "recorded_cost_usd": 0.03717195,
+    "api_calls": 12,
+    "response_count": 12,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-22080_C_9da95ebd": {
+    "selected": true,
+    "cost_usd": 0.03773115,
+    "complete": true,
+    "recorded_cost_usd": 0.03773115,
+    "api_calls": 10,
+    "response_count": 10,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-22080_D_02c0a852": {
+    "selected": true,
+    "cost_usd": 0.03486885,
+    "complete": true,
+    "recorded_cost_usd": 0.03486885,
+    "api_calls": 12,
+    "response_count": 12,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-24443_A_4d001242": {
+    "selected": true,
+    "cost_usd": 0.0171891,
+    "complete": true,
+    "recorded_cost_usd": 0.0171891,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-24443_B_7896eb4c": {
+    "selected": true,
+    "cost_usd": 0.03899219999999999,
+    "complete": true,
+    "recorded_cost_usd": 0.03899219999999999,
+    "api_calls": 17,
+    "response_count": 17,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-24443_C_2f961cf5": {
+    "selected": true,
+    "cost_usd": 0.02113515,
+    "complete": true,
+    "recorded_cost_usd": 0.02113515,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-24443_D_ea668e2f": {
+    "selected": true,
+    "cost_usd": 0.0402186,
+    "complete": true,
+    "recorded_cost_usd": 0.0402186,
+    "api_calls": 16,
+    "response_count": 16,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16315_A_d4212474": {
+    "selected": true,
+    "cost_usd": 0.013188900000000003,
+    "complete": true,
+    "recorded_cost_usd": 0.013188900000000003,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16315_B_ad3099af": {
+    "selected": true,
+    "cost_usd": 0.021020399999999998,
+    "complete": true,
+    "recorded_cost_usd": 0.021020399999999998,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16315_C_d997d716": {
+    "selected": true,
+    "cost_usd": 0.018600449999999998,
+    "complete": true,
+    "recorded_cost_usd": 0.018600449999999998,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16315_D_87bbdc4d": {
+    "selected": true,
+    "cost_usd": 0.038495850000000005,
+    "complete": true,
+    "recorded_cost_usd": 0.038495850000000005,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16877_A_9fd51e0c": {
+    "selected": true,
+    "cost_usd": 0.0087681,
+    "complete": true,
+    "recorded_cost_usd": 0.0087681,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16877_B_f00d65ba": {
+    "selected": true,
+    "cost_usd": 0.013587899999999998,
+    "complete": true,
+    "recorded_cost_usd": 0.013587899999999998,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16877_C_c153d259": {
+    "selected": true,
+    "cost_usd": 0.01533525,
+    "complete": true,
+    "recorded_cost_usd": 0.01533525,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16877_D_710faa2c": {
+    "selected": true,
+    "cost_usd": 0.01246935,
+    "complete": true,
+    "recorded_cost_usd": 0.01246935,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-10081_A_7c8ceed2": {
+    "selected": true,
+    "cost_usd": 0.05340225,
+    "complete": true,
+    "recorded_cost_usd": 0.05340225,
+    "api_calls": 18,
+    "response_count": 18,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-10081_B_2d4d32d9": {
+    "selected": true,
+    "cost_usd": null,
+    "complete": false,
+    "recorded_cost_usd": 0.026145750000000002,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [
+      {
+        "message_index": 16,
+        "cost": 0
+      }
+    ],
+    "issues": [
+      "Response usage.cost is zero or missing"
+    ]
+  },
+  "pytest-dev__pytest-10081_C_d6b069a1": {
+    "selected": true,
+    "cost_usd": 0.03230535,
+    "complete": true,
+    "recorded_cost_usd": 0.03230535,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-10081_D_5cd0f330": {
+    "selected": true,
+    "cost_usd": 0.02062785,
+    "complete": true,
+    "recorded_cost_usd": 0.02062785,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7982_A_2a9a270f": {
+    "selected": true,
+    "cost_usd": 0.008849850000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.008849850000000001,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7982_B_1490a966": {
+    "selected": true,
+    "cost_usd": 0.013402200000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.013402200000000001,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7982_C_9e3c1c64": {
+    "selected": true,
+    "cost_usd": 0.013337249999999998,
+    "complete": true,
+    "recorded_cost_usd": 0.013337249999999998,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7982_D_b1b66e52": {
+    "selected": true,
+    "cost_usd": 0.00944415,
+    "complete": true,
+    "recorded_cost_usd": 0.00944415,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9258_A_96301286": {
+    "selected": true,
+    "cost_usd": 0.1124169,
+    "complete": true,
+    "recorded_cost_usd": 0.1124169,
+    "api_calls": 22,
+    "response_count": 22,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9258_B_3f52f57f": {
+    "selected": true,
+    "cost_usd": 0.03345795,
+    "complete": true,
+    "recorded_cost_usd": 0.03345795,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9258_C_4d0c10ba": {
+    "selected": true,
+    "cost_usd": 0.051166649999999994,
+    "complete": true,
+    "recorded_cost_usd": 0.051166649999999994,
+    "api_calls": 13,
+    "response_count": 13,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9258_D_70a41f35": {
+    "selected": true,
+    "cost_usd": 0.01988685,
+    "complete": true,
+    "recorded_cost_usd": 0.01988685,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9320_A_d6d2d7dd": {
+    "selected": true,
+    "cost_usd": 0.015131700000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.015131700000000001,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9320_B_d5bf42a3": {
+    "selected": true,
+    "cost_usd": 0.012687450000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.012687450000000001,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9320_C_a6ba524b": {
+    "selected": true,
+    "cost_usd": 0.0117273,
+    "complete": true,
+    "recorded_cost_usd": 0.0117273,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9320_D_99785ddf": {
+    "selected": true,
+    "cost_usd": 0.010691550000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.010691550000000001,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18189_A_7c24ae41": {
+    "selected": true,
+    "cost_usd": 0.01794135,
+    "complete": true,
+    "recorded_cost_usd": 0.01794135,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18189_B_5e4e2cbf": {
+    "selected": true,
+    "cost_usd": 0.0167226,
+    "complete": true,
+    "recorded_cost_usd": 0.0167226,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18189_C_76b807fb": {
+    "selected": true,
+    "cost_usd": 0.0145893,
+    "complete": true,
+    "recorded_cost_usd": 0.0145893,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18189_D_43477efa": {
+    "selected": true,
+    "cost_usd": 0.02406765,
+    "complete": true,
+    "recorded_cost_usd": 0.02406765,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-24443_A_2a28a141": {
+    "selected": true,
+    "cost_usd": 0.06542565000000002,
+    "complete": true,
+    "recorded_cost_usd": 0.06542565000000002,
+    "api_calls": 18,
+    "response_count": 18,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-24443_B_dc997a10": {
+    "selected": true,
+    "cost_usd": 0.0501852,
+    "complete": true,
+    "recorded_cost_usd": 0.0501852,
+    "api_calls": 14,
+    "response_count": 14,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-24443_C_44d9c2f1": {
+    "selected": true,
+    "cost_usd": 0.0514236,
+    "complete": true,
+    "recorded_cost_usd": 0.0514236,
+    "api_calls": 17,
+    "response_count": 17,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-24443_D_3adc1c77": {
+    "selected": true,
+    "cost_usd": 0.016295250000000004,
+    "complete": true,
+    "recorded_cost_usd": 0.016295250000000004,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16315_A_07a28507": {
+    "selected": true,
+    "cost_usd": 0.02060745,
+    "complete": true,
+    "recorded_cost_usd": 0.02060745,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16315_B_4b8178ea": {
+    "selected": true,
+    "cost_usd": 0.0247023,
+    "complete": true,
+    "recorded_cost_usd": 0.0247023,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16315_C_2faef20b": {
+    "selected": true,
+    "cost_usd": 0.032719649999999996,
+    "complete": true,
+    "recorded_cost_usd": 0.032719649999999996,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16315_D_997a3d7e": {
+    "selected": true,
+    "cost_usd": 0.02216025,
+    "complete": true,
+    "recorded_cost_usd": 0.02216025,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16877_A_aecff237": {
+    "selected": true,
+    "cost_usd": 0.012425700000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.012425700000000001,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16877_B_480fa858": {
+    "selected": true,
+    "cost_usd": 0.013082400000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.013082400000000001,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16877_C_1fd3b407": {
+    "selected": true,
+    "cost_usd": 0.01192905,
+    "complete": true,
+    "recorded_cost_usd": 0.01192905,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "django__django-16877_D_498c7e45": {
+    "selected": true,
+    "cost_usd": 0.01396755,
+    "complete": true,
+    "recorded_cost_usd": 0.01396755,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-10081_A_08b642da": {
+    "selected": true,
+    "cost_usd": 0.06763215,
+    "complete": true,
+    "recorded_cost_usd": 0.06763215,
+    "api_calls": 22,
+    "response_count": 22,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-10081_B_cea5e594": {
+    "selected": true,
+    "cost_usd": 0.04422795,
+    "complete": true,
+    "recorded_cost_usd": 0.04422795,
+    "api_calls": 13,
+    "response_count": 13,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-10081_C_747bab26": {
+    "selected": true,
+    "cost_usd": 0.037056900000000004,
+    "complete": true,
+    "recorded_cost_usd": 0.037056900000000004,
+    "api_calls": 14,
+    "response_count": 14,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-10081_D_754f2349": {
+    "selected": true,
+    "cost_usd": 0.027311099999999998,
+    "complete": true,
+    "recorded_cost_usd": 0.027311099999999998,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7982_A_9fc0a67f": {
+    "selected": true,
+    "cost_usd": 0.0082719,
+    "complete": true,
+    "recorded_cost_usd": 0.0082719,
+    "api_calls": 7,
+    "response_count": 7,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7982_B_e7fd053d": {
+    "selected": true,
+    "cost_usd": 0.0141531,
+    "complete": true,
+    "recorded_cost_usd": 0.0141531,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7982_C_e6e042f2": {
+    "selected": true,
+    "cost_usd": 0.007748700000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.007748700000000001,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "pytest-dev__pytest-7982_D_7b5c5235": {
+    "selected": true,
+    "cost_usd": 0.009605550000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.009605550000000001,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9258_A_1e50c219": {
+    "selected": true,
+    "cost_usd": 0.09616694999999999,
+    "complete": true,
+    "recorded_cost_usd": 0.09616694999999999,
+    "api_calls": 14,
+    "response_count": 14,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9258_B_93cda759": {
+    "selected": true,
+    "cost_usd": 0.070881,
+    "complete": true,
+    "recorded_cost_usd": 0.070881,
+    "api_calls": 16,
+    "response_count": 16,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9258_C_b11e43b4": {
+    "selected": true,
+    "cost_usd": 0.02409075,
+    "complete": true,
+    "recorded_cost_usd": 0.02409075,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9258_D_39d87af2": {
+    "selected": true,
+    "cost_usd": 0.0166368,
+    "complete": true,
+    "recorded_cost_usd": 0.0166368,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9320_A_53daf99b": {
+    "selected": true,
+    "cost_usd": 0.00866685,
+    "complete": true,
+    "recorded_cost_usd": 0.00866685,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9320_B_2e399be9": {
+    "selected": true,
+    "cost_usd": 0.011657550000000001,
+    "complete": true,
+    "recorded_cost_usd": 0.011657550000000001,
+    "api_calls": 5,
+    "response_count": 5,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9320_C_d9b421f8": {
+    "selected": true,
+    "cost_usd": 0.01122945,
+    "complete": true,
+    "recorded_cost_usd": 0.01122945,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sphinx-doc__sphinx-9320_D_3411bf77": {
+    "selected": true,
+    "cost_usd": 0.009390750000000002,
+    "complete": true,
+    "recorded_cost_usd": 0.009390750000000002,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18189_A_56feb48c": {
+    "selected": true,
+    "cost_usd": 0.036043799999999994,
+    "complete": true,
+    "recorded_cost_usd": 0.036043799999999994,
+    "api_calls": 8,
+    "response_count": 8,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18189_B_4edbd3a1": {
+    "selected": true,
+    "cost_usd": 0.030207899999999996,
+    "complete": true,
+    "recorded_cost_usd": 0.030207899999999996,
+    "api_calls": 9,
+    "response_count": 9,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18189_C_f1d0d49e": {
+    "selected": true,
+    "cost_usd": 0.011021099999999999,
+    "complete": true,
+    "recorded_cost_usd": 0.011021099999999999,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-18189_D_76a00f84": {
+    "selected": true,
+    "cost_usd": 0.05743215,
+    "complete": true,
+    "recorded_cost_usd": 0.05743215,
+    "api_calls": 22,
+    "response_count": 22,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-24443_A_7335be25": {
+    "selected": true,
+    "cost_usd": 0.0202662,
+    "complete": true,
+    "recorded_cost_usd": 0.0202662,
+    "api_calls": 10,
+    "response_count": 10,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-24443_B_3509992e": {
+    "selected": true,
+    "cost_usd": 0.10363829999999997,
+    "complete": true,
+    "recorded_cost_usd": 0.10363829999999997,
+    "api_calls": 27,
+    "response_count": 27,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-24443_C_fa8c63d8": {
+    "selected": true,
+    "cost_usd": 0.0494256,
+    "complete": true,
+    "recorded_cost_usd": 0.0494256,
+    "api_calls": 18,
+    "response_count": 18,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  },
+  "sympy__sympy-24443_D_f0099c53": {
+    "selected": true,
+    "cost_usd": 0.011857199999999998,
+    "complete": true,
+    "recorded_cost_usd": 0.011857199999999998,
+    "api_calls": 6,
+    "response_count": 6,
+    "zero_or_missing_cost_responses": [],
+    "issues": []
+  }
+}

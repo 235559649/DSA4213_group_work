@@ -1,0 +1,70 @@
+{
+  "run_id": "django__django-12262_D_6fa50936",
+  "task_id": "django__django-12262",
+  "condition": "D",
+  "model": "openai/gpt-5.4-mini",
+  "mini_swe_agent_version": "2.4.6",
+  "status": "completed",
+  "termination_reason": "Submitted",
+  "trajectory_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/django__django-12262_D_6fa50936/trajectory.json",
+  "patch_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/django__django-12262_D_6fa50936/patch.diff",
+  "runtime_seconds": 49.143991231918335,
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "api_calls": 13,
+    "cost_usd": 0.03758265
+  },
+  "config": {
+    "benchmark": "SWE-bench/SWE-bench_Verified",
+    "split": "test",
+    "instance_id": "django__django-12262",
+    "repo": "django/django",
+    "version": "3.1",
+    "base_commit": "69331bb851c34f05bc77e9fc24020fe6908b9cd5",
+    "model_class": "openrouter",
+    "repository_index": {
+      "instance_id": "django__django-12262",
+      "repo": "django/django",
+      "base_commit": "69331bb851c34f05bc77e9fc24020fe6908b9cd5",
+      "index_sha256": "778fe0c3853ccfd29df614b207cb0956166d664d168c76a7d038e0e5f955caef",
+      "file_count": 2588,
+      "record_count": 35571,
+      "error_count": 0
+    },
+    "localization_source": "rrf_l_s_f",
+    "localization_candidate_count": 1626,
+    "localization_full_ranking_size": 1626,
+    "localization_top_k": 20,
+    "localization_prompt_candidate_count": 20,
+    "effective_task_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/django__django-12262_D_6fa50936/effective_task.txt",
+    "localization_candidates_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/django__django-12262_D_6fa50936/localization_candidates.json",
+    "prompt_candidates_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/django__django-12262_D_6fa50936/prompt_candidates.json",
+    "step_limit": 250,
+    "cost_limit": 3.0,
+    "wall_time_limit_seconds": 0,
+    "command_timeout_seconds": 60,
+    "docker_image": "docker.io/swebench/sweb.eval.x86_64.django_1776_django-12262:latest",
+    "failure_feedback": {
+      "max_updates": 3,
+      "context_top_k": 20,
+      "observations_recorded": 15,
+      "failures_observed": 2,
+      "updates_applied": 1,
+      "localization_overhead_seconds": 13.976350193999679,
+      "initial_localization_seconds": 6.171893294000256,
+      "feedback_total_seconds": 7.809765914000309,
+      "initial_LS_fixed": true,
+      "failure_signal": "observed_runtime_evidence_first_eligible_per_decision",
+      "observation_provenance": "trusted_metadata_or_unknown",
+      "log_directory": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/django__django-12262_D_6fa50936/failure_feedback"
+    }
+  },
+  "evaluation": {
+    "agent_run_completed": true,
+    "submission_present": true,
+    "patch_generated": true,
+    "official_swebench_evaluation": null
+  },
+  "error": null
+}

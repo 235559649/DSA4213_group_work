@@ -1,0 +1,16 @@
+diff --git a/sympy/sets/sets.py b/sympy/sets/sets.py
+index 3c4aa86e36..e2b631abb1 100644
+--- a/sympy/sets/sets.py
++++ b/sympy/sets/sets.py
+@@ -801,6 +801,11 @@ def _contains(self, element):
+ 
+         return fuzzy_and(s._contains(e) for s, e in zip(self.sets, element))
+ 
++
++    def _eval_is_subset(self, other):
++        if isinstance(other, FiniteSet):
++            return fuzzy_and(other._contains(e) for e in self)
++
+     def as_relational(self, *symbols):
+         symbols = [_sympify(s) for s in symbols]
+         if len(symbols) != len(self.sets) or not all(

@@ -1,0 +1,26 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "Synthetic example only."
+    },
+    {
+      "role": "user",
+      "content": "Fix the example."
+    },
+    {
+      "role": "assistant",
+      "content": "Example response.",
+      "extra": {
+        "response": {
+          "usage": {
+            "prompt_tokens": 8,
+            "completion_tokens": 2,
+            "total_tokens": 10,
+            "cost": 0.01
+          }
+        }
+      }
+    }
+  ]
+}

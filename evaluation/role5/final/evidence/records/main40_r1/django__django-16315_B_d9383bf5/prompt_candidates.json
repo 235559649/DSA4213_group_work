@@ -1,0 +1,162 @@
+[
+  {
+    "file": "django/db/backends/postgresql/operations.py",
+    "rank": 1,
+    "score": 71.678,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/backends/sqlite3/operations.py",
+    "rank": 2,
+    "score": 64.6415,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/query.py",
+    "rank": 3,
+    "score": 60.1314,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/base.py",
+    "rank": 4,
+    "score": 57.3401,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/fields/__init__.py",
+    "rank": 6,
+    "score": 54.8825,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/forms/models.py",
+    "rank": 7,
+    "score": 52.3767,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/sql/compiler.py",
+    "rank": 8,
+    "score": 51.9157,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/fields/files.py",
+    "rank": 9,
+    "score": 51.6938,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/backends/mysql/operations.py",
+    "rank": 13,
+    "score": 47.9821,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/sql/query.py",
+    "rank": 15,
+    "score": 47.46,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/fields/related_descriptors.py",
+    "rank": 16,
+    "score": 47.1295,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/deletion.py",
+    "rank": 18,
+    "score": 45.235,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/backends/oracle/operations.py",
+    "rank": 19,
+    "score": 43.6635,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/query_utils.py",
+    "rank": 23,
+    "score": 42.9298,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/forms/forms.py",
+    "rank": 24,
+    "score": 42.8787,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/fields/related.py",
+    "rank": 25,
+    "score": 42.4582,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/sql/subqueries.py",
+    "rank": 26,
+    "score": 42.3512,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/backends/base/schema.py",
+    "rank": 28,
+    "score": 42.1361,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/gis/gdal/datasource.py",
+    "rank": 29,
+    "score": 42.076,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/options.py",
+    "rank": 32,
+    "score": 41.4582,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

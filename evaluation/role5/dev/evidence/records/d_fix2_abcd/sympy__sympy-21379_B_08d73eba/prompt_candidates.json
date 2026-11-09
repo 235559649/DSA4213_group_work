@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/core/sympify.py",
+    "rank": 1,
+    "score": 106.8071,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "isympy.py",
+    "rank": 2,
+    "score": 99.9897,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/expr.py",
+    "rank": 3,
+    "score": 97.5077,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/assumptions.py",
+    "rank": 4,
+    "score": 97.4627,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/integrals/risch.py",
+    "rank": 5,
+    "score": 97.0844,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/simplify/powsimp.py",
+    "rank": 6,
+    "score": 96.6046,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/basic.py",
+    "rank": 7,
+    "score": 95.2811,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/function.py",
+    "rank": 8,
+    "score": 93.0802,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/integrals/integrals.py",
+    "rank": 9,
+    "score": 89.3157,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/lambdify.py",
+    "rank": 10,
+    "score": 89.2483,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "bin/test_submodule_imports.py",
+    "rank": 11,
+    "score": 87.4697,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/simplify/simplify.py",
+    "rank": 12,
+    "score": 87.1491,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/ode/subscheck.py",
+    "rank": 13,
+    "score": 87.1405,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "examples/advanced/autowrap_integrators.py",
+    "rank": 14,
+    "score": 86.6309,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/autowrap.py",
+    "rank": 15,
+    "score": 86.0935,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/assumptions/assume.py",
+    "rank": 16,
+    "score": 85.6009,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/logic/boolalg.py",
+    "rank": 17,
+    "score": 85.5705,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/tensor/indexed.py",
+    "rank": 18,
+    "score": 85.4696,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/printing/glsl.py",
+    "rank": 19,
+    "score": 85.4639,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/singleton.py",
+    "rank": 20,
+    "score": 84.7267,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

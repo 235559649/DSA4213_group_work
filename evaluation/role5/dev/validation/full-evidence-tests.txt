@@ -1,0 +1,10 @@
+test_attempt_selection_and_missing_data (test_recorded_evidence.RecordedEvidenceTests.test_attempt_selection_and_missing_data) ... ok
+test_four_task_usage_is_summed_over_all_responses (test_recorded_evidence.RecordedEvidenceTests.test_four_task_usage_is_summed_over_all_responses) ... ok
+test_new_d_timing_and_route_boundaries (test_recorded_evidence.RecordedEvidenceTests.test_new_d_timing_and_route_boundaries) ... ok
+test_official_success_counts_match_reports (test_recorded_evidence.RecordedEvidenceTests.test_official_success_counts_match_reports) ... ok
+test_paid_retry_is_retained_without_becoming_a_new_task (test_recorded_evidence.RecordedEvidenceTests.test_paid_retry_is_retained_without_becoming_a_new_task) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 3.635s
+
+OK

@@ -1,0 +1,52 @@
+{
+  "django__django-11133": {
+    "paths": [
+      "django/http/response.py"
+    ],
+    "provenance": "Previously audited evaluation-only file labels; no repair hunks included."
+  },
+  "pytest-dev__pytest-7571": {
+    "paths": [
+      "src/_pytest/logging.py"
+    ],
+    "provenance": "Previously audited evaluation-only file labels; no repair hunks included."
+  },
+  "sphinx-doc__sphinx-8595": {
+    "paths": [
+      "sphinx/ext/autodoc/__init__.py"
+    ],
+    "provenance": "Previously audited evaluation-only file labels; no repair hunks included."
+  },
+  "sympy__sympy-17630": {
+    "paths": [
+      "sympy/matrices/expressions/matexpr.py"
+    ],
+    "provenance": "Previously audited evaluation-only file labels; no repair hunks included."
+  },
+  "sympy__sympy-23262": {
+    "paths": [
+      "sympy/utilities/lambdify.py"
+    ],
+    "provenance": "Previously audited evaluation-only file labels; no repair hunks included."
+  },
+  "django__django-12262": {
+    "paths": [
+      "django/template/library.py"
+    ],
+    "provenance": "Previously audited evaluation-only file labels; no repair hunks included."
+  },
+  "sympy__sympy-20438": {
+    "paths": [
+      "sympy/core/relational.py",
+      "sympy/sets/handlers/comparison.py",
+      "sympy/sets/handlers/issubset.py"
+    ],
+    "provenance": "Previously audited evaluation-only file labels; no repair hunks included."
+  },
+  "sympy__sympy-21379": {
+    "paths": [
+      "sympy/core/mod.py"
+    ],
+    "provenance": "Previously audited evaluation-only file labels; no repair hunks included."
+  }
+}

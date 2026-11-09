@@ -1,0 +1,14 @@
+{
+  "recorded_at": "2026-10-27T14:34:28.442397+08:00",
+  "task_id": "sympy__sympy-20438",
+  "condition": "A",
+  "failed_attempt": 1,
+  "retry_attempt": 2,
+  "failed_run_result": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-20438_A_771ea469/run_result.json",
+  "termination_reason": "RepeatedFormatError",
+  "failed_attempt_cost_usd": 0.036555000000000004,
+  "reason": "Submission marker was not first output line; subsequently three consecutive native responses had no tool_calls, finish_reason=stop. No evidence of Docker or authentication failure.",
+  "user_authorization": "记录一次，重跑SymPy-20438 的 A 试试",
+  "selection_rule": "Use the explicitly authorized attempt 2 for this task/condition regardless of its outcome; retain attempt 1 separately. No best-of selection.",
+  "configuration_changes": []
+}

@@ -1,0 +1,63 @@
+Python code printer not respecting tuple with one element
+Hi,
+
+Thanks for the recent updates in SymPy! I'm trying to update my code to use SymPy 1.10 but ran into an issue with the Python code printer. MWE:
+
+
+```python
+import inspect
+from sympy import lambdify
+
+inspect.getsource(lambdify([], tuple([1])))
+```
+SymPy 1.9 and under outputs:
+```
+'def _lambdifygenerated():\n    return (1,)\n'
+```
+
+But SymPy 1.10 gives
+
+```
+'def _lambdifygenerated():\n    return (1)\n'
+```
+Note the missing comma after `1` that causes an integer to be returned instead of a tuple. 
+
+For tuples with two or more elements, the generated code is correct:
+```python
+inspect.getsource(lambdify([], tuple([1, 2])))
+```
+In SymPy  1.10 and under, outputs:
+
+```
+'def _lambdifygenerated():\n    return (1, 2)\n'
+```
+This result is expected.
+
+Not sure if this is a regression. As this breaks my program which assumes the return type to always be a tuple, could you suggest a workaround from the code generation side? Thank you. 
+
+
+----
+Repository localization guidance:
+Additional repository localization hints are provided below.
+These are navigation suggestions only. You may inspect any file in the repository if needed.
+
+1. sympy/core/evalf.py | score: 74.5107 | reason: BM25
+2. sympy/core/sympify.py | score: 71.3534 | reason: BM25
+3. sympy/core/numbers.py | score: 70.7832 | reason: BM25
+4. sympy/combinatorics/permutations.py | score: 69.9779 | reason: BM25
+5. sympy/core/operations.py | score: 69.5350 | reason: BM25
+6. isympy.py | score: 68.7068 | reason: BM25
+7. sympy/utilities/source.py | score: 68.4091 | reason: BM25
+8. sympy/core/expr.py | score: 67.1344 | reason: BM25
+9. sympy/printing/codeprinter.py | score: 66.8386 | reason: BM25
+10. sympy/utilities/misc.py | score: 66.3459 | reason: BM25
+11. sympy/ntheory/modular.py | score: 66.3377 | reason: BM25
+12. sympy/utilities/codegen.py | score: 65.9689 | reason: BM25
+13. sympy/interactive/printing.py | score: 65.6625 | reason: BM25
+14. sympy/integrals/risch.py | score: 65.6585 | reason: BM25
+15. sympy/logic/boolalg.py | score: 65.3291 | reason: BM25
+16. sympy/tensor/indexed.py | score: 65.0241 | reason: BM25
+17. sympy/testing/pytest.py | score: 64.8127 | reason: BM25
+18. sympy/utilities/iterables.py | score: 64.7978 | reason: BM25
+19. sympy/abc.py | score: 64.6104 | reason: BM25
+20. sympy/solvers/diophantine/diophantine.py | score: 64.5945 | reason: BM25

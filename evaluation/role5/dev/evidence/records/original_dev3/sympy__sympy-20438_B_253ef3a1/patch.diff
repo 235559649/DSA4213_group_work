@@ -1,0 +1,21 @@
+diff --git a/sympy/sets/sets.py b/sympy/sets/sets.py
+index 3c4aa86e36..58e9f51e24 100644
+--- a/sympy/sets/sets.py
++++ b/sympy/sets/sets.py
+@@ -777,6 +777,16 @@ def _flatten(sets):
+ 
+ 
+ 
++    def _eval_is_subset(self, other):
++        if isinstance(other, FiniteSet):
++            if any(not isinstance(elem, Tuple) for elem in other):
++                return False
++            if len(other) == 0:
++                return False
++            if any(len(elem) != len(self.sets) for elem in other):
++                return False
++            return fuzzy_and(other._contains(t) for t in self)
++
+     def _contains(self, element):
+         """
+         'in' operator for ProductSets.

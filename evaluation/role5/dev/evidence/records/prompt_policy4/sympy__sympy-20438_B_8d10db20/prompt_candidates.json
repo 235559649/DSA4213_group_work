@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/core/relational.py",
+    "rank": 1,
+    "score": 57.6482,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/containers.py",
+    "rank": 2,
+    "score": 56.2853,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/matrices/matrices.py",
+    "rank": 3,
+    "score": 55.2154,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/sympify.py",
+    "rank": 4,
+    "score": 51.978,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/codegen/ast.py",
+    "rank": 5,
+    "score": 51.5654,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "release/fabfile.py",
+    "rank": 8,
+    "score": 47.0219,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/logic/boolalg.py",
+    "rank": 9,
+    "score": 46.9875,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/sets/sets.py",
+    "rank": 10,
+    "score": 45.883,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/compatibility.py",
+    "rank": 11,
+    "score": 45.08,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/solveset.py",
+    "rank": 12,
+    "score": 44.7883,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/polys/polytools.py",
+    "rank": 13,
+    "score": 44.0928,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/geometry/ellipse.py",
+    "rank": 14,
+    "score": 43.4,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/stats/rv.py",
+    "rank": 16,
+    "score": 43.173,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/assumptions.py",
+    "rank": 17,
+    "score": 42.3988,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/matrices/common.py",
+    "rank": 18,
+    "score": 42.3927,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/basic.py",
+    "rank": 19,
+    "score": 41.7681,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/decorator.py",
+    "rank": 20,
+    "score": 40.3656,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/numbers.py",
+    "rank": 21,
+    "score": 39.9889,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/matrices/dense.py",
+    "rank": 23,
+    "score": 39.2021,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/geometry/polygon.py",
+    "rank": 25,
+    "score": 38.8386,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

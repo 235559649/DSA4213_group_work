@@ -1,0 +1,78 @@
+{
+  "run_id": "sphinx-doc__sphinx-8475_C_9517513f",
+  "task_id": "sphinx-doc__sphinx-8475",
+  "condition": "C",
+  "model": "openai/gpt-5.4-mini",
+  "mini_swe_agent_version": "2.4.6",
+  "status": "completed",
+  "termination_reason": "Submitted",
+  "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-8475_C_9517513f/trajectory.json",
+  "patch_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-8475_C_9517513f/patch.diff",
+  "runtime_seconds": 11.768168926239014,
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "api_calls": 5,
+    "cost_usd": 0.015777000000000003
+  },
+  "config": {
+    "failure_weight": 1.0,
+    "ranking_strategy": "near_exception",
+    "fusion_policy": "weighted_rrf",
+    "k": 60,
+    "feedback_routing_policy": "evidence_increment_v3",
+    "feedback_route_limits": {
+      "rank_update": 3,
+      "edit_recovery": 2,
+      "diagnostic_only": 1
+    },
+    "repair_guidance_version": "disabled",
+    "benchmark": "swebench",
+    "split": "test",
+    "instance_id": "sphinx-doc__sphinx-8475",
+    "repo": "sphinx-doc/sphinx",
+    "version": "3.4",
+    "base_commit": "3ea1ec84cc610f7a9f4f6b354e264565254923ff",
+    "model_class": "openrouter",
+    "repository_index": {
+      "instance_id": "sphinx-doc__sphinx-8475",
+      "repo": "sphinx-doc/sphinx",
+      "base_commit": "3ea1ec84cc610f7a9f4f6b354e264565254923ff",
+      "index_sha256": "92efa2591a40a07a102f8a5ca18c6b555d68dbee08333c8381a25a3bced098b8",
+      "file_count": 524,
+      "record_count": 7364,
+      "error_count": 0
+    },
+    "localization_source": "rrf_l_s",
+    "localization_candidate_count": 373,
+    "localization_full_ranking_size": 373,
+    "localization_top_k": 20,
+    "localization_prompt_candidate_count": 20,
+    "localization_prompt_policy": "source_only+related_tests_v1",
+    "localization_related_tests": [
+      "tests/test_build_linkcheck.py",
+      "tests/test_intl.py",
+      "sphinx/testing/fixtures.py"
+    ],
+    "effective_task_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-8475_C_9517513f/effective_task.txt",
+    "localization_candidates_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-8475_C_9517513f/localization_candidates.json",
+    "prompt_candidates_path": "/root/projects/DSA4213_final_20261028/runs/sphinx-doc__sphinx-8475_C_9517513f/prompt_candidates.json",
+    "step_limit": 250,
+    "cost_limit": 3.0,
+    "wall_time_limit_seconds": 0,
+    "command_timeout_seconds": 60,
+    "docker_image": "docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8475:latest",
+    "timing": {
+      "env_setup_seconds": 0.227,
+      "agent_seconds": 11.541,
+      "env_teardown_seconds": 0.001
+    }
+  },
+  "evaluation": {
+    "agent_run_completed": true,
+    "submission_present": true,
+    "patch_generated": true,
+    "official_swebench_evaluation": null
+  },
+  "error": null
+}

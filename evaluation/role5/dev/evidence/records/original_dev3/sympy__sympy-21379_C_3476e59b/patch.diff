@@ -1,0 +1,32 @@
+diff --git a/sympy/core/mod.py b/sympy/core/mod.py
+index b4f3de2523..8899ce76f8 100755
+--- a/sympy/core/mod.py
++++ b/sympy/core/mod.py
+@@ -40,6 +40,7 @@ def eval(cls, p, q):
+         from sympy.core.mul import Mul
+         from sympy.core.singleton import S
+         from sympy.core.exprtools import gcd_terms
++        from sympy.functions.elementary.piecewise import Piecewise
+         from sympy.polys.polytools import gcd
+ 
+         def doit(p, q):
+@@ -166,10 +167,15 @@ def doit(p, q):
+         # XXX other possibilities?
+ 
+         # extract gcd; any further simplification should be done by the user
+-        G = gcd(p, q)
+-        if G != 1:
+-            p, q = [
+-                gcd_terms(i/G, clear=False, fraction=False) for i in (p, q)]
++        # Piecewise expressions are not suitable polynomial generators, so avoid
++        # trying to feed them to gcd-based polynomial simplification.
++        if p.has(Piecewise) or q.has(Piecewise):
++            G = S.One
++        else:
++            G = gcd(p, q)
++            if G != 1:
++                p, q = [
++                    gcd_terms(i/G, clear=False, fraction=False) for i in (p, q)]
+         pwas, qwas = p, q
+ 
+         # simplify terms

@@ -1,0 +1,111 @@
+{
+  "run_id": "pytest-dev__pytest-7571_C_5f2f3506",
+  "task_id": "pytest-dev__pytest-7571",
+  "condition": "C",
+  "model": "openai/gpt-5.4-mini",
+  "mini_swe_agent_version": "2.4.6",
+  "status": "completed",
+  "termination_reason": "Submitted",
+  "trajectory_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/pytest-dev__pytest-7571_C_5f2f3506/trajectory.json",
+  "patch_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/pytest-dev__pytest-7571_C_5f2f3506/patch.diff",
+  "runtime_seconds": 11.902678489685059,
+  "usage": {
+    "input_tokens": 51371,
+    "output_tokens": 1125,
+    "cached_input_tokens": 41216,
+    "total_tokens": 52496,
+    "api_calls": 7,
+    "cost_usd": 0.01576995
+  },
+  "experiment_id": "dev5_abcd_v1",
+  "protocol_version": "v0.1",
+  "repeat_id": 1,
+  "attempt_id": 1,
+  "planned_run_key": "pytest-dev__pytest-7571_C_r1",
+  "config": {
+    "benchmark": "swebench",
+    "split": "test",
+    "instance_id": "pytest-dev__pytest-7571",
+    "repo": "pytest-dev/pytest",
+    "version": "6.0",
+    "base_commit": "422685d0bdc110547535036c1ff398b5e1c44145",
+    "model_class": "openrouter",
+    "repository_index": {
+      "instance_id": "pytest-dev__pytest-7571",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "422685d0bdc110547535036c1ff398b5e1c44145",
+      "index_sha256": "5ab1aa5791fa50ed33a510a00df834ce0d4547e1c888a79ad0ced883414b4578",
+      "file_count": 215,
+      "record_count": 5186,
+      "error_count": 0
+    },
+    "localization_source": "rrf_l_s",
+    "localization_candidate_count": 204,
+    "localization_full_ranking_size": 204,
+    "localization_top_k": 20,
+    "localization_prompt_candidate_count": 20,
+    "effective_task_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/pytest-dev__pytest-7571_C_5f2f3506/effective_task.txt",
+    "localization_candidates_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/pytest-dev__pytest-7571_C_5f2f3506/localization_candidates.json",
+    "prompt_candidates_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/pytest-dev__pytest-7571_C_5f2f3506/prompt_candidates.json",
+    "usage_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/pytest-dev__pytest-7571_C_5f2f3506/usage.jsonl",
+    "usage_record_count": 7,
+    "timings_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/pytest-dev__pytest-7571_C_5f2f3506/timings.json",
+    "step_limit": 250,
+    "cost_limit": 3.0,
+    "wall_time_limit_seconds": 0,
+    "command_timeout_seconds": 60,
+    "docker_image": "docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7571:latest"
+  },
+  "evaluation": {
+    "agent_run_completed": true,
+    "submission_present": true,
+    "patch_generated": true,
+    "official_swebench_evaluation": {
+      "dataset": "SWE-bench/SWE-bench_Verified",
+      "dataset_revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+      "dataset_split": "test",
+      "experiment_partition": "development",
+      "evaluation_run_id": "dev5-pytest7571-C-5f2f3506",
+      "artifacts": {
+        "report": "evaluation/report.json",
+        "test_output": "evaluation/test_output.txt",
+        "run_instance_log": "evaluation/run_instance.log",
+        "aggregate_report": "evaluation/aggregate_report.json"
+      },
+      "resolved": true,
+      "patch_exists": true,
+      "patch_successfully_applied": true,
+      "infra_failure": false,
+      "FAIL_TO_PASS": {
+        "passed": 1,
+        "failed": 0,
+        "success_tests": [
+          "testing/logging/test_fixture.py::test_change_level_undos_handler_level"
+        ],
+        "failure_tests": []
+      },
+      "PASS_TO_PASS": {
+        "passed": 14,
+        "failed": 0,
+        "success_tests": [
+          "testing/logging/test_fixture.py::test_change_level",
+          "testing/logging/test_fixture.py::test_with_statement",
+          "testing/logging/test_fixture.py::test_log_access",
+          "testing/logging/test_fixture.py::test_messages",
+          "testing/logging/test_fixture.py::test_record_tuples",
+          "testing/logging/test_fixture.py::test_unicode",
+          "testing/logging/test_fixture.py::test_clear",
+          "testing/logging/test_fixture.py::test_caplog_captures_for_all_stages",
+          "testing/logging/test_fixture.py::test_fixture_help",
+          "testing/logging/test_fixture.py::test_change_level_undo",
+          "testing/logging/test_fixture.py::test_ini_controls_global_log_level",
+          "testing/logging/test_fixture.py::test_caplog_can_override_global_log_level",
+          "testing/logging/test_fixture.py::test_caplog_captures_despite_exception",
+          "testing/logging/test_fixture.py::test_log_report_captures_according_to_config_option_upon_failure"
+        ],
+        "failure_tests": []
+      }
+    }
+  },
+  "error": null
+}

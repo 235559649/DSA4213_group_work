@@ -1,0 +1,74 @@
+{
+  "run_id": "django__django-10914_A_e8c22239",
+  "task_id": "django__django-10914",
+  "condition": "A",
+  "model": "openai/gpt-5.4-mini",
+  "mini_swe_agent_version": "2.4.6",
+  "status": "completed",
+  "termination_reason": "Submitted",
+  "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-10914_A_e8c22239/trajectory.json",
+  "patch_path": "/root/projects/DSA4213_final_20261028/runs/django__django-10914_A_e8c22239/patch.diff",
+  "runtime_seconds": 13.13978624343872,
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "api_calls": 7,
+    "cost_usd": 0.011551800000000001
+  },
+  "config": {
+    "failure_weight": 1.0,
+    "ranking_strategy": "near_exception",
+    "fusion_policy": "weighted_rrf",
+    "k": 60,
+    "feedback_routing_policy": "evidence_increment_v3",
+    "feedback_route_limits": {
+      "rank_update": 3,
+      "edit_recovery": 2,
+      "diagnostic_only": 1
+    },
+    "repair_guidance_version": "disabled",
+    "benchmark": "swebench",
+    "split": "test",
+    "instance_id": "django__django-10914",
+    "repo": "django/django",
+    "version": "3.0",
+    "base_commit": "e7fd69d051eaa67cb17f172a39b57253e9cb831a",
+    "model_class": "openrouter",
+    "repository_index": {
+      "instance_id": "django__django-10914",
+      "repo": "django/django",
+      "base_commit": "e7fd69d051eaa67cb17f172a39b57253e9cb831a",
+      "index_sha256": "fa7ce42231f4f4c35e7a544434423a98f04ab2da25a61df5ee9e57f861ddcc20",
+      "file_count": 2534,
+      "record_count": 34239,
+      "error_count": 0
+    },
+    "localization_source": null,
+    "localization_candidate_count": 0,
+    "localization_full_ranking_size": 0,
+    "localization_top_k": null,
+    "localization_prompt_candidate_count": 0,
+    "localization_prompt_policy": null,
+    "localization_related_tests": [],
+    "effective_task_path": "/root/projects/DSA4213_final_20261028/runs/django__django-10914_A_e8c22239/effective_task.txt",
+    "localization_candidates_path": "/root/projects/DSA4213_final_20261028/runs/django__django-10914_A_e8c22239/localization_candidates.json",
+    "prompt_candidates_path": "/root/projects/DSA4213_final_20261028/runs/django__django-10914_A_e8c22239/prompt_candidates.json",
+    "step_limit": 250,
+    "cost_limit": 3.0,
+    "wall_time_limit_seconds": 0,
+    "command_timeout_seconds": 60,
+    "docker_image": "docker.io/swebench/sweb.eval.x86_64.django_1776_django-10914:latest",
+    "timing": {
+      "env_setup_seconds": 0.456,
+      "agent_seconds": 12.683,
+      "env_teardown_seconds": 0.0
+    }
+  },
+  "evaluation": {
+    "agent_run_completed": true,
+    "submission_present": true,
+    "patch_generated": true,
+    "official_swebench_evaluation": null
+  },
+  "error": null
+}

@@ -1,0 +1,25 @@
+diff --git a/sphinx/domains/python.py b/sphinx/domains/python.py
+index 7d39d80ed..b344d822f 100644
+--- a/sphinx/domains/python.py
++++ b/sphinx/domains/python.py
+@@ -340,6 +340,20 @@ class PyGroupedField(PyXrefMixin, GroupedField):
+ 
+ 
+ class PyTypedField(PyXrefMixin, TypedField):
++    def make_xrefs(self, rolename: str, domain: str, target: str,
++                   innernode: Type[TextlikeNode] = nodes.emphasis,
++                   contnode: Node = None, env: BuildEnvironment = None) -> List[Node]:
++        targets = [x.strip() for x in target.split('|')]
++        if len(targets) > 1:
++            xrefs: List[Node] = []
++            for i, t in enumerate(targets):
++                if i:
++                    xrefs.append(nodes.Text(' | '))
++                if t:
++                    xrefs.append(self.make_xref(rolename, domain, t, innernode, contnode, env))
++            return xrefs
++        return super().make_xrefs(rolename, domain, target, innernode, contnode, env)
++
+     def make_xref(self, rolename: str, domain: str, target: str,
+                   innernode: Type[TextlikeNode] = nodes.emphasis,
+                   contnode: Node = None, env: BuildEnvironment = None) -> Node:

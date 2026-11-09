@@ -1,0 +1,22 @@
+diff --git a/src/_pytest/mark/expression.py b/src/_pytest/mark/expression.py
+index 04c73411a..e58f76f0c 100644
+--- a/src/_pytest/mark/expression.py
++++ b/src/_pytest/mark/expression.py
+@@ -127,9 +127,16 @@ class Scanner:
+         )
+ 
+ 
++def _false_node() -> ast.expr:
++    try:
++        return ast.Constant(False)  # type: ignore[attr-defined]
++    except AttributeError:
++        return ast.NameConstant(False)
++
++
+ def expression(s: Scanner) -> ast.Expression:
+     if s.accept(TokenType.EOF):
+-        ret = ast.NameConstant(False)  # type: ast.expr
++        ret = _false_node()
+     else:
+         ret = expr(s)
+         s.accept(TokenType.EOF, reject=True)

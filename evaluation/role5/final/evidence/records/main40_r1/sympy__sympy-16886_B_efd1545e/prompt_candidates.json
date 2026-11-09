@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/crypto/crypto.py",
+    "rank": 1,
+    "score": 35.923,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/ntheory/modular.py",
+    "rank": 2,
+    "score": 25.5759,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/perm_groups.py",
+    "rank": 3,
+    "score": 24.476,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/sets/sets.py",
+    "rank": 4,
+    "score": 24.117,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/util.py",
+    "rank": 5,
+    "score": 23.2779,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/evalf.py",
+    "rank": 6,
+    "score": 23.157,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/quantum/tensorproduct.py",
+    "rank": 7,
+    "score": 22.7965,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/quantum/operatorset.py",
+    "rank": 8,
+    "score": 22.6654,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/printing/pretty/pretty_symbology.py",
+    "rank": 9,
+    "score": 22.3028,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/integrals/risch.py",
+    "rank": 10,
+    "score": 22.1063,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/logic/boolalg.py",
+    "rank": 11,
+    "score": 22.0556,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/quantum/circuitutils.py",
+    "rank": 12,
+    "score": 21.8626,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/printing/theanocode.py",
+    "rank": 13,
+    "score": 21.8449,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/printing/dot.py",
+    "rank": 14,
+    "score": 21.6838,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/ode.py",
+    "rank": 15,
+    "score": 21.3831,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/stats/joint_rv_types.py",
+    "rank": 16,
+    "score": 21.231,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/rewritingsystem_fsm.py",
+    "rank": 17,
+    "score": 21.1075,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/codegen/array_utils.py",
+    "rank": 18,
+    "score": 21.0592,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/runtests.py",
+    "rank": 19,
+    "score": 21.046,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/categories/baseclasses.py",
+    "rank": 20,
+    "score": 21.0315,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

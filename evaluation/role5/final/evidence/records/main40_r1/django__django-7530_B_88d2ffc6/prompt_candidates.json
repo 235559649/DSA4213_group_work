@@ -1,0 +1,162 @@
+[
+  {
+    "file": "django/db/utils.py",
+    "rank": 1,
+    "score": 36.2681,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/apps/registry.py",
+    "rank": 2,
+    "score": 32.885,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/fields/related.py",
+    "rank": 3,
+    "score": 32.161,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/migrations/state.py",
+    "rank": 5,
+    "score": 31.0043,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/migrations/executor.py",
+    "rank": 6,
+    "score": 30.4427,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/migrations/operations/special.py",
+    "rank": 7,
+    "score": 28.9385,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/fields/__init__.py",
+    "rank": 8,
+    "score": 28.8881,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/migrations/autodetector.py",
+    "rank": 9,
+    "score": 28.7449,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/auth/models.py",
+    "rank": 10,
+    "score": 28.6687,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/contenttypes/models.py",
+    "rank": 14,
+    "score": 28.2714,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/commands/sqlmigrate.py",
+    "rank": 15,
+    "score": 27.839,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/migrations/operations/models.py",
+    "rank": 17,
+    "score": 27.3979,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/admin/checks.py",
+    "rank": 21,
+    "score": 26.0904,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/migrations/graph.py",
+    "rank": 22,
+    "score": 26.0418,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/forms/models.py",
+    "rank": 24,
+    "score": 25.4553,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/auth/checks.py",
+    "rank": 25,
+    "score": 25.3679,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/backends/sqlite3/base.py",
+    "rank": 26,
+    "score": 25.2879,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/commands/migrate.py",
+    "rank": 27,
+    "score": 25.2799,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/cache/backends/base.py",
+    "rank": 28,
+    "score": 25.2683,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/fields/proxy.py",
+    "rank": 29,
+    "score": 25.21,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sphinx/cmd/quickstart.py",
+    "rank": 4,
+    "score": 56.4802,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/intersphinx.py",
+    "rank": 6,
+    "score": 49.6308,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/setup_command.py",
+    "rank": 8,
+    "score": 49.3055,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/apidoc.py",
+    "rank": 10,
+    "score": 47.3426,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/napoleon/__init__.py",
+    "rank": 12,
+    "score": 46.2049,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/project.py",
+    "rank": 14,
+    "score": 45.6471,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/doctest.py",
+    "rank": 15,
+    "score": 44.4374,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/stemmer/porter.py",
+    "rank": 16,
+    "score": 43.4721,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/search/__init__.py",
+    "rank": 17,
+    "score": 43.161,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/docfields.py",
+    "rank": 18,
+    "score": 42.7249,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/builders/html/__init__.py",
+    "rank": 22,
+    "score": 41.9582,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/builders/linkcheck.py",
+    "rank": 24,
+    "score": 41.5935,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/locale/__init__.py",
+    "rank": 26,
+    "score": 41.392,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/parsers.py",
+    "rank": 27,
+    "score": 41.183,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/smartypants.py",
+    "rank": 28,
+    "score": 41.0456,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/cmd/build.py",
+    "rank": 29,
+    "score": 40.827,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/domains/c.py",
+    "rank": 31,
+    "score": 40.471,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/domains/cpp.py",
+    "rank": 32,
+    "score": 40.471,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/application.py",
+    "rank": 33,
+    "score": 40.1607,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/extlinks.py",
+    "rank": 35,
+    "score": 39.9695,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

@@ -1,0 +1,13 @@
+diff --git a/sympy/polys/polyclasses.py b/sympy/polys/polyclasses.py
+index 238a0f0b25..fae2a40ec3 100644
+--- a/sympy/polys/polyclasses.py
++++ b/sympy/polys/polyclasses.py
+@@ -152,6 +152,8 @@ def __init__(self, rep, dom, lev=None, ring=None):
+                 rep = dmp_from_dict(rep, lev, dom)
+             elif type(rep) is not list:
+                 rep = dmp_ground(dom.convert(rep), lev)
++            else:
++                rep, lev = dmp_validate(rep)
+         else:
+             rep, lev = dmp_validate(rep)
+ 

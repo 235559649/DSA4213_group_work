@@ -1,0 +1,8 @@
+{
+  "reason": "The original audit read_text normalized CRLF in public issue text; JSON request contents preserved CRLF. Tests and full effective prompts were delivered. Compare raw UTF-8 bytes instead.",
+  "original_audit": "audit_actual_runs.py",
+  "corrected_audit": "audit_actual_runs_v2.py",
+  "runtime_code_changed": false,
+  "experiment_inputs_changed": false,
+  "model_calls_repeated": 0
+}

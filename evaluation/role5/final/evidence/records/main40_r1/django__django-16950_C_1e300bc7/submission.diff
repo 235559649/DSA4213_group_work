@@ -1,0 +1,19 @@
+diff --git a/django/forms/models.py b/django/forms/models.py
+index 3fa04b821f..699a476997 100644
+--- a/django/forms/models.py
++++ b/django/forms/models.py
+@@ -1175,10 +1175,12 @@ class BaseInlineFormSet(BaseModelFormSet):
+         if self.instance._state.adding:
+             if kwargs.get("to_field") is not None:
+                 to_field = self.instance._meta.get_field(kwargs["to_field"])
++                if to_field.primary_key:
++                    setattr(self.instance, to_field.attname, None)
+             else:
+                 to_field = self.instance._meta.pk
+-            if to_field.has_default():
+-                setattr(self.instance, to_field.attname, None)
++                if to_field.has_default():
++                    setattr(self.instance, to_field.attname, None)
+ 
+         form.fields[name] = InlineForeignKeyField(self.instance, **kwargs)
+ 

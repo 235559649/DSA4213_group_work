@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/core/sympify.py",
+    "rank": 1,
+    "score": 35.7676,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/codegen/ast.py",
+    "rank": 3,
+    "score": 27.8981,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/parameters.py",
+    "rank": 4,
+    "score": 26.7625,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/exprtools.py",
+    "rank": 6,
+    "score": 24.335,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/parsing/fortran/fortran_parser.py",
+    "rank": 7,
+    "score": 23.5313,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/function.py",
+    "rank": 10,
+    "score": 22.8853,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/functions/special/polynomials.py",
+    "rank": 11,
+    "score": 22.6464,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/series/limitseq.py",
+    "rank": 12,
+    "score": 22.4742,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/expr.py",
+    "rank": 13,
+    "score": 22.1589,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/codegen/algorithms.py",
+    "rank": 15,
+    "score": 21.5217,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/functions/elementary/miscellaneous.py",
+    "rank": 16,
+    "score": 21.4738,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/codegen/rewriting.py",
+    "rank": 17,
+    "score": 21.2144,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/logic/inference.py",
+    "rank": 18,
+    "score": 20.8136,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/parsing/c/c_parser.py",
+    "rank": 19,
+    "score": 20.8015,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/lambdify.py",
+    "rank": 20,
+    "score": 20.5905,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/calculus/singularities.py",
+    "rank": 21,
+    "score": 20.1596,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/stats/rv.py",
+    "rank": 22,
+    "score": 20.0888,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/concrete/expr_with_limits.py",
+    "rank": 23,
+    "score": 19.9394,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/strategies/core.py",
+    "rank": 24,
+    "score": 19.8101,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/printing/latex.py",
+    "rank": 25,
+    "score": 19.5711,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]
