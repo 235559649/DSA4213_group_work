@@ -1,0 +1,27 @@
+diff --git a/sphinx/util/rst.py b/sphinx/util/rst.py
+index 7a1538325..e41b3225f 100755
+--- a/sphinx/util/rst.py
++++ b/sphinx/util/rst.py
+@@ -90,7 +90,21 @@ def prepend_prolog(content: StringList, prolog: str) -> None:
+             content.insert(pos, '', '<generated>', 0)
+             pos += 1
+ 
+-        # insert prolog (after docinfo if exists)
++        # If the document begins with a section title, keep the title and
++        # underline adjacent and place rst_prolog after that opening section.
++        if pos + 1 < len(content):
++            title = content[pos]
++            underline = content[pos + 1]
++            if title and underline:
++                section_char = underline[0]
++                if section_char in SECTIONING_CHARS and underline == section_char * len(underline):
++                    if len(underline) >= len(title):
++                        pos = pos + 2
++                        if pos < len(content) and content[pos] != '':
++                            content.insert(pos, '', '<generated>', 0)
++                            pos += 1
++
++        # insert prolog (after docinfo and/or opening title if exists)
+         for lineno, line in enumerate(prolog.splitlines()):
+             content.insert(pos + lineno, line, '<rst_prolog>', lineno)
+ 

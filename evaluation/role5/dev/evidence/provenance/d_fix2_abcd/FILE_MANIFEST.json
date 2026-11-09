@@ -1,0 +1,1132 @@
+{
+  "source_experiment": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027",
+  "purpose": "offline analysis, not a runnable environment",
+  "source_files": 225,
+  "files": [
+    {
+      "path": "audit_actual_runs.py",
+      "bytes": 3965,
+      "sha256": "c3d78032bcfb8549f77610f0032933277a8239f6969c7522d9f48396b2dab2e8"
+    },
+    {
+      "path": "checks/test_runtime_interfaces.py",
+      "bytes": 8899,
+      "sha256": "0ab478c8dbd4a924059064928c36f79f7327c21598aec3a72b854bdb186585ee"
+    },
+    {
+      "path": "completion.json",
+      "bytes": 26149,
+      "sha256": "5818fa0f89b4078db118b955ec49ab99a7331c080f98c44a2e4cc8ae7917d562"
+    },
+    {
+      "path": "config_snapshot/benchmarks/swebench.yaml",
+      "bytes": 7593,
+      "sha256": "9a9c86ac10428b86b932c972b15fefc2f7b6e92230bac5ebdc47e83232a8315e"
+    },
+    {
+      "path": "evaluate_selected.py",
+      "bytes": 3562,
+      "sha256": "ace48be9da2b2258d145377227feb60800e76560deef27addac6834a1f14d7af"
+    },
+    {
+      "path": "evaluation/dataset.json",
+      "bytes": 28591,
+      "sha256": "5bdbd3a0ca47c253190743a556252046ff047bd05be0470676bbc56009cb643b"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-A/closedloop247_selected_A/django__django-12262/eval.sh",
+      "bytes": 5300,
+      "sha256": "186bd72c8aed011f182841b409522510489b29c6fd7f5288492ab9b5044ef540"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-A/closedloop247_selected_A/django__django-12262/report.json",
+      "bytes": 2838,
+      "sha256": "74503e20d26db4634ece67074e031412bdadd32caee3e34347fd55f45ef7c54e"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-A/closedloop247_selected_A/django__django-12262/run_instance.log",
+      "bytes": 7822,
+      "sha256": "69553173c1beda04a24532ed5d3c514f6ed4ea92c2a222f64a258547e70c108a"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-A/closedloop247_selected_A/django__django-12262/test_output.txt",
+      "bytes": 18362,
+      "sha256": "cb8b9a9ff274571cdfc262579ccebad12ccd3c489ebab65d9f52d29cb335b7e0"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-A/closedloop247_selected_A/sympy__sympy-20438/eval.sh",
+      "bytes": 1974,
+      "sha256": "f43ccddf8afa7ec07e3bee8255223cde1c38b3d7c523a75a76cfa969420e12f6"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-A/closedloop247_selected_A/sympy__sympy-20438/report.json",
+      "bytes": 4815,
+      "sha256": "2b58ddbdb80acb3fe4e8726b4ae2768e774c82e331a51857165dbf90bd470cf4"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-A/closedloop247_selected_A/sympy__sympy-20438/run_instance.log",
+      "bytes": 6895,
+      "sha256": "0309fcc7f8a1515c0975f08c12d5ec31b4d06f62691635787477ca118fc67f4e"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-A/closedloop247_selected_A/sympy__sympy-20438/test_output.txt",
+      "bytes": 18265,
+      "sha256": "e040bb6517cf47ea774dd15b2f9a6fb75f5c5e2223d71dea47b0543ad094cd67"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-A/closedloop247_selected_A/sympy__sympy-21379/eval.sh",
+      "bytes": 1586,
+      "sha256": "c2fa859a954f8f5296b998c327789c612c4097f9c943c7b170ea2ab12e3f7a1d"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-A/closedloop247_selected_A/sympy__sympy-21379/report.json",
+      "bytes": 4745,
+      "sha256": "658749191cb60d4d8d613ec02885cdcc5c69e95ca44899d7994affb777ce5497"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-A/closedloop247_selected_A/sympy__sympy-21379/run_instance.log",
+      "bytes": 9070,
+      "sha256": "4a6f9a297882ae634c12d7f5b7e1406c9603e348f98f209a701634fc15e31689"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-A/closedloop247_selected_A/sympy__sympy-21379/test_output.txt",
+      "bytes": 453937,
+      "sha256": "db1636f92c964bdd58f354a8ed2606cb58f9f0067b0bdf9546d5aec987fcfc32"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-A/results.json",
+      "bytes": 1152,
+      "sha256": "0fbd99aeb17f4ea24ca69c0a4f15461616e164fc484dc23359ba5b008fa53e74"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-A/run.json",
+      "bytes": 217,
+      "sha256": "e4aefc6c72595eb79e6339ba17caf3ad0eff17eb15285c7d9b6d86330ebe3a20"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/django__django-12262/eval.sh",
+      "bytes": 5300,
+      "sha256": "186bd72c8aed011f182841b409522510489b29c6fd7f5288492ab9b5044ef540"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/django__django-12262/report.json",
+      "bytes": 2821,
+      "sha256": "e20720bdaf1ed16fc95df8202bb9672230b5d67bf839f74cc1f171dad3fde58b"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/django__django-12262/run_instance.log",
+      "bytes": 8750,
+      "sha256": "a2602b57b1c45a90283d052349823f1af4c49fa6847ffc8713826558c288357f"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/django__django-12262/test_output.txt",
+      "bytes": 17498,
+      "sha256": "3992eeedc2243f29eba4ea8dbaba2f9fe804a479c5ede69512c76a529f8bace3"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/sympy__sympy-20438/eval.sh",
+      "bytes": 1974,
+      "sha256": "f43ccddf8afa7ec07e3bee8255223cde1c38b3d7c523a75a76cfa969420e12f6"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/sympy__sympy-20438/report.json",
+      "bytes": 4831,
+      "sha256": "90490b5d09c22e0c1cc7dd396b1a29ee47800d6ca37dd3c06c6e5b7cf07e2a29"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/sympy__sympy-20438/run_instance.log",
+      "bytes": 5652,
+      "sha256": "2bf9af1c7e6a299096fd021efb6e2020c397a432ff45f4526f7f4bc1cee167a2"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/sympy__sympy-20438/test_output.txt",
+      "bytes": 21484,
+      "sha256": "664800f364eec471900f5ef1664e12bab633ce1f8e44dceb72406d46d4a4d434"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/sympy__sympy-21379/eval.sh",
+      "bytes": 1586,
+      "sha256": "c2fa859a954f8f5296b998c327789c612c4097f9c943c7b170ea2ab12e3f7a1d"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/sympy__sympy-21379/report.json",
+      "bytes": 4745,
+      "sha256": "658749191cb60d4d8d613ec02885cdcc5c69e95ca44899d7994affb777ce5497"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/sympy__sympy-21379/run_instance.log",
+      "bytes": 6744,
+      "sha256": "4c2e5d419d857a35c4acf893449eacde9fe7dfa771cada06dfe5b92a69adc9e1"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/sympy__sympy-21379/test_output.txt",
+      "bytes": 452774,
+      "sha256": "82b9610445dd8ee200657ec7084399dbf99398e45111a7a577607ba3cc73ca72"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-B/results.json",
+      "bytes": 1156,
+      "sha256": "02cc68f84c2198392118cfe576e3bd63e2189271b8107dfa66e5ab822eb23ecf"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-B/run.json",
+      "bytes": 217,
+      "sha256": "87ba5e9134007c89c674a1f90a5f794daeb90f087e2b2d535092399432dd9875"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-C/closedloop247_selected_C/django__django-12262/eval.sh",
+      "bytes": 5300,
+      "sha256": "186bd72c8aed011f182841b409522510489b29c6fd7f5288492ab9b5044ef540"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-C/closedloop247_selected_C/django__django-12262/report.json",
+      "bytes": 2821,
+      "sha256": "e20720bdaf1ed16fc95df8202bb9672230b5d67bf839f74cc1f171dad3fde58b"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-C/closedloop247_selected_C/django__django-12262/run_instance.log",
+      "bytes": 7060,
+      "sha256": "484dcdba993db2d40dbc6836a81214e35512ed1bf583fcc9f4020491f1b95732"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-C/closedloop247_selected_C/django__django-12262/test_output.txt",
+      "bytes": 16649,
+      "sha256": "f678d4e9ff14cbc9bb31e086cb676feeda6e487ad3254931d3cebfdec4d4829e"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-C/closedloop247_selected_C/sympy__sympy-20438/eval.sh",
+      "bytes": 1974,
+      "sha256": "f43ccddf8afa7ec07e3bee8255223cde1c38b3d7c523a75a76cfa969420e12f6"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-C/closedloop247_selected_C/sympy__sympy-20438/report.json",
+      "bytes": 4831,
+      "sha256": "90490b5d09c22e0c1cc7dd396b1a29ee47800d6ca37dd3c06c6e5b7cf07e2a29"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-C/closedloop247_selected_C/sympy__sympy-20438/run_instance.log",
+      "bytes": 5782,
+      "sha256": "b17ee23d7588d5f68dbe84c2295c4e48d87bceff638ca1cd84dfd62045e59bd2"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-C/closedloop247_selected_C/sympy__sympy-20438/test_output.txt",
+      "bytes": 21549,
+      "sha256": "8aa888969fdbaefc5b33a79e5385ecf8d47c1086f7247e0438efe7a55c310c60"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-C/closedloop247_selected_C/sympy__sympy-21379/eval.sh",
+      "bytes": 1586,
+      "sha256": "c2fa859a954f8f5296b998c327789c612c4097f9c943c7b170ea2ab12e3f7a1d"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-C/closedloop247_selected_C/sympy__sympy-21379/report.json",
+      "bytes": 4745,
+      "sha256": "658749191cb60d4d8d613ec02885cdcc5c69e95ca44899d7994affb777ce5497"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-C/closedloop247_selected_C/sympy__sympy-21379/run_instance.log",
+      "bytes": 7102,
+      "sha256": "39e6cc09acfc90caa1dc7160e2fe41243c5311a144e78af115bd0f07d3676f58"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-C/closedloop247_selected_C/sympy__sympy-21379/test_output.txt",
+      "bytes": 452953,
+      "sha256": "2b5377ca773de01ceb1e3cf826fc405f3f370c09227ec23cb548b9cb4f2228d5"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-C/results.json",
+      "bytes": 1156,
+      "sha256": "02cc68f84c2198392118cfe576e3bd63e2189271b8107dfa66e5ab822eb23ecf"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-C/run.json",
+      "bytes": 217,
+      "sha256": "5cdebe8ce090ecfb7ae38a14ebd792d9c4cf6f8fb9f29977b4aea79dd5a7ea8f"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/django__django-12262/eval.sh",
+      "bytes": 5300,
+      "sha256": "186bd72c8aed011f182841b409522510489b29c6fd7f5288492ab9b5044ef540"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/django__django-12262/report.json",
+      "bytes": 2838,
+      "sha256": "74503e20d26db4634ece67074e031412bdadd32caee3e34347fd55f45ef7c54e"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/django__django-12262/run_instance.log",
+      "bytes": 8770,
+      "sha256": "7642ec6786059108171078712a00e716d15103bb744c3e769e679411fa0cd668"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/django__django-12262/test_output.txt",
+      "bytes": 18836,
+      "sha256": "2af21cdfb661c36201c26a1070d61f42e1c7677429c263906846f1162d1b0591"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/sympy__sympy-20438/eval.sh",
+      "bytes": 1974,
+      "sha256": "f43ccddf8afa7ec07e3bee8255223cde1c38b3d7c523a75a76cfa969420e12f6"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/sympy__sympy-20438/report.json",
+      "bytes": 4815,
+      "sha256": "2b58ddbdb80acb3fe4e8726b4ae2768e774c82e331a51857165dbf90bd470cf4"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/sympy__sympy-20438/run_instance.log",
+      "bytes": 5736,
+      "sha256": "2bbadf0b7dbd58843fab9fa6160413dee6dd16246f00b99f0142bc5cd970b109"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/sympy__sympy-20438/test_output.txt",
+      "bytes": 17665,
+      "sha256": "574a20143a7bb84accbed5eac3852d490528e0053f67b62734c7427c32658e21"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/sympy__sympy-21379/eval.sh",
+      "bytes": 1586,
+      "sha256": "c2fa859a954f8f5296b998c327789c612c4097f9c943c7b170ea2ab12e3f7a1d"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/sympy__sympy-21379/report.json",
+      "bytes": 4745,
+      "sha256": "658749191cb60d4d8d613ec02885cdcc5c69e95ca44899d7994affb777ce5497"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/sympy__sympy-21379/run_instance.log",
+      "bytes": 6526,
+      "sha256": "05719558e68b85e32b9b80b4d7d0c20babf2a7dfffc613228a519f1a94749038"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-D/closedloop247_selected_D/sympy__sympy-21379/test_output.txt",
+      "bytes": 452665,
+      "sha256": "ede30a751ef8804c057abb95a0a01314af0de65eb1657cf01aad7a8af67e9f9d"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-D/results.json",
+      "bytes": 1152,
+      "sha256": "0fbd99aeb17f4ea24ca69c0a4f15461616e164fc484dc23359ba5b008fa53e74"
+    },
+    {
+      "path": "evaluation/selected/logs/evaluation/closedloop247-selected-D/run.json",
+      "bytes": 217,
+      "sha256": "31251edc1bf1a3f6d54a9b8916a6b03c4db52ea2eaea77cbe9c784b784a032ed"
+    },
+    {
+      "path": "evaluation/selected/selection.json",
+      "bytes": 6850,
+      "sha256": "b5a87c1abe005aaafc515e0cd1d7bc18c827cbf88a66faddec9859df6d23a437"
+    },
+    {
+      "path": "excluded_attempts.json",
+      "bytes": 509,
+      "sha256": "b31dd0860d0aea11a399cff2a5ee95b30670810a7c089bc8ac3e8b6b3aa7215b"
+    },
+    {
+      "path": "feedback_events.csv",
+      "bytes": 7793,
+      "sha256": "403a087f995c26cb12f52faaec24eef3dc380ad2e62c3f6e63f23e089a70c7c8"
+    },
+    {
+      "path": "inputs/tasks/django__django-12262.json",
+      "bytes": 1420,
+      "sha256": "116aaf5f5ab9ec60f918932fc5fe2088012f90bc70b923fab656c857013e7a0e"
+    },
+    {
+      "path": "inputs/tasks/sympy__sympy-20438.json",
+      "bytes": 1690,
+      "sha256": "518c94d48282b0c0738fd62e508f6c2b0d7fbc6f8146356d6284e6974a4e8586"
+    },
+    {
+      "path": "inputs/tasks/sympy__sympy-21379.json",
+      "bytes": 2198,
+      "sha256": "0006caa54e6ada82406c1d24e1193d032155c9f5db3ee5a1cfac9af254afde38"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 1769,
+      "sha256": "348be6e20d55a4e192c261fe4a13d6c928611648b433341fd62606133c9b3d09"
+    },
+    {
+      "path": "prepared/system_prompt.txt",
+      "bytes": 1350,
+      "sha256": "8f26c96a071f35945f541dde6a12d18ccce46475abdd73c1a44a8fbe1709d707"
+    },
+    {
+      "path": "provenance/actual_run_audit.json",
+      "bytes": 5722,
+      "sha256": "266b79bc48b6fb789e490208160ab8c07c90206c4a16cde50dd070a0bb230245"
+    },
+    {
+      "path": "provenance/dependency_versions.json",
+      "bytes": 3362,
+      "sha256": "4424bab6522b0c4573d34b229363af04b125d7b8449fe68969734f290f85ce4b"
+    },
+    {
+      "path": "provenance/docker_images.json",
+      "bytes": 1089,
+      "sha256": "454e56c27f9e5dfc180cedc5f0c40b8bfa68b9a4c28867d300c5afa944cc1f31"
+    },
+    {
+      "path": "provenance/isolation_verification.json",
+      "bytes": 80,
+      "sha256": "cc9467b07fae464e268392ae0a23a2edf9d50fc3fb9d4a147aba17f7ecfd5eb8"
+    },
+    {
+      "path": "provenance/offline_checks.json",
+      "bytes": 340,
+      "sha256": "16948f9292e7e0e4e4f4fce1b46ff4cc7d8064987e922dbc58611b88ef2533b2"
+    },
+    {
+      "path": "provenance/offline_checks.log",
+      "bytes": 180,
+      "sha256": "b86ce1b846b276a5c8c6c19e82520ac6a6c54bb59f9eeb334275d9ac41dae7e8"
+    },
+    {
+      "path": "provenance/offline_checks.xml",
+      "bytes": 24720,
+      "sha256": "d94e2ae7274e955b7182a60d2f9f6dcc681fafc1d146dc600e11d0a3f761edcd"
+    },
+    {
+      "path": "provenance/project_snapshot_hashes.json",
+      "bytes": 10861,
+      "sha256": "3d008af893edc44d2b65d1333b1bc51709752305ae4104cdc8ff6a001c21a03f"
+    },
+    {
+      "path": "provenance/result_checks.json",
+      "bytes": 2543,
+      "sha256": "9bcb804427c268428808cf40f22fb14384fa1247ed513c956dd7a9551b1519d1"
+    },
+    {
+      "path": "provenance/retry_sympy20438_A.json",
+      "bytes": 899,
+      "sha256": "c2b04b8b502ce3dd9a9f9bbf47dc7004460db54003ef49cc62aaedd2fdb2f980"
+    },
+    {
+      "path": "results_summary.csv",
+      "bytes": 7207,
+      "sha256": "3c8c2b36d6f7a1eed90b277730268ad9f942f6545a1c349d61a988018f39f26f"
+    },
+    {
+      "path": "run_plan.json",
+      "bytes": 1307,
+      "sha256": "34a3664bb02992d9db902875e192064e699c2ed88eb61f1ff27e13a640ca0a66"
+    },
+    {
+      "path": "run_trial.py",
+      "bytes": 11655,
+      "sha256": "2f7bbc8727c1ab652b1ff3eef978f1dd2af61844474b75384f422e7d5a9dac9e"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_A_fdb03f0c/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_A_fdb03f0c/patch.diff",
+      "bytes": 1771,
+      "sha256": "98ea370e279ef1ea1678cd5cbaf26fb2f6b892d4bcabea4ce6cabab8f23b634f"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_A_fdb03f0c/prompt_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_A_fdb03f0c/run_result.json",
+      "bytes": 3574,
+      "sha256": "583047d4defa9d8d6ab868ae078d6787b4d26db4897d928061c5c75b7fb2c1b9"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_A_fdb03f0c/task_metadata.json",
+      "bytes": 1419,
+      "sha256": "63a4269a54048065a16639f793606b3bbf2fc907a814208db4dfdf0b24fd635b"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_A_fdb03f0c/trajectory.json",
+      "bytes": 164336,
+      "sha256": "eb9dbc2aa8589b197e29c35ca7cefa0dccc29ee79e2c9345ecebab0859c64bc8"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_B_0cb25592/localization_candidates.json",
+      "bytes": 269600,
+      "sha256": "131ce622fcbc8e676c9cea420d42c325e526533dcc13c742dc87919d29b458ec"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_B_0cb25592/patch.diff",
+      "bytes": 2235,
+      "sha256": "0873408cf12f74d65f76cfe411f844b49457a5df314e52b5e3d896a1399d2648"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_B_0cb25592/prompt_candidates.json",
+      "bytes": 3189,
+      "sha256": "0fb66c1668269a2ccff1b21e1c497f332b9c683d3a1d09c880e6cee2af6f0e3a"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_B_0cb25592/run_result.json",
+      "bytes": 3579,
+      "sha256": "e0165bebb9fe361549c9030dee88e7e963e322f5d2092b8c574c563294027e78"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_B_0cb25592/task_metadata.json",
+      "bytes": 1419,
+      "sha256": "63a4269a54048065a16639f793606b3bbf2fc907a814208db4dfdf0b24fd635b"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_B_0cb25592/trajectory.json",
+      "bytes": 179437,
+      "sha256": "7986765387698bf244bfa8196b553a02c94e5a6f86e9f1d4ca107474f26bd1bf"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_C_f7bea977/localization_candidates.json",
+      "bytes": 276986,
+      "sha256": "59d7e39f31503ad72f966a73f682dfd95fac15817825a8af1179db17d1e729c6"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_C_f7bea977/patch.diff",
+      "bytes": 1390,
+      "sha256": "2d75e1b212cebd636edca438098a828de51780c7093ebb0823ffe1a334e55a1f"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_C_f7bea977/prompt_candidates.json",
+      "bytes": 3217,
+      "sha256": "9d71b31303eef9cd44e9777868bd1796e4bde4e917de44f950f596cd39a65b37"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_C_f7bea977/run_result.json",
+      "bytes": 3573,
+      "sha256": "6bee115cfc942996cc65da0d9db4951dd84b52663432f2fc4a4efab19af93994"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_C_f7bea977/task_metadata.json",
+      "bytes": 1419,
+      "sha256": "63a4269a54048065a16639f793606b3bbf2fc907a814208db4dfdf0b24fd635b"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_C_f7bea977/trajectory.json",
+      "bytes": 123862,
+      "sha256": "1789ef2b29d4566a1c88d94b3b90be8575f588dc5268837c9e4155956beadc78"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/failure_feedback/failure-1-output.txt",
+      "bytes": 2028,
+      "sha256": "bf6fca23b82c21468e485ffa8f39e5f559dc586def5c2d9cad845d5661c2377e"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/failure_feedback/failure-2-output.txt",
+      "bytes": 64,
+      "sha256": "8840bae3e8ca2278792dca956a4c959ed92eac317ee2b0a1612b73c21d72c74c"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/failure_feedback/failure-3-output.txt",
+      "bytes": 1859,
+      "sha256": "96f1da2af4e16035d6c759b0999301dcdfe24c7192b101bc170da65b7638115d"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/failure_feedback/failure-4-output.txt",
+      "bytes": 291,
+      "sha256": "ff498d1f00c454578a23a09f4dc54a0865a567a7162193646e8739e93bb5bb57"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/failure_feedback/failure-5-output.txt",
+      "bytes": 348,
+      "sha256": "950056945d90bf1d823807a9e018e757427beab62a0211aa4c2be8d5410745f7"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/failure_feedback/failure-6-output.txt",
+      "bytes": 348,
+      "sha256": "950056945d90bf1d823807a9e018e757427beab62a0211aa4c2be8d5410745f7"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/failure_feedback/failure-7-output.txt",
+      "bytes": 98,
+      "sha256": "39e1af21cdc4fe4ff525ad058a776aaf329a2b2f89892efacffc2080d46de76d"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/failure_feedback/failure-8-output.txt",
+      "bytes": 204,
+      "sha256": "74517c2cca598ee2a5d57307543708dbcecdd5094f011e420cf06e44b7927ca1"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/failure_feedback/failure_updates.jsonl",
+      "bytes": 1457053,
+      "sha256": "05e35ce9aca7797814625f38f75f28e0a7cd5712b13e76e126c15ddc0fd84e02"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/failure_feedback/feedback_summary.json",
+      "bytes": 1356,
+      "sha256": "66415d126347f596aa5bcdeead5740393cdc37cd0ee4bf0af038490c50af93a9"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/failure_feedback/initial_rankings.json",
+      "bytes": 543112,
+      "sha256": "a5c9e2bc5b33400259328cfa72786f1cdc6c7c1bdd9e344919ac544de368a268"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/failure_feedback/observations.jsonl",
+      "bytes": 23377,
+      "sha256": "e75423d41bb1da0b30fd6c904ac3cf041f67c144012871888318de7baeb37a0a"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/localization_candidates.json",
+      "bytes": 285116,
+      "sha256": "d0005d86dceb324928cb31bdc433d742b51acfc3eebe5b74cf07bf74bf8c7bfb"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/patch.diff",
+      "bytes": 2245,
+      "sha256": "e88a22aa975c7bd397b0a9ec7b7d25608ea98f0f473d1dcece443d15d8c1f400"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/prompt_candidates.json",
+      "bytes": 3317,
+      "sha256": "55cf450f10bf1a4761a43206741acd097ec4acc9cb1d075a5c9c96bd3d80fac1"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/run_result.json",
+      "bytes": 5104,
+      "sha256": "046df47e03be76d4644a1c88a0ba5389d40e0cd52720237ff87f4a09e8f88fe7"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/task_metadata.json",
+      "bytes": 1419,
+      "sha256": "63a4269a54048065a16639f793606b3bbf2fc907a814208db4dfdf0b24fd635b"
+    },
+    {
+      "path": "runs/attempt_1/runs/django__django-12262_D_8e8f2e74/trajectory.json",
+      "bytes": 238621,
+      "sha256": "35bffe75ef65b298f6fe9c1914a24172733fec4ef0c77724424750ddcba0dbfd"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_A_771ea469/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_A_771ea469/patch.diff",
+      "bytes": 911,
+      "sha256": "4379c355f3ea8a50c266b56f078943d5e5e09a501e4b941467f167294da05a6c"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_A_771ea469/prompt_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_A_771ea469/run_result.json",
+      "bytes": 3633,
+      "sha256": "79594ccc3db36e307860fba05c04a024eb007a4c13a757d6ae2193184de784f8"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_A_771ea469/task_metadata.json",
+      "bytes": 1689,
+      "sha256": "86e3deeab5287ce851653a56cc647dcc2d4f115734b28f7ee3c66789ef1526c6"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_A_771ea469/trajectory.json",
+      "bytes": 163195,
+      "sha256": "46b0bf8beda5218afb78b60316a6a9335a0adae5fb8eb2e5fad5e54e983ed407"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_B_156e5618/localization_candidates.json",
+      "bytes": 238328,
+      "sha256": "bc7253ac2c08ea36d05df4ab00fa24c2c220cac3a8c5cd6e7f275a6be02c7f1c"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_B_156e5618/patch.diff",
+      "bytes": 438,
+      "sha256": "c3af528d2ae19e4c48af3e92c3b2a3175db7b527fb3e335fdaeab486d22b8a3d"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_B_156e5618/prompt_candidates.json",
+      "bytes": 3033,
+      "sha256": "bd80baf05f43a252f004a39775dda720427bfa358c1ee517c6346a59dfc28b71"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_B_156e5618/run_result.json",
+      "bytes": 3557,
+      "sha256": "28728fc660915b653b77b837fc8c8906b5e39d8294e157f0daa7fdab8ae28f63"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_B_156e5618/task_metadata.json",
+      "bytes": 1689,
+      "sha256": "86e3deeab5287ce851653a56cc647dcc2d4f115734b28f7ee3c66789ef1526c6"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_B_156e5618/trajectory.json",
+      "bytes": 165905,
+      "sha256": "897d00801c2d1c51329ba437106b510176d6c89483d10357df424f0ab9b7c21e"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_C_9370bc0e/localization_candidates.json",
+      "bytes": 244409,
+      "sha256": "0a353471fe8bfa14ea49f77ad6fabeecf506b19b3f290d654ff010172b4db729"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_C_9370bc0e/patch.diff",
+      "bytes": 503,
+      "sha256": "c11e4cecadaf839d59f2bdddf5dabc2416504fde3490994f07882e2e1d613f35"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_C_9370bc0e/prompt_candidates.json",
+      "bytes": 3096,
+      "sha256": "d8bd1bf060271ce6a878c9a9b8e7fa218131b31320067748634fa9df076d0720"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_C_9370bc0e/run_result.json",
+      "bytes": 3550,
+      "sha256": "46bf51e7cda34b009afc5771efb32c526ef03c2d456f66045754ed64c0871471"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_C_9370bc0e/task_metadata.json",
+      "bytes": 1689,
+      "sha256": "86e3deeab5287ce851653a56cc647dcc2d4f115734b28f7ee3c66789ef1526c6"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_C_9370bc0e/trajectory.json",
+      "bytes": 173046,
+      "sha256": "7c37170a9fed19846dc4fd12977138e87f50d54d329da95697c5251dea9a2054"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/failure_feedback/failure-1-output.txt",
+      "bytes": 659,
+      "sha256": "dac9efae89598b8396282569d3189486e0d0af6648eb6ad3dfff0c46a1452ffa"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/failure_feedback/failure-2-output.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/failure_feedback/failure-3-output.txt",
+      "bytes": 671,
+      "sha256": "940b7c9a7a6e828426dcc4f9889d75f0297f907570a7b9cec5e7692418cb63e9"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/failure_feedback/failure-4-output.txt",
+      "bytes": 64,
+      "sha256": "8840bae3e8ca2278792dca956a4c959ed92eac317ee2b0a1612b73c21d72c74c"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/failure_feedback/failure-5-output.txt",
+      "bytes": 64,
+      "sha256": "8840bae3e8ca2278792dca956a4c959ed92eac317ee2b0a1612b73c21d72c74c"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/failure_feedback/failure_updates.jsonl",
+      "bytes": 673826,
+      "sha256": "9b083aeecdf7d062d7a9a9f2ace8a2528139ebf7be30ffebef068499017c1824"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/failure_feedback/feedback_summary.json",
+      "bytes": 1350,
+      "sha256": "775ab233da80dbda2b241e76365d6ff3f5edbe28035b65360f3fd8c0a3ee3064"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/failure_feedback/initial_rankings.json",
+      "bytes": 612668,
+      "sha256": "c434720fd1e566b8c376c200ab4aa98683050dcf773d803adb1ee74b6758ccf6"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/failure_feedback/observations.jsonl",
+      "bytes": 11051,
+      "sha256": "59a6065e9615f21845b25de96946a38baae2c620af58f4ac55cb260013de6691"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/localization_candidates.json",
+      "bytes": 251654,
+      "sha256": "53d0cd88ba4c4b335457f5c642cd6f1f5f96d53f74af72cbd9e5e8e1e70eae37"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/patch.diff",
+      "bytes": 479,
+      "sha256": "33aabed626168147a8ecf79956a60b3e98f9b5a5fe1faa36dcc63ca9940826f8"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/prompt_candidates.json",
+      "bytes": 3196,
+      "sha256": "2b70780e05f52f96427206f05d66f5fef2dbd73110afdef6540b2a98dc674a10"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/run_result.json",
+      "bytes": 5073,
+      "sha256": "2b844515a99dad79ceeb8adda00ca44bee537dcc257a156efd2674b587e6dfff"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/task_metadata.json",
+      "bytes": 1689,
+      "sha256": "86e3deeab5287ce851653a56cc647dcc2d4f115734b28f7ee3c66789ef1526c6"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-20438_D_f3f4271b/trajectory.json",
+      "bytes": 160293,
+      "sha256": "04da4f519461e3ea9a63e50e411c6a32998f89eb9b9671418e6d33c02b7f8b6e"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_A_7a93a156/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_A_7a93a156/patch.diff",
+      "bytes": 2140,
+      "sha256": "55c76ca145b26b95e39e410b708cea43741890b55245f08430aaa69885dd96f5"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_A_7a93a156/prompt_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_A_7a93a156/run_result.json",
+      "bytes": 3548,
+      "sha256": "c6ac4f35e01d2371434e28f6d5452365ab328de1305115ba2d5d8edd0fde3123"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_A_7a93a156/task_metadata.json",
+      "bytes": 2197,
+      "sha256": "7773c13c4d61f609e185455952f9dc8f8f8fa1a5f510fcb3bff52e224b17e0ca"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_A_7a93a156/trajectory.json",
+      "bytes": 257372,
+      "sha256": "6d9cb613ad067670082e35f34edf8cb955a2ae43552b4160cba543273b4f5cb8"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_B_08d73eba/localization_candidates.json",
+      "bytes": 247667,
+      "sha256": "b462ce578a04c087d3291080df7070b46d28709902dff1384079214818991054"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_B_08d73eba/patch.diff",
+      "bytes": 977,
+      "sha256": "0c81254b184876b774918dd5d418b3122aeaff42b3f2798f3398696910285fa4"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_B_08d73eba/prompt_candidates.json",
+      "bytes": 3062,
+      "sha256": "0bf74b4d100d2f6f3bbf53ac6a96fb6e509eaffe75b8bbc87dfbe86efa4e00d7"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_B_08d73eba/run_result.json",
+      "bytes": 3556,
+      "sha256": "dc29b7107893f2d19dbf2440b0d785304fcce2d96b313fdfc53d52ff41fe2ad9"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_B_08d73eba/task_metadata.json",
+      "bytes": 2197,
+      "sha256": "7773c13c4d61f609e185455952f9dc8f8f8fa1a5f510fcb3bff52e224b17e0ca"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_B_08d73eba/trajectory.json",
+      "bytes": 145221,
+      "sha256": "d1fe41bbfde91cd3b2851c1f22c399670ab897902c469d6e0b9a81fb645ddcd9"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_C_fcc8739d/localization_candidates.json",
+      "bytes": 253822,
+      "sha256": "2ecc3735c80ae3a3b42c21831cd011e6bd281a83be9fe49a608b651405ad554e"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_C_fcc8739d/patch.diff",
+      "bytes": 1156,
+      "sha256": "30497b2aa7742f0b5c7e81e249774a414b0192be7983fe8d3f4bfa5fc560f2f5"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_C_fcc8739d/prompt_candidates.json",
+      "bytes": 3107,
+      "sha256": "ad7bdd0af31b16161dadb0e0387d718246177746b22d4b04b142a0555c3d139a"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_C_fcc8739d/run_result.json",
+      "bytes": 3559,
+      "sha256": "46a588aa7dce2d65c7426fde0f5e770b813ecddefabad40fd3423a083e45c21a"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_C_fcc8739d/task_metadata.json",
+      "bytes": 2197,
+      "sha256": "7773c13c4d61f609e185455952f9dc8f8f8fa1a5f510fcb3bff52e224b17e0ca"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_C_fcc8739d/trajectory.json",
+      "bytes": 141513,
+      "sha256": "59d35d4034ce68ed02825592904c4ffee5fef5e73cfaf91d2aa045cf2b0d7439"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/failure-1-output.txt",
+      "bytes": 2981,
+      "sha256": "7acc0c356236872e20c35d63e8c8d07f62d005c82585c454fe3c15f368d4459a"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/failure-10-output.txt",
+      "bytes": 3371,
+      "sha256": "081f8c42fc605d36e05107ee1fac64d6bc20051f20027c30c5b3ef94b8308c36"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/failure-11-output.txt",
+      "bytes": 1617,
+      "sha256": "d8c12bd027c958e21fa76b8db63e10669c433e63ce2e975cc51d526792c36a08"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/failure-2-output.txt",
+      "bytes": 1473,
+      "sha256": "68484c13f6d374d6cebf8233ef690f3f54c1d734ef6de56bf7178327a2b8c60a"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/failure-3-output.txt",
+      "bytes": 2839,
+      "sha256": "7d995800b6b8d7d440757915fd52a831be6c07710cf40c5f19cb89396cbb6977"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/failure-4-output.txt",
+      "bytes": 1872,
+      "sha256": "17d686d65e7840196ce5e0e903f99a1555ae92879d9fb9b97d240eb493a83797"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/failure-5-output.txt",
+      "bytes": 1291,
+      "sha256": "6685770ca3da0fb51b52263e9d16e8dfe60fc0898070be69c9ad423cf67965ac"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/failure-6-output.txt",
+      "bytes": 3005,
+      "sha256": "a417df29d56a8e0b134a6ff268855254e92803576c9435de1434f74fce3138eb"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/failure-7-output.txt",
+      "bytes": 3623,
+      "sha256": "e1511b8e5662870522e170b709dc3e09bf1a8c8370394ee0a6a8c4c4892f10eb"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/failure-8-output.txt",
+      "bytes": 3616,
+      "sha256": "bdc5a98a5e68513ecdfc34aa0f36d38d16c04c4aedeb61c123d04bc88ae204df"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/failure-9-output.txt",
+      "bytes": 10244,
+      "sha256": "112d4c684dfd861349ca77a004c4a575d1e1fdc51e8d68a8dc442ad356a2ec12"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/failure_updates.jsonl",
+      "bytes": 5298112,
+      "sha256": "f9a6c05b33eb9f6c47696f7ef9475a8cca9474d0d1cbc4623478074c4c863282"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/feedback_summary.json",
+      "bytes": 1356,
+      "sha256": "5f599f1614f75fed76c953593648f14b1ce1f6146d88453757a8d74af9f83cc1"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/initial_rankings.json",
+      "bytes": 650719,
+      "sha256": "8dc7193591e44487424a17c4297e720cc873aa26ab578c28fb20db8c9d762a35"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/failure_feedback/observations.jsonl",
+      "bytes": 34363,
+      "sha256": "2f23f7bb16be65d56cde5d596d736bbfc48b90852e019fbd7f83b17250cc6cd5"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/localization_candidates.json",
+      "bytes": 261332,
+      "sha256": "f3fa3a82c895a24af03bc9f71acf270b7cc059ff1fc777ebb0ea97b5473f6353"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/patch.diff",
+      "bytes": 868,
+      "sha256": "20664cf58db71d4c04d2a383f96bb1055952e1060deca6177915041812a8bb45"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/prompt_candidates.json",
+      "bytes": 3207,
+      "sha256": "4728b7fab9d06604ddece5a8eacf50462c420dc95ecee9e517a2bd12cf12b44d"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/run_result.json",
+      "bytes": 5082,
+      "sha256": "c18e56cd58d230f661fd177c157f11d2903f2e1db76f1a3aea787d73732ceb66"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/task_metadata.json",
+      "bytes": 2197,
+      "sha256": "7773c13c4d61f609e185455952f9dc8f8f8fa1a5f510fcb3bff52e224b17e0ca"
+    },
+    {
+      "path": "runs/attempt_1/runs/sympy__sympy-21379_D_d53c8237/trajectory.json",
+      "bytes": 312167,
+      "sha256": "0815f8a3ec3936c6e7d5f0a1b3924451d730e3b418c39b6cdf2ca40e621db828"
+    },
+    {
+      "path": "runs/attempt_2/runs/sympy__sympy-20438_A_f83ce396/localization_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "runs/attempt_2/runs/sympy__sympy-20438_A_f83ce396/patch.diff",
+      "bytes": 1052,
+      "sha256": "af6a9096ac53a48398b0185494de011d227948c3e3c568177ffa9ab958907411"
+    },
+    {
+      "path": "runs/attempt_2/runs/sympy__sympy-20438_A_f83ce396/prompt_candidates.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "runs/attempt_2/runs/sympy__sympy-20438_A_f83ce396/run_result.json",
+      "bytes": 3538,
+      "sha256": "42422ed1657ef5c1a2822d3e8e5c4986ea14b348c803c66f6774e3cb20ba5b20"
+    },
+    {
+      "path": "runs/attempt_2/runs/sympy__sympy-20438_A_f83ce396/task_metadata.json",
+      "bytes": 1689,
+      "sha256": "86e3deeab5287ce851653a56cc647dcc2d4f115734b28f7ee3c66789ef1526c6"
+    },
+    {
+      "path": "runs/attempt_2/runs/sympy__sympy-20438_A_f83ce396/trajectory.json",
+      "bytes": 195567,
+      "sha256": "4e1a8f18ff2d51742ee19ead99fc4dddf9b3d5398827428d3e138a93bdd6c529"
+    },
+    {
+      "path": "source_snapshot/minisweagent/agents/default.py",
+      "bytes": 8043,
+      "sha256": "e8ef8aa365942d739c2ec5cb0879f60f377d2dc2de8ec670aaedf3bafb45a4c2"
+    },
+    {
+      "path": "source_snapshot/minisweagent/environments/docker.py",
+      "bytes": 6427,
+      "sha256": "21d389122b008e7b743d1e640207fda0b08d9010cf6323ddd02f0742b33b96a6"
+    },
+    {
+      "path": "source_snapshot/minisweagent/exceptions.py",
+      "bytes": 729,
+      "sha256": "0590393c56bee873c79a691dcb4f15cb39c85f1658598b84bfb295bfde56921d"
+    },
+    {
+      "path": "source_snapshot/minisweagent/models/openrouter_model.py",
+      "bytes": 7802,
+      "sha256": "6f217e91d04da906ea8e8a156f710e19ddbcf5ab6397b329a2abb66a95a80313"
+    },
+    {
+      "path": "source_snapshot/minisweagent/models/utils/actions_toolcall.py",
+      "bytes": 4134,
+      "sha256": "47b666412e4f838508b50009cf34c7f63fe15e9e40affc257a17c0829896526f"
+    },
+    {
+      "path": "source_snapshot/minisweagent/models/utils/retry.py",
+      "bytes": 860,
+      "sha256": "fb9dd9d9ca0253a2b2ac86907fea4c34fe75c55af6d443781e1ab02229a1ac18"
+    },
+    {
+      "path": "source_snapshot/src/agent/context.py",
+      "bytes": 4948,
+      "sha256": "2db56b2b0cdae8ca48cc20ef72d07b0cdb51d14540a863c69640f99b35259400"
+    },
+    {
+      "path": "source_snapshot/src/agent/contracts.py",
+      "bytes": 2193,
+      "sha256": "2c61e3983de02c06fc9057d031cd9a6322d3f2297811836b8eb408dde7649ee1"
+    },
+    {
+      "path": "source_snapshot/src/agent/failure_feedback.py",
+      "bytes": 23690,
+      "sha256": "d4574ca7db5067e881f113c7f68d47efcbbe46c39eabfe51ed8a69866cdcba43"
+    },
+    {
+      "path": "source_snapshot/src/agent/mini_swe_wrapper.py",
+      "bytes": 15767,
+      "sha256": "7a2360ff9ee229b866a80e0f534220d8cde60c0c6582675484683120139ee3e7"
+    },
+    {
+      "path": "source_snapshot/src/agent/swebench_runner.py",
+      "bytes": 26300,
+      "sha256": "4d0cca01cfab8a2fb968a22431653000e527367300d2191405f9bf82ae7e3778"
+    },
+    {
+      "path": "source_snapshot/src/failure_analysis/__init__.py",
+      "bytes": 197,
+      "sha256": "7a026d8b669a1640bfbeda069248a26c9145b32586c776aa807316f22bf767dc"
+    },
+    {
+      "path": "source_snapshot/src/failure_analysis/diagnostics.py",
+      "bytes": 4074,
+      "sha256": "9ddbf4f0c163f9d0778565a381e2a0d93ebc041b2eba7583565cefe377183fdc"
+    },
+    {
+      "path": "source_snapshot/src/failure_analysis/execution.py",
+      "bytes": 3821,
+      "sha256": "42a61ab732a509ebb44fb86b441415fb9def95385025d0bc9f434a98ecf91ca1"
+    },
+    {
+      "path": "source_snapshot/src/failure_analysis/feedback.py",
+      "bytes": 8621,
+      "sha256": "fa293042a254ba4d329fc78a2fce3cff9a1590108a2ddc2a11cca25b516b7aa5"
+    },
+    {
+      "path": "source_snapshot/src/failure_analysis/observation.py",
+      "bytes": 5084,
+      "sha256": "b054135f6ae6dc703cb7dbd0b4deaf700ca4744ceab850cfab613d4f90cc3371"
+    },
+    {
+      "path": "source_snapshot/src/failure_analysis/refinement.py",
+      "bytes": 21214,
+      "sha256": "eeeb0af66a53096e78cccdf178e647ecd5f72d53c12375309e300ced58afb37d"
+    },
+    {
+      "path": "source_snapshot/src/failure_analysis/test_parser.py",
+      "bytes": 578,
+      "sha256": "bbc32aed6b115853b4a07fb89b8445d5ed4c09fea84d5d3e01c0423d48516b30"
+    },
+    {
+      "path": "source_snapshot/src/failure_analysis/traceback_parser.py",
+      "bytes": 5756,
+      "sha256": "aac367623c01b4151c3ac7bcb879131dd0ec5a53edaecb201dec41c076abae6f"
+    },
+    {
+      "path": "source_snapshot/src/localization/keyword.py",
+      "bytes": 3369,
+      "sha256": "bf934bd568b77ff6571000cacaf727dfc765ad4654a019d59b5e049b6f6b97c3"
+    },
+    {
+      "path": "source_snapshot/src/localization/ranker.py",
+      "bytes": 5171,
+      "sha256": "0e61206ac503da33074387963d5dbad66b93dd003796db08b5669045a84d1411"
+    },
+    {
+      "path": "source_snapshot/src/localization/structural.py",
+      "bytes": 5607,
+      "sha256": "7407000b73f2b6d4c355ac0b264b2a272de4ee4c5bbd4db75700397cc7481b19"
+    },
+    {
+      "path": "source_snapshot/src/repository/ast_parser.py",
+      "bytes": 11178,
+      "sha256": "69ac6745c8d494f89a4e252de03bf1c40fd7ecf743f80fa795d3bba32631c46c"
+    },
+    {
+      "path": "source_snapshot/src/repository/indexer.py",
+      "bytes": 20718,
+      "sha256": "d0250c72db41650ead8023a6b177a59858b15a2e18420a59816bf611cf30e883"
+    },
+    {
+      "path": "source_snapshot/src/repository/models.py",
+      "bytes": 3280,
+      "sha256": "b2bc72b3560a76df29544a21790df14ebb0c80edd99019f5fdc623e59cb8837e"
+    },
+    {
+      "path": "source_snapshot/src/repository/swebench.py",
+      "bytes": 11441,
+      "sha256": "1414befc1f63e55287f71fb147875e38396381fc69b12fb2a31c589d3ee7578f"
+    },
+    {
+      "path": "summarize.py",
+      "bytes": 12298,
+      "sha256": "e79d117f7f23ba22f66a5a75ffbafe712ae8eb2af6c012646447d9aa2d645d2d"
+    },
+    {
+      "path": "usage.jsonl",
+      "bytes": 100251,
+      "sha256": "7e62750fde506e00b90ef9629015f55a8f35f194bc1a0c2035c2ca7905a98721"
+    }
+  ]
+}

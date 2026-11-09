@@ -1,0 +1,74 @@
+autodoc: empty __all__ attribute is ignored
+**Describe the bug**
+autodoc: empty `__all__` attribute is ignored
+
+**To Reproduce**
+```
+# example.py
+__all__ = []
+
+
+def foo():
+    "docstring"
+
+
+def bar():
+    "docstring"
+
+
+def baz():
+    "docstring"
+```
+```
+# index.rst
+.. automodule:: example
+   :members:
+```
+
+All foo, bar, and baz are shown.
+
+**Expected behavior**
+No entries should be shown because `__all__` is empty.
+
+**Your project**
+No
+
+**Screenshots**
+No
+
+**Environment info**
+- OS: Mac
+- Python version: 3.9.1
+- Sphinx version: HEAD of 3.x
+- Sphinx extensions: sphinx.ext.autodoc
+- Extra tools: No
+
+**Additional context**
+No
+
+
+----
+Repository localization guidance:
+Additional repository localization hints are provided below.
+These are navigation suggestions only. You may inspect any file in the repository if needed.
+
+1. sphinx/domains/__init__.py | score: 35.9422 | reason: BM25
+2. tests/test_ext_autodoc.py | score: 35.0366 | reason: BM25
+3. tests/test_environment_indexentries.py | score: 33.0758 | reason: BM25
+4. sphinx/search/__init__.py | score: 32.8377 | reason: BM25
+5. tests/test_project.py | score: 32.2246 | reason: BM25
+6. tests/test_ext_apidoc.py | score: 31.8295 | reason: BM25
+7. doc/usage/extensions/example_google.py | score: 31.5941 | reason: BM25
+8. doc/usage/extensions/example_numpy.py | score: 31.5941 | reason: BM25
+9. sphinx/addnodes.py | score: 31.3007 | reason: BM25
+10. tests/roots/test-ext-autodoc/target/__init__.py | score: 31.2378 | reason: BM25
+11. sphinx/errors.py | score: 31.2077 | reason: BM25
+12. sphinx/ext/autodoc/__init__.py | score: 30.2545 | reason: BM25
+13. tests/test_ext_autodoc_autoclass.py | score: 30.0559 | reason: BM25
+14. tests/roots/test-ext-autodoc/target/sort_by_all.py | score: 29.6973 | reason: BM25
+15. sphinx/ext/todo.py | score: 29.2942 | reason: BM25
+16. sphinx/ext/napoleon/__init__.py | score: 29.2314 | reason: BM25
+17. tests/test_domain_rst.py | score: 29.1580 | reason: BM25
+18. tests/test_util_inspect.py | score: 29.0952 | reason: BM25
+19. sphinx/ext/extlinks.py | score: 28.4173 | reason: BM25
+20. tests/test_ext_autodoc_configs.py | score: 28.1562 | reason: BM25

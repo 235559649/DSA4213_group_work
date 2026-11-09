@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "<stdin>", line 13, in <module>
+  File "/testbed/django/template/engine.py", line 136, in from_string
+    return Template(template_code, engine=self)
+  File "/testbed/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/testbed/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/testbed/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/testbed/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/testbed/django/template/library.py", line 121, in compile_func
+    kwonly, kwonly_defaults, takes_context, function_name,
+  File "/testbed/django/template/library.py", line 268, in parse_bits
+    (name, param))
+django.template.exceptions.TemplateSyntaxError: 'hello' received unexpected keyword argument 'greeting'

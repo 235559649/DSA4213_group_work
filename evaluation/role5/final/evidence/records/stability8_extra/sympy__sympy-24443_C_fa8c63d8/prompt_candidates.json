@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/combinatorics/homomorphisms.py",
+    "rank": 1,
+    "score": 0.0327868852,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/fp_groups.py",
+    "rank": 2,
+    "score": 0.0322580645,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/perm_groups.py",
+    "rank": 3,
+    "score": 0.0317460317,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/pc_groups.py",
+    "rank": 5,
+    "score": 0.0307692308,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/testutil.py",
+    "rank": 6,
+    "score": 0.0303030303,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/tensor_can.py",
+    "rank": 7,
+    "score": 0.0298507463,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/polys/agca/homomorphisms.py",
+    "rank": 8,
+    "score": 0.0294117647,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/coset_table.py",
+    "rank": 11,
+    "score": 0.0247064206,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/permutations.py",
+    "rank": 12,
+    "score": 0.0238095238,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/named_groups.py",
+    "rank": 13,
+    "score": 0.0221828909,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/ntheory/factor_.py",
+    "rank": 14,
+    "score": 0.0218535469,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/tensor/tensor.py",
+    "rank": 15,
+    "score": 0.0215053763,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/polys/agca/modules.py",
+    "rank": 16,
+    "score": 0.0214203895,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/util.py",
+    "rank": 17,
+    "score": 0.0212789175,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/sympify.py",
+    "rank": 18,
+    "score": 0.0212765957,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/polys/polytools.py",
+    "rank": 19,
+    "score": 0.0211105003,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/free_groups.py",
+    "rank": 20,
+    "score": 0.0207408837,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/functions/combinatorial/factorials.py",
+    "rank": 21,
+    "score": 0.0207303974,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/utilities/misc.py",
+    "rank": 22,
+    "score": 0.0206734868,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/utilities/iterables.py",
+    "rank": 23,
+    "score": 0.0204166667,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "example-task": {
+    "resolved": false,
+    "patch_successfully_applied": true,
+    "tests_status": {
+      "FAIL_TO_PASS": {
+        "success": [],
+        "failure": [
+          "test_example"
+        ]
+      },
+      "PASS_TO_PASS": {
+        "success": [],
+        "failure": []
+      }
+    }
+  }
+}

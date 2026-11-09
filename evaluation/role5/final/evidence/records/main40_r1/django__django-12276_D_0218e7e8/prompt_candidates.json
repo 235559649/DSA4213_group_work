@@ -1,0 +1,162 @@
+[
+  {
+    "file": "django/forms/widgets.py",
+    "rank": 1,
+    "score": 0.0327868852,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/forms/fields.py",
+    "rank": 2,
+    "score": 0.0322580645,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/forms/models.py",
+    "rank": 4,
+    "score": 0.03125,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/db/models/query.py",
+    "rank": 6,
+    "score": 0.0303030303,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/contrib/staticfiles/management/commands/collectstatic.py",
+    "rank": 7,
+    "score": 0.0298507463,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/forms/formsets.py",
+    "rank": 8,
+    "score": 0.0294117647,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/utils/safestring.py",
+    "rank": 10,
+    "score": 0.0285714286,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/forms/forms.py",
+    "rank": 11,
+    "score": 0.0264912281,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/contrib/admin/options.py",
+    "rank": 12,
+    "score": 0.025332692,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/db/models/fields/__init__.py",
+    "rank": 13,
+    "score": 0.0226582278,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/core/files/uploadedfile.py",
+    "rank": 14,
+    "score": 0.0214076859,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/db/models/base.py",
+    "rank": 15,
+    "score": 0.0206766917,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/core/files/storage.py",
+    "rank": 16,
+    "score": 0.0203176568,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/db/models/deletion.py",
+    "rank": 17,
+    "score": 0.0199316072,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/db/models/fields/related_descriptors.py",
+    "rank": 18,
+    "score": 0.0194902549,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/views/generic/edit.py",
+    "rank": 19,
+    "score": 0.019149716,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/template/base.py",
+    "rank": 20,
+    "score": 0.0188034188,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/template/defaulttags.py",
+    "rank": 21,
+    "score": 0.0186225988,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/core/management/base.py",
+    "rank": 22,
+    "score": 0.0184246112,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "django/utils/regex_helper.py",
+    "rank": 23,
+    "score": 0.0184053543,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  }
+]

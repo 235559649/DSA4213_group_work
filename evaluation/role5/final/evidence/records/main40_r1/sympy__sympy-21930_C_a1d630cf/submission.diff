@@ -1,0 +1,16 @@
+diff --git a/sympy/printing/latex.py b/sympy/printing/latex.py
+index 64d3207d09..49e77f54cb 100644
+--- a/sympy/printing/latex.py
++++ b/sympy/printing/latex.py
+@@ -673,6 +673,11 @@ def _helper_print_standard_power(self, expr, template):
+             and base.endswith(r'\right)')):
+             # don't use parentheses around dotted derivative
+             base = base[6: -7]  # remove outermost added parens
++        elif '^' in base and not base.startswith(r'\left('):
++            # If the base already contains a superscript, wrap it in braces so
++            # the new exponent attaches to the whole expression instead of the
++            # final superscript token (e.g. b^\dagger_{0}^{2} -> {b^\dagger_{0}}^{2}).
++            base = '{%s}' % base
+         return template % (base, exp)
+ 
+     def _print_UnevaluatedExpr(self, expr):

@@ -1,0 +1,2 @@
+# Python >= 3.10. This offline evaluator uses only the standard library.
+# No pip packages, model API credentials, Docker, or benchmark installation required.

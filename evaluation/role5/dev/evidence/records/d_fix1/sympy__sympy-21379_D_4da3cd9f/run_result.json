@@ -1,0 +1,70 @@
+{
+  "run_id": "sympy__sympy-21379_D_4da3cd9f",
+  "task_id": "sympy__sympy-21379",
+  "condition": "D",
+  "model": "openai/gpt-5.4-mini",
+  "mini_swe_agent_version": "2.4.6",
+  "status": "completed",
+  "termination_reason": "Submitted",
+  "trajectory_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/sympy__sympy-21379_D_4da3cd9f/trajectory.json",
+  "patch_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/sympy__sympy-21379_D_4da3cd9f/patch.diff",
+  "runtime_seconds": 87.9942672252655,
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "api_calls": 15,
+    "cost_usd": 0.0453036
+  },
+  "config": {
+    "benchmark": "SWE-bench/SWE-bench_Verified",
+    "split": "test",
+    "instance_id": "sympy__sympy-21379",
+    "repo": "sympy/sympy",
+    "version": "1.9",
+    "base_commit": "624217179aaf8d094e6ff75b7493ad1ee47599b0",
+    "model_class": "openrouter",
+    "repository_index": {
+      "instance_id": "sympy__sympy-21379",
+      "repo": "sympy/sympy",
+      "base_commit": "624217179aaf8d094e6ff75b7493ad1ee47599b0",
+      "index_sha256": "90c3d14af773abed07ac704cd1cf2a446273c6b5319d030859190cd90630bff9",
+      "file_count": 1505,
+      "record_count": 44198,
+      "error_count": 0
+    },
+    "localization_source": "rrf_l_s_f",
+    "localization_candidate_count": 1502,
+    "localization_full_ranking_size": 1502,
+    "localization_top_k": 20,
+    "localization_prompt_candidate_count": 20,
+    "effective_task_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/sympy__sympy-21379_D_4da3cd9f/effective_task.txt",
+    "localization_candidates_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/sympy__sympy-21379_D_4da3cd9f/localization_candidates.json",
+    "prompt_candidates_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/sympy__sympy-21379_D_4da3cd9f/prompt_candidates.json",
+    "step_limit": 250,
+    "cost_limit": 3.0,
+    "wall_time_limit_seconds": 0,
+    "command_timeout_seconds": 60,
+    "docker_image": "docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-21379:latest",
+    "failure_feedback": {
+      "max_updates": 3,
+      "context_top_k": 20,
+      "observations_recorded": 18,
+      "failures_observed": 5,
+      "updates_applied": 2,
+      "localization_overhead_seconds": 48.152822771999126,
+      "initial_localization_seconds": 22.425069753999196,
+      "feedback_total_seconds": 25.747047513001235,
+      "initial_LS_fixed": true,
+      "failure_signal": "observed_runtime_evidence_first_eligible_per_decision",
+      "observation_provenance": "trusted_metadata_or_unknown",
+      "log_directory": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/sympy__sympy-21379_D_4da3cd9f/failure_feedback"
+    }
+  },
+  "evaluation": {
+    "agent_run_completed": true,
+    "submission_present": true,
+    "patch_generated": true,
+    "official_swebench_evaluation": null
+  },
+  "error": null
+}

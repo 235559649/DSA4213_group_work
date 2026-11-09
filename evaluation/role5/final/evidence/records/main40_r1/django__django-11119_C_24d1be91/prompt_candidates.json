@@ -1,0 +1,162 @@
+[
+  {
+    "file": "django/template/base.py",
+    "rank": 2,
+    "score": 0.0322580645,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/core/management/base.py",
+    "rank": 3,
+    "score": 0.0317460317,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/db/models/query.py",
+    "rank": 4,
+    "score": 0.03125,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/db/models/fields/related.py",
+    "rank": 6,
+    "score": 0.0303030303,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/forms/fields.py",
+    "rank": 7,
+    "score": 0.0298507463,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/db/backends/sqlite3/base.py",
+    "rank": 10,
+    "score": 0.0285714286,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/template/loader_tags.py",
+    "rank": 11,
+    "score": 0.0261538462,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/templatetags/i18n.py",
+    "rank": 12,
+    "score": 0.0235277931,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/db/models/fields/__init__.py",
+    "rank": 13,
+    "score": 0.0227537169,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/db/transaction.py",
+    "rank": 14,
+    "score": 0.0216986301,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/template/defaulttags.py",
+    "rank": 15,
+    "score": 0.0206967213,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/db/models/deletion.py",
+    "rank": 16,
+    "score": 0.0206734868,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/db/models/base.py",
+    "rank": 17,
+    "score": 0.0203680728,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/utils/html.py",
+    "rank": 18,
+    "score": 0.0202821869,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/db/backends/base/base.py",
+    "rank": 19,
+    "score": 0.0196484828,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/template/engine.py",
+    "rank": 20,
+    "score": 0.0192873205,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/utils/timezone.py",
+    "rank": 21,
+    "score": 0.0186809269,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/template/library.py",
+    "rank": 22,
+    "score": 0.0186707093,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/contrib/contenttypes/models.py",
+    "rank": 23,
+    "score": 0.0182194617,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/template/context.py",
+    "rank": 24,
+    "score": 0.0178927859,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  }
+]

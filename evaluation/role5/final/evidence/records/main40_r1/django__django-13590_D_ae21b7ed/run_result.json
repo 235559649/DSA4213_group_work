@@ -1,0 +1,116 @@
+{
+  "run_id": "django__django-13590_D_ae21b7ed",
+  "task_id": "django__django-13590",
+  "condition": "D",
+  "model": "openai/gpt-5.4-mini",
+  "mini_swe_agent_version": "2.4.6",
+  "status": "completed",
+  "termination_reason": "Submitted",
+  "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/django__django-13590_D_ae21b7ed/trajectory.json",
+  "patch_path": "/root/projects/DSA4213_final_20261028/runs/django__django-13590_D_ae21b7ed/patch.diff",
+  "runtime_seconds": 24.25909924507141,
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "api_calls": 6,
+    "cost_usd": 0.0103407
+  },
+  "config": {
+    "failure_weight": 1.0,
+    "ranking_strategy": "near_exception",
+    "fusion_policy": "weighted_rrf",
+    "k": 60,
+    "feedback_routing_policy": "evidence_increment_v3",
+    "feedback_route_limits": {
+      "rank_update": 3,
+      "edit_recovery": 2,
+      "diagnostic_only": 1
+    },
+    "repair_guidance_version": "disabled",
+    "benchmark": "swebench",
+    "split": "test",
+    "instance_id": "django__django-13590",
+    "repo": "django/django",
+    "version": "3.2",
+    "base_commit": "755dbf39fcdc491fe9b588358303e259c7750be4",
+    "model_class": "openrouter",
+    "repository_index": {
+      "instance_id": "django__django-13590",
+      "repo": "django/django",
+      "base_commit": "755dbf39fcdc491fe9b588358303e259c7750be4",
+      "index_sha256": "94dcfa18c9beb9de1df3a02928ce64991a8363895ddf04a7d55f573dd5f5bcfd",
+      "file_count": 2680,
+      "record_count": 37074,
+      "error_count": 0
+    },
+    "localization_source": "rrf_l_s_f",
+    "localization_candidate_count": 1930,
+    "localization_full_ranking_size": 1930,
+    "localization_top_k": 20,
+    "localization_prompt_candidate_count": 20,
+    "localization_prompt_policy": "source_only+related_tests_v1",
+    "localization_related_tests": [
+      "tests/expressions/tests.py",
+      "tests/test_runner/test_parallel.py",
+      "tests/generic_views/test_base.py"
+    ],
+    "effective_task_path": "/root/projects/DSA4213_final_20261028/runs/django__django-13590_D_ae21b7ed/effective_task.txt",
+    "localization_candidates_path": "/root/projects/DSA4213_final_20261028/runs/django__django-13590_D_ae21b7ed/localization_candidates.json",
+    "prompt_candidates_path": "/root/projects/DSA4213_final_20261028/runs/django__django-13590_D_ae21b7ed/prompt_candidates.json",
+    "step_limit": 250,
+    "cost_limit": 3.0,
+    "wall_time_limit_seconds": 0,
+    "command_timeout_seconds": 60,
+    "docker_image": "docker.io/swebench/sweb.eval.x86_64.django_1776_django-13590:latest",
+    "timing": {
+      "env_setup_seconds": 0.252,
+      "agent_seconds": 18.0,
+      "env_teardown_seconds": 0.001
+    },
+    "failure_feedback": {
+      "failure_weight": 1.0,
+      "ranking_strategy": "near_exception",
+      "fusion_policy": "weighted_rrf",
+      "k": 60,
+      "feedback_routing_policy": "evidence_increment_v3",
+      "feedback_route_limits": {
+        "rank_update": 3,
+        "edit_recovery": 2,
+        "diagnostic_only": 1
+      },
+      "max_updates": 3,
+      "context_top_k": 20,
+      "feedback_route_counts": {
+        "rank_update": 0,
+        "edit_recovery": 0,
+        "diagnostic_only": 0
+      },
+      "ranking_updates_applied": 0,
+      "recovery_messages_applied": 0,
+      "diagnostic_messages_applied": 0,
+      "observations_recorded": 8,
+      "failures_observed": 1,
+      "actions_observed": 8,
+      "process_failures": 0,
+      "evidence_observations": 2,
+      "analyses_completed": 0,
+      "runtime_snapshots_attempted": 0,
+      "updates_applied": 0,
+      "localization_overhead_seconds": 6.001196573000016,
+      "initial_localization_seconds": 5.995028563000233,
+      "feedback_total_seconds": 0.006154338999749598,
+      "initial_LS_fixed": true,
+      "failure_signal": "status_or_observation_v2_first_eligible",
+      "provenance_policy": "execution_metadata_or_conservative_single_command_form",
+      "deduplication": "delivered_evidence_increment_and_final_context_with_workspace_and_index_scope",
+      "log_directory": "/root/projects/DSA4213_final_20261028/runs/django__django-13590_D_ae21b7ed/failure_feedback"
+    }
+  },
+  "evaluation": {
+    "agent_run_completed": true,
+    "submission_present": true,
+    "patch_generated": true,
+    "official_swebench_evaluation": null
+  },
+  "error": null
+}

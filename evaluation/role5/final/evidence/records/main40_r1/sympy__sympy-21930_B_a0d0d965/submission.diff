@@ -1,0 +1,13 @@
+diff --git a/sympy/printing/latex.py b/sympy/printing/latex.py
+index 64d3207d09..ad9dbd2170 100644
+--- a/sympy/printing/latex.py
++++ b/sympy/printing/latex.py
+@@ -673,6 +673,8 @@ def _helper_print_standard_power(self, expr, template):
+             and base.endswith(r'\right)')):
+             # don't use parentheses around dotted derivative
+             base = base[6: -7]  # remove outermost added parens
++        elif "^" in base:
++            base = self._add_parens(base)
+         return template % (base, exp)
+ 
+     def _print_UnevaluatedExpr(self, expr):

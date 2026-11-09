@@ -1,0 +1,27 @@
+diff --git a/sympy/matrices/expressions/blockmatrix.py b/sympy/matrices/expressions/blockmatrix.py
+index 95302a05ca..8c4167143d 100755
+--- a/sympy/matrices/expressions/blockmatrix.py
++++ b/sympy/matrices/expressions/blockmatrix.py
+@@ -164,7 +164,7 @@ def structurally_equal(self, other):
+     def _blockmul(self, other):
+         if (isinstance(other, BlockMatrix) and
+                 self.colblocksizes == other.rowblocksizes):
+-            return BlockMatrix(self.blocks*other.blocks)
++            return _blockmatrix_from_dense(self.blocks*other.blocks, self, other)
+ 
+         return self * other
+ 
+@@ -345,6 +345,14 @@ def _blockadd(self, other):
+             return BlockMatrix._blockadd(self, other)
+ 
+ 
++
++def _blockmatrix_from_dense(blocks, left, right):
++    rows, cols = blocks.shape
++    data = [[blocks[i, j] if hasattr(blocks[i, j], 'rows') else ZeroMatrix(left.rowblocksizes[i], right.colblocksizes[j])
++             for j in range(cols)]
++            for i in range(rows)]
++    return BlockMatrix(data)
++
+ def block_collapse(expr):
+     """Evaluates a block matrix expression

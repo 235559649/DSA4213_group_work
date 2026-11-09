@@ -1,0 +1,14 @@
+{
+  "max_updates": 3,
+  "context_top_k": 20,
+  "observations_recorded": 25,
+  "failures_observed": 1,
+  "updates_applied": 1,
+  "localization_overhead_seconds": 27.202570381999976,
+  "initial_localization_seconds": 22.099714893000055,
+  "feedback_total_seconds": 5.141170240000065,
+  "initial_LS_fixed": true,
+  "failure_signal": "observed_runtime_evidence_first_eligible_per_decision",
+  "observation_provenance": "trusted_metadata_or_unknown",
+  "log_directory": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/sympy__sympy-20438_D_9f878f69/failure_feedback"
+}

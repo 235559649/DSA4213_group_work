@@ -1,0 +1,30 @@
+diff --git a/sympy/polys/polytools.py b/sympy/polys/polytools.py
+index c9e77a901f..e3b35eb969 100755
+--- a/sympy/polys/polytools.py
++++ b/sympy/polys/polytools.py
+@@ -3234,7 +3234,9 @@ def sqf_list(f, all=False):
+         else:  # pragma: no cover
+             raise OperationNotSupported(f, 'sqf_list')
+ 
+-        return f.rep.dom.to_sympy(coeff), [(f.per(g), k) for g, k in factors]
++        factors = [(f.per(g), k) for g, k in factors]
++
++        return f.rep.dom.to_sympy(coeff), factors
+ 
+     def sqf_list_include(f, all=False):
+         """
+@@ -5995,8 +5997,12 @@ def _generic_factor_list(expr, gens, args, method):
+                     f, _ = _poly_from_expr(f, _opt)
+                     factors[i] = (f, k)
+ 
+-        fp = _sorted_factors(fp, method)
+-        fq = _sorted_factors(fq, method)
++        if method == 'sqf':
++            fp = sorted(fp, key=lambda obj: (obj[1], obj[0].sort_key()))
++            fq = sorted(fq, key=lambda obj: (obj[1], obj[0].sort_key()))
++        else:
++            fp = _sorted_factors(fp, method)
++            fq = _sorted_factors(fq, method)
+ 
+         if not opt.polys:
+             fp = [(f.as_expr(), k) for f, k in fp]

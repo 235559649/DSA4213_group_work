@@ -1,0 +1,40 @@
+test_cross_version_pairs_do_not_require_same_retry_number (test_offline_eval.ManifestTests.test_cross_version_pairs_do_not_require_same_retry_number) ... ok
+test_duplicate_planned_tasks_cannot_inflate_denominator (test_offline_eval.ManifestTests.test_duplicate_planned_tasks_cannot_inflate_denominator) ... ok
+test_duplicate_selected_attempt_is_rejected (test_offline_eval.ManifestTests.test_duplicate_selected_attempt_is_rejected) ... ok
+test_excluded_attempt_cost_is_retained (test_offline_eval.ManifestTests.test_excluded_attempt_cost_is_retained) ... ok
+test_excluded_attempt_must_still_belong_to_plan (test_offline_eval.ManifestTests.test_excluded_attempt_must_still_belong_to_plan) ... ok
+test_missing_official_report_is_unknown (test_offline_eval.ManifestTests.test_missing_official_report_is_unknown) ... ok
+test_missing_selected_is_explicit (test_offline_eval.ManifestTests.test_missing_selected_is_explicit) ... ok
+test_repeats_are_separate_from_attempts (test_offline_eval.ManifestTests.test_repeats_are_separate_from_attempts) ... ok
+test_timing_subtotals_are_not_added_twice (test_offline_eval.ManifestTests.test_timing_subtotals_are_not_added_twice) ... ok
+test_unmatched_tasks_are_kept (test_offline_eval.ManifestTests.test_unmatched_tasks_are_kept) ... ok
+test_variable_task_counts_and_d_only (test_offline_eval.ManifestTests.test_variable_task_counts_and_d_only) ... ok
+test_a_localization_is_not_applicable (test_offline_eval.MetricTests.test_a_localization_is_not_applicable) ... ok
+test_agent_submission_is_not_official_success (test_offline_eval.MetricTests.test_agent_submission_is_not_official_success) ... ok
+test_checksum_corruption_is_reported (test_offline_eval.MetricTests.test_checksum_corruption_is_reported) ... ok
+test_diagnostic_delivery_does_not_require_usable_rank_evidence (test_offline_eval.MetricTests.test_diagnostic_delivery_does_not_require_usable_rank_evidence) ... ok
+test_duplicate_rank_is_rejected (test_offline_eval.MetricTests.test_duplicate_rank_is_rejected) ... ok
+test_first_usable_event_is_not_replaced_by_later_success (test_offline_eval.MetricTests.test_first_usable_event_is_not_replaced_by_later_success) ... ok
+test_format_error_response_is_counted (test_offline_eval.MetricTests.test_format_error_response_is_counted) ... ok
+test_gapped_prompt_ranks_are_display_positions (test_offline_eval.MetricTests.test_gapped_prompt_ranks_are_display_positions) ... ok
+test_missing_rankings_are_not_empty_rankings (test_offline_eval.MetricTests.test_missing_rankings_are_not_empty_rankings) ... ok
+test_multiple_targets_and_absent_target (test_offline_eval.MetricTests.test_multiple_targets_and_absent_target) ... ok
+test_output_is_not_silently_overwritten (test_offline_eval.MetricTests.test_output_is_not_silently_overwritten) ... ok
+test_partial_response_total_is_unknown (test_offline_eval.MetricTests.test_partial_response_total_is_unknown) ... ok
+test_path_escape_and_windows_absolute_paths_are_rejected (test_offline_eval.MetricTests.test_path_escape_and_windows_absolute_paths_are_rejected) ... ok
+test_rank_update_route_can_leave_order_unchanged (test_offline_eval.MetricTests.test_rank_update_route_can_leave_order_unchanged) ... ok
+test_repeated_feedback_uses_chronological_occurrences (test_offline_eval.MetricTests.test_repeated_feedback_uses_chronological_occurrences) ... ok
+test_unknown_cache_is_not_zero (test_offline_eval.MetricTests.test_unknown_cache_is_not_zero) ... ok
+test_unknown_is_not_zero (test_offline_eval.MetricTests.test_unknown_is_not_zero) ... ok
+test_wrong_official_task_is_rejected (test_offline_eval.MetricTests.test_wrong_official_task_is_rejected) ... ok
+test_zero_call_infrastructure_attempt (test_offline_eval.MetricTests.test_zero_call_infrastructure_attempt) ... ok
+test_attempt_selection_and_missing_data (test_recorded_evidence.RecordedEvidenceTests.test_attempt_selection_and_missing_data) ... skipped 'Set OFFLINE_EVAL_MANIFEST to run full-evidence integration tests'
+test_four_task_usage_is_summed_over_all_responses (test_recorded_evidence.RecordedEvidenceTests.test_four_task_usage_is_summed_over_all_responses) ... skipped 'Set OFFLINE_EVAL_MANIFEST to run full-evidence integration tests'
+test_new_d_timing_and_route_boundaries (test_recorded_evidence.RecordedEvidenceTests.test_new_d_timing_and_route_boundaries) ... skipped 'Set OFFLINE_EVAL_MANIFEST to run full-evidence integration tests'
+test_official_success_counts_match_reports (test_recorded_evidence.RecordedEvidenceTests.test_official_success_counts_match_reports) ... skipped 'Set OFFLINE_EVAL_MANIFEST to run full-evidence integration tests'
+test_paid_retry_is_retained_without_becoming_a_new_task (test_recorded_evidence.RecordedEvidenceTests.test_paid_retry_is_retained_without_becoming_a_new_task) ... skipped 'Set OFFLINE_EVAL_MANIFEST to run full-evidence integration tests'
+
+----------------------------------------------------------------------
+Ran 35 tests in 0.857s
+
+OK (skipped=5)

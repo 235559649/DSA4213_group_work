@@ -1,0 +1,246 @@
+{
+  "django__django-13590": {
+    "paths": [
+      "django/db/models/sql/query.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "django__django-16315": {
+    "paths": [
+      "django/db/models/query.py",
+      "django/db/models/sql/compiler.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "django__django-16877": {
+    "paths": [
+      "django/template/defaultfilters.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "django__django-10914": {
+    "paths": [
+      "django/conf/global_settings.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "django__django-12276": {
+    "paths": [
+      "django/forms/widgets.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "django__django-7530": {
+    "paths": [
+      "django/core/management/commands/makemigrations.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "django__django-13212": {
+    "paths": [
+      "django/core/validators.py",
+      "django/forms/fields.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "django__django-15380": {
+    "paths": [
+      "django/db/migrations/autodetector.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "django__django-14311": {
+    "paths": [
+      "django/utils/autoreload.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "django__django-11119": {
+    "paths": [
+      "django/template/engine.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "django__django-16950": {
+    "paths": [
+      "django/forms/models.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "django__django-16255": {
+    "paths": [
+      "django/contrib/sitemaps/__init__.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sympy__sympy-16886": {
+    "paths": [
+      "sympy/crypto/crypto.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sympy__sympy-12489": {
+    "paths": [
+      "sympy/combinatorics/permutations.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sympy__sympy-18698": {
+    "paths": [
+      "sympy/polys/polytools.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sympy__sympy-22080": {
+    "paths": [
+      "sympy/printing/codeprinter.py",
+      "sympy/printing/precedence.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sympy__sympy-13757": {
+    "paths": [
+      "sympy/polys/polytools.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sympy__sympy-18199": {
+    "paths": [
+      "sympy/ntheory/residue_ntheory.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sympy__sympy-24443": {
+    "paths": [
+      "sympy/combinatorics/homomorphisms.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sympy__sympy-13372": {
+    "paths": [
+      "sympy/core/evalf.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sympy__sympy-18189": {
+    "paths": [
+      "sympy/solvers/diophantine.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sympy__sympy-19637": {
+    "paths": [
+      "sympy/core/sympify.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sympy__sympy-20428": {
+    "paths": [
+      "sympy/polys/domains/expressiondomain.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sympy__sympy-21930": {
+    "paths": [
+      "sympy/physics/secondquant.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sphinx-doc__sphinx-7757": {
+    "paths": [
+      "sphinx/util/inspect.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sphinx-doc__sphinx-9320": {
+    "paths": [
+      "sphinx/cmd/quickstart.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sphinx-doc__sphinx-8269": {
+    "paths": [
+      "sphinx/builders/linkcheck.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sphinx-doc__sphinx-7748": {
+    "paths": [
+      "sphinx/ext/autodoc/__init__.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sphinx-doc__sphinx-9591": {
+    "paths": [
+      "sphinx/domains/python.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sphinx-doc__sphinx-8475": {
+    "paths": [
+      "sphinx/builders/linkcheck.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sphinx-doc__sphinx-9698": {
+    "paths": [
+      "sphinx/domains/python.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sphinx-doc__sphinx-9258": {
+    "paths": [
+      "sphinx/domains/python.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sphinx-doc__sphinx-11445": {
+    "paths": [
+      "sphinx/util/rst.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "sphinx-doc__sphinx-9229": {
+    "paths": [
+      "sphinx/ext/autodoc/__init__.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "pytest-dev__pytest-7982": {
+    "paths": [
+      "src/_pytest/pathlib.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "pytest-dev__pytest-7324": {
+    "paths": [
+      "src/_pytest/mark/expression.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "pytest-dev__pytest-8399": {
+    "paths": [
+      "src/_pytest/python.py",
+      "src/_pytest/unittest.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "pytest-dev__pytest-10081": {
+    "paths": [
+      "src/_pytest/unittest.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "pytest-dev__pytest-7236": {
+    "paths": [
+      "src/_pytest/unittest.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  },
+  "pytest-dev__pytest-7521": {
+    "paths": [
+      "src/_pytest/capture.py"
+    ],
+    "provenance": "Files changed by the SWE-bench reference patch; evaluation-only, never shown to an agent; no repair hunks included."
+  }
+}

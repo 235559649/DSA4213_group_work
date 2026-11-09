@@ -1,0 +1,29 @@
+diff --git a/src/_pytest/unittest.py b/src/_pytest/unittest.py
+index 773f545af..171525e47 100644
+--- a/src/_pytest/unittest.py
++++ b/src/_pytest/unittest.py
+@@ -214,6 +214,15 @@ class TestCaseFunction(Function):
+         if is_async_function(self.obj):
+             self._testcase(self)
+         else:
++            # If the test is marked as skipped, let the unittest runner report it
++            # without altering tearDown(). Otherwise --pdb can leave us with a
++            # deferred tearDown that runs even though the test was skipped.
++            if getattr(self._testcase.__class__, "__unittest_skip__", False) or getattr(
++                getattr(self._testcase, self.name), "__unittest_skip__", False
++            ):
++                self._testcase(result=self)
++                return
++
+             # when --pdb is given, we want to postpone calling tearDown() otherwise
+             # when entering the pdb prompt, tearDown() would have probably cleaned up
+             # instance variables, which makes it difficult to debug
+@@ -258,6 +267,8 @@ def pytest_runtest_makereport(item, call):
+             lambda: pytest.skip(str(call.excinfo.value)), call.when
+         )
+         call.excinfo = call2.excinfo
++        if call.result is not None:
++            call._result = None
+ 
+ 
+ # twisted trial support

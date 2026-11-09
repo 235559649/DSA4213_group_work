@@ -1,0 +1,17 @@
+{
+  "base": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027",
+  "base_lock_sha256": "fd3d29a0d1823ff9aa3901c914c90d8abe5a811018c0e5f6a6d89ae098fc167a",
+  "policy_source_commit": "72e93e91496143a0ef95ce5b3894140b6cad8fa5",
+  "changed_source_files": [
+    "tests/test_prompt_policy.py",
+    "src/agent/swebench_runner.py",
+    "src/agent/context.py"
+  ],
+  "preserved": [
+    "closed_loop_v2",
+    "D weighted/bounded feedback",
+    "native OpenRouter",
+    "all budgets",
+    "full B/C rankings"
+  ]
+}

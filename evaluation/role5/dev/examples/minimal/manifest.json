@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "package_root": ".",
+  "experiments": [
+    {
+      "id": "example",
+      "tasks": [
+        "example-task"
+      ],
+      "conditions": [
+        "D"
+      ],
+      "repeat_ids": [
+        1
+      ]
+    }
+  ],
+  "records": [
+    {
+      "experiment_id": "example",
+      "run_id": "example-D-1",
+      "task_id": "example-task",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only planned synthetic attempt.",
+      "artifacts": {
+        "result": "result.json",
+        "trajectory": "trajectory.json",
+        "official_report": "official.json"
+      }
+    }
+  ]
+}

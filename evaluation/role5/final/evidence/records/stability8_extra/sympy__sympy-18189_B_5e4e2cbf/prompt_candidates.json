@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/solvers/diophantine.py",
+    "rank": 2,
+    "score": 35.2236,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/benchmarking.py",
+    "rank": 4,
+    "score": 30.8517,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/functions/combinatorial/factorials.py",
+    "rank": 12,
+    "score": 22.5231,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/expr.py",
+    "rank": 14,
+    "score": 21.951,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/functions/special/elliptic_integrals.py",
+    "rank": 15,
+    "score": 21.9171,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/symbol.py",
+    "rank": 16,
+    "score": 21.7074,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/series/formal.py",
+    "rank": 17,
+    "score": 21.6891,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/polys/orderings.py",
+    "rank": 18,
+    "score": 21.5293,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/iterables.py",
+    "rank": 20,
+    "score": 20.9985,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/stats/joint_rv_types.py",
+    "rank": 27,
+    "score": 20.5446,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/matrices/common.py",
+    "rank": 30,
+    "score": 20.4543,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/perm_groups.py",
+    "rank": 31,
+    "score": 20.4481,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/tensor/array/ndim_array.py",
+    "rank": 33,
+    "score": 20.3178,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/interactive/printing.py",
+    "rank": 35,
+    "score": 20.2268,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/concrete/expr_with_limits.py",
+    "rank": 36,
+    "score": 20.0599,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/ntheory/residue_ntheory.py",
+    "rank": 38,
+    "score": 19.8117,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/util.py",
+    "rank": 39,
+    "score": 19.7314,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/polys/densetools.py",
+    "rank": 40,
+    "score": 19.6314,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/sets/handlers/intersection.py",
+    "rank": 41,
+    "score": 19.567,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/functions/special/gamma_functions.py",
+    "rank": 42,
+    "score": 19.5423,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

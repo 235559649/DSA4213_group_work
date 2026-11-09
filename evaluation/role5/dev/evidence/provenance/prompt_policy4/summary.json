@@ -1,0 +1,74 @@
+{
+  "experiment_id": "prompt_policy_four_tasks_20261027",
+  "source_commit": "247c12563012a31413c8c330a1441ca6a3ef1880",
+  "status": "completed",
+  "completed_at": "2026-10-27T15:42:44.997529+08:00",
+  "prompt_version": "closed_loop_v2",
+  "prompt_policy": "source_only+related_tests_v1",
+  "provider": "openrouter",
+  "model": "openai/gpt-5.4-mini",
+  "failure_weight": 1.0,
+  "official_reports": 16,
+  "all_selected_patches_applied": true,
+  "runtime_interface_errors": 0,
+  "selected_api_calls": 259,
+  "total_cost_usd": 0.7760479499999999,
+  "selected_runs": 16,
+  "total_attempts": 16,
+  "retry_policy": "One attempt per task/condition; stop on interface or runtime errors, no automatic retries",
+  "aggregate_by_condition": {
+    "A": {
+      "planned": 4,
+      "official_reports": 4,
+      "resolved": 1,
+      "unresolved": 3,
+      "missing": 0,
+      "cost_usd": 0.17385240000000002,
+      "agent_runtime_seconds": 210.6204104423523
+    },
+    "B": {
+      "planned": 4,
+      "official_reports": 4,
+      "resolved": 1,
+      "unresolved": 3,
+      "missing": 0,
+      "cost_usd": 0.20963340000000003,
+      "agent_runtime_seconds": 228.75093793869019
+    },
+    "C": {
+      "planned": 4,
+      "official_reports": 4,
+      "resolved": 2,
+      "unresolved": 2,
+      "missing": 0,
+      "cost_usd": 0.20522549999999998,
+      "agent_runtime_seconds": 210.56369471549988
+    },
+    "D": {
+      "planned": 4,
+      "official_reports": 4,
+      "resolved": 2,
+      "unresolved": 2,
+      "missing": 0,
+      "cost_usd": 0.18733665,
+      "agent_runtime_seconds": 433.1615991592407
+    }
+  },
+  "interpretation_notes": [
+    "Four development tasks with one run per condition; not a held-out or repeated statistical comparison.",
+    "Model/prompt/feedback changes across historical batches prevent isolated causal attribution.",
+    "D feedback_total_seconds includes observation/freshness processing outside per-event timing; do not require equality or add it to runtime.",
+    "D ranking/recovery/diagnostic counts are separate; updates_applied counts all delivered messages.",
+    "Missing official reports remain null; provider costs are not independently reconciled billing."
+  ],
+  "all_result_checks_passed": true,
+  "actual_run_audit_passed": true,
+  "isolation": {
+    "protected_files_checked": 33804,
+    "scope": "All original worktree, dependencies, and previous experiment files; .git reported separately",
+    "changed_files": [],
+    "all_worktree_files_unchanged": true,
+    "passed": true,
+    "git_metadata_changes_count": 1230
+  }
+}

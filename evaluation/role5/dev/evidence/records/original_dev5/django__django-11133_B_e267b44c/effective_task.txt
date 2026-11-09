@@ -1,0 +1,47 @@
+HttpResponse doesn't handle memoryview objects
+Description
+	
+I am trying to write a BinaryField retrieved from the database into a HttpResponse. When the database is Sqlite this works correctly, but Postgresql returns the contents of the field as a memoryview object and it seems like current Django doesn't like this combination:
+from django.http import HttpResponse																	 
+# String content
+response = HttpResponse("My Content")																			
+response.content																								 
+# Out: b'My Content'
+# This is correct
+# Bytes content
+response = HttpResponse(b"My Content")																		 
+response.content																								 
+# Out: b'My Content'
+# This is also correct
+# memoryview content
+response = HttpResponse(memoryview(b"My Content"))															 
+response.content
+# Out: b'<memory at 0x7fcc47ab2648>'
+# This is not correct, I am expecting b'My Content'
+
+
+----
+Repository localization guidance:
+Additional repository localization hints are provided below.
+These are navigation suggestions only. You may inspect any file in the repository if needed.
+
+1. django/http/response.py | score: 50.6337 | reason: BM25
+2. django/templatetags/i18n.py | score: 40.9233 | reason: BM25
+3. django/test/testcases.py | score: 39.6462 | reason: BM25
+4. django/db/models/functions/text.py | score: 39.3929 | reason: BM25
+5. tests/migrations/test_operations.py | score: 38.6645 | reason: BM25
+6. django/contrib/gis/gdal/datasource.py | score: 38.0723 | reason: BM25
+7. django/db/backends/base/creation.py | score: 37.1399 | reason: BM25
+8. django/core/mail/message.py | score: 37.1366 | reason: BM25
+9. django/db/models/fields/__init__.py | score: 36.8579 | reason: BM25
+10. django/contrib/gis/gdal/feature.py | score: 36.1672 | reason: BM25
+11. tests/httpwrappers/tests.py | score: 36.0702 | reason: BM25
+12. django/utils/translation/template.py | score: 35.8738 | reason: BM25
+13. tests/basic/tests.py | score: 35.8127 | reason: BM25
+14. django/http/multipartparser.py | score: 35.7912 | reason: BM25
+15. django/db/models/query.py | score: 35.7428 | reason: BM25
+16. django/db/migrations/loader.py | score: 35.6571 | reason: BM25
+17. django/middleware/cache.py | score: 35.1805 | reason: BM25
+18. tests/responses/tests.py | score: 34.8837 | reason: BM25
+19. tests/user_commands/management/commands/hal.py | score: 34.8115 | reason: BM25
+20. tests/m2m_recursive/models.py | score: 34.7438 | reason: BM25

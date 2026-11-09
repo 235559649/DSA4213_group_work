@@ -1,0 +1,29 @@
+diff --git a/sympy/sets/sets.py b/sympy/sets/sets.py
+index 3c4aa86e36..0aa2cadf77 100644
+--- a/sympy/sets/sets.py
++++ b/sympy/sets/sets.py
+@@ -429,6 +429,11 @@ def is_proper_subset(self, other):
+         else:
+             raise ValueError("Unknown argument '%s'" % other)
+ 
++    def equals(self, other, failing_expression=False):
++        if isinstance(other, Set):
++            return self == other
++        return False
++
+     def is_superset(self, other):
+         """
+         Returns True if ``self`` is a superset of ``other``.
+@@ -865,6 +870,12 @@ def __len__(self):
+     def __bool__(self):
+         return all([bool(s) for s in self.sets])
+ 
++    def _eval_is_subset(self, other):
++        if other.is_FiniteSet:
++            if self.is_finite_set:
++                return all(tuple(point) in other for point in self)
++            return False
++
+ 
+ class Interval(Set, EvalfMixin):
+     """

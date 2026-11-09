@@ -1,0 +1,1759 @@
+{
+  "schema_version": 1,
+  "package_root": "..",
+  "labels": "evidence/labels.json",
+  "experiments": [
+    {
+      "id": "original_dev5",
+      "tasks": [
+        "django__django-11133",
+        "pytest-dev__pytest-7571",
+        "sphinx-doc__sphinx-8595",
+        "sympy__sympy-17630",
+        "sympy__sympy-23262"
+      ],
+      "conditions": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "repeat_ids": [
+        1
+      ],
+      "split": "development",
+      "selection_policy": "Historical selection, not success-based."
+    },
+    {
+      "id": "original_dev3",
+      "tasks": [
+        "django__django-12262",
+        "sympy__sympy-20438",
+        "sympy__sympy-21379"
+      ],
+      "conditions": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "repeat_ids": [
+        1
+      ],
+      "split": "development",
+      "selection_policy": "Historical selection, not success-based."
+    },
+    {
+      "id": "d_fix1",
+      "tasks": [
+        "django__django-12262",
+        "sympy__sympy-20438",
+        "sympy__sympy-21379"
+      ],
+      "conditions": [
+        "D"
+      ],
+      "repeat_ids": [
+        1
+      ],
+      "split": "development"
+    },
+    {
+      "id": "d_fix2_abcd",
+      "tasks": [
+        "django__django-12262",
+        "sympy__sympy-20438",
+        "sympy__sympy-21379"
+      ],
+      "conditions": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "repeat_ids": [
+        1
+      ],
+      "split": "development"
+    },
+    {
+      "id": "prompt_policy4",
+      "tasks": [
+        "sphinx-doc__sphinx-8595",
+        "sympy__sympy-17630",
+        "sympy__sympy-20438",
+        "sympy__sympy-23262"
+      ],
+      "conditions": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "repeat_ids": [
+        1
+      ],
+      "split": "development"
+    }
+  ],
+  "records": [
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "django__django-11133_A_847146cd",
+      "task_id": "django__django-11133",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": false,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/django__django-11133_A_847146cd/run_result.json",
+        "patch": "evidence/records/original_dev5/django__django-11133_A_847146cd/patch.diff",
+        "ranking": "evidence/records/original_dev5/django__django-11133_A_847146cd/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/django__django-11133_A_847146cd/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/django__django-11133_A_847146cd/effective_task.txt",
+        "timings": "evidence/records/original_dev5/django__django-11133_A_847146cd/timings.json",
+        "usage": "evidence/records/original_dev5/django__django-11133_A_847146cd/usage.jsonl"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "django__django-11133_A_8e19ca5c",
+      "task_id": "django__django-11133",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 2,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/django__django-11133_A_8e19ca5c/run_result.json",
+        "trajectory": "evidence/records/original_dev5/django__django-11133_A_8e19ca5c/trajectory.json",
+        "patch": "evidence/records/original_dev5/django__django-11133_A_8e19ca5c/patch.diff",
+        "ranking": "evidence/records/original_dev5/django__django-11133_A_8e19ca5c/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/django__django-11133_A_8e19ca5c/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/django__django-11133_A_8e19ca5c/effective_task.txt",
+        "timings": "evidence/records/original_dev5/django__django-11133_A_8e19ca5c/timings.json",
+        "usage": "evidence/records/original_dev5/django__django-11133_A_8e19ca5c/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/django__django-11133_A_8e19ca5c/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/django__django-11133_A_8e19ca5c/official/report.json",
+        "official_patch": "evidence/records/original_dev5/django__django-11133_A_8e19ca5c/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "django__django-11133_B_e267b44c",
+      "task_id": "django__django-11133",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": false,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/django__django-11133_B_e267b44c/run_result.json",
+        "patch": "evidence/records/original_dev5/django__django-11133_B_e267b44c/patch.diff",
+        "ranking": "evidence/records/original_dev5/django__django-11133_B_e267b44c/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/django__django-11133_B_e267b44c/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/django__django-11133_B_e267b44c/effective_task.txt",
+        "timings": "evidence/records/original_dev5/django__django-11133_B_e267b44c/timings.json",
+        "usage": "evidence/records/original_dev5/django__django-11133_B_e267b44c/usage.jsonl"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "django__django-11133_B_6077748b",
+      "task_id": "django__django-11133",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 2,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/django__django-11133_B_6077748b/run_result.json",
+        "trajectory": "evidence/records/original_dev5/django__django-11133_B_6077748b/trajectory.json",
+        "patch": "evidence/records/original_dev5/django__django-11133_B_6077748b/patch.diff",
+        "ranking": "evidence/records/original_dev5/django__django-11133_B_6077748b/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/django__django-11133_B_6077748b/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/django__django-11133_B_6077748b/effective_task.txt",
+        "timings": "evidence/records/original_dev5/django__django-11133_B_6077748b/timings.json",
+        "usage": "evidence/records/original_dev5/django__django-11133_B_6077748b/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/django__django-11133_B_6077748b/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/django__django-11133_B_6077748b/official/report.json",
+        "official_patch": "evidence/records/original_dev5/django__django-11133_B_6077748b/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "django__django-11133_C_b97e534e",
+      "task_id": "django__django-11133",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": false,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/django__django-11133_C_b97e534e/run_result.json",
+        "patch": "evidence/records/original_dev5/django__django-11133_C_b97e534e/patch.diff",
+        "ranking": "evidence/records/original_dev5/django__django-11133_C_b97e534e/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/django__django-11133_C_b97e534e/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/django__django-11133_C_b97e534e/effective_task.txt",
+        "timings": "evidence/records/original_dev5/django__django-11133_C_b97e534e/timings.json",
+        "usage": "evidence/records/original_dev5/django__django-11133_C_b97e534e/usage.jsonl"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "django__django-11133_C_a9d9d5ea",
+      "task_id": "django__django-11133",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 2,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/run_result.json",
+        "trajectory": "evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/trajectory.json",
+        "patch": "evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/patch.diff",
+        "ranking": "evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/effective_task.txt",
+        "timings": "evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/timings.json",
+        "usage": "evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/official/report.json",
+        "official_patch": "evidence/records/original_dev5/django__django-11133_C_a9d9d5ea/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "django__django-11133_D_8a58c59e",
+      "task_id": "django__django-11133",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/run_result.json",
+        "trajectory": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/trajectory.json",
+        "patch": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/patch.diff",
+        "ranking": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/effective_task.txt",
+        "timings": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/timings.json",
+        "usage": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/prediction_metadata.json",
+        "initial_fairness": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/cd_initial_fairness.json",
+        "feedback_events": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/official/report.json",
+        "official_patch": "evidence/records/original_dev5/django__django-11133_D_8a58c59e/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "pytest-dev__pytest-7571_A_b2fdd0bd",
+      "task_id": "pytest-dev__pytest-7571",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/run_result.json",
+        "trajectory": "evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/trajectory.json",
+        "patch": "evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/patch.diff",
+        "ranking": "evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/effective_task.txt",
+        "timings": "evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/timings.json",
+        "usage": "evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/official/report.json",
+        "official_patch": "evidence/records/original_dev5/pytest-dev__pytest-7571_A_b2fdd0bd/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "pytest-dev__pytest-7571_B_4e76d17e",
+      "task_id": "pytest-dev__pytest-7571",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/run_result.json",
+        "trajectory": "evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/trajectory.json",
+        "patch": "evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/patch.diff",
+        "ranking": "evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/effective_task.txt",
+        "timings": "evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/timings.json",
+        "usage": "evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/official/report.json",
+        "official_patch": "evidence/records/original_dev5/pytest-dev__pytest-7571_B_4e76d17e/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "pytest-dev__pytest-7571_C_5f2f3506",
+      "task_id": "pytest-dev__pytest-7571",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/run_result.json",
+        "trajectory": "evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/trajectory.json",
+        "patch": "evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/patch.diff",
+        "ranking": "evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/effective_task.txt",
+        "timings": "evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/timings.json",
+        "usage": "evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/official/report.json",
+        "official_patch": "evidence/records/original_dev5/pytest-dev__pytest-7571_C_5f2f3506/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "pytest-dev__pytest-7571_D_a0b7c3b7",
+      "task_id": "pytest-dev__pytest-7571",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/run_result.json",
+        "trajectory": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/trajectory.json",
+        "patch": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/patch.diff",
+        "ranking": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/effective_task.txt",
+        "timings": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/timings.json",
+        "usage": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/prediction_metadata.json",
+        "initial_fairness": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/cd_initial_fairness.json",
+        "feedback_events": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/official/report.json",
+        "official_patch": "evidence/records/original_dev5/pytest-dev__pytest-7571_D_a0b7c3b7/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sphinx-doc__sphinx-8595_A_5511cc61",
+      "task_id": "sphinx-doc__sphinx-8595",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": false,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_5511cc61/run_result.json",
+        "patch": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_5511cc61/patch.diff",
+        "ranking": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_5511cc61/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_5511cc61/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_5511cc61/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_5511cc61/timings.json",
+        "usage": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_5511cc61/usage.jsonl"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sphinx-doc__sphinx-8595_A_d3f56a5a",
+      "task_id": "sphinx-doc__sphinx-8595",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 2,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/run_result.json",
+        "trajectory": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/trajectory.json",
+        "patch": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/patch.diff",
+        "ranking": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/timings.json",
+        "usage": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/official/report.json",
+        "official_patch": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_A_d3f56a5a/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sphinx-doc__sphinx-8595_B_c6db48c1",
+      "task_id": "sphinx-doc__sphinx-8595",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": false,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_c6db48c1/run_result.json",
+        "patch": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_c6db48c1/patch.diff",
+        "ranking": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_c6db48c1/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_c6db48c1/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_c6db48c1/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_c6db48c1/timings.json",
+        "usage": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_c6db48c1/usage.jsonl"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sphinx-doc__sphinx-8595_B_bbe306a9",
+      "task_id": "sphinx-doc__sphinx-8595",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 2,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/run_result.json",
+        "trajectory": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/trajectory.json",
+        "patch": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/patch.diff",
+        "ranking": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/timings.json",
+        "usage": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/official/report.json",
+        "official_patch": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_B_bbe306a9/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sphinx-doc__sphinx-8595_C_b90d1a12",
+      "task_id": "sphinx-doc__sphinx-8595",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": false,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_b90d1a12/run_result.json",
+        "patch": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_b90d1a12/patch.diff",
+        "ranking": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_b90d1a12/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_b90d1a12/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_b90d1a12/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_b90d1a12/timings.json",
+        "usage": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_b90d1a12/usage.jsonl"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sphinx-doc__sphinx-8595_C_a1e59bcb",
+      "task_id": "sphinx-doc__sphinx-8595",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 2,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/run_result.json",
+        "trajectory": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/trajectory.json",
+        "patch": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/patch.diff",
+        "ranking": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/timings.json",
+        "usage": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/official/report.json",
+        "official_patch": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_C_a1e59bcb/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sphinx-doc__sphinx-8595_D_e196eabf",
+      "task_id": "sphinx-doc__sphinx-8595",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/run_result.json",
+        "trajectory": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/trajectory.json",
+        "patch": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/patch.diff",
+        "ranking": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/timings.json",
+        "usage": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/prediction_metadata.json",
+        "initial_fairness": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/cd_initial_fairness.json",
+        "feedback_events": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/official/report.json",
+        "official_patch": "evidence/records/original_dev5/sphinx-doc__sphinx-8595_D_e196eabf/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sympy__sympy-17630_A_8944a852",
+      "task_id": "sympy__sympy-17630",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/run_result.json",
+        "trajectory": "evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/trajectory.json",
+        "patch": "evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/patch.diff",
+        "ranking": "evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/timings.json",
+        "usage": "evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/official/report.json",
+        "official_patch": "evidence/records/original_dev5/sympy__sympy-17630_A_8944a852/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sympy__sympy-17630_B_310345fe",
+      "task_id": "sympy__sympy-17630",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/run_result.json",
+        "trajectory": "evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/trajectory.json",
+        "patch": "evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/patch.diff",
+        "ranking": "evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/timings.json",
+        "usage": "evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/official/report.json",
+        "official_patch": "evidence/records/original_dev5/sympy__sympy-17630_B_310345fe/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sympy__sympy-17630_C_7d7d5077",
+      "task_id": "sympy__sympy-17630",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/run_result.json",
+        "trajectory": "evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/trajectory.json",
+        "patch": "evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/patch.diff",
+        "ranking": "evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/timings.json",
+        "usage": "evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/official/report.json",
+        "official_patch": "evidence/records/original_dev5/sympy__sympy-17630_C_7d7d5077/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sympy__sympy-17630_D_b6378bb3",
+      "task_id": "sympy__sympy-17630",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/run_result.json",
+        "trajectory": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/trajectory.json",
+        "patch": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/patch.diff",
+        "ranking": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/timings.json",
+        "usage": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/prediction_metadata.json",
+        "initial_fairness": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/cd_initial_fairness.json",
+        "feedback_events": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/official/report.json",
+        "official_patch": "evidence/records/original_dev5/sympy__sympy-17630_D_b6378bb3/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sympy__sympy-23262_A_cb3e111d",
+      "task_id": "sympy__sympy-23262",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/run_result.json",
+        "trajectory": "evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/trajectory.json",
+        "patch": "evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/patch.diff",
+        "ranking": "evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/timings.json",
+        "usage": "evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/official/report.json",
+        "official_patch": "evidence/records/original_dev5/sympy__sympy-23262_A_cb3e111d/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sympy__sympy-23262_B_58239bd3",
+      "task_id": "sympy__sympy-23262",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/run_result.json",
+        "trajectory": "evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/trajectory.json",
+        "patch": "evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/patch.diff",
+        "ranking": "evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/timings.json",
+        "usage": "evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/official/report.json",
+        "official_patch": "evidence/records/original_dev5/sympy__sympy-23262_B_58239bd3/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sympy__sympy-23262_C_a39c81b8",
+      "task_id": "sympy__sympy-23262",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/run_result.json",
+        "trajectory": "evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/trajectory.json",
+        "patch": "evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/patch.diff",
+        "ranking": "evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/timings.json",
+        "usage": "evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/official/report.json",
+        "official_patch": "evidence/records/original_dev5/sympy__sympy-23262_C_a39c81b8/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev5",
+      "run_id": "sympy__sympy-23262_D_3fd15bb3",
+      "task_id": "sympy__sympy-23262",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/run_result.json",
+        "trajectory": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/trajectory.json",
+        "patch": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/patch.diff",
+        "ranking": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/effective_task.txt",
+        "timings": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/timings.json",
+        "usage": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/prediction_metadata.json",
+        "initial_fairness": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/cd_initial_fairness.json",
+        "feedback_events": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/official/report.json",
+        "official_patch": "evidence/records/original_dev5/sympy__sympy-23262_D_3fd15bb3/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "sympy__sympy-21379_A_713ba62f",
+      "task_id": "sympy__sympy-21379",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/run_result.json",
+        "trajectory": "evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/trajectory.json",
+        "patch": "evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/patch.diff",
+        "ranking": "evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/effective_task.txt",
+        "timings": "evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/timings.json",
+        "usage": "evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev3/sympy__sympy-21379_A_713ba62f/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "sympy__sympy-21379_B_514ce584",
+      "task_id": "sympy__sympy-21379",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/run_result.json",
+        "trajectory": "evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/trajectory.json",
+        "patch": "evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/patch.diff",
+        "ranking": "evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/effective_task.txt",
+        "timings": "evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/timings.json",
+        "usage": "evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev3/sympy__sympy-21379_B_514ce584/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "sympy__sympy-21379_C_3476e59b",
+      "task_id": "sympy__sympy-21379",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/run_result.json",
+        "trajectory": "evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/trajectory.json",
+        "patch": "evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/patch.diff",
+        "ranking": "evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/effective_task.txt",
+        "timings": "evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/timings.json",
+        "usage": "evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev3/sympy__sympy-21379_C_3476e59b/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "sympy__sympy-21379_D_b9d3b913",
+      "task_id": "sympy__sympy-21379",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/run_result.json",
+        "trajectory": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/trajectory.json",
+        "patch": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/patch.diff",
+        "ranking": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/effective_task.txt",
+        "timings": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/timings.json",
+        "usage": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/prediction_metadata.json",
+        "initial_fairness": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/cd_initial_fairness.json",
+        "feedback_events": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/original_dev3/sympy__sympy-21379_D_b9d3b913/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "django__django-12262_A_a44e4d1e",
+      "task_id": "django__django-12262",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": false,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/django__django-12262_A_a44e4d1e/run_result.json",
+        "patch": "evidence/records/original_dev3/django__django-12262_A_a44e4d1e/patch.diff",
+        "ranking": "evidence/records/original_dev3/django__django-12262_A_a44e4d1e/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/django__django-12262_A_a44e4d1e/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/django__django-12262_A_a44e4d1e/effective_task.txt",
+        "timings": "evidence/records/original_dev3/django__django-12262_A_a44e4d1e/timings.json",
+        "usage": "evidence/records/original_dev3/django__django-12262_A_a44e4d1e/usage.jsonl"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "django__django-12262_B_682184bf",
+      "task_id": "django__django-12262",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": false,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/django__django-12262_B_682184bf/run_result.json",
+        "patch": "evidence/records/original_dev3/django__django-12262_B_682184bf/patch.diff",
+        "ranking": "evidence/records/original_dev3/django__django-12262_B_682184bf/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/django__django-12262_B_682184bf/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/django__django-12262_B_682184bf/effective_task.txt",
+        "timings": "evidence/records/original_dev3/django__django-12262_B_682184bf/timings.json",
+        "usage": "evidence/records/original_dev3/django__django-12262_B_682184bf/usage.jsonl"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "django__django-12262_C_f998ec07",
+      "task_id": "django__django-12262",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": false,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/django__django-12262_C_f998ec07/run_result.json",
+        "patch": "evidence/records/original_dev3/django__django-12262_C_f998ec07/patch.diff",
+        "ranking": "evidence/records/original_dev3/django__django-12262_C_f998ec07/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/django__django-12262_C_f998ec07/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/django__django-12262_C_f998ec07/effective_task.txt",
+        "timings": "evidence/records/original_dev3/django__django-12262_C_f998ec07/timings.json",
+        "usage": "evidence/records/original_dev3/django__django-12262_C_f998ec07/usage.jsonl"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "django__django-12262_D_e10b202e",
+      "task_id": "django__django-12262",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/django__django-12262_D_e10b202e/run_result.json",
+        "trajectory": "evidence/records/original_dev3/django__django-12262_D_e10b202e/trajectory.json",
+        "patch": "evidence/records/original_dev3/django__django-12262_D_e10b202e/patch.diff",
+        "ranking": "evidence/records/original_dev3/django__django-12262_D_e10b202e/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/django__django-12262_D_e10b202e/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/django__django-12262_D_e10b202e/effective_task.txt",
+        "timings": "evidence/records/original_dev3/django__django-12262_D_e10b202e/timings.json",
+        "usage": "evidence/records/original_dev3/django__django-12262_D_e10b202e/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev3/django__django-12262_D_e10b202e/prediction_metadata.json",
+        "initial_fairness": "evidence/records/original_dev3/django__django-12262_D_e10b202e/cd_initial_fairness.json",
+        "feedback_events": "evidence/records/original_dev3/django__django-12262_D_e10b202e/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/original_dev3/django__django-12262_D_e10b202e/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/original_dev3/django__django-12262_D_e10b202e/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "sympy__sympy-20438_A_24b09c2b",
+      "task_id": "sympy__sympy-20438",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": false,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/sympy__sympy-20438_A_24b09c2b/run_result.json",
+        "patch": "evidence/records/original_dev3/sympy__sympy-20438_A_24b09c2b/patch.diff",
+        "ranking": "evidence/records/original_dev3/sympy__sympy-20438_A_24b09c2b/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/sympy__sympy-20438_A_24b09c2b/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/sympy__sympy-20438_A_24b09c2b/effective_task.txt",
+        "timings": "evidence/records/original_dev3/sympy__sympy-20438_A_24b09c2b/timings.json",
+        "usage": "evidence/records/original_dev3/sympy__sympy-20438_A_24b09c2b/usage.jsonl"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "sympy__sympy-20438_B_a4e8e3f0",
+      "task_id": "sympy__sympy-20438",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": false,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/sympy__sympy-20438_B_a4e8e3f0/run_result.json",
+        "patch": "evidence/records/original_dev3/sympy__sympy-20438_B_a4e8e3f0/patch.diff",
+        "ranking": "evidence/records/original_dev3/sympy__sympy-20438_B_a4e8e3f0/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/sympy__sympy-20438_B_a4e8e3f0/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/sympy__sympy-20438_B_a4e8e3f0/effective_task.txt",
+        "timings": "evidence/records/original_dev3/sympy__sympy-20438_B_a4e8e3f0/timings.json",
+        "usage": "evidence/records/original_dev3/sympy__sympy-20438_B_a4e8e3f0/usage.jsonl"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "sympy__sympy-20438_C_84d97108",
+      "task_id": "sympy__sympy-20438",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": false,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/sympy__sympy-20438_C_84d97108/run_result.json",
+        "patch": "evidence/records/original_dev3/sympy__sympy-20438_C_84d97108/patch.diff",
+        "ranking": "evidence/records/original_dev3/sympy__sympy-20438_C_84d97108/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/sympy__sympy-20438_C_84d97108/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/sympy__sympy-20438_C_84d97108/effective_task.txt",
+        "timings": "evidence/records/original_dev3/sympy__sympy-20438_C_84d97108/timings.json",
+        "usage": "evidence/records/original_dev3/sympy__sympy-20438_C_84d97108/usage.jsonl"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "sympy__sympy-20438_D_124384a9",
+      "task_id": "sympy__sympy-20438",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/run_result.json",
+        "trajectory": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/trajectory.json",
+        "patch": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/patch.diff",
+        "ranking": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/effective_task.txt",
+        "timings": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/timings.json",
+        "usage": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/prediction_metadata.json",
+        "initial_fairness": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/cd_initial_fairness.json",
+        "feedback_events": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/original_dev3/sympy__sympy-20438_D_124384a9/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "django__django-12262_A_4aedcb24",
+      "task_id": "django__django-12262",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 2,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/django__django-12262_A_4aedcb24/run_result.json",
+        "trajectory": "evidence/records/original_dev3/django__django-12262_A_4aedcb24/trajectory.json",
+        "patch": "evidence/records/original_dev3/django__django-12262_A_4aedcb24/patch.diff",
+        "ranking": "evidence/records/original_dev3/django__django-12262_A_4aedcb24/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/django__django-12262_A_4aedcb24/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/django__django-12262_A_4aedcb24/effective_task.txt",
+        "timings": "evidence/records/original_dev3/django__django-12262_A_4aedcb24/timings.json",
+        "usage": "evidence/records/original_dev3/django__django-12262_A_4aedcb24/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev3/django__django-12262_A_4aedcb24/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev3/django__django-12262_A_4aedcb24/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "django__django-12262_B_07bad546",
+      "task_id": "django__django-12262",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 2,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/django__django-12262_B_07bad546/run_result.json",
+        "trajectory": "evidence/records/original_dev3/django__django-12262_B_07bad546/trajectory.json",
+        "patch": "evidence/records/original_dev3/django__django-12262_B_07bad546/patch.diff",
+        "ranking": "evidence/records/original_dev3/django__django-12262_B_07bad546/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/django__django-12262_B_07bad546/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/django__django-12262_B_07bad546/effective_task.txt",
+        "timings": "evidence/records/original_dev3/django__django-12262_B_07bad546/timings.json",
+        "usage": "evidence/records/original_dev3/django__django-12262_B_07bad546/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev3/django__django-12262_B_07bad546/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev3/django__django-12262_B_07bad546/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "django__django-12262_C_530a2f4d",
+      "task_id": "django__django-12262",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 2,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/django__django-12262_C_530a2f4d/run_result.json",
+        "trajectory": "evidence/records/original_dev3/django__django-12262_C_530a2f4d/trajectory.json",
+        "patch": "evidence/records/original_dev3/django__django-12262_C_530a2f4d/patch.diff",
+        "ranking": "evidence/records/original_dev3/django__django-12262_C_530a2f4d/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/django__django-12262_C_530a2f4d/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/django__django-12262_C_530a2f4d/effective_task.txt",
+        "timings": "evidence/records/original_dev3/django__django-12262_C_530a2f4d/timings.json",
+        "usage": "evidence/records/original_dev3/django__django-12262_C_530a2f4d/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev3/django__django-12262_C_530a2f4d/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev3/django__django-12262_C_530a2f4d/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "sympy__sympy-20438_A_d53bdc45",
+      "task_id": "sympy__sympy-20438",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 2,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/run_result.json",
+        "trajectory": "evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/trajectory.json",
+        "patch": "evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/patch.diff",
+        "ranking": "evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/effective_task.txt",
+        "timings": "evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/timings.json",
+        "usage": "evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev3/sympy__sympy-20438_A_d53bdc45/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "sympy__sympy-20438_B_253ef3a1",
+      "task_id": "sympy__sympy-20438",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 2,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/run_result.json",
+        "trajectory": "evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/trajectory.json",
+        "patch": "evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/patch.diff",
+        "ranking": "evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/effective_task.txt",
+        "timings": "evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/timings.json",
+        "usage": "evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev3/sympy__sympy-20438_B_253ef3a1/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "original_dev3",
+      "run_id": "sympy__sympy-20438_C_258b0715",
+      "task_id": "sympy__sympy-20438",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 2,
+      "selected": true,
+      "selection_reason": "Inherited the historical audit selection: one completed attempt per planned task/condition; startup timeouts retained as excluded attempts.",
+      "artifacts": {
+        "result": "evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/run_result.json",
+        "trajectory": "evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/trajectory.json",
+        "patch": "evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/patch.diff",
+        "ranking": "evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/localization_candidates.json",
+        "prompt_candidates": "evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/prompt_candidates.json",
+        "effective_task": "evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/effective_task.txt",
+        "timings": "evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/timings.json",
+        "usage": "evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/usage.jsonl",
+        "prediction_metadata": "evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/prediction_metadata.json",
+        "official_report": "evidence/records/original_dev3/sympy__sympy-20438_C_258b0715/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "d_fix1",
+      "run_id": "django__django-12262_D_6fa50936",
+      "task_id": "django__django-12262",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt; D-only batch.",
+      "artifacts": {
+        "result": "evidence/records/d_fix1/django__django-12262_D_6fa50936/run_result.json",
+        "trajectory": "evidence/records/d_fix1/django__django-12262_D_6fa50936/trajectory.json",
+        "patch": "evidence/records/d_fix1/django__django-12262_D_6fa50936/patch.diff",
+        "ranking": "evidence/records/d_fix1/django__django-12262_D_6fa50936/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix1/django__django-12262_D_6fa50936/prompt_candidates.json",
+        "effective_task": "evidence/records/d_fix1/django__django-12262_D_6fa50936/effective_task.txt",
+        "feedback_events": "evidence/records/d_fix1/django__django-12262_D_6fa50936/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/d_fix1/django__django-12262_D_6fa50936/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/d_fix1/django__django-12262_D_6fa50936/official/report.json",
+        "official_patch": "evidence/records/d_fix1/django__django-12262_D_6fa50936/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "d_fix1",
+      "run_id": "sympy__sympy-20438_D_9f878f69",
+      "task_id": "sympy__sympy-20438",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt; D-only batch.",
+      "artifacts": {
+        "result": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/run_result.json",
+        "trajectory": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/trajectory.json",
+        "patch": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/patch.diff",
+        "ranking": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/prompt_candidates.json",
+        "effective_task": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/effective_task.txt",
+        "feedback_events": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/official/report.json",
+        "official_patch": "evidence/records/d_fix1/sympy__sympy-20438_D_9f878f69/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "d_fix1",
+      "run_id": "sympy__sympy-21379_D_4da3cd9f",
+      "task_id": "sympy__sympy-21379",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt; D-only batch.",
+      "artifacts": {
+        "result": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/run_result.json",
+        "trajectory": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/trajectory.json",
+        "patch": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/patch.diff",
+        "ranking": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/prompt_candidates.json",
+        "effective_task": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/effective_task.txt",
+        "feedback_events": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/official/report.json",
+        "official_patch": "evidence/records/d_fix1/sympy__sympy-21379_D_4da3cd9f/official/patch.diff"
+      }
+    },
+    {
+      "experiment_id": "d_fix2_abcd",
+      "run_id": "django__django-12262_A_fdb03f0c",
+      "task_id": "django__django-12262",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited selection.json. SymPy-20438/A uses the authorized second attempt regardless of result; first RepeatedFormatError attempt remains in cost accounting.",
+      "artifacts": {
+        "result": "evidence/records/d_fix2_abcd/django__django-12262_A_fdb03f0c/run_result.json",
+        "trajectory": "evidence/records/d_fix2_abcd/django__django-12262_A_fdb03f0c/trajectory.json",
+        "patch": "evidence/records/d_fix2_abcd/django__django-12262_A_fdb03f0c/patch.diff",
+        "ranking": "evidence/records/d_fix2_abcd/django__django-12262_A_fdb03f0c/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix2_abcd/django__django-12262_A_fdb03f0c/prompt_candidates.json",
+        "official_report": "evidence/records/d_fix2_abcd/django__django-12262_A_fdb03f0c/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "d_fix2_abcd",
+      "run_id": "django__django-12262_B_0cb25592",
+      "task_id": "django__django-12262",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited selection.json. SymPy-20438/A uses the authorized second attempt regardless of result; first RepeatedFormatError attempt remains in cost accounting.",
+      "artifacts": {
+        "result": "evidence/records/d_fix2_abcd/django__django-12262_B_0cb25592/run_result.json",
+        "trajectory": "evidence/records/d_fix2_abcd/django__django-12262_B_0cb25592/trajectory.json",
+        "patch": "evidence/records/d_fix2_abcd/django__django-12262_B_0cb25592/patch.diff",
+        "ranking": "evidence/records/d_fix2_abcd/django__django-12262_B_0cb25592/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix2_abcd/django__django-12262_B_0cb25592/prompt_candidates.json",
+        "official_report": "evidence/records/d_fix2_abcd/django__django-12262_B_0cb25592/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "d_fix2_abcd",
+      "run_id": "django__django-12262_C_f7bea977",
+      "task_id": "django__django-12262",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited selection.json. SymPy-20438/A uses the authorized second attempt regardless of result; first RepeatedFormatError attempt remains in cost accounting.",
+      "artifacts": {
+        "result": "evidence/records/d_fix2_abcd/django__django-12262_C_f7bea977/run_result.json",
+        "trajectory": "evidence/records/d_fix2_abcd/django__django-12262_C_f7bea977/trajectory.json",
+        "patch": "evidence/records/d_fix2_abcd/django__django-12262_C_f7bea977/patch.diff",
+        "ranking": "evidence/records/d_fix2_abcd/django__django-12262_C_f7bea977/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix2_abcd/django__django-12262_C_f7bea977/prompt_candidates.json",
+        "official_report": "evidence/records/d_fix2_abcd/django__django-12262_C_f7bea977/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "d_fix2_abcd",
+      "run_id": "django__django-12262_D_8e8f2e74",
+      "task_id": "django__django-12262",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited selection.json. SymPy-20438/A uses the authorized second attempt regardless of result; first RepeatedFormatError attempt remains in cost accounting.",
+      "artifacts": {
+        "result": "evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/run_result.json",
+        "trajectory": "evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/trajectory.json",
+        "patch": "evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/patch.diff",
+        "ranking": "evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/prompt_candidates.json",
+        "feedback_events": "evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/d_fix2_abcd/django__django-12262_D_8e8f2e74/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "d_fix2_abcd",
+      "run_id": "sympy__sympy-20438_A_771ea469",
+      "task_id": "sympy__sympy-20438",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": false,
+      "selection_reason": "Inherited selection.json. SymPy-20438/A uses the authorized second attempt regardless of result; first RepeatedFormatError attempt remains in cost accounting.",
+      "artifacts": {
+        "result": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_771ea469/run_result.json",
+        "trajectory": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_771ea469/trajectory.json",
+        "patch": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_771ea469/patch.diff",
+        "ranking": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_771ea469/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_771ea469/prompt_candidates.json"
+      }
+    },
+    {
+      "experiment_id": "d_fix2_abcd",
+      "run_id": "sympy__sympy-20438_B_156e5618",
+      "task_id": "sympy__sympy-20438",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited selection.json. SymPy-20438/A uses the authorized second attempt regardless of result; first RepeatedFormatError attempt remains in cost accounting.",
+      "artifacts": {
+        "result": "evidence/records/d_fix2_abcd/sympy__sympy-20438_B_156e5618/run_result.json",
+        "trajectory": "evidence/records/d_fix2_abcd/sympy__sympy-20438_B_156e5618/trajectory.json",
+        "patch": "evidence/records/d_fix2_abcd/sympy__sympy-20438_B_156e5618/patch.diff",
+        "ranking": "evidence/records/d_fix2_abcd/sympy__sympy-20438_B_156e5618/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix2_abcd/sympy__sympy-20438_B_156e5618/prompt_candidates.json",
+        "official_report": "evidence/records/d_fix2_abcd/sympy__sympy-20438_B_156e5618/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "d_fix2_abcd",
+      "run_id": "sympy__sympy-20438_C_9370bc0e",
+      "task_id": "sympy__sympy-20438",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited selection.json. SymPy-20438/A uses the authorized second attempt regardless of result; first RepeatedFormatError attempt remains in cost accounting.",
+      "artifacts": {
+        "result": "evidence/records/d_fix2_abcd/sympy__sympy-20438_C_9370bc0e/run_result.json",
+        "trajectory": "evidence/records/d_fix2_abcd/sympy__sympy-20438_C_9370bc0e/trajectory.json",
+        "patch": "evidence/records/d_fix2_abcd/sympy__sympy-20438_C_9370bc0e/patch.diff",
+        "ranking": "evidence/records/d_fix2_abcd/sympy__sympy-20438_C_9370bc0e/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix2_abcd/sympy__sympy-20438_C_9370bc0e/prompt_candidates.json",
+        "official_report": "evidence/records/d_fix2_abcd/sympy__sympy-20438_C_9370bc0e/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "d_fix2_abcd",
+      "run_id": "sympy__sympy-20438_D_f3f4271b",
+      "task_id": "sympy__sympy-20438",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited selection.json. SymPy-20438/A uses the authorized second attempt regardless of result; first RepeatedFormatError attempt remains in cost accounting.",
+      "artifacts": {
+        "result": "evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/run_result.json",
+        "trajectory": "evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/trajectory.json",
+        "patch": "evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/patch.diff",
+        "ranking": "evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/prompt_candidates.json",
+        "feedback_events": "evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/d_fix2_abcd/sympy__sympy-20438_D_f3f4271b/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "d_fix2_abcd",
+      "run_id": "sympy__sympy-21379_A_7a93a156",
+      "task_id": "sympy__sympy-21379",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited selection.json. SymPy-20438/A uses the authorized second attempt regardless of result; first RepeatedFormatError attempt remains in cost accounting.",
+      "artifacts": {
+        "result": "evidence/records/d_fix2_abcd/sympy__sympy-21379_A_7a93a156/run_result.json",
+        "trajectory": "evidence/records/d_fix2_abcd/sympy__sympy-21379_A_7a93a156/trajectory.json",
+        "patch": "evidence/records/d_fix2_abcd/sympy__sympy-21379_A_7a93a156/patch.diff",
+        "ranking": "evidence/records/d_fix2_abcd/sympy__sympy-21379_A_7a93a156/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix2_abcd/sympy__sympy-21379_A_7a93a156/prompt_candidates.json",
+        "official_report": "evidence/records/d_fix2_abcd/sympy__sympy-21379_A_7a93a156/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "d_fix2_abcd",
+      "run_id": "sympy__sympy-21379_B_08d73eba",
+      "task_id": "sympy__sympy-21379",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited selection.json. SymPy-20438/A uses the authorized second attempt regardless of result; first RepeatedFormatError attempt remains in cost accounting.",
+      "artifacts": {
+        "result": "evidence/records/d_fix2_abcd/sympy__sympy-21379_B_08d73eba/run_result.json",
+        "trajectory": "evidence/records/d_fix2_abcd/sympy__sympy-21379_B_08d73eba/trajectory.json",
+        "patch": "evidence/records/d_fix2_abcd/sympy__sympy-21379_B_08d73eba/patch.diff",
+        "ranking": "evidence/records/d_fix2_abcd/sympy__sympy-21379_B_08d73eba/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix2_abcd/sympy__sympy-21379_B_08d73eba/prompt_candidates.json",
+        "official_report": "evidence/records/d_fix2_abcd/sympy__sympy-21379_B_08d73eba/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "d_fix2_abcd",
+      "run_id": "sympy__sympy-21379_C_fcc8739d",
+      "task_id": "sympy__sympy-21379",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited selection.json. SymPy-20438/A uses the authorized second attempt regardless of result; first RepeatedFormatError attempt remains in cost accounting.",
+      "artifacts": {
+        "result": "evidence/records/d_fix2_abcd/sympy__sympy-21379_C_fcc8739d/run_result.json",
+        "trajectory": "evidence/records/d_fix2_abcd/sympy__sympy-21379_C_fcc8739d/trajectory.json",
+        "patch": "evidence/records/d_fix2_abcd/sympy__sympy-21379_C_fcc8739d/patch.diff",
+        "ranking": "evidence/records/d_fix2_abcd/sympy__sympy-21379_C_fcc8739d/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix2_abcd/sympy__sympy-21379_C_fcc8739d/prompt_candidates.json",
+        "official_report": "evidence/records/d_fix2_abcd/sympy__sympy-21379_C_fcc8739d/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "d_fix2_abcd",
+      "run_id": "sympy__sympy-21379_D_d53c8237",
+      "task_id": "sympy__sympy-21379",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Inherited selection.json. SymPy-20438/A uses the authorized second attempt regardless of result; first RepeatedFormatError attempt remains in cost accounting.",
+      "artifacts": {
+        "result": "evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/run_result.json",
+        "trajectory": "evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/trajectory.json",
+        "patch": "evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/patch.diff",
+        "ranking": "evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/prompt_candidates.json",
+        "feedback_events": "evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/d_fix2_abcd/sympy__sympy-21379_D_d53c8237/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "d_fix2_abcd",
+      "run_id": "sympy__sympy-20438_A_f83ce396",
+      "task_id": "sympy__sympy-20438",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 2,
+      "selected": true,
+      "selection_reason": "Inherited selection.json. SymPy-20438/A uses the authorized second attempt regardless of result; first RepeatedFormatError attempt remains in cost accounting.",
+      "artifacts": {
+        "result": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_f83ce396/run_result.json",
+        "trajectory": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_f83ce396/trajectory.json",
+        "patch": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_f83ce396/patch.diff",
+        "ranking": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_f83ce396/localization_candidates.json",
+        "prompt_candidates": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_f83ce396/prompt_candidates.json",
+        "official_report": "evidence/records/d_fix2_abcd/sympy__sympy-20438_A_f83ce396/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sphinx-doc__sphinx-8595_A_da55590b",
+      "task_id": "sphinx-doc__sphinx-8595",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_A_da55590b/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_A_da55590b/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_A_da55590b/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_A_da55590b/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_A_da55590b/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_A_da55590b/effective_task.txt",
+        "official_report": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_A_da55590b/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sphinx-doc__sphinx-8595_B_62bf81ad",
+      "task_id": "sphinx-doc__sphinx-8595",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_B_62bf81ad/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_B_62bf81ad/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_B_62bf81ad/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_B_62bf81ad/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_B_62bf81ad/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_B_62bf81ad/effective_task.txt",
+        "official_report": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_B_62bf81ad/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sphinx-doc__sphinx-8595_C_9980e05c",
+      "task_id": "sphinx-doc__sphinx-8595",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_C_9980e05c/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_C_9980e05c/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_C_9980e05c/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_C_9980e05c/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_C_9980e05c/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_C_9980e05c/effective_task.txt",
+        "official_report": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_C_9980e05c/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sphinx-doc__sphinx-8595_D_dbec8653",
+      "task_id": "sphinx-doc__sphinx-8595",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/effective_task.txt",
+        "feedback_events": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/prompt_policy4/sphinx-doc__sphinx-8595_D_dbec8653/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sympy__sympy-17630_A_f5105730",
+      "task_id": "sympy__sympy-17630",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sympy__sympy-17630_A_f5105730/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sympy__sympy-17630_A_f5105730/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sympy__sympy-17630_A_f5105730/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sympy__sympy-17630_A_f5105730/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sympy__sympy-17630_A_f5105730/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sympy__sympy-17630_A_f5105730/effective_task.txt",
+        "official_report": "evidence/records/prompt_policy4/sympy__sympy-17630_A_f5105730/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sympy__sympy-17630_B_ff6c411c",
+      "task_id": "sympy__sympy-17630",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sympy__sympy-17630_B_ff6c411c/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sympy__sympy-17630_B_ff6c411c/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sympy__sympy-17630_B_ff6c411c/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sympy__sympy-17630_B_ff6c411c/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sympy__sympy-17630_B_ff6c411c/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sympy__sympy-17630_B_ff6c411c/effective_task.txt",
+        "official_report": "evidence/records/prompt_policy4/sympy__sympy-17630_B_ff6c411c/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sympy__sympy-17630_C_e01fd7b2",
+      "task_id": "sympy__sympy-17630",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sympy__sympy-17630_C_e01fd7b2/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sympy__sympy-17630_C_e01fd7b2/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sympy__sympy-17630_C_e01fd7b2/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sympy__sympy-17630_C_e01fd7b2/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sympy__sympy-17630_C_e01fd7b2/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sympy__sympy-17630_C_e01fd7b2/effective_task.txt",
+        "official_report": "evidence/records/prompt_policy4/sympy__sympy-17630_C_e01fd7b2/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sympy__sympy-17630_D_cc4b6bbb",
+      "task_id": "sympy__sympy-17630",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/effective_task.txt",
+        "feedback_events": "evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/prompt_policy4/sympy__sympy-17630_D_cc4b6bbb/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sympy__sympy-23262_A_493f0768",
+      "task_id": "sympy__sympy-23262",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sympy__sympy-23262_A_493f0768/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sympy__sympy-23262_A_493f0768/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sympy__sympy-23262_A_493f0768/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sympy__sympy-23262_A_493f0768/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sympy__sympy-23262_A_493f0768/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sympy__sympy-23262_A_493f0768/effective_task.txt",
+        "official_report": "evidence/records/prompt_policy4/sympy__sympy-23262_A_493f0768/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sympy__sympy-23262_B_fedf4112",
+      "task_id": "sympy__sympy-23262",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sympy__sympy-23262_B_fedf4112/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sympy__sympy-23262_B_fedf4112/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sympy__sympy-23262_B_fedf4112/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sympy__sympy-23262_B_fedf4112/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sympy__sympy-23262_B_fedf4112/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sympy__sympy-23262_B_fedf4112/effective_task.txt",
+        "official_report": "evidence/records/prompt_policy4/sympy__sympy-23262_B_fedf4112/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sympy__sympy-23262_C_6a2d9a25",
+      "task_id": "sympy__sympy-23262",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sympy__sympy-23262_C_6a2d9a25/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sympy__sympy-23262_C_6a2d9a25/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sympy__sympy-23262_C_6a2d9a25/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sympy__sympy-23262_C_6a2d9a25/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sympy__sympy-23262_C_6a2d9a25/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sympy__sympy-23262_C_6a2d9a25/effective_task.txt",
+        "official_report": "evidence/records/prompt_policy4/sympy__sympy-23262_C_6a2d9a25/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sympy__sympy-23262_D_ef4887ca",
+      "task_id": "sympy__sympy-23262",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/effective_task.txt",
+        "feedback_events": "evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/prompt_policy4/sympy__sympy-23262_D_ef4887ca/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sympy__sympy-20438_A_239283e3",
+      "task_id": "sympy__sympy-20438",
+      "condition": "A",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sympy__sympy-20438_A_239283e3/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sympy__sympy-20438_A_239283e3/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sympy__sympy-20438_A_239283e3/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sympy__sympy-20438_A_239283e3/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sympy__sympy-20438_A_239283e3/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sympy__sympy-20438_A_239283e3/effective_task.txt",
+        "official_report": "evidence/records/prompt_policy4/sympy__sympy-20438_A_239283e3/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sympy__sympy-20438_B_8d10db20",
+      "task_id": "sympy__sympy-20438",
+      "condition": "B",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sympy__sympy-20438_B_8d10db20/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sympy__sympy-20438_B_8d10db20/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sympy__sympy-20438_B_8d10db20/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sympy__sympy-20438_B_8d10db20/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sympy__sympy-20438_B_8d10db20/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sympy__sympy-20438_B_8d10db20/effective_task.txt",
+        "official_report": "evidence/records/prompt_policy4/sympy__sympy-20438_B_8d10db20/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sympy__sympy-20438_C_98fe91f2",
+      "task_id": "sympy__sympy-20438",
+      "condition": "C",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sympy__sympy-20438_C_98fe91f2/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sympy__sympy-20438_C_98fe91f2/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sympy__sympy-20438_C_98fe91f2/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sympy__sympy-20438_C_98fe91f2/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sympy__sympy-20438_C_98fe91f2/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sympy__sympy-20438_C_98fe91f2/effective_task.txt",
+        "official_report": "evidence/records/prompt_policy4/sympy__sympy-20438_C_98fe91f2/official/report.json"
+      }
+    },
+    {
+      "experiment_id": "prompt_policy4",
+      "run_id": "sympy__sympy-20438_D_45bca537",
+      "task_id": "sympy__sympy-20438",
+      "condition": "D",
+      "repeat_id": 1,
+      "attempt_id": 1,
+      "selected": true,
+      "selection_reason": "Only recorded attempt in BUNDLE_INDEX.json.",
+      "artifacts": {
+        "result": "evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/run_result.json",
+        "trajectory": "evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/trajectory.json",
+        "patch": "evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/patch.diff",
+        "ranking": "evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/localization_candidates.json",
+        "prompt_candidates": "evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/prompt_candidates.json",
+        "effective_task": "evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/effective_task.txt",
+        "feedback_events": "evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/failure_feedback/failure_updates.jsonl",
+        "feedback_summary": "evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/failure_feedback/feedback_summary.json",
+        "official_report": "evidence/records/prompt_policy4/sympy__sympy-20438_D_45bca537/official/report.json"
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "original_dev8",
+      "baseline": [
+        "original_dev5",
+        "original_dev3"
+      ],
+      "candidate": []
+    },
+    {
+      "id": "first_d_fix",
+      "baseline": [
+        "original_dev3"
+      ],
+      "candidate": [
+        "d_fix1"
+      ]
+    },
+    {
+      "id": "second_d_fix",
+      "baseline": [
+        "original_dev3"
+      ],
+      "candidate": [
+        "d_fix2_abcd"
+      ]
+    },
+    {
+      "id": "four_task_policy",
+      "baseline": [
+        "original_dev5",
+        "original_dev3"
+      ],
+      "candidate": [
+        "prompt_policy4"
+      ]
+    }
+  ],
+  "archive_hashes": {
+    "trials/d_feedback_rerun_20261027.tar.gz": "951f8a5d048c20f18db1b130c5b387894228162e0ede4a2b2e0a301d3c5dbefa",
+    "failure_feedback_247c125_abcd_20261027_offline_analysis.zip": "4fad29676bd733d301b36cb4d34270adeeab1c611af946a9798f3eec8d761ccc",
+    "prompt_policy_four_tasks_offline_20261027_161611.zip": "5a0c79869638568780ce6b97a7f9652f6e4d49e371c03d64b34bf9472f452f39"
+  },
+  "cohorts": [
+    {
+      "id": "original_dev8",
+      "experiments": [
+        "original_dev5",
+        "original_dev3"
+      ]
+    },
+    {
+      "id": "original_matched4",
+      "experiments": [
+        "original_dev5",
+        "original_dev3"
+      ],
+      "tasks": [
+        "sphinx-doc__sphinx-8595",
+        "sympy__sympy-17630",
+        "sympy__sympy-20438",
+        "sympy__sympy-23262"
+      ]
+    }
+  ]
+}

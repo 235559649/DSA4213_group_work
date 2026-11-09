@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-10-27T14:18:29.873330+08:00",
+  "exit_code": 0,
+  "passed": true,
+  "api_calls": 0,
+  "network_blocked": true,
+  "model_credentials_unset": true,
+  "project_snapshot_unchanged": true,
+  "log": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/provenance/offline_checks.log"
+}

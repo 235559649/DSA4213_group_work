@@ -1,0 +1,76 @@
+2026-10-27 15:37:01,352 - INFO - Creating container for sympy__sympy-17630...
+2026-10-27 15:37:01,387 - INFO - Container for sympy__sympy-17630 created: ebfb58a464e1022b7dbdfbfdc9f5648d16670ad83edd60d59999e337db3a3dc4
+2026-10-27 15:37:01,519 - INFO - Container for sympy__sympy-17630 started: ebfb58a464e1022b7dbdfbfdc9f5648d16670ad83edd60d59999e337db3a3dc4
+2026-10-27 15:37:01,519 - INFO - Intermediate patch for sympy__sympy-17630 written to logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/sympy__sympy-17630/patch.diff, now applying to container...
+2026-10-27 15:37:01,652 - INFO - Failed to apply patch to container: git apply --verbose
+2026-10-27 15:37:02,124 - INFO - Failed to apply patch to container: git apply --verbose --3way
+2026-10-27 15:37:02,287 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-10-27 15:37:02,441 - INFO - >>>>> Applied Patch:
+patching file sympy/matrices/expressions/blockmatrix.py
+patch unexpectedly ends in middle of line
+Hunk #1 succeeded at 164 with fuzz 2.
+
+2026-10-27 15:37:02,509 - INFO - Git diff before:
+diff --git a/sympy/matrices/expressions/blockmatrix.py b/sympy/matrices/expressions/blockmatrix.py
+index 95302a05ca..0b8110e83e 100755
+--- a/sympy/matrices/expressions/blockmatrix.py
++++ b/sympy/matrices/expressions/blockmatrix.py
+@@ -164,7 +164,21 @@ def structurally_equal(self, other):
+     def _blockmul(self, other):
+         if (isinstance(other, BlockMatrix) and
+                 self.colblocksizes == other.rowblocksizes):
+-            return BlockMatrix(self.blocks*other.blocks)
++            m, n = self.blockshape
++            p = other.blockshape[1]
++            new_rows = []
++            for i in range(m):
++                row = []
++                for j in range(p):
++                    terms = [self.blocks[i, k]*other.blocks[k, j]
++                             for k in range(n)]
++                    expr = Add(*terms)
++                    if expr == 0:
++                        expr = ZeroMatrix(self.rowblocksizes[i],
++                                          other.colblocksizes[j])
++                    row.append(expr)
++                new_rows.append(row)
++            return BlockMatrix(new_rows)
+ 
+         return self * other
+2026-10-27 15:37:02,510 - INFO - Eval script for sympy__sympy-17630 written to logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/sympy__sympy-17630/eval.sh; copying to container...
+2026-10-27 15:37:07,161 - INFO - Test runtime: 4.60 seconds
+2026-10-27 15:37:07,163 - INFO - Test output for sympy__sympy-17630 written to logs/evaluation/closedloop247-selected-B/closedloop247_selected_B/sympy__sympy-17630/test_output.txt
+2026-10-27 15:37:07,216 - INFO - Git diff after:
+diff --git a/sympy/matrices/expressions/blockmatrix.py b/sympy/matrices/expressions/blockmatrix.py
+index 95302a05ca..0b8110e83e 100755
+--- a/sympy/matrices/expressions/blockmatrix.py
++++ b/sympy/matrices/expressions/blockmatrix.py
+@@ -164,7 +164,21 @@ def structurally_equal(self, other):
+     def _blockmul(self, other):
+         if (isinstance(other, BlockMatrix) and
+                 self.colblocksizes == other.rowblocksizes):
+-            return BlockMatrix(self.blocks*other.blocks)
++            m, n = self.blockshape
++            p = other.blockshape[1]
++            new_rows = []
++            for i in range(m):
++                row = []
++                for j in range(p):
++                    terms = [self.blocks[i, k]*other.blocks[k, j]
++                             for k in range(n)]
++                    expr = Add(*terms)
++                    if expr == 0:
++                        expr = ZeroMatrix(self.rowblocksizes[i],
++                                          other.colblocksizes[j])
++                    row.append(expr)
++                new_rows.append(row)
++            return BlockMatrix(new_rows)
+ 
+         return self * other
+2026-10-27 15:37:07,216 - INFO - Grading answer for sympy__sympy-17630...
+2026-10-27 15:37:07,219 - INFO - report: {'sympy__sympy-17630': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['test_issue_17624'], 'failure': ['test_zero_matrix_add']}, 'PASS_TO_PASS': {'success': ['test_bc_matmul', 'test_bc_matadd', 'test_bc_transpose', 'test_bc_dist_diag', 'test_block_plus_ident', 'test_BlockMatrix', 'test_block_collapse_explicit_matrices', 'test_BlockMatrix_trace', 'test_BlockMatrix_Determinant', 'test_squareBlockMatrix', 'test_BlockDiagMatrix', 'test_blockcut', 'test_reblock_2x2', 'test_deblock', 'test_sort_key', 'test_matadd_sympify', 'test_matadd_of_matrices', 'test_doit_args', 'test_generic_identity'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-17630: resolved: False
+2026-10-27 15:37:07,219 - INFO - Attempting to stop container sweb.eval.sympy__sympy-17630.closedloop247-selected-B...
+2026-10-27 15:37:22,500 - INFO - Container sweb.eval.sympy__sympy-17630.closedloop247-selected-B stopped successfully.
+2026-10-27 15:37:22,500 - INFO - Attempting to remove container sweb.eval.sympy__sympy-17630.closedloop247-selected-B...
+2026-10-27 15:37:22,565 - INFO - Container sweb.eval.sympy__sympy-17630.closedloop247-selected-B removed successfully.

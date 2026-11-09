@@ -1,0 +1,4 @@
+  File "<stdin>", line 27
+    
+    ^
+SyntaxError: EOF while scanning triple-quoted string literal

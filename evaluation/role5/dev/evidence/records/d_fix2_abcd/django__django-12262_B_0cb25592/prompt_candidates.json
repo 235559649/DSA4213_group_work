@@ -1,0 +1,162 @@
+[
+  {
+    "file": "django/template/library.py",
+    "rank": 1,
+    "score": 68.2752,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "tests/template_tests/test_custom.py",
+    "rank": 2,
+    "score": 66.3999,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/templatetags/i18n.py",
+    "rank": 3,
+    "score": 53.5855,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/template/defaulttags.py",
+    "rank": 4,
+    "score": 52.8687,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/template/loader_tags.py",
+    "rank": 5,
+    "score": 51.3164,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "tests/generic_views/test_base.py",
+    "rank": 6,
+    "score": 49.1346,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/backends/base/schema.py",
+    "rank": 7,
+    "score": 48.7976,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/template/base.py",
+    "rank": 8,
+    "score": 46.6666,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/gis/utils/layermapping.py",
+    "rank": 9,
+    "score": 46.211,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/dispatch/dispatcher.py",
+    "rank": 10,
+    "score": 45.9412,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/flatpages/templatetags/flatpages.py",
+    "rank": 11,
+    "score": 45.2616,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/gis/utils/srs.py",
+    "rank": 12,
+    "score": 45.0741,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/utils/timezone.py",
+    "rank": 13,
+    "score": 44.9834,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "tests/one_to_one/tests.py",
+    "rank": 14,
+    "score": 44.6622,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/views/generic/base.py",
+    "rank": 15,
+    "score": 44.5804,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/transaction.py",
+    "rank": 16,
+    "score": 44.3784,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/auth/password_validation.py",
+    "rank": 17,
+    "score": 43.9495,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/apps/registry.py",
+    "rank": 18,
+    "score": 43.8271,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/admin/templatetags/log.py",
+    "rank": 19,
+    "score": 43.8059,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/template/engine.py",
+    "rank": 20,
+    "score": 43.5756,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

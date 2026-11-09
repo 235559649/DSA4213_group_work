@@ -1,0 +1,18 @@
+diff --git a/django/forms/models.py b/django/forms/models.py
+index 3fa04b821f..7cf864bc6a 100644
+--- a/django/forms/models.py
++++ b/django/forms/models.py
+@@ -1171,8 +1171,11 @@ class BaseInlineFormSet(BaseModelFormSet):
+             kwargs["to_field"] = self.fk.remote_field.field_name
+ 
+         # If we're adding a new object, ignore a parent's auto-generated key
+-        # as it will be regenerated on the save request.
+-        if self.instance._state.adding:
++        # as it will be regenerated on the save request. Only clear the parent
++        # field when the inline relation is using the parent primary key; for
++        # custom to_field relations, clearing the referenced field can wipe out
++        # a legitimate default value on the parent instance.
++        if self.instance._state.adding and self._pk_field == self.fk:
+             if kwargs.get("to_field") is not None:
+                 to_field = self.instance._meta.get_field(kwargs["to_field"])
+             else:

@@ -1,0 +1,27 @@
+diff --git a/sympy/solvers/diophantine.py b/sympy/solvers/diophantine.py
+index 6092e35dab..48332c64f9 100755
+--- a/sympy/solvers/diophantine.py
++++ b/sympy/solvers/diophantine.py
+@@ -180,9 +180,8 @@ def diophantine(eq, param=symbols("t", integer=True), syms=None,
+                     'syms should be given as a sequence, e.g. a list')
+             syms = [i for i in syms if i in var]
+             if syms != var:
+-                dict_sym_index = dict(zip(syms, range(len(syms))))
+-                return {tuple([t[dict_sym_index[i]] for i in var])
+-                            for t in diophantine(eq, param)}
++                dict_sym_index = dict(zip(var, range(len(var))))
++                var = syms
+         n, d = eq.as_numer_denom()
+         if n.is_number:
+             return set()
+@@ -348,6 +347,10 @@ def diophantine(eq, param=symbols("t", integer=True), syms=None,
+                 final_soln.add(sol)
+         else:
+                 final_soln.add(sol)
++    if syms and syms != var:
++        dict_var_index = dict(zip(var, range(len(var))))
++        final_soln = {tuple(sol[dict_var_index[sym]] for sym in syms)
++                      for sol in final_soln}
+     return final_soln
+ 
+ 

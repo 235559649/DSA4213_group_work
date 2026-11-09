@@ -1,0 +1,32 @@
+diff --git a/sympy/sets/sets.py b/sympy/sets/sets.py
+index 3c4aa86e36..1013096736 100644
+--- a/sympy/sets/sets.py
++++ b/sympy/sets/sets.py
+@@ -777,6 +777,10 @@ def _flatten(sets):
+ 
+ 
+ 
++    def _eval_is_subset(self, other):
++        if self.is_finite_set is True and other.is_iterable:
++            return all(other._contains(e) for e in self)
++
+     def _contains(self, element):
+         """
+         'in' operator for ProductSets.
+---
+COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT
+diff --git a/sympy/sets/sets.py b/sympy/sets/sets.py
+index 3c4aa86e36..1013096736 100644
+--- a/sympy/sets/sets.py
++++ b/sympy/sets/sets.py
+@@ -777,6 +777,10 @@ def _flatten(sets):
+ 
+ 
+ 
++    def _eval_is_subset(self, other):
++        if self.is_finite_set is True and other.is_iterable:
++            return all(other._contains(e) for e in self)
++
+     def _contains(self, element):
+         """
+         'in' operator for ProductSets.

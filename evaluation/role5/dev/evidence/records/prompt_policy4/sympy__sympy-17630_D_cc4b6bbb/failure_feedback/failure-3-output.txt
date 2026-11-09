@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 399, in block_collapse
+    result = rule(expr)
+  File "/testbed/sympy/strategies/core.py", line 11, in exhaustive_rl
+    new, old = rule(expr), expr
+  File "/testbed/sympy/strategies/core.py", line 44, in chain_rl
+    expr = rule(expr)
+  File "/testbed/sympy/strategies/core.py", line 11, in exhaustive_rl
+    new, old = rule(expr), expr
+  File "/testbed/sympy/strategies/core.py", line 33, in conditioned_rl
+    return rule(expr)
+  File "/testbed/sympy/strategies/core.py", line 95, in switch_rl
+    return rl(expr)
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 473, in bc_matmul
+    matrices[i] = A._blockmul(B)
+  File "/testbed/sympy/matrices/expressions/blockmatrix.py", line 171, in _blockmul
+    blocks[i, j] = ZeroMatrix(self.rowblocksizes[i],
+  File "/testbed/sympy/matrices/immutable.py", line 75, in __setitem__
+    raise TypeError("Cannot set values of {}".format(self.__class__))
+TypeError: Cannot set values of <class 'sympy.matrices.immutable.ImmutableDenseMatrix'>

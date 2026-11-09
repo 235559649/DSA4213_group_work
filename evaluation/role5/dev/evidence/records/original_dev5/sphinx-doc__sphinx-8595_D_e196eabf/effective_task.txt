@@ -1,0 +1,74 @@
+autodoc: empty __all__ attribute is ignored
+**Describe the bug**
+autodoc: empty `__all__` attribute is ignored
+
+**To Reproduce**
+```
+# example.py
+__all__ = []
+
+
+def foo():
+    "docstring"
+
+
+def bar():
+    "docstring"
+
+
+def baz():
+    "docstring"
+```
+```
+# index.rst
+.. automodule:: example
+   :members:
+```
+
+All foo, bar, and baz are shown.
+
+**Expected behavior**
+No entries should be shown because `__all__` is empty.
+
+**Your project**
+No
+
+**Screenshots**
+No
+
+**Environment info**
+- OS: Mac
+- Python version: 3.9.1
+- Sphinx version: HEAD of 3.x
+- Sphinx extensions: sphinx.ext.autodoc
+- Extra tools: No
+
+**Additional context**
+No
+
+
+----
+Repository localization guidance:
+Additional repository localization hints are provided below.
+These are navigation suggestions only. You may inspect any file in the repository if needed.
+
+1. sphinx/domains/__init__.py | score: 0.0328 | reason: RRF(L,S)
+2. tests/test_ext_autodoc.py | score: 0.0323 | reason: RRF(L,S)
+3. tests/test_environment_indexentries.py | score: 0.0317 | reason: RRF(L,S)
+4. sphinx/search/__init__.py | score: 0.0312 | reason: RRF(L,S)
+5. tests/test_project.py | score: 0.0308 | reason: RRF(L,S)
+6. tests/test_ext_apidoc.py | score: 0.0303 | reason: RRF(L,S)
+7. doc/usage/extensions/example_google.py | score: 0.0299 | reason: RRF(L,S)
+8. doc/usage/extensions/example_numpy.py | score: 0.0294 | reason: RRF(L,S)
+9. sphinx/addnodes.py | score: 0.0290 | reason: RRF(L,S)
+10. tests/roots/test-ext-autodoc/target/__init__.py | score: 0.0286 | reason: RRF(L,S)
+11. sphinx/ext/autodoc/__init__.py | score: 0.0272 | reason: RRF(L,S)
+12. sphinx/errors.py | score: 0.0245 | reason: RRF(L,S)
+13. sphinx/application.py | score: 0.0241 | reason: RRF(L,S)
+14. sphinx/ext/todo.py | score: 0.0236 | reason: RRF(L,S)
+15. sphinx/environment/__init__.py | score: 0.0227 | reason: RRF(L,S)
+16. sphinx/domains/std.py | score: 0.0203 | reason: RRF(L,S)
+17. sphinx/ext/apidoc.py | score: 0.0200 | reason: RRF(L,S)
+18. sphinx/writers/latex.py | score: 0.0197 | reason: RRF(L,S)
+19. sphinx/project.py | score: 0.0193 | reason: RRF(L,S)
+20. sphinx/domains/python.py | score: 0.0191 | reason: RRF(L,S)

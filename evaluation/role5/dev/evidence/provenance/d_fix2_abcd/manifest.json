@@ -1,0 +1,42 @@
+{
+  "experiment_id": "failure_feedback_247c125_abcd_20261027",
+  "created_at": "2026-10-27T14:16:27.323781+08:00",
+  "source_commit": "247c12563012a31413c8c330a1441ca6a3ef1880",
+  "source_branch": "failure-feedback",
+  "task_ids": [
+    "sympy__sympy-21379",
+    "django__django-12262",
+    "sympy__sympy-20438"
+  ],
+  "conditions": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "model": "openai/gpt-5.4-mini",
+  "model_class": "openrouter",
+  "provider": "openrouter",
+  "api_base": "https://openrouter.ai/api/v1",
+  "localization_top_k": 20,
+  "failure_weight": 1.0,
+  "failure_max_updates": 3,
+  "failure_max_recovery_updates": 2,
+  "failure_max_diagnostic_updates": 1,
+  "step_limit": 250,
+  "cost_limit_usd_per_run": 3.0,
+  "wall_time_limit_seconds": 0,
+  "command_timeout_seconds": 60,
+  "prompt_version": "closed_loop_v2",
+  "additional_short_verification_prompt": false,
+  "function_hints_enabled": false,
+  "active_config_sha256": "9a9c86ac10428b86b932c972b15fefc2f7b6e92230bac5ebdc47e83232a8315e",
+  "input_reference": "/root/projects/DSA4213_group_work/personal_trials/verification_prompt_short_openai_compat_20261027",
+  "task_input_policy": "Same allowed task/index snapshots; rankings copied from current checkout",
+  "dataset_revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+  "state": "copied_pending_offline_interface_checks",
+  "run_order": "task order then A/B/C/D; sequential, one independent run per combination",
+  "retry_policy": "No automatic best-of retries. Stop before API on any offline interface issue. Preserve all attempts.",
+  "cost_accounting": "OpenRouter response usage.cost; provider-reported, not reconciled to billing",
+  "source_policy": "All tracked checkout files copied byte-for-byte; original project source unmodified"
+}

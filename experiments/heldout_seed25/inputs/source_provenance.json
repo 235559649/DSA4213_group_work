@@ -1,0 +1,221 @@
+{
+  "dataset_id": "SWE-bench/SWE-bench_Verified",
+  "revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+  "dataset_path": "server-dev5-download-20261025-01/experiments/dev5_abcd_v1/evaluation_dataset/swebench_verified_78f471bf_test.parquet",
+  "dataset_sha256": "030cfd7f2a704c4c0226e7f104c725a3b41230b1d3517f9c915ad7ea5be3fa25",
+  "read_columns": [
+    "instance_id",
+    "repo",
+    "base_commit",
+    "version",
+    "created_at",
+    "difficulty",
+    "environment_setup_commit"
+  ],
+  "not_used": [
+    "patch",
+    "test_patch",
+    "hints_text",
+    "FAIL_TO_PASS",
+    "PASS_TO_PASS",
+    "problem_statement",
+    "localization_scores",
+    "repair_outcomes"
+  ],
+  "counts": {
+    "verified": 500,
+    "in_scope_before_exclusions": 369,
+    "out_of_scope": 131,
+    "excluded": 21,
+    "eligible": 348
+  },
+  "eligible_by_repo": {
+    "django/django": 225,
+    "pytest-dev/pytest": 15,
+    "sphinx-doc/sphinx": 40,
+    "sympy/sympy": 68
+  },
+  "exclusion_sources": [
+    {
+      "path": "DSA4213_group_work/experiments/bm25_results.json",
+      "format": "json",
+      "reason": "development_localization_artifact",
+      "sha256": "a11fc5d6dd7686dbdd7107baf26f1924fe32621a66d76f68f993c38187e7e84f",
+      "task_ids": [
+        "django__django-11133",
+        "django__django-12262",
+        "django__django-13158",
+        "django__django-13417",
+        "django__django-14017",
+        "django__django-14539",
+        "pytest-dev__pytest-10356",
+        "pytest-dev__pytest-7205",
+        "pytest-dev__pytest-7490",
+        "pytest-dev__pytest-7571",
+        "sphinx-doc__sphinx-7462",
+        "sphinx-doc__sphinx-8595",
+        "sphinx-doc__sphinx-8721",
+        "sphinx-doc__sphinx-9673",
+        "sympy__sympy-17630",
+        "sympy__sympy-19346",
+        "sympy__sympy-20154",
+        "sympy__sympy-20438",
+        "sympy__sympy-21379",
+        "sympy__sympy-23262"
+      ]
+    },
+    {
+      "path": "DSA4213_group_work/experiments/structural_results.json",
+      "format": "json",
+      "reason": "development_localization_artifact",
+      "sha256": "b46d1024c3472efad5804fec22163beb45807adbcb45da78c83616d5da1a28b0",
+      "task_ids": [
+        "django__django-11133",
+        "django__django-12262",
+        "django__django-13158",
+        "django__django-13417",
+        "django__django-14017",
+        "django__django-14539",
+        "pytest-dev__pytest-10356",
+        "pytest-dev__pytest-7205",
+        "pytest-dev__pytest-7490",
+        "pytest-dev__pytest-7571",
+        "sphinx-doc__sphinx-7462",
+        "sphinx-doc__sphinx-8595",
+        "sphinx-doc__sphinx-8721",
+        "sphinx-doc__sphinx-9673",
+        "sympy__sympy-17630",
+        "sympy__sympy-19346",
+        "sympy__sympy-20154",
+        "sympy__sympy-20438",
+        "sympy__sympy-21379",
+        "sympy__sympy-23262"
+      ]
+    },
+    {
+      "path": "DSA4213_group_work/experiments/condition_c_results.json",
+      "format": "json",
+      "reason": "development_localization_artifact",
+      "sha256": "17a85e9fe773a6a41f40fc67901272537810f4f1435955bc34348593a6e53d04",
+      "task_ids": [
+        "django__django-11133",
+        "django__django-12262",
+        "django__django-13158",
+        "django__django-13417",
+        "django__django-14017",
+        "django__django-14539",
+        "pytest-dev__pytest-10356",
+        "pytest-dev__pytest-7205",
+        "pytest-dev__pytest-7490",
+        "pytest-dev__pytest-7571",
+        "sphinx-doc__sphinx-7462",
+        "sphinx-doc__sphinx-8595",
+        "sphinx-doc__sphinx-8721",
+        "sphinx-doc__sphinx-9673",
+        "sympy__sympy-17630",
+        "sympy__sympy-19346",
+        "sympy__sympy-20154",
+        "sympy__sympy-20438",
+        "sympy__sympy-21379",
+        "sympy__sympy-23262"
+      ]
+    },
+    {
+      "path": "server-dev5-download-20261025-01/experiments/dev5_abcd_v1/task_manifest.jsonl",
+      "format": "jsonl",
+      "reason": "development_repair_run",
+      "sha256": "791512d7757d053d87bd28adc903dd03b4aea832a43f0988e2352de102ad4668",
+      "task_ids": [
+        "django__django-11133",
+        "pytest-dev__pytest-7571",
+        "sphinx-doc__sphinx-8595",
+        "sympy__sympy-17630",
+        "sympy__sympy-23262"
+      ]
+    },
+    {
+      "path": "server-dev8-download-20261026-01/extracted-dev8-handoff-01/experiments/dev3_extra_abcd_v1/task_manifest.jsonl",
+      "format": "jsonl",
+      "reason": "development_repair_run",
+      "sha256": "e27841622d4f660ba45c5dc3c6153d376239e531c42069d59771dc2ad69e8182",
+      "task_ids": [
+        "django__django-12262",
+        "sympy__sympy-20438",
+        "sympy__sympy-21379"
+      ]
+    },
+    {
+      "path": "outputs/swebench-pilot-20261009/analysis/pilot_summary.json",
+      "format": "json",
+      "reason": "human_assisted_pilot",
+      "sha256": "9c93731e843c0b93db33e4273dae6ad48e1a4fe075508b0122a2ba2431d7bc04",
+      "task_ids": [
+        "sympy__sympy-15599"
+      ]
+    },
+    {
+      "path": "output/single-task-prep-20261025-01/public/task.json",
+      "format": "json",
+      "reason": "development_task_preparation",
+      "sha256": "abafe16bfa7e7cd73b84cdba97c6cc3699dc49352d1533ef72e1ce56216610d4",
+      "task_ids": [
+        "django__django-11133"
+      ]
+    },
+    {
+      "path": "output/single-task-prep-20261025-02-wide/public/task.json",
+      "format": "json",
+      "reason": "development_task_preparation",
+      "sha256": "abafe16bfa7e7cd73b84cdba97c6cc3699dc49352d1533ef72e1ce56216610d4",
+      "task_ids": [
+        "django__django-11133"
+      ]
+    },
+    {
+      "path": "output/single-task-prep-20261025-03-fixed/public/task.json",
+      "format": "json",
+      "reason": "development_task_preparation",
+      "sha256": "abafe16bfa7e7cd73b84cdba97c6cc3699dc49352d1533ef72e1ce56216610d4",
+      "task_ids": [
+        "django__django-11133"
+      ]
+    },
+    {
+      "path": "tmp/trials-review-20261027/audit.json",
+      "format": "json",
+      "reason": "development_feedback_function_prompt_trials",
+      "sha256": "353c88c6fee9e86432a2491d301c19c38c4acff9ec3f0d75e4f2497379b4e49e",
+      "task_ids": [
+        "django__django-12262",
+        "sympy__sympy-20438",
+        "sympy__sympy-21379"
+      ]
+    },
+    {
+      "path": "tmp/d_second_fix_review/failure_feedback_247c125_abcd_20261027_offline_analysis/results_summary.csv",
+      "format": "csv",
+      "reason": "development_feedback_trial",
+      "sha256": "3c8c2b36d6f7a1eed90b277730268ad9f942f6545a1c349d61a988018f39f26f",
+      "task_ids": [
+        "django__django-12262",
+        "sympy__sympy-20438",
+        "sympy__sympy-21379"
+      ]
+    },
+    {
+      "path": "tmp/prompt_policy_four_tasks_review/offline_analysis/results_summary.csv",
+      "format": "csv",
+      "reason": "development_prompt_trial",
+      "sha256": "eb41560364c41618c46f6b1b82c31ddd00fe392c7fe374627e82af6181196e6c",
+      "task_ids": [
+        "sphinx-doc__sphinx-8595",
+        "sympy__sympy-17630",
+        "sympy__sympy-20438",
+        "sympy__sympy-23262"
+      ]
+    }
+  ],
+  "exclusion_scope_limit": "Local evidence listed here; no claim to have audited unprovided remote runs.",
+  "python_version": "3.12.3",
+  "pyarrow_version": "25.0.1"
+}

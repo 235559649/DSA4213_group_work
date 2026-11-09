@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sphinx/application.py",
+    "rank": 10,
+    "score": 0.0285714286,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/domains/__init__.py",
+    "rank": 11,
+    "score": 0.0253265371,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/transforms/post_transforms/images.py",
+    "rank": 12,
+    "score": 0.0248275862,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/transforms/__init__.py",
+    "rank": 13,
+    "score": 0.0245215311,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/errors.py",
+    "rank": 14,
+    "score": 0.024084507,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/util/__init__.py",
+    "rank": 15,
+    "score": 0.0236928105,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/ext/autodoc/__init__.py",
+    "rank": 16,
+    "score": 0.023140717,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/ext/todo.py",
+    "rank": 17,
+    "score": 0.0223470662,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/addnodes.py",
+    "rank": 18,
+    "score": 0.0214505681,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/search/__init__.py",
+    "rank": 19,
+    "score": 0.0212982893,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/ext/napoleon/__init__.py",
+    "rank": 20,
+    "score": 0.0209705753,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/domains/rst.py",
+    "rank": 21,
+    "score": 0.0209033613,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/util/inventory.py",
+    "rank": 22,
+    "score": 0.020799513,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/ext/intersphinx.py",
+    "rank": 23,
+    "score": 0.0207570208,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/ext/extlinks.py",
+    "rank": 24,
+    "score": 0.0202764977,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/environment/__init__.py",
+    "rank": 25,
+    "score": 0.0200722601,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/domains/cpp.py",
+    "rank": 26,
+    "score": 0.019785575,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/util/docutils.py",
+    "rank": 27,
+    "score": 0.0195445135,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/ext/autosummary/__init__.py",
+    "rank": 28,
+    "score": 0.0195075758,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "sphinx/ext/inheritance_diagram.py",
+    "rank": 29,
+    "score": 0.0194011339,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  }
+]

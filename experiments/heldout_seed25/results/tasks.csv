@@ -1,0 +1,41 @@
+﻿instance_id,repo,base_commit,version,created_at,difficulty,environment_setup_commit,seed,repo_draw_order,in_stability_subset,planned_repeats_per_condition
+django__django-13590,django/django,755dbf39fcdc491fe9b588358303e259c7750be4,3.2,2020-10-23T09:34:55Z,15 min - 1 hour,65dfb06a1ab56c238cc80f5e1c31f61210c4577d,25,1,False,1
+django__django-16315,django/django,7d5329852f19c6ae78c6f6f3d3e41835377bf295,4.2,2022-11-22T09:44:54Z,15 min - 1 hour,0fbdb9784da915fce5dcc1fe82bac9b4785749e5,25,2,True,3
+django__django-16877,django/django,98f6ada0e2058d67d91fb6c16482411ec2ca0967,5.0,2023-05-19T23:11:10Z,15 min - 1 hour,4a72da71001f154ea60906a2f74898d32b7322a7,25,3,True,3
+django__django-10914,django/django,e7fd69d051eaa67cb17f172a39b57253e9cb831a,3.0,2019-01-30T13:13:20Z,<15 min fix,419a78300f7cd27611196e1e464d50fd0385ff27,25,4,False,1
+django__django-12276,django/django,53d8646f799de7f92ab9defe9dc56c6125448102,3.1,2020-01-05T08:04:40Z,<15 min fix,0668164b4ac93a5be79f5b87fae83c657124d9ab,25,5,False,1
+django__django-7530,django/django,f8fab6f90233c7114d642dfe01a4e6d4cb14ee7d,1.11,2016-11-08T17:27:19Z,15 min - 1 hour,3545e844885608932a692d952c12cd863e2320b5,25,6,False,1
+django__django-13212,django/django,f4e93919e4608cfc50849a1f764fd856e0917401,3.2,2020-07-21T02:53:58Z,1-4 hours,65dfb06a1ab56c238cc80f5e1c31f61210c4577d,25,7,False,1
+django__django-15380,django/django,71e7c8e73712419626f1c2b6ec036e8559a2d667,4.1,2022-01-31T19:44:44Z,<15 min fix,647480166bfe7532e8c471fef0146e3a17e6c0c9,25,8,False,1
+django__django-14311,django/django,5a8e8f80bb82a867eab7e4d9d099f21d0a976d22,4.0,2021-04-25T02:54:34Z,15 min - 1 hour,475cffd1d64c690cdad16ede4d5e81985738ceb4,25,9,False,1
+django__django-11119,django/django,d4df5e1b0b1c643fe0fc521add0236764ec8e92a,3.0,2019-03-24T21:17:05Z,<15 min fix,419a78300f7cd27611196e1e464d50fd0385ff27,25,10,False,1
+django__django-16950,django/django,f64fd47a7627ed6ffe2df2a32ded6ee528a784eb,5.0,2023-06-06T19:58:48Z,15 min - 1 hour,4a72da71001f154ea60906a2f74898d32b7322a7,25,11,False,1
+django__django-16255,django/django,444b6da7cc229a58a2c476a52e45233001dc7073,4.2,2022-11-04T13:49:40Z,<15 min fix,0fbdb9784da915fce5dcc1fe82bac9b4785749e5,25,12,False,1
+sympy__sympy-16886,sympy/sympy,c50643a49811e9fe2f4851adff4313ad46f7325e,1.5,2019-05-25T05:55:25Z,<15 min fix,70381f282f2d9d039da860e391fe51649df2779d,25,1,False,1
+sympy__sympy-12489,sympy/sympy,aa9780761ad8c3c0f68beeef3a0ce5caac9e100b,1.0,2017-04-04T08:12:37Z,1-4 hours,50b81f9f6be151014501ffac44e5dc6b2416938f,25,2,False,1
+sympy__sympy-18698,sympy/sympy,3dff1b98a78f28c953ae2140b69356b8391e399c,1.6,2020-02-21T05:46:56Z,15 min - 1 hour,28b41c73c12b70d6ad9f6e45109a80649c4456da,25,3,False,1
+sympy__sympy-22080,sympy/sympy,3f8c8c2377cb8e0daaf8073e8d03ac7d87580813,1.10,2021-09-12T07:11:33Z,15 min - 1 hour,fd40404e72921b9e52a5f9582246e4a6cd96c431,25,4,False,1
+sympy__sympy-13757,sympy/sympy,a5e6a101869e027e7930e694f8b1cfb082603453,1.1,2017-12-17T11:08:44Z,15 min - 1 hour,ec9e3c0436fbff934fa84e22bf07f1b3ef5bfac3,25,5,False,1
+sympy__sympy-18199,sympy/sympy,ba80d1e493f21431b4bf729b3e0452cd47eb9566,1.6,2020-01-01T19:08:59Z,1-4 hours,28b41c73c12b70d6ad9f6e45109a80649c4456da,25,6,False,1
+sympy__sympy-24443,sympy/sympy,809c53c077485ca48a206cee78340389cb83b7f1,1.12,2022-12-30T14:43:19Z,15 min - 1 hour,c6cb7c5602fa48034ab1bd43c2347a7e8488f12e,25,7,True,3
+sympy__sympy-13372,sympy/sympy,30379ea6e225e37833a764ac2da7b7fadf5fe374,1.1,2017-09-30T16:05:48Z,<15 min fix,ec9e3c0436fbff934fa84e22bf07f1b3ef5bfac3,25,8,False,1
+sympy__sympy-18189,sympy/sympy,1923822ddf8265199dbd9ef9ce09641d3fd042b9,1.6,2019-12-31T15:45:24Z,<15 min fix,28b41c73c12b70d6ad9f6e45109a80649c4456da,25,9,True,3
+sympy__sympy-19637,sympy/sympy,63f8f465d48559fecb4e4bf3c48b75bf15a3e0ef,1.7,2020-06-24T13:08:57Z,<15 min fix,cffd4e0f86fefd4802349a9f9b19ed70934ea354,25,10,False,1
+sympy__sympy-20428,sympy/sympy,c0e85160406f9bf2bcaa2992138587668a1cd0bc,1.8,2020-11-14T05:56:31Z,15 min - 1 hour,3ac1464b8840d5f8b618a654f9fbf09c452fe969,25,11,False,1
+sympy__sympy-21930,sympy/sympy,de446c6d85f633271dfec1452f6f28ea783e293f,1.9,2021-08-22T20:29:08Z,15 min - 1 hour,f9a6f50ec0c74d935c50a6e9c9b2cb0469570d91,25,12,False,1
+sphinx-doc__sphinx-7757,sphinx-doc/sphinx,212fd67b9f0b4fae6a7c3501fdf1a9a5b2801329,3.1,2020-05-30T14:46:01Z,15 min - 1 hour,5afc77ee27fc01c57165ab260d3a76751f9ddb35,25,1,False,1
+sphinx-doc__sphinx-9320,sphinx-doc/sphinx,e05cef574b8f23ab1b57f57e7da6dee509a4e230,4.1,2021-06-11T13:29:04Z,<15 min fix,9a2c3c4a1559e37e95fdee88c128bb116642c897,25,2,True,3
+sphinx-doc__sphinx-8269,sphinx-doc/sphinx,1e2ccd8f0eca0870cf6f8fce6934e2da8eba9b72,3.3,2020-10-03T11:08:37Z,<15 min fix,3b85187ffa3401e88582073c23188c147857a8a3,25,3,False,1
+sphinx-doc__sphinx-7748,sphinx-doc/sphinx,9988d5ce267bf0df4791770b469431b1fb00dcdd,3.1,2020-05-30T06:41:07Z,15 min - 1 hour,5afc77ee27fc01c57165ab260d3a76751f9ddb35,25,4,False,1
+sphinx-doc__sphinx-9591,sphinx-doc/sphinx,9ed054279aeffd5b1d0642e2d24a8800389de29f,4.2,2021-08-29T15:26:24Z,<15 min fix,336605b8e4b14c5da9f4d872fb730dc6894edb77,25,5,False,1
+sphinx-doc__sphinx-8475,sphinx-doc/sphinx,3ea1ec84cc610f7a9f4f6b354e264565254923ff,3.4,2020-11-22T16:54:19Z,<15 min fix,3f560cd67239f75840cc7a439ab54d8509c855f6,25,6,False,1
+sphinx-doc__sphinx-9698,sphinx-doc/sphinx,f050a7775dfc9000f55d023d36d925a8d02ccfa8,4.3,2021-10-03T04:04:04Z,<15 min fix,6c6cc8a6f50b18331cb818160d168d7bb9c03e55,25,7,False,1
+sphinx-doc__sphinx-9258,sphinx-doc/sphinx,06107f838c28ab6ca6bfc2cc208e15997fcb2146,4.1,2021-05-21T16:56:41Z,<15 min fix,9a2c3c4a1559e37e95fdee88c128bb116642c897,25,8,True,3
+sphinx-doc__sphinx-11445,sphinx-doc/sphinx,71db08c05197545944949d5aa76cd340e7143627,7.1,2023-05-28T19:15:07Z,15 min - 1 hour,89808c6f49e1738765d18309244dca0156ee28f6,25,9,False,1
+sphinx-doc__sphinx-9229,sphinx-doc/sphinx,876fa81e0a038cda466925b85ccf6c5452e0f685,4.1,2021-05-15T07:21:49Z,1-4 hours,9a2c3c4a1559e37e95fdee88c128bb116642c897,25,10,False,1
+pytest-dev__pytest-7982,pytest-dev/pytest,a7e38c5c61928033a2dc1915cbee8caa8544a4d0,6.2,2020-10-31T12:27:03Z,<15 min fix,902739cfc3bbc3379e6ef99c8e250de35f52ecde,25,1,True,3
+pytest-dev__pytest-7324,pytest-dev/pytest,19ad5889353c7f5f2b65cc2acd346b7a9e95dfcd,5.4,2020-06-05T13:00:07Z,15 min - 1 hour,678c1a0745f1cf175c442c719906a1f13e496910,25,2,False,1
+pytest-dev__pytest-8399,pytest-dev/pytest,6e7dc8bac831cd8cf7a53b08efa366bd84f0c0fe,6.3,2021-03-04T17:52:17Z,15 min - 1 hour,634312b14a45db8d60d72016e01294284e3a18d4,25,3,False,1
+pytest-dev__pytest-10081,pytest-dev/pytest,da9a2b584eb7a6c7e924b2621ed0ddaeca0a7bea,7.2,2022-06-26T13:53:24Z,<15 min fix,572b5657d7ca557593418ce0319fabff88800c73,25,4,True,3
+pytest-dev__pytest-7236,pytest-dev/pytest,c98bc4cd3d687fe9b392d8eecd905627191d4f06,5.4,2020-05-21T19:53:14Z,15 min - 1 hour,678c1a0745f1cf175c442c719906a1f13e496910,25,5,False,1
+pytest-dev__pytest-7521,pytest-dev/pytest,41d211c24a6781843b174379d6d6538f5c17adb9,6.0,2020-07-20T15:55:11Z,<15 min fix,634cde9506eb1f48dec3ec77974ee8dc952207c6,25,6,False,1

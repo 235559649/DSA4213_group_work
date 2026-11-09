@@ -1,0 +1,10 @@
+{
+  "max_updates": 3,
+  "context_top_k": 20,
+  "failures_observed": 0,
+  "updates_applied": 0,
+  "localization_overhead_seconds": 27.517581917000143,
+  "initial_LS_fixed": true,
+  "failure_signal": "single_action_first_eligible_per_decision",
+  "log_directory": "/root/projects/DSA4213_group_work/experiments/dev3_extra_abcd_v1/runs/sympy__sympy-20438_D_124384a9/failure_feedback"
+}

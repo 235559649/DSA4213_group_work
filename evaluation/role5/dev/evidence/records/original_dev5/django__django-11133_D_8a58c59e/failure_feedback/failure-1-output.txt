@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+  File "/testbed/django/http/response.py", line 288, in __init__
+    super().__init__(*args, **kwargs)
+  File "/testbed/django/http/response.py", line 60, in __init__
+    content_type = 'text/html; charset=%s' % self.charset
+  File "/testbed/django/http/response.py", line 84, in charset
+    return settings.DEFAULT_CHARSET
+  File "/testbed/django/conf/__init__.py", line 76, in __getattr__
+    self._setup(name)
+  File "/testbed/django/conf/__init__.py", line 61, in _setup
+    % (desc, ENVIRONMENT_VARIABLE))
+django.core.exceptions.ImproperlyConfigured: Requested setting DEFAULT_CHARSET, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.

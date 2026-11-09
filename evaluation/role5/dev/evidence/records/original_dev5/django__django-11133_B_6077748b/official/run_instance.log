@@ -1,0 +1,48 @@
+2026-10-25 21:15:24,309 - INFO - Creating container for django__django-11133...
+2026-10-25 21:15:24,348 - INFO - Container for django__django-11133 created: 34bd40f61898b15104067c02d039fd65cab68d3c75f6d5100da0fc73bc625b6f
+2026-10-25 21:15:24,452 - INFO - Container for django__django-11133 started: 34bd40f61898b15104067c02d039fd65cab68d3c75f6d5100da0fc73bc625b6f
+2026-10-25 21:15:24,452 - INFO - Intermediate patch for django__django-11133 written to logs/evaluation/dev5-django-django-11133-B-6077748b/django__django-11133_B_6077748b/django__django-11133/patch.diff, now applying to container...
+2026-10-25 21:15:24,530 - INFO - Failed to apply patch to container: git apply --verbose
+2026-10-25 21:15:25,118 - INFO - Failed to apply patch to container: git apply --verbose --3way
+2026-10-25 21:15:25,288 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-10-25 21:15:25,453 - INFO - >>>>> Applied Patch:
+patching file django/http/response.py
+patch unexpectedly ends in middle of line
+Hunk #1 succeeded at 233 with fuzz 2.
+
+2026-10-25 21:15:25,505 - INFO - Git diff before:
+diff --git a/django/http/response.py b/django/http/response.py
+index 6a84e193ba..507322473e 100755
+--- a/django/http/response.py
++++ b/django/http/response.py
+@@ -233,6 +233,8 @@ class HttpResponseBase:
+             return bytes(value)
+         if isinstance(value, str):
+             return bytes(value.encode(self.charset))
++        if isinstance(value, memoryview):
++            return bytes(value)
+         # Handle non-string types.
+         return str(value).encode(self.charset)
+2026-10-25 21:15:25,505 - INFO - Eval script for django__django-11133 written to logs/evaluation/dev5-django-django-11133-B-6077748b/django__django-11133_B_6077748b/django__django-11133/eval.sh; copying to container...
+2026-10-25 21:15:30,270 - INFO - Test runtime: 4.73 seconds
+2026-10-25 21:15:30,272 - INFO - Test output for django__django-11133 written to logs/evaluation/dev5-django-django-11133-B-6077748b/django__django-11133_B_6077748b/django__django-11133/test_output.txt
+2026-10-25 21:15:30,323 - INFO - Git diff after:
+diff --git a/django/http/response.py b/django/http/response.py
+index 6a84e193ba..507322473e 100755
+--- a/django/http/response.py
++++ b/django/http/response.py
+@@ -233,6 +233,8 @@ class HttpResponseBase:
+             return bytes(value)
+         if isinstance(value, str):
+             return bytes(value.encode(self.charset))
++        if isinstance(value, memoryview):
++            return bytes(value)
+         # Handle non-string types.
+         return str(value).encode(self.charset)
+2026-10-25 21:15:30,323 - INFO - Grading answer for django__django-11133...
+2026-10-25 21:15:30,329 - INFO - report: {'django__django-11133': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['test_memoryview_content (httpwrappers.tests.HttpResponseTests)'], 'failure': []}, 'PASS_TO_PASS': {'success': ['test_streaming_response (httpwrappers.tests.StreamingHttpResponseTests)', 'test_cookie_edgecases (httpwrappers.tests.CookieTests)', 'Semicolons and commas are decoded.', 'Semicolons and commas are encoded.', 'test_httponly_after_load (httpwrappers.tests.CookieTests)', 'test_invalid_cookies (httpwrappers.tests.CookieTests)', 'test_load_dict (httpwrappers.tests.CookieTests)', 'test_nonstandard_keys (httpwrappers.tests.CookieTests)', 'test_pickle (httpwrappers.tests.CookieTests)', 'test_python_cookies (httpwrappers.tests.CookieTests)', 'test_repeated_nonstandard_keys (httpwrappers.tests.CookieTests)', 'test_samesite (httpwrappers.tests.CookieTests)', 'test_response (httpwrappers.tests.FileCloseTests)', 'test_streaming_response (httpwrappers.tests.FileCloseTests)', 'test_json_response_custom_encoder (httpwrappers.tests.JsonResponseTests)', 'test_json_response_list (httpwrappers.tests.JsonResponseTests)', 'test_json_response_non_ascii (httpwrappers.tests.JsonResponseTests)', 'test_json_response_passing_arguments_to_json_dumps (httpwrappers.tests.JsonResponseTests)', 'test_json_response_raises_type_error_with_default_setting (httpwrappers.tests.JsonResponseTests)', 'test_json_response_text (httpwrappers.tests.JsonResponseTests)', 'test_json_response_uuid (httpwrappers.tests.JsonResponseTests)', 'test_invalid_redirect_repr (httpwrappers.tests.HttpResponseSubclassesTests)', 'test_not_allowed (httpwrappers.tests.HttpResponseSubclassesTests)', 'test_not_allowed_repr (httpwrappers.tests.HttpResponseSubclassesTests)', 'test_not_allowed_repr_no_content_type (httpwrappers.tests.HttpResponseSubclassesTests)', 'test_not_modified (httpwrappers.tests.HttpResponseSubclassesTests)', 'test_not_modified_repr (httpwrappers.tests.HttpResponseSubclassesTests)', 'test_redirect (httpwrappers.tests.HttpResponseSubclassesTests)', 'Make sure HttpResponseRedirect works with lazy strings.', 'test_redirect_repr (httpwrappers.tests.HttpResponseSubclassesTests)', 'test_dict_behavior (httpwrappers.tests.HttpResponseTests)', 'test_file_interface (httpwrappers.tests.HttpResponseTests)', 'test_headers_type (httpwrappers.tests.HttpResponseTests)', 'test_iter_content (httpwrappers.tests.HttpResponseTests)', 'test_iterator_isnt_rewound (httpwrappers.tests.HttpResponseTests)', 'test_lazy_content (httpwrappers.tests.HttpResponseTests)', 'test_long_line (httpwrappers.tests.HttpResponseTests)', 'test_newlines_in_headers (httpwrappers.tests.HttpResponseTests)', 'test_non_string_content (httpwrappers.tests.HttpResponseTests)', 'test_stream_interface (httpwrappers.tests.HttpResponseTests)', 'test_unsafe_redirect (httpwrappers.tests.HttpResponseTests)', 'test_basic_mutable_operations (httpwrappers.tests.QueryDictTests)', 'test_create_with_no_args (httpwrappers.tests.QueryDictTests)', 'test_duplicates_in_fromkeys_iterable (httpwrappers.tests.QueryDictTests)', 'test_fromkeys_empty_iterable (httpwrappers.tests.QueryDictTests)', 'test_fromkeys_is_immutable_by_default (httpwrappers.tests.QueryDictTests)', 'test_fromkeys_mutable_override (httpwrappers.tests.QueryDictTests)', 'test_fromkeys_noniterable (httpwrappers.tests.QueryDictTests)', 'test_fromkeys_with_nondefault_encoding (httpwrappers.tests.QueryDictTests)', 'test_fromkeys_with_nonempty_value (httpwrappers.tests.QueryDictTests)', 'test_immutability (httpwrappers.tests.QueryDictTests)', 'test_immutable_basic_operations (httpwrappers.tests.QueryDictTests)', 'test_immutable_get_with_default (httpwrappers.tests.QueryDictTests)', 'test_missing_key (httpwrappers.tests.QueryDictTests)', 'Test QueryDict with two key/value pairs with same keys.', 'A copy of a QueryDict is mutable.', 'test_mutable_delete (httpwrappers.tests.QueryDictTests)', '#13572 - QueryDict with a non-default encoding', 'test_pickle (httpwrappers.tests.QueryDictTests)', 'test_querydict_fromkeys (httpwrappers.tests.QueryDictTests)', 'Test QueryDict with one key/value pair', 'Regression test for #8278: QueryDict.update(QueryDict)', 'test_urlencode (httpwrappers.tests.QueryDictTests)', 'test_urlencode_int (httpwrappers.tests.QueryDictTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-11133: resolved: True
+2026-10-25 21:15:30,329 - INFO - Attempting to stop container sweb.eval.django__django-11133.dev5-django-django-11133-B-6077748b...
+2026-10-25 21:15:45,641 - INFO - Container sweb.eval.django__django-11133.dev5-django-django-11133-B-6077748b stopped successfully.
+2026-10-25 21:15:45,641 - INFO - Attempting to remove container sweb.eval.django__django-11133.dev5-django-django-11133-B-6077748b...
+2026-10-25 21:15:45,761 - INFO - Container sweb.eval.django__django-11133.dev5-django-django-11133-B-6077748b removed successfully.

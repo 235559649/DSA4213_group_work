@@ -1,0 +1,13 @@
+[
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "A",
+    "attempt": 1,
+    "run_id": "sympy__sympy-20438_A_771ea469",
+    "termination": "RepeatedFormatError",
+    "reason": "User-authorized single retry selected prospectively; original failure retained",
+    "cost_usd": 0.036555000000000004,
+    "api_calls": 14,
+    "result_path": "/root/projects/DSA4213_group_work/personal_trials/failure_feedback_247c125_abcd_20261027/runs/attempt_1/runs/sympy__sympy-20438_A_771ea469/run_result.json"
+  }
+]

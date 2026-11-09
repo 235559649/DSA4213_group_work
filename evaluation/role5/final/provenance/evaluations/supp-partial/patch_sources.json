@@ -1,0 +1,12 @@
+{
+  "sympy__sympy-21930_A_39af80e5": {
+    "patch_source": "file",
+    "patch_source_path": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/supp_patches/sympy__sympy-21930_A_39af80e5.diff",
+    "patch_sha256": "2dd07347fa1021670d7e2565303b0bfbe2eb9b808df77e19bc44acd3648fcd25"
+  },
+  "sympy__sympy-13757_B_ef22049a": {
+    "patch_source": "file",
+    "patch_source_path": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/supp_patches/sympy__sympy-13757_B_ef22049a.diff",
+    "patch_sha256": "070faef33a3959a3e3982494e47f552db3cb96ffecd3084fa922533a6011f349"
+  }
+}

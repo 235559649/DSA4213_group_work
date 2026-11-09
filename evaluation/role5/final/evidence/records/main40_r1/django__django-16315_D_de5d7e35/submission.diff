@@ -1,0 +1,14 @@
+diff --git a/django/db/models/query.py b/django/db/models/query.py
+index be8580f2c4..e2b3dac08e 100644
+--- a/django/db/models/query.py
++++ b/django/db/models/query.py
+@@ -786,7 +786,8 @@ class QuerySet(AltersData):
+         if unique_fields:
+             # Primary key is allowed in unique_fields.
+             unique_fields = [
+-                opts.pk.name if name == "pk" else name for name in unique_fields
++                opts.pk if name == "pk" else opts.get_field(name)
++                for name in unique_fields
+             ]
+         on_conflict = self._check_bulk_create_options(
+             ignore_conflicts,

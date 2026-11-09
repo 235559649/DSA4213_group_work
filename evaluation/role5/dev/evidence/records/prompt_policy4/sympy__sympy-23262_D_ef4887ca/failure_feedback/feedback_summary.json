@@ -1,0 +1,38 @@
+{
+  "failure_weight": 1.0,
+  "ranking_strategy": "near_exception",
+  "fusion_policy": "weighted_rrf",
+  "k": 60,
+  "feedback_routing_policy": "evidence_increment_v3",
+  "feedback_route_limits": {
+    "rank_update": 3,
+    "edit_recovery": 2,
+    "diagnostic_only": 1
+  },
+  "max_updates": 3,
+  "context_top_k": 20,
+  "feedback_route_counts": {
+    "rank_update": 0,
+    "edit_recovery": 0,
+    "diagnostic_only": 1
+  },
+  "ranking_updates_applied": 0,
+  "recovery_messages_applied": 0,
+  "diagnostic_messages_applied": 1,
+  "observations_recorded": 48,
+  "failures_observed": 1,
+  "actions_observed": 48,
+  "process_failures": 2,
+  "evidence_observations": 2,
+  "analyses_completed": 1,
+  "runtime_snapshots_attempted": 1,
+  "updates_applied": 1,
+  "localization_overhead_seconds": 58.83176042800005,
+  "initial_localization_seconds": 48.99598222299937,
+  "feedback_total_seconds": 9.840352575994984,
+  "initial_LS_fixed": true,
+  "failure_signal": "status_or_observation_v2_first_eligible",
+  "provenance_policy": "execution_metadata_or_conservative_single_command_form",
+  "deduplication": "delivered_evidence_increment_and_final_context_with_workspace_and_index_scope",
+  "log_directory": "/root/projects/DSA4213_group_work/personal_trials/prompt_policy_four_tasks_20261027/runs/attempt_1/runs/sympy__sympy-23262_D_ef4887ca/failure_feedback"
+}

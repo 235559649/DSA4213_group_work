@@ -1,0 +1,13 @@
+diff --git a/src/_pytest/logging.py b/src/_pytest/logging.py
+index 11031f2f2..4822acb62 100644
+--- a/src/_pytest/logging.py
++++ b/src/_pytest/logging.py
+@@ -433,6 +433,9 @@ class LogCaptureFixture:
+         logger_obj = logging.getLogger(logger)
+         # save the original log-level to restore it during teardown
+         self._initial_logger_levels.setdefault(logger, logger_obj.level)
++        self._initial_logger_levels.setdefault(
++            "_pytest.caplog_handler", self.handler.level
++        )
+         logger_obj.setLevel(level)
+         self.handler.setLevel(level)

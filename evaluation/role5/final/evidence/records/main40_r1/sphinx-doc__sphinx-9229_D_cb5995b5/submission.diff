@@ -1,0 +1,18 @@
+diff --git a/sphinx/ext/autodoc/__init__.py b/sphinx/ext/autodoc/__init__.py
+index 1f4c98284..4210b685c 100644
+--- a/sphinx/ext/autodoc/__init__.py
++++ b/sphinx/ext/autodoc/__init__.py
+@@ -1725,7 +1725,12 @@ class ClassDocumenter(DocstringSignatureMixin, ModuleLevelDocumenter):  # type:
+                     ) -> None:
+         if self.doc_as_attr:
+             try:
+-                more_content = StringList([_('alias of %s') % restify(self.object)], source='')
++                alias_content = StringList([_('alias of %s') % restify(self.object)], source='')
++                if more_content is None:
++                    more_content = alias_content
++                else:
++                    more_content.extend(alias_content)
++                    more_content.append('', '')
+             except AttributeError:
+                 pass  # Invalid class object is passed.
+ 

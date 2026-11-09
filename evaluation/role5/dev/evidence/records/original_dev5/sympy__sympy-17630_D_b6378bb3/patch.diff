@@ -1,0 +1,30 @@
+diff --git a/sympy/matrices/expressions/blockmatrix.py b/sympy/matrices/expressions/blockmatrix.py
+index 95302a05ca..12d87097fa 100755
+--- a/sympy/matrices/expressions/blockmatrix.py
++++ b/sympy/matrices/expressions/blockmatrix.py
+@@ -90,6 +90,7 @@ def __new__(cls, *args, **kwargs):
+         if not isMat(rows):
+             if rows and isMat(rows[0]):
+                 rows = [rows]  # rows is not list of lists or []
++
+             # regularity check
+             # same number of matrices in each row
+             blocky = ok = len(set([len(r) for r in rows])) == 1
+@@ -164,7 +165,17 @@ def structurally_equal(self, other):
+     def _blockmul(self, other):
+         if (isinstance(other, BlockMatrix) and
+                 self.colblocksizes == other.rowblocksizes):
+-            return BlockMatrix(self.blocks*other.blocks)
++            product = self.blocks*other.blocks
++            rows = []
++            for i in range(product.rows):
++                row = []
++                for j in range(product.cols):
++                    entry = product[i, j]
++                    if not getattr(entry, 'is_Matrix', False) and getattr(entry, 'is_zero', False):
++                        entry = ZeroMatrix(self.rowblocksizes[i], other.colblocksizes[j])
++                    row.append(entry)
++                rows.append(row)
++            return BlockMatrix(rows)
+ 
+         return self * other

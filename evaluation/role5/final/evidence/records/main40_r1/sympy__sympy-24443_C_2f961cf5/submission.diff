@@ -1,0 +1,27 @@
+diff --git a/sympy/combinatorics/homomorphisms.py b/sympy/combinatorics/homomorphisms.py
+index bb7bdf32ba..0fcc72b0be 100644
+--- a/sympy/combinatorics/homomorphisms.py
++++ b/sympy/combinatorics/homomorphisms.py
+@@ -313,6 +313,8 @@ def _check_homomorphism(domain, codomain, images):
+     else:
+         gens = domain.presentation().generators
+         rels = domain.presentation().relators
++    if isinstance(domain, PermutationGroup):
++        domain_gens = dict(zip((str(g) for g in gens), domain.generators))
+     identity = codomain.identity
+ 
+     def _image(r):
+@@ -333,10 +335,10 @@ def _image(r):
+             # both indices
+             while i < len(r):
+                 power = r_arr[j][1]
+-                if isinstance(domain, PermutationGroup) and r[i] in gens:
+-                    s = domain.generators[gens.index(r[i])]
++                if isinstance(domain, PermutationGroup):
++                    s = domain_gens[str(r_arr[j][0])]
+                 else:
+-                    s = r[i]
++                    s = r_arr[j][0]
+                 if s in images:
+                     w = w*images[s]**power
+                 elif s**-1 in images:

@@ -1,0 +1,72 @@
+{
+  "harness_runs": [
+    {
+      "harness_run_id": "supp-partial-r1-A",
+      "command": [
+        "/root/projects/DSA4213_group_work/.venv/bin/python",
+        "-m",
+        "swebench.harness.run_evaluation",
+        "--dataset_name",
+        "/root/projects/DSA4213_final_20261028/role5_eval/dataset/swebench_verified_78f471bf_test.parquet",
+        "--split",
+        "test",
+        "--predictions_path",
+        "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial/predictions/supp-partial-r1-A.jsonl",
+        "--run_id",
+        "supp-partial-r1-A",
+        "--max_workers",
+        "2",
+        "--timeout",
+        "1800",
+        "--instance_ids",
+        "sympy__sympy-21930"
+      ],
+      "instances": [
+        "sympy__sympy-21930"
+      ],
+      "predictions": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial/predictions/supp-partial-r1-A.jsonl",
+      "predictions_sha256": "da9a775c87cfe295ce863834920995e23ec2ae37eb3209c04b86a2d5476eecf2",
+      "started_at": "2026-10-28T10:55:04+00:00",
+      "finished_at": "2026-10-28T10:55:36+00:00",
+      "returncode": 0,
+      "stdout_log": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial/harness_stdout/supp-partial-r1-A.log"
+    },
+    {
+      "harness_run_id": "supp-partial-r1-B",
+      "command": [
+        "/root/projects/DSA4213_group_work/.venv/bin/python",
+        "-m",
+        "swebench.harness.run_evaluation",
+        "--dataset_name",
+        "/root/projects/DSA4213_final_20261028/role5_eval/dataset/swebench_verified_78f471bf_test.parquet",
+        "--split",
+        "test",
+        "--predictions_path",
+        "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial/predictions/supp-partial-r1-B.jsonl",
+        "--run_id",
+        "supp-partial-r1-B",
+        "--max_workers",
+        "2",
+        "--timeout",
+        "1800",
+        "--instance_ids",
+        "sympy__sympy-13757"
+      ],
+      "instances": [
+        "sympy__sympy-13757"
+      ],
+      "predictions": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial/predictions/supp-partial-r1-B.jsonl",
+      "predictions_sha256": "b39333ae16e2857ef2515d60b551898576901d7bb2d766c2ba36b265a112d126",
+      "started_at": "2026-10-28T10:55:36+00:00",
+      "finished_at": "2026-10-28T10:56:00+00:00",
+      "returncode": 0,
+      "stdout_log": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial/harness_stdout/supp-partial-r1-B.log"
+    }
+  ],
+  "index": "/root/projects/DSA4213_final_20261028/role5_eval/work/index/run_index.json",
+  "dataset_name": "/root/projects/DSA4213_final_20261028/role5_eval/dataset/swebench_verified_78f471bf_test.parquet",
+  "split": "test",
+  "prefix": "supp-partial",
+  "swebench_version": "5.0.2",
+  "patch_source": "file"
+}

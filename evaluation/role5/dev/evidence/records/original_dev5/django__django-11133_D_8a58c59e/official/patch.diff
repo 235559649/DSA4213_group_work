@@ -1,0 +1,23 @@
+diff --git a/django/http/response.py b/django/http/response.py
+index 6a84e193ba..5397ac9683 100755
+--- a/django/http/response.py
++++ b/django/http/response.py
+@@ -15,7 +15,7 @@ from django.core.exceptions import DisallowedRedirect
+ from django.core.serializers.json import DjangoJSONEncoder
+ from django.http.cookie import SimpleCookie
+ from django.utils import timezone
+-from django.utils.encoding import iri_to_uri
++from django.utils.encoding import force_bytes, iri_to_uri
+ from django.utils.http import http_date
+ 
+ _charset_from_content_type_re = re.compile(r';\s*charset=(?P<charset>[^\s;]+)', re.I)
+@@ -233,8 +233,7 @@ class HttpResponseBase:
+             return bytes(value)
+         if isinstance(value, str):
+             return bytes(value.encode(self.charset))
+-        # Handle non-string types.
+-        return str(value).encode(self.charset)
++        return force_bytes(value, self.charset)
+ 
+     # These methods partially implement the file-like object interface.
+     # See https://docs.python.org/library/io.html#io.IOBase

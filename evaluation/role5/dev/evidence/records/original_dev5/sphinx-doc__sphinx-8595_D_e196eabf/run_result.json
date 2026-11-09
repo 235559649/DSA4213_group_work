@@ -1,0 +1,106 @@
+{
+  "run_id": "sphinx-doc__sphinx-8595_D_e196eabf",
+  "task_id": "sphinx-doc__sphinx-8595",
+  "condition": "D",
+  "model": "openai/gpt-5.4-mini",
+  "mini_swe_agent_version": "2.4.6",
+  "status": "completed",
+  "termination_reason": "Submitted",
+  "trajectory_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sphinx-doc__sphinx-8595_D_e196eabf/trajectory.json",
+  "patch_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sphinx-doc__sphinx-8595_D_e196eabf/patch.diff",
+  "runtime_seconds": 36.3121497631073,
+  "usage": {
+    "input_tokens": 56505,
+    "output_tokens": 1240,
+    "cached_input_tokens": 46976,
+    "total_tokens": 57745,
+    "api_calls": 8,
+    "cost_usd": 0.016249950000000003
+  },
+  "experiment_id": "dev5_abcd_v1",
+  "protocol_version": "v0.1",
+  "repeat_id": 1,
+  "attempt_id": 1,
+  "planned_run_key": "sphinx-doc__sphinx-8595_D_r1",
+  "config": {
+    "benchmark": "swebench",
+    "split": "test",
+    "instance_id": "sphinx-doc__sphinx-8595",
+    "repo": "sphinx-doc/sphinx",
+    "version": "3.5",
+    "base_commit": "b19bce971e82f2497d67fdacdeca8db08ae0ba56",
+    "model_class": "openrouter",
+    "repository_index": {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "repo": "sphinx-doc/sphinx",
+      "base_commit": "b19bce971e82f2497d67fdacdeca8db08ae0ba56",
+      "index_sha256": "3f254901bffb1bc7ca432ec9460773eef98d6a6218ee3dc0d101b7acc0045ca0",
+      "file_count": 530,
+      "record_count": 7459,
+      "error_count": 0
+    },
+    "localization_source": "rrf_l_s_f",
+    "localization_candidate_count": 530,
+    "localization_full_ranking_size": 530,
+    "localization_top_k": 20,
+    "localization_prompt_candidate_count": 20,
+    "effective_task_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sphinx-doc__sphinx-8595_D_e196eabf/effective_task.txt",
+    "localization_candidates_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sphinx-doc__sphinx-8595_D_e196eabf/localization_candidates.json",
+    "prompt_candidates_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sphinx-doc__sphinx-8595_D_e196eabf/prompt_candidates.json",
+    "usage_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sphinx-doc__sphinx-8595_D_e196eabf/usage.jsonl",
+    "usage_record_count": 8,
+    "timings_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sphinx-doc__sphinx-8595_D_e196eabf/timings.json",
+    "step_limit": 250,
+    "cost_limit": 3.0,
+    "wall_time_limit_seconds": 0,
+    "command_timeout_seconds": 60,
+    "docker_image": "docker.io/swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8595:latest",
+    "failure_feedback": {
+      "max_updates": 3,
+      "context_top_k": 20,
+      "failures_observed": 0,
+      "updates_applied": 0,
+      "localization_overhead_seconds": 1.6756045619986253,
+      "initial_LS_fixed": true,
+      "failure_signal": "single_action_first_eligible_per_decision",
+      "log_directory": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sphinx-doc__sphinx-8595_D_e196eabf/failure_feedback"
+    }
+  },
+  "evaluation": {
+    "agent_run_completed": true,
+    "submission_present": true,
+    "patch_generated": true,
+    "official_swebench_evaluation": {
+      "dataset": "SWE-bench/SWE-bench_Verified",
+      "dataset_revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+      "dataset_split": "test",
+      "experiment_partition": "development",
+      "evaluation_run_id": "dev5-sphinx-doc-sphinx-8595-D-e196eabf",
+      "artifacts": {
+        "report": "evaluation/report.json",
+        "test_output": "evaluation/test_output.txt",
+        "run_instance_log": "evaluation/run_instance.log",
+        "aggregate_report": "evaluation/aggregate_report.json"
+      },
+      "resolved": true,
+      "patch_exists": true,
+      "patch_successfully_applied": true,
+      "infra_failure": false,
+      "FAIL_TO_PASS": {
+        "passed": 1,
+        "failed": 0,
+        "success_tests": [
+          "tests/test_ext_autodoc_automodule.py::test_empty_all"
+        ],
+        "failure_tests": []
+      },
+      "PASS_TO_PASS": {
+        "passed": 0,
+        "failed": 0,
+        "success_tests": [],
+        "failure_tests": []
+      }
+    }
+  },
+  "error": null
+}

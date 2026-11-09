@@ -1,0 +1,5 @@
+{
+  "env_setup_seconds": 0.243,
+  "agent_seconds": 20.216,
+  "env_teardown_seconds": 0.001
+}

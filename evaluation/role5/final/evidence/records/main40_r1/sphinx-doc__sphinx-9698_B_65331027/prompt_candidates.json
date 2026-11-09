@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sphinx/application.py",
+    "rank": 10,
+    "score": 37.9777,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/builders/_epub_base.py",
+    "rank": 11,
+    "score": 37.8731,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/domains/__init__.py",
+    "rank": 13,
+    "score": 35.9099,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/transforms/post_transforms/images.py",
+    "rank": 15,
+    "score": 34.226,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/transforms/__init__.py",
+    "rank": 16,
+    "score": 33.4818,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/autodoc/__init__.py",
+    "rank": 24,
+    "score": 31.4822,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/todo.py",
+    "rank": 29,
+    "score": 30.2065,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/writers/html.py",
+    "rank": 31,
+    "score": 29.9777,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/writers/html5.py",
+    "rank": 32,
+    "score": 29.9777,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/stemmer/porter.py",
+    "rank": 34,
+    "score": 29.6019,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/search/__init__.py",
+    "rank": 37,
+    "score": 29.184,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/napoleon/__init__.py",
+    "rank": 39,
+    "score": 28.8293,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/errors.py",
+    "rank": 40,
+    "score": 28.5881,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/__init__.py",
+    "rank": 42,
+    "score": 27.9037,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/extlinks.py",
+    "rank": 45,
+    "score": 27.6967,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/environment/__init__.py",
+    "rank": 46,
+    "score": 27.6569,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/domains/cpp.py",
+    "rank": 48,
+    "score": 27.0753,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/autosummary/__init__.py",
+    "rank": 50,
+    "score": 26.854,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/locale/__init__.py",
+    "rank": 53,
+    "score": 26.6826,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/napoleon/iterators.py",
+    "rank": 56,
+    "score": 26.5132,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

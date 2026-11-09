@@ -1,0 +1,73 @@
+{
+  "experiment_id": "dev5_abcd_v1",
+  "protocol_version": "v0.1",
+  "experiment_partition": "development",
+  "formal_heldout": false,
+  "dataset": {
+    "id": "SWE-bench/SWE-bench_Verified",
+    "revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "split": "test"
+  },
+  "prepared_from_git_revision": "1ba5fc82ce195a336ed69b58d3309cf9421beb04",
+  "conditions": {
+    "A": "Original SWE-bench issue only",
+    "B": "BM25 lexical localization",
+    "C": "BM25 plus structural localization fused by RRF",
+    "D": "Condition C initial localization plus runtime failure-aware reranking"
+  },
+  "control_variables": {
+    "mini_swe_agent_version": "2.4.6",
+    "model_provider": "openrouter",
+    "model_id": "openai/gpt-5.4-mini",
+    "base_prompt": "Pinned mini-SWE-agent SWE-bench configuration",
+    "network_policy": "Model API network access plus benchmark setup required by the existing runner"
+  },
+  "localization": {
+    "top_k": 20,
+    "rrf_k": 60,
+    "structural_num_seeds": 10,
+    "include_seeds": true,
+    "exclude_test_neighbors": true,
+    "full_ranking_saved": true,
+    "prompt_ranking_saved": true
+  },
+  "failure_feedback": {
+    "max_updates": 3,
+    "initial_LS_fixed": true,
+    "failure_signal": "single_action_first_eligible_per_decision"
+  },
+  "budgets": {
+    "step_limit": 250,
+    "total_token_limit": null,
+    "cost_limit_usd": 3.0,
+    "agent_wall_limit_seconds": null,
+    "command_timeout_seconds": 60,
+    "harness_timeout_seconds": null
+  },
+  "budget_enforcement": {
+    "step_limit": "inherited_from_pinned_mini_swe_agent",
+    "total_token_limit": "not_enforced",
+    "cost_limit_usd": "inherited_from_pinned_mini_swe_agent",
+    "agent_wall_limit_seconds": "not_enforced",
+    "command_timeout_seconds": "inherited_from_pinned_mini_swe_agent",
+    "harness_timeout_seconds": "not_enforced"
+  },
+  "execution": {
+    "repeat_plan": {
+      "main_repeat_id": 1,
+      "repeats_per_condition": 1
+    },
+    "parallelism": 1,
+    "retry_policy": {
+      "allowed": "infrastructure_failure_only",
+      "model_or_agent_failure_is_retryable": false,
+      "new_attempt_id_required": true
+    }
+  },
+  "evaluation": {
+    "official_harness_required": true,
+    "reference_information_visible_to_agent": false,
+    "repair_rule": "official SWE-bench evaluation",
+    "development_results_not_claimed_as_heldout": true
+  }
+}

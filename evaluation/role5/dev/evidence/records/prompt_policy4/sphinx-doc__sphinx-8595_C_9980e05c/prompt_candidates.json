@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sphinx/domains/__init__.py",
+    "rank": 1,
+    "score": 0.0327868852,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/search/__init__.py",
+    "rank": 4,
+    "score": 0.03125,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/addnodes.py",
+    "rank": 9,
+    "score": 0.0289855072,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/ext/autodoc/__init__.py",
+    "rank": 11,
+    "score": 0.0272222222,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/errors.py",
+    "rank": 12,
+    "score": 0.0245011737,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/application.py",
+    "rank": 13,
+    "score": 0.0240564679,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/ext/todo.py",
+    "rank": 14,
+    "score": 0.0236426117,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/environment/__init__.py",
+    "rank": 15,
+    "score": 0.0226582278,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/domains/std.py",
+    "rank": 16,
+    "score": 0.0202821869,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/ext/apidoc.py",
+    "rank": 17,
+    "score": 0.0200277441,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/writers/latex.py",
+    "rank": 18,
+    "score": 0.0196578085,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/project.py",
+    "rank": 19,
+    "score": 0.0193236715,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/domains/python.py",
+    "rank": 20,
+    "score": 0.0191403914,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/util/docfields.py",
+    "rank": 21,
+    "score": 0.0190535271,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/environment/adapters/indexentries.py",
+    "rank": 22,
+    "score": 0.0189625558,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/writers/text.py",
+    "rank": 24,
+    "score": 0.0185263158,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/builders/html/__init__.py",
+    "rank": 25,
+    "score": 0.0183139535,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/transforms/__init__.py",
+    "rank": 26,
+    "score": 0.0182457863,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/domains/javascript.py",
+    "rank": 27,
+    "score": 0.0181749623,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/ext/autodoc/directive.py",
+    "rank": 28,
+    "score": 0.017524707,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  }
+]

@@ -1,0 +1,21 @@
+diff --git a/src/_pytest/logging.py b/src/_pytest/logging.py
+index 11031f2f2..3e4a1baf8 100644
+--- a/src/_pytest/logging.py
++++ b/src/_pytest/logging.py
+@@ -356,6 +356,8 @@ class LogCaptureFixture:
+         for logger_name, level in self._initial_logger_levels.items():
+             logger = logging.getLogger(logger_name)
+             logger.setLevel(level)
++        if hasattr(self, "_initial_handler_level"):
++            self.handler.setLevel(self._initial_handler_level)  # type: ignore[attr-defined]
+ 
+     @property
+     def handler(self) -> LogCaptureHandler:
+@@ -433,6 +435,8 @@ class LogCaptureFixture:
+         logger_obj = logging.getLogger(logger)
+         # save the original log-level to restore it during teardown
+         self._initial_logger_levels.setdefault(logger, logger_obj.level)
++        if not hasattr(self, "_initial_handler_level"):
++            self._initial_handler_level = self.handler.level  # type: ignore[attr-defined]
+         logger_obj.setLevel(level)
+         self.handler.setLevel(level)

@@ -1,0 +1,98 @@
+[
+  {
+    "task_id": "sympy__sympy-21379",
+    "condition": "A",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-21379",
+    "condition": "B",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-21379",
+    "condition": "C",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-21379",
+    "condition": "D",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "django__django-12262",
+    "condition": "A",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "django__django-12262",
+    "condition": "B",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "django__django-12262",
+    "condition": "C",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "django__django-12262",
+    "condition": "D",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "A",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "B",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "C",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "D",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  }
+]

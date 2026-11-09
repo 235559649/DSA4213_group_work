@@ -1,0 +1,118 @@
+{
+  "run_id": "sympy__sympy-17630_C_7d7d5077",
+  "task_id": "sympy__sympy-17630",
+  "condition": "C",
+  "model": "openai/gpt-5.4-mini",
+  "mini_swe_agent_version": "2.4.6",
+  "status": "completed",
+  "termination_reason": "Submitted",
+  "trajectory_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sympy__sympy-17630_C_7d7d5077/trajectory.json",
+  "patch_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sympy__sympy-17630_C_7d7d5077/patch.diff",
+  "runtime_seconds": 24.94871735572815,
+  "usage": {
+    "input_tokens": 63045,
+    "output_tokens": 2222,
+    "cached_input_tokens": 51712,
+    "total_tokens": 65267,
+    "api_calls": 8,
+    "cost_usd": 0.022377150000000002
+  },
+  "experiment_id": "dev5_abcd_v1",
+  "protocol_version": "v0.1",
+  "repeat_id": 1,
+  "attempt_id": 1,
+  "planned_run_key": "sympy__sympy-17630_C_r1",
+  "config": {
+    "benchmark": "swebench",
+    "split": "test",
+    "instance_id": "sympy__sympy-17630",
+    "repo": "sympy/sympy",
+    "version": "1.5",
+    "base_commit": "58e78209c8577b9890e957b624466e5beed7eb08",
+    "model_class": "openrouter",
+    "repository_index": {
+      "instance_id": "sympy__sympy-17630",
+      "repo": "sympy/sympy",
+      "base_commit": "58e78209c8577b9890e957b624466e5beed7eb08",
+      "index_sha256": "be2a017a0866e5b8a42a0e46f9ee09553a27441ffffcc0f3193003ae754f8285",
+      "file_count": 1337,
+      "record_count": 40641,
+      "error_count": 0
+    },
+    "localization_source": "rrf_l_s",
+    "localization_candidate_count": 1337,
+    "localization_full_ranking_size": 1337,
+    "localization_top_k": 20,
+    "localization_prompt_candidate_count": 20,
+    "effective_task_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sympy__sympy-17630_C_7d7d5077/effective_task.txt",
+    "localization_candidates_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sympy__sympy-17630_C_7d7d5077/localization_candidates.json",
+    "prompt_candidates_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sympy__sympy-17630_C_7d7d5077/prompt_candidates.json",
+    "usage_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sympy__sympy-17630_C_7d7d5077/usage.jsonl",
+    "usage_record_count": 8,
+    "timings_path": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/runs/sympy__sympy-17630_C_7d7d5077/timings.json",
+    "step_limit": 250,
+    "cost_limit": 3.0,
+    "wall_time_limit_seconds": 0,
+    "command_timeout_seconds": 60,
+    "docker_image": "docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-17630:latest"
+  },
+  "evaluation": {
+    "agent_run_completed": true,
+    "submission_present": true,
+    "patch_generated": true,
+    "official_swebench_evaluation": {
+      "dataset": "SWE-bench/SWE-bench_Verified",
+      "dataset_revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+      "dataset_split": "test",
+      "experiment_partition": "development",
+      "evaluation_run_id": "dev5-sympy-sympy-17630-C-7d7d5077",
+      "artifacts": {
+        "report": "evaluation/report.json",
+        "test_output": "evaluation/test_output.txt",
+        "run_instance_log": "evaluation/run_instance.log",
+        "aggregate_report": "evaluation/aggregate_report.json"
+      },
+      "resolved": false,
+      "patch_exists": true,
+      "patch_successfully_applied": true,
+      "infra_failure": false,
+      "FAIL_TO_PASS": {
+        "passed": 1,
+        "failed": 1,
+        "success_tests": [
+          "test_issue_17624"
+        ],
+        "failure_tests": [
+          "test_zero_matrix_add"
+        ]
+      },
+      "PASS_TO_PASS": {
+        "passed": 19,
+        "failed": 0,
+        "success_tests": [
+          "test_bc_matmul",
+          "test_bc_matadd",
+          "test_bc_transpose",
+          "test_bc_dist_diag",
+          "test_block_plus_ident",
+          "test_BlockMatrix",
+          "test_block_collapse_explicit_matrices",
+          "test_BlockMatrix_trace",
+          "test_BlockMatrix_Determinant",
+          "test_squareBlockMatrix",
+          "test_BlockDiagMatrix",
+          "test_blockcut",
+          "test_reblock_2x2",
+          "test_deblock",
+          "test_sort_key",
+          "test_matadd_sympify",
+          "test_matadd_of_matrices",
+          "test_doit_args",
+          "test_generic_identity"
+        ],
+        "failure_tests": []
+      }
+    }
+  },
+  "error": null
+}

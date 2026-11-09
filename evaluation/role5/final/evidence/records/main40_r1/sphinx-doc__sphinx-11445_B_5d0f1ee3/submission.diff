@@ -1,0 +1,23 @@
+diff --git a/sphinx/util/rst.py b/sphinx/util/rst.py
+index 7a1538325..d821d548a 100755
+--- a/sphinx/util/rst.py
++++ b/sphinx/util/rst.py
+@@ -90,12 +90,16 @@ def prepend_prolog(content: StringList, prolog: str) -> None:
+             content.insert(pos, '', '<generated>', 0)
+             pos += 1
+ 
++        # Keep a blank line between the prolog and the original body.  This
++        # avoids docutils treating the prolog as part of the first section title
++        # when the title starts with inline markup such as domain roles.
++        content.insert(pos, '', '<generated>', 0)
++        pos += 1
++
+         # insert prolog (after docinfo if exists)
+         for lineno, line in enumerate(prolog.splitlines()):
+             content.insert(pos + lineno, line, '<rst_prolog>', lineno)
+ 
+-        content.insert(pos + lineno + 1, '', '<generated>', 0)
+-
+ 
+ def append_epilog(content: StringList, epilog: str) -> None:
+     """Append a string to content body as epilog."""

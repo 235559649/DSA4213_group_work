@@ -1,0 +1,47 @@
+HttpResponse doesn't handle memoryview objects
+Description
+	
+I am trying to write a BinaryField retrieved from the database into a HttpResponse. When the database is Sqlite this works correctly, but Postgresql returns the contents of the field as a memoryview object and it seems like current Django doesn't like this combination:
+from django.http import HttpResponse																	 
+# String content
+response = HttpResponse("My Content")																			
+response.content																								 
+# Out: b'My Content'
+# This is correct
+# Bytes content
+response = HttpResponse(b"My Content")																		 
+response.content																								 
+# Out: b'My Content'
+# This is also correct
+# memoryview content
+response = HttpResponse(memoryview(b"My Content"))															 
+response.content
+# Out: b'<memory at 0x7fcc47ab2648>'
+# This is not correct, I am expecting b'My Content'
+
+
+----
+Repository localization guidance:
+Additional repository localization hints are provided below.
+These are navigation suggestions only. You may inspect any file in the repository if needed.
+
+1. django/http/response.py | score: 0.0328 | reason: RRF(L,S)
+2. django/templatetags/i18n.py | score: 0.0323 | reason: RRF(L,S)
+3. django/test/testcases.py | score: 0.0317 | reason: RRF(L,S)
+4. django/db/models/functions/text.py | score: 0.0312 | reason: RRF(L,S)
+5. tests/migrations/test_operations.py | score: 0.0308 | reason: RRF(L,S)
+6. django/contrib/gis/gdal/datasource.py | score: 0.0303 | reason: RRF(L,S)
+7. django/db/backends/base/creation.py | score: 0.0299 | reason: RRF(L,S)
+8. django/core/mail/message.py | score: 0.0294 | reason: RRF(L,S)
+9. django/db/models/fields/__init__.py | score: 0.0290 | reason: RRF(L,S)
+10. django/contrib/gis/gdal/feature.py | score: 0.0286 | reason: RRF(L,S)
+11. django/conf/__init__.py | score: 0.0263 | reason: RRF(L,S)
+12. django/utils/encoding.py | score: 0.0250 | reason: RRF(L,S)
+13. django/template/base.py | score: 0.0227 | reason: RRF(L,S)
+14. django/db/migrations/loader.py | score: 0.0215 | reason: RRF(L,S)
+15. django/db/models/query.py | score: 0.0210 | reason: RRF(L,S)
+16. django/utils/http.py | score: 0.0208 | reason: RRF(L,S)
+17. django/db/models/fields/files.py | score: 0.0200 | reason: RRF(L,S)
+18. django/forms/fields.py | score: 0.0197 | reason: RRF(L,S)
+19. django/http/request.py | score: 0.0184 | reason: RRF(L,S)
+20. django/template/defaulttags.py | score: 0.0184 | reason: RRF(L,S)

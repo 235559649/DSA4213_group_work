@@ -1,0 +1,78 @@
+{
+  "run_id": "sympy__sympy-20428_B_1d844ec1",
+  "task_id": "sympy__sympy-20428",
+  "condition": "B",
+  "model": "openai/gpt-5.4-mini",
+  "mini_swe_agent_version": "2.4.6",
+  "status": "completed",
+  "termination_reason": "Submitted",
+  "trajectory_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-20428_B_1d844ec1/trajectory.json",
+  "patch_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-20428_B_1d844ec1/patch.diff",
+  "runtime_seconds": 46.49254393577576,
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "api_calls": 8,
+    "cost_usd": 0.029158949999999996
+  },
+  "config": {
+    "failure_weight": 1.0,
+    "ranking_strategy": "near_exception",
+    "fusion_policy": "weighted_rrf",
+    "k": 60,
+    "feedback_routing_policy": "evidence_increment_v3",
+    "feedback_route_limits": {
+      "rank_update": 3,
+      "edit_recovery": 2,
+      "diagnostic_only": 1
+    },
+    "repair_guidance_version": "disabled",
+    "benchmark": "swebench",
+    "split": "test",
+    "instance_id": "sympy__sympy-20428",
+    "repo": "sympy/sympy",
+    "version": "1.8",
+    "base_commit": "c0e85160406f9bf2bcaa2992138587668a1cd0bc",
+    "model_class": "openrouter",
+    "repository_index": {
+      "instance_id": "sympy__sympy-20428",
+      "repo": "sympy/sympy",
+      "base_commit": "c0e85160406f9bf2bcaa2992138587668a1cd0bc",
+      "index_sha256": "4473f45a287c8b62037f366219391d159a3facf295b8a21b3d17b4c62b1e89e1",
+      "file_count": 1440,
+      "record_count": 43027,
+      "error_count": 0
+    },
+    "localization_source": "bm25",
+    "localization_candidate_count": 1440,
+    "localization_full_ranking_size": 1440,
+    "localization_top_k": 20,
+    "localization_prompt_candidate_count": 20,
+    "localization_prompt_policy": "source_only+related_tests_v1",
+    "localization_related_tests": [
+      "sympy/testing/pytest.py",
+      "bin/test_submodule_imports.py",
+      "sympy/polys/tests/test_polytools.py"
+    ],
+    "effective_task_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-20428_B_1d844ec1/effective_task.txt",
+    "localization_candidates_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-20428_B_1d844ec1/localization_candidates.json",
+    "prompt_candidates_path": "/root/projects/DSA4213_final_20261028/runs/sympy__sympy-20428_B_1d844ec1/prompt_candidates.json",
+    "step_limit": 250,
+    "cost_limit": 3.0,
+    "wall_time_limit_seconds": 0,
+    "command_timeout_seconds": 60,
+    "docker_image": "docker.io/swebench/sweb.eval.x86_64.sympy_1776_sympy-20428:latest",
+    "timing": {
+      "env_setup_seconds": 0.285,
+      "agent_seconds": 46.207,
+      "env_teardown_seconds": 0.001
+    }
+  },
+  "evaluation": {
+    "agent_run_completed": true,
+    "submission_present": true,
+    "patch_generated": true,
+    "official_swebench_evaluation": null
+  },
+  "error": null
+}

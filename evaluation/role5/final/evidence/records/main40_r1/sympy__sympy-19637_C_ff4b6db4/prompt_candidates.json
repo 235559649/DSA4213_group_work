@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/core/sympify.py",
+    "rank": 1,
+    "score": 0.0327868852,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/codegen/ast.py",
+    "rank": 3,
+    "score": 0.0317460317,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/parameters.py",
+    "rank": 4,
+    "score": 0.03125,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/exprtools.py",
+    "rank": 6,
+    "score": 0.0303030303,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/parsing/fortran/fortran_parser.py",
+    "rank": 7,
+    "score": 0.0298507463,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/function.py",
+    "rank": 10,
+    "score": 0.0285714286,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/expr.py",
+    "rank": 11,
+    "score": 0.025463336,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/parsing/sym_expr.py",
+    "rank": 12,
+    "score": 0.0246969697,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/utilities/decorator.py",
+    "rank": 13,
+    "score": 0.0224832639,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/functions/elementary/miscellaneous.py",
+    "rank": 14,
+    "score": 0.0220074523,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/simplify/cse_main.py",
+    "rank": 15,
+    "score": 0.0216374269,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/numbers.py",
+    "rank": 16,
+    "score": 0.0215612561,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/codegen/algorithms.py",
+    "rank": 17,
+    "score": 0.0212698413,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/combinatorics/permutations.py",
+    "rank": 18,
+    "score": 0.0210619665,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/printing/codeprinter.py",
+    "rank": 19,
+    "score": 0.0205450734,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/parsing/c/c_parser.py",
+    "rank": 20,
+    "score": 0.0205322436,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/printing/dot.py",
+    "rank": 21,
+    "score": 0.0201812576,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/core/basic.py",
+    "rank": 22,
+    "score": 0.0199612403,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/codegen/fnodes.py",
+    "rank": 23,
+    "score": 0.0197278912,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sympy/concrete/expr_with_limits.py",
+    "rank": 24,
+    "score": 0.0190904463,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  }
+]

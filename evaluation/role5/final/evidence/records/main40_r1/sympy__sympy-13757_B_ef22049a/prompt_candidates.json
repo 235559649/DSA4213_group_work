@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/matrices/densearith.py",
+    "rank": 1,
+    "score": 41.1253,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/polys/polytools.py",
+    "rank": 2,
+    "score": 40.7503,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/logic/boolalg.py",
+    "rank": 3,
+    "score": 38.5664,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/inequalities.py",
+    "rank": 4,
+    "score": 37.6207,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/quantum/identitysearch.py",
+    "rank": 5,
+    "score": 36.8814,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/solveset.py",
+    "rank": 6,
+    "score": 35.9377,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/expr.py",
+    "rank": 7,
+    "score": 35.7784,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/polys/partfrac.py",
+    "rank": 9,
+    "score": 34.5769,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/external/importtools.py",
+    "rank": 10,
+    "score": 34.5698,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/runtests.py",
+    "rank": 11,
+    "score": 34.4672,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/geometry/ellipse.py",
+    "rank": 12,
+    "score": 34.1619,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/functions/combinatorial/factorials.py",
+    "rank": 13,
+    "score": 33.7443,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/numbers.py",
+    "rank": 14,
+    "score": 33.7263,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/parsing/sympy_parser.py",
+    "rank": 16,
+    "score": 33.5516,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/sets/sets.py",
+    "rank": 17,
+    "score": 33.4869,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/quantum/innerproduct.py",
+    "rank": 18,
+    "score": 33.1777,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/polys/dispersion.py",
+    "rank": 19,
+    "score": 32.7805,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/diophantine.py",
+    "rank": 20,
+    "score": 32.4416,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/stats/rv.py",
+    "rank": 22,
+    "score": 32.3115,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/integrals/intpoly.py",
+    "rank": 23,
+    "score": 32.1322,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

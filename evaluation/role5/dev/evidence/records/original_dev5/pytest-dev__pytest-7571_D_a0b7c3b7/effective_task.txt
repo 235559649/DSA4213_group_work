@@ -1,0 +1,40 @@
+caplog fixture doesn't restore log level after test
+From the documentation at https://docs.pytest.org/en/6.0.0/logging.html#caplog-fixture, "The log levels set are restored automatically at the end of the test".
+It used to work, but looks broken in new 6.0 release. Minimal example to reproduce:
+
+```
+def test_foo(caplog):
+    caplog.set_level(42)
+
+def test_bar(caplog):
+    print(caplog.handler.level)
+```
+
+It prints "0" for pytest<6, "42" after.
+
+
+----
+Repository localization guidance:
+Additional repository localization hints are provided below.
+These are navigation suggestions only. You may inspect any file in the repository if needed.
+
+1. src/_pytest/logging.py | score: 0.0328 | reason: RRF(L,S)
+2. testing/logging/test_fixture.py | score: 0.0323 | reason: RRF(L,S)
+3. src/_pytest/fixtures.py | score: 0.0317 | reason: RRF(L,S)
+4. testing/test_pluginmanager.py | score: 0.0312 | reason: RRF(L,S)
+5. src/_pytest/python.py | score: 0.0308 | reason: RRF(L,S)
+6. testing/test_capture.py | score: 0.0303 | reason: RRF(L,S)
+7. testing/deprecated_test.py | score: 0.0299 | reason: RRF(L,S)
+8. src/_pytest/config/__init__.py | score: 0.0294 | reason: RRF(L,S)
+9. src/_pytest/skipping.py | score: 0.0290 | reason: RRF(L,S)
+10. testing/logging/test_reporting.py | score: 0.0286 | reason: RRF(L,S)
+11. src/_pytest/config/argparsing.py | score: 0.0268 | reason: RRF(L,S)
+12. src/_pytest/capture.py | score: 0.0257 | reason: RRF(L,S)
+13. src/_pytest/mark/structures.py | score: 0.0256 | reason: RRF(L,S)
+14. src/_pytest/store.py | score: 0.0255 | reason: RRF(L,S)
+15. src/_pytest/hookspec.py | score: 0.0247 | reason: RRF(L,S)
+16. src/_pytest/outcomes.py | score: 0.0244 | reason: RRF(L,S)
+17. src/_pytest/pytester.py | score: 0.0241 | reason: RRF(L,S)
+18. src/_pytest/nodes.py | score: 0.0237 | reason: RRF(L,S)
+19. src/_pytest/warnings.py | score: 0.0236 | reason: RRF(L,S)
+20. src/_pytest/pathlib.py | score: 0.0228 | reason: RRF(L,S)

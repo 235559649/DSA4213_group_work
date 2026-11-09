@@ -1,0 +1,50 @@
+2026-10-25 20:25:44,703 - INFO - Creating container for pytest-dev__pytest-7571...
+2026-10-25 20:25:44,745 - INFO - Container for pytest-dev__pytest-7571 created: 8dac414bc5dfa2743b05cfac1b56b5371c768f5c890c74c600e98c6cf54c3465
+2026-10-25 20:25:44,834 - INFO - Container for pytest-dev__pytest-7571 started: 8dac414bc5dfa2743b05cfac1b56b5371c768f5c890c74c600e98c6cf54c3465
+2026-10-25 20:25:44,834 - INFO - Intermediate patch for pytest-dev__pytest-7571 written to logs/evaluation/dev5-pytest7571-A-b2fdd0bd/pytest-dev__pytest-7571_A_b2fdd0bd/pytest-dev__pytest-7571/patch.diff, now applying to container...
+2026-10-25 20:25:44,911 - INFO - Failed to apply patch to container: git apply --verbose
+2026-10-25 20:25:45,025 - INFO - Failed to apply patch to container: git apply --verbose --3way
+2026-10-25 20:25:45,125 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-10-25 20:25:45,202 - INFO - >>>>> Applied Patch:
+patching file src/_pytest/logging.py
+patch unexpectedly ends in middle of line
+Hunk #1 succeeded at 433 with fuzz 2.
+
+2026-10-25 20:25:45,240 - INFO - Git diff before:
+diff --git a/src/_pytest/logging.py b/src/_pytest/logging.py
+index 11031f2f2..4822acb62 100644
+--- a/src/_pytest/logging.py
++++ b/src/_pytest/logging.py
+@@ -433,6 +433,9 @@ class LogCaptureFixture:
+         logger_obj = logging.getLogger(logger)
+         # save the original log-level to restore it during teardown
+         self._initial_logger_levels.setdefault(logger, logger_obj.level)
++        self._initial_logger_levels.setdefault(
++            "_pytest.caplog_handler", self.handler.level
++        )
+         logger_obj.setLevel(level)
+         self.handler.setLevel(level)
+2026-10-25 20:25:45,240 - INFO - Eval script for pytest-dev__pytest-7571 written to logs/evaluation/dev5-pytest7571-A-b2fdd0bd/pytest-dev__pytest-7571_A_b2fdd0bd/pytest-dev__pytest-7571/eval.sh; copying to container...
+2026-10-25 20:25:48,845 - INFO - Test runtime: 3.57 seconds
+2026-10-25 20:25:48,845 - INFO - Test output for pytest-dev__pytest-7571 written to logs/evaluation/dev5-pytest7571-A-b2fdd0bd/pytest-dev__pytest-7571_A_b2fdd0bd/pytest-dev__pytest-7571/test_output.txt
+2026-10-25 20:25:48,883 - INFO - Git diff after:
+diff --git a/src/_pytest/logging.py b/src/_pytest/logging.py
+index 11031f2f2..4822acb62 100644
+--- a/src/_pytest/logging.py
++++ b/src/_pytest/logging.py
+@@ -433,6 +433,9 @@ class LogCaptureFixture:
+         logger_obj = logging.getLogger(logger)
+         # save the original log-level to restore it during teardown
+         self._initial_logger_levels.setdefault(logger, logger_obj.level)
++        self._initial_logger_levels.setdefault(
++            "_pytest.caplog_handler", self.handler.level
++        )
+         logger_obj.setLevel(level)
+         self.handler.setLevel(level)
+2026-10-25 20:25:48,883 - INFO - Grading answer for pytest-dev__pytest-7571...
+2026-10-25 20:25:48,884 - INFO - report: {'pytest-dev__pytest-7571': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['testing/logging/test_fixture.py::test_change_level_undos_handler_level']}, 'PASS_TO_PASS': {'success': ['testing/logging/test_fixture.py::test_change_level', 'testing/logging/test_fixture.py::test_with_statement', 'testing/logging/test_fixture.py::test_log_access', 'testing/logging/test_fixture.py::test_messages', 'testing/logging/test_fixture.py::test_record_tuples', 'testing/logging/test_fixture.py::test_unicode', 'testing/logging/test_fixture.py::test_clear', 'testing/logging/test_fixture.py::test_caplog_captures_for_all_stages', 'testing/logging/test_fixture.py::test_fixture_help', 'testing/logging/test_fixture.py::test_change_level_undo', 'testing/logging/test_fixture.py::test_ini_controls_global_log_level', 'testing/logging/test_fixture.py::test_caplog_can_override_global_log_level', 'testing/logging/test_fixture.py::test_caplog_captures_despite_exception', 'testing/logging/test_fixture.py::test_log_report_captures_according_to_config_option_upon_failure'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pytest-dev__pytest-7571: resolved: False
+2026-10-25 20:25:48,885 - INFO - Attempting to stop container sweb.eval.pytest-dev__pytest-7571.dev5-pytest7571-A-b2fdd0bd...
+2026-10-25 20:26:04,117 - INFO - Container sweb.eval.pytest-dev__pytest-7571.dev5-pytest7571-A-b2fdd0bd stopped successfully.
+2026-10-25 20:26:04,117 - INFO - Attempting to remove container sweb.eval.pytest-dev__pytest-7571.dev5-pytest7571-A-b2fdd0bd...
+2026-10-25 20:26:04,147 - INFO - Container sweb.eval.pytest-dev__pytest-7571.dev5-pytest7571-A-b2fdd0bd removed successfully.

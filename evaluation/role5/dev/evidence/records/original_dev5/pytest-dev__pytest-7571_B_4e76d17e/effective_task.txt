@@ -1,0 +1,40 @@
+caplog fixture doesn't restore log level after test
+From the documentation at https://docs.pytest.org/en/6.0.0/logging.html#caplog-fixture, "The log levels set are restored automatically at the end of the test".
+It used to work, but looks broken in new 6.0 release. Minimal example to reproduce:
+
+```
+def test_foo(caplog):
+    caplog.set_level(42)
+
+def test_bar(caplog):
+    print(caplog.handler.level)
+```
+
+It prints "0" for pytest<6, "42" after.
+
+
+----
+Repository localization guidance:
+Additional repository localization hints are provided below.
+These are navigation suggestions only. You may inspect any file in the repository if needed.
+
+1. src/_pytest/logging.py | score: 61.6254 | reason: BM25
+2. testing/logging/test_fixture.py | score: 55.6072 | reason: BM25
+3. src/_pytest/fixtures.py | score: 45.4723 | reason: BM25
+4. testing/test_pluginmanager.py | score: 40.8360 | reason: BM25
+5. src/_pytest/python.py | score: 39.4510 | reason: BM25
+6. testing/test_capture.py | score: 39.0776 | reason: BM25
+7. testing/deprecated_test.py | score: 37.7215 | reason: BM25
+8. src/_pytest/config/__init__.py | score: 37.4432 | reason: BM25
+9. src/_pytest/skipping.py | score: 36.7608 | reason: BM25
+10. testing/logging/test_reporting.py | score: 35.6809 | reason: BM25
+11. src/_pytest/warnings.py | score: 35.6338 | reason: BM25
+12. scripts/publish-gh-release-notes.py | score: 33.3891 | reason: BM25
+13. src/_pytest/mark/structures.py | score: 32.0859 | reason: BM25
+14. src/_pytest/config/argparsing.py | score: 31.8356 | reason: BM25
+15. scripts/release-on-comment.py | score: 30.3622 | reason: BM25
+16. src/_pytest/hookspec.py | score: 29.9581 | reason: BM25
+17. src/_pytest/python_api.py | score: 29.0007 | reason: BM25
+18. src/_pytest/store.py | score: 27.8769 | reason: BM25
+19. src/_pytest/outcomes.py | score: 27.6960 | reason: BM25
+20. src/_pytest/assertion/rewrite.py | score: 27.3470 | reason: BM25

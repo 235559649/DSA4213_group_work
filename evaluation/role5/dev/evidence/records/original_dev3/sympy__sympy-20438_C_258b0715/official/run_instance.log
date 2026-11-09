@@ -1,0 +1,108 @@
+2026-10-26 15:10:32,061 - INFO - Creating container for sympy__sympy-20438...
+2026-10-26 15:10:32,112 - INFO - Container for sympy__sympy-20438 created: 3906b438e52eacc9114b7e8174838777879ce45caef78e9569fc982558e17312
+2026-10-26 15:10:32,207 - INFO - Container for sympy__sympy-20438 started: 3906b438e52eacc9114b7e8174838777879ce45caef78e9569fc982558e17312
+2026-10-26 15:10:32,208 - INFO - Intermediate patch for sympy__sympy-20438 written to logs/evaluation/dev3-sympy-sympy-20438-C-258b0715/sympy__sympy-20438_C_258b0715/sympy__sympy-20438/patch.diff, now applying to container...
+2026-10-26 15:10:32,281 - INFO - Failed to apply patch to container: git apply --verbose
+2026-10-26 15:10:32,597 - INFO - Failed to apply patch to container: git apply --verbose --3way
+2026-10-26 15:10:32,857 - INFO - Failed to apply patch to container: git apply --verbose --reject
+2026-10-26 15:10:33,160 - INFO - >>>>> Applied Patch:
+patching file sympy/sets/sets.py
+patch unexpectedly ends in middle of line
+Hunk #2 succeeded at 881 with fuzz 1.
+
+2026-10-26 15:10:33,198 - INFO - Git diff before:
+diff --git a/sympy/sets/sets.py b/sympy/sets/sets.py
+index 3c4aa86e36..3e6e2418f3 100644
+--- a/sympy/sets/sets.py
++++ b/sympy/sets/sets.py
+@@ -410,6 +410,22 @@ def issubset(self, other):
+         """
+         return self.is_subset(other)
+ 
++    def equals(self, other, failing_expression=False):
++        if other == 0:
++            return self is S.EmptySet
++        if not isinstance(other, Set):
++            return False
++        if self == other:
++            return True
++        a = self.is_subset(other)
++        if a is False:
++            return False
++        b = other.is_subset(self)
++        if b is False:
++            return False
++        if a is True and b is True:
++            return True
++
+     def is_proper_subset(self, other):
+         """
+         Returns True if ``self`` is a proper subset of ``other``.
+@@ -865,6 +881,14 @@ def __len__(self):
+     def __bool__(self):
+         return all([bool(s) for s in self.sets])
+ 
++    def _eval_is_subset(self, other):
++        if isinstance(other, ProductSet):
++            if len(self.sets) != len(other.sets):
++                return False
++            return fuzzy_and(s.is_subset(o) for s, o in zip(self.sets, other.sets))
++        if isinstance(other, FiniteSet) and self.is_finite_set:
++            return fuzzy_and(other._contains(e) for e in self)
++
+ 
+ class Interval(Set, EvalfMixin):
+     """
+2026-10-26 15:10:33,198 - INFO - Eval script for sympy__sympy-20438 written to logs/evaluation/dev3-sympy-sympy-20438-C-258b0715/sympy__sympy-20438_C_258b0715/sympy__sympy-20438/eval.sh; copying to container...
+2026-10-26 15:10:59,042 - INFO - Test runtime: 25.81 seconds
+2026-10-26 15:10:59,042 - INFO - Test output for sympy__sympy-20438 written to logs/evaluation/dev3-sympy-sympy-20438-C-258b0715/sympy__sympy-20438_C_258b0715/sympy__sympy-20438/test_output.txt
+2026-10-26 15:10:59,081 - INFO - Git diff after:
+diff --git a/sympy/sets/sets.py b/sympy/sets/sets.py
+index 3c4aa86e36..3e6e2418f3 100644
+--- a/sympy/sets/sets.py
++++ b/sympy/sets/sets.py
+@@ -410,6 +410,22 @@ def issubset(self, other):
+         """
+         return self.is_subset(other)
+ 
++    def equals(self, other, failing_expression=False):
++        if other == 0:
++            return self is S.EmptySet
++        if not isinstance(other, Set):
++            return False
++        if self == other:
++            return True
++        a = self.is_subset(other)
++        if a is False:
++            return False
++        b = other.is_subset(self)
++        if b is False:
++            return False
++        if a is True and b is True:
++            return True
++
+     def is_proper_subset(self, other):
+         """
+         Returns True if ``self`` is a proper subset of ``other``.
+@@ -865,6 +881,14 @@ def __len__(self):
+     def __bool__(self):
+         return all([bool(s) for s in self.sets])
+ 
++    def _eval_is_subset(self, other):
++        if isinstance(other, ProductSet):
++            if len(self.sets) != len(other.sets):
++                return False
++            return fuzzy_and(s.is_subset(o) for s, o in zip(self.sets, other.sets))
++        if isinstance(other, FiniteSet) and self.is_finite_set:
++            return fuzzy_and(other._contains(e) for e in self)
++
+ 
+ class Interval(Set, EvalfMixin):
+     """
+2026-10-26 15:10:59,081 - INFO - Grading answer for sympy__sympy-20438...
+2026-10-26 15:10:59,082 - INFO - report: {'sympy__sympy-20438': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_Eq', 'test_issue_19378']}, 'PASS_TO_PASS': {'success': ['test_imageset', 'test_is_empty', 'test_is_finiteset', 'test_deprecated_is_EmptySet', 'test_interval_arguments', 'test_interval_symbolic_end_points', 'test_interval_is_empty', 'test_union', 'test_union_iter', 'test_union_is_empty', 'test_difference', 'test_Complement', 'test_set_operations_nonsets', 'test_complement', 'test_intersect1', 'test_intersection', 'test_issue_9623', 'test_is_disjoint', 'test_ProductSet__len__', 'test_ProductSet', 'test_ProductSet_of_single_arg_is_not_arg', 'test_ProductSet_is_empty', 'test_interval_subs', 'test_interval_to_mpi', 'test_set_evalf', 'test_measure', 'test_is_subset', 'test_is_proper_subset', 'test_is_superset', 'test_is_proper_superset', 'test_contains', 'test_interval_symbolic', 'test_union_contains', 'test_is_number', 'test_Interval_is_left_unbounded', 'test_Interval_is_right_unbounded', 'test_Interval_as_relational', 'test_Finite_as_relational', 'test_Union_as_relational', 'test_Intersection_as_relational', 'test_Complement_as_relational', 'test_SymmetricDifference_as_relational', 'test_EmptySet', 'test_finite_basic', 'test_product_basic', 'test_real', 'test_supinf', 'test_universalset', 'test_Union_of_ProductSets_shares', 'test_Interval_free_symbols', 'test_image_interval', 'test_image_piecewise', 'test_image_FiniteSet', 'test_image_Union', 'test_image_EmptySet', 'test_issue_5724_7680', 'test_boundary', 'test_boundary_Union', 'test_boundary_ProductSet', 'test_boundary_ProductSet_line', 'test_is_open', 'test_is_closed', 'test_closure', 'test_interior', 'test_issue_7841', 'test_SymmetricDifference', 'test_issue_9536', 'test_issue_9637', 'test_issue_9808', 'test_issue_9956', 'test_issue_Symbol_inter', 'test_issue_11827', 'test_issue_10113', 'test_issue_10248', 'test_issue_9447', 'test_issue_10337', 'test_issue_10326', 'test_issue_2799', 'test_issue_9706', 'test_issue_8257', 'test_issue_10931', 'test_issue_11174', 'test_issue_18505', 'test_finite_set_intersection', 'test_union_intersection_constructor', 'test_Union_contains', 'test_DisjointUnion', 'test_DisjointUnion_is_empty', 'test_DisjointUnion_is_iterable', 'test_DisjointUnion_contains', 'test_DisjointUnion_iter', 'test_DisjointUnion_len', 'test_issue_20089'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sympy__sympy-20438: resolved: False
+2026-10-26 15:10:59,082 - INFO - Attempting to stop container sweb.eval.sympy__sympy-20438.dev3-sympy-sympy-20438-C-258b0715...
+2026-10-26 15:11:14,284 - INFO - Container sweb.eval.sympy__sympy-20438.dev3-sympy-sympy-20438-C-258b0715 stopped successfully.
+2026-10-26 15:11:14,284 - INFO - Attempting to remove container sweb.eval.sympy__sympy-20438.dev3-sympy-sympy-20438-C-258b0715...
+2026-10-26 15:11:14,331 - INFO - Container sweb.eval.sympy__sympy-20438.dev3-sympy-sympy-20438-C-258b0715 removed successfully.

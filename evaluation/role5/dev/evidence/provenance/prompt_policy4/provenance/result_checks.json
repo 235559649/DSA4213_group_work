@@ -1,0 +1,130 @@
+[
+  {
+    "task_id": "sphinx-doc__sphinx-8595",
+    "condition": "A",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-8595",
+    "condition": "B",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-8595",
+    "condition": "C",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-8595",
+    "condition": "D",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-17630",
+    "condition": "A",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-17630",
+    "condition": "B",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-17630",
+    "condition": "C",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-17630",
+    "condition": "D",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-23262",
+    "condition": "A",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-23262",
+    "condition": "B",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-23262",
+    "condition": "C",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-23262",
+    "condition": "D",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "A",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "B",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "C",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "condition": "D",
+    "cost_matches_usage": true,
+    "feedback_counts_match_events": true,
+    "common_prompt_verified": true,
+    "package_lock_matches": true
+  }
+]

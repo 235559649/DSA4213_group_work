@@ -1,0 +1,162 @@
+[
+  {
+    "file": "django/__main__.py",
+    "rank": 1,
+    "score": 50.1587,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/utils/autoreload.py",
+    "rank": 5,
+    "score": 39.526,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/files/temp.py",
+    "rank": 6,
+    "score": 39.091,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/utils/module_loading.py",
+    "rank": 8,
+    "score": 38.0014,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/auth/password_validation.py",
+    "rank": 10,
+    "score": 35.0461,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/files/locks.py",
+    "rank": 12,
+    "score": 34.7463,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/auth/backends.py",
+    "rank": 14,
+    "score": 33.9993,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/templatetags/i18n.py",
+    "rank": 15,
+    "score": 33.7963,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/middleware/cache.py",
+    "rank": 16,
+    "score": 33.7706,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/cache/__init__.py",
+    "rank": 17,
+    "score": 33.6607,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/management/__init__.py",
+    "rank": 18,
+    "score": 33.5603,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/template/loader_tags.py",
+    "rank": 21,
+    "score": 33.3577,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/gis/geoip2/__init__.py",
+    "rank": 22,
+    "score": 33.1179,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/gis/measure.py",
+    "rank": 23,
+    "score": 32.7976,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/template/backends/django.py",
+    "rank": 24,
+    "score": 32.7263,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/gis/gdal/datasource.py",
+    "rank": 26,
+    "score": 32.1293,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/backends/mysql/base.py",
+    "rank": 27,
+    "score": 31.9535,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/sql/query.py",
+    "rank": 28,
+    "score": 31.9349,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/admindocs/views.py",
+    "rank": 29,
+    "score": 31.5357,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/staticfiles/storage.py",
+    "rank": 30,
+    "score": 31.4107,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

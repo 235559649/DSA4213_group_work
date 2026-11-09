@@ -1,0 +1,107 @@
+[
+  {
+    "task_id": "django__django-12262",
+    "run_id": "django__django-12262_D_6fa50936",
+    "status": "completed",
+    "termination_reason": "Submitted",
+    "runtime_seconds": 49.143991231918335,
+    "api_calls": 13,
+    "cost_usd": 0.03758265,
+    "failures_observed": 2,
+    "updates_applied": 1,
+    "patch_present": true,
+    "official_resolved": false,
+    "run_result_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/django__django-12262_D_6fa50936/run_result.json",
+    "patch_successfully_applied": true,
+    "infra_failure": false,
+    "official_report_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/evaluation/logs/evaluation/personal-d-feedback-20261027/personal_d_11dd3fa_20261027/django__django-12262/report.json",
+    "test_counts": {
+      "FAIL_TO_PASS": {
+        "passed": 3,
+        "failed": 1
+      },
+      "PASS_TO_PASS": {
+        "passed": 18,
+        "failed": 0
+      },
+      "FAIL_TO_FAIL": {
+        "passed": 0,
+        "failed": 0
+      },
+      "PASS_TO_FAIL": {
+        "passed": 0,
+        "failed": 0
+      }
+    }
+  },
+  {
+    "task_id": "sympy__sympy-20438",
+    "run_id": "sympy__sympy-20438_D_9f878f69",
+    "status": "completed",
+    "termination_reason": "Submitted",
+    "runtime_seconds": 73.35453844070435,
+    "api_calls": 16,
+    "cost_usd": 0.052770300000000006,
+    "failures_observed": 1,
+    "updates_applied": 1,
+    "patch_present": true,
+    "official_resolved": false,
+    "run_result_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/sympy__sympy-20438_D_9f878f69/run_result.json",
+    "patch_successfully_applied": true,
+    "infra_failure": false,
+    "official_report_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/evaluation/logs/evaluation/personal-d-feedback-20261027/personal_d_11dd3fa_20261027/sympy__sympy-20438/report.json",
+    "test_counts": {
+      "FAIL_TO_PASS": {
+        "passed": 0,
+        "failed": 2
+      },
+      "PASS_TO_PASS": {
+        "passed": 92,
+        "failed": 1
+      },
+      "FAIL_TO_FAIL": {
+        "passed": 0,
+        "failed": 0
+      },
+      "PASS_TO_FAIL": {
+        "passed": 0,
+        "failed": 0
+      }
+    }
+  },
+  {
+    "task_id": "sympy__sympy-21379",
+    "run_id": "sympy__sympy-21379_D_4da3cd9f",
+    "status": "completed",
+    "termination_reason": "Submitted",
+    "runtime_seconds": 87.9942672252655,
+    "api_calls": 15,
+    "cost_usd": 0.0453036,
+    "failures_observed": 5,
+    "updates_applied": 2,
+    "patch_present": true,
+    "official_resolved": true,
+    "run_result_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/runs/sympy__sympy-21379_D_4da3cd9f/run_result.json",
+    "patch_successfully_applied": true,
+    "infra_failure": false,
+    "official_report_path": "/root/projects/DSA4213_group_work/personal_trials/d_feedback_rerun_20261027/evaluation/logs/evaluation/personal-d-feedback-20261027/personal_d_11dd3fa_20261027/sympy__sympy-21379/report.json",
+    "test_counts": {
+      "FAIL_TO_PASS": {
+        "passed": 1,
+        "failed": 0
+      },
+      "PASS_TO_PASS": {
+        "passed": 91,
+        "failed": 0
+      },
+      "FAIL_TO_FAIL": {
+        "passed": 0,
+        "failed": 0
+      },
+      "PASS_TO_FAIL": {
+        "passed": 0,
+        "failed": 0
+      }
+    }
+  }
+]

@@ -1,0 +1,79 @@
+{
+  "created_at": "2026-10-28T10:56:00+00:00",
+  "swebench_version": "5.0.2",
+  "dataset_name": "/root/projects/DSA4213_final_20261028/role5_eval/dataset/swebench_verified_78f471bf_test.parquet",
+  "split": "test",
+  "prefix": "supp-partial",
+  "work_dir": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial",
+  "patch_source": "file",
+  "batches": [
+    {
+      "harness_run_id": "supp-partial-r1-A",
+      "model_name_or_path": "supp-partial_r1_A",
+      "round": 1,
+      "condition": "A",
+      "instances": 1
+    },
+    {
+      "harness_run_id": "supp-partial-r1-B",
+      "model_name_or_path": "supp-partial_r1_B",
+      "round": 1,
+      "condition": "B",
+      "instances": 1
+    }
+  ],
+  "evaluations": {
+    "sympy__sympy-21930_A_39af80e5": {
+      "harness_run_id": "supp-partial-r1-A",
+      "patch_source": "file",
+      "patch_source_path": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/supp_patches/sympy__sympy-21930_A_39af80e5.diff",
+      "patch_sha256": "2dd07347fa1021670d7e2565303b0bfbe2eb9b808df77e19bc44acd3648fcd25",
+      "log_dir": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial/logs/evaluation/supp-partial-r1-A/supp-partial_r1_A/sympy__sympy-21930",
+      "report_path": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial/logs/evaluation/supp-partial-r1-A/supp-partial_r1_A/sympy__sympy-21930/report.json",
+      "resolved": false,
+      "evaluated_patch_sha256": "2dd07347fa1021670d7e2565303b0bfbe2eb9b808df77e19bc44acd3648fcd25",
+      "patch_applied": true,
+      "status": "evaluated",
+      "history": [
+        {
+          "harness_run_id": "supp-partial-r1-A",
+          "patch_source": "file",
+          "patch_source_path": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/supp_patches/sympy__sympy-21930_A_39af80e5.diff",
+          "patch_sha256": "2dd07347fa1021670d7e2565303b0bfbe2eb9b808df77e19bc44acd3648fcd25",
+          "log_dir": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial/logs/evaluation/supp-partial-r1-A/supp-partial_r1_A/sympy__sympy-21930",
+          "report_path": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial/logs/evaluation/supp-partial-r1-A/supp-partial_r1_A/sympy__sympy-21930/report.json",
+          "resolved": false,
+          "evaluated_patch_sha256": "2dd07347fa1021670d7e2565303b0bfbe2eb9b808df77e19bc44acd3648fcd25",
+          "patch_applied": true,
+          "status": "evaluated"
+        }
+      ]
+    },
+    "sympy__sympy-13757_B_ef22049a": {
+      "harness_run_id": "supp-partial-r1-B",
+      "patch_source": "file",
+      "patch_source_path": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/supp_patches/sympy__sympy-13757_B_ef22049a.diff",
+      "patch_sha256": "070faef33a3959a3e3982494e47f552db3cb96ffecd3084fa922533a6011f349",
+      "log_dir": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial/logs/evaluation/supp-partial-r1-B/supp-partial_r1_B/sympy__sympy-13757",
+      "report_path": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial/logs/evaluation/supp-partial-r1-B/supp-partial_r1_B/sympy__sympy-13757/report.json",
+      "resolved": true,
+      "evaluated_patch_sha256": "070faef33a3959a3e3982494e47f552db3cb96ffecd3084fa922533a6011f349",
+      "patch_applied": true,
+      "status": "evaluated",
+      "history": [
+        {
+          "harness_run_id": "supp-partial-r1-B",
+          "patch_source": "file",
+          "patch_source_path": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/supp_patches/sympy__sympy-13757_B_ef22049a.diff",
+          "patch_sha256": "070faef33a3959a3e3982494e47f552db3cb96ffecd3084fa922533a6011f349",
+          "log_dir": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial/logs/evaluation/supp-partial-r1-B/supp-partial_r1_B/sympy__sympy-13757",
+          "report_path": "/root/projects/DSA4213_final_20261028/role5_eval/submission_correction/work/supp-partial/logs/evaluation/supp-partial-r1-B/supp-partial_r1_B/sympy__sympy-13757/report.json",
+          "resolved": true,
+          "evaluated_patch_sha256": "070faef33a3959a3e3982494e47f552db3cb96ffecd3084fa922533a6011f349",
+          "patch_applied": true,
+          "status": "evaluated"
+        }
+      ]
+    }
+  }
+}

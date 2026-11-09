@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sphinx/application.py",
+    "rank": 1,
+    "score": 0.0327868852,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/cmd/build.py",
+    "rank": 2,
+    "score": 0.0322580645,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/cmd/quickstart.py",
+    "rank": 3,
+    "score": 0.0317460317,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/ext/extlinks.py",
+    "rank": 6,
+    "score": 0.0303030303,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/directives/__init__.py",
+    "rank": 7,
+    "score": 0.0298507463,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/util/exceptions.py",
+    "rank": 8,
+    "score": 0.0294117647,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/search/__init__.py",
+    "rank": 9,
+    "score": 0.0289855072,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/ext/apidoc.py",
+    "rank": 11,
+    "score": 0.0263888889,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/util/rst.py",
+    "rank": 12,
+    "score": 0.0243938498,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/util/__init__.py",
+    "rank": 13,
+    "score": 0.0232962913,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/domains/__init__.py",
+    "rank": 14,
+    "score": 0.0225592179,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/environment/__init__.py",
+    "rank": 15,
+    "score": 0.0224466891,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/addnodes.py",
+    "rank": 16,
+    "score": 0.0222332016,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/domains/cpp.py",
+    "rank": 17,
+    "score": 0.0221001221,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/ext/autodoc/__init__.py",
+    "rank": 18,
+    "score": 0.0219990435,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/config.py",
+    "rank": 19,
+    "score": 0.0217569306,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/ext/napoleon/__init__.py",
+    "rank": 20,
+    "score": 0.0211096375,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/domains/python.py",
+    "rank": 21,
+    "score": 0.020989011,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/cmd/make_mode.py",
+    "rank": 22,
+    "score": 0.0209670518,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "sphinx/ext/inheritance_diagram.py",
+    "rank": 23,
+    "score": 0.0208874459,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  }
+]

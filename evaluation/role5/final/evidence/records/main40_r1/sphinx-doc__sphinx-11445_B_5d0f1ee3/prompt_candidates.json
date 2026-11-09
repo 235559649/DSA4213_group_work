@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sphinx/application.py",
+    "rank": 1,
+    "score": 69.6292,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/cmd/build.py",
+    "rank": 2,
+    "score": 69.079,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/cmd/quickstart.py",
+    "rank": 3,
+    "score": 65.2662,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/extlinks.py",
+    "rank": 6,
+    "score": 56.992,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/directives/__init__.py",
+    "rank": 7,
+    "score": 55.0883,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/exceptions.py",
+    "rank": 8,
+    "score": 53.9977,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/search/__init__.py",
+    "rank": 9,
+    "score": 52.6378,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/apidoc.py",
+    "rank": 12,
+    "score": 49.9694,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/rst.py",
+    "rank": 16,
+    "score": 48.9268,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/docfields.py",
+    "rank": 17,
+    "score": 46.8801,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/domains/__init__.py",
+    "rank": 19,
+    "score": 46.1242,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/environment/__init__.py",
+    "rank": 21,
+    "score": 45.1303,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/autodoc/__init__.py",
+    "rank": 22,
+    "score": 45.0986,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/config.py",
+    "rank": 23,
+    "score": 45.0562,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/environment/adapters/toctree.py",
+    "rank": 24,
+    "score": 45.0107,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/napoleon/__init__.py",
+    "rank": 27,
+    "score": 44.4704,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/ext/inheritance_diagram.py",
+    "rank": 28,
+    "score": 44.4263,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/domains/cpp.py",
+    "rank": 31,
+    "score": 43.9993,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/addnodes.py",
+    "rank": 32,
+    "score": 43.6243,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sphinx/util/__init__.py",
+    "rank": 37,
+    "score": 42.0299,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

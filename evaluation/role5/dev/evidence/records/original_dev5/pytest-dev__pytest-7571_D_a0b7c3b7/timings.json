@@ -1,0 +1,28 @@
+{
+  "run_id": "pytest-dev__pytest-7571_D_a0b7c3b7",
+  "agent_wall_seconds": 14.065344095999535,
+  "legacy_runtime_seconds": 13.98657774925232,
+  "human_wait_seconds": 0,
+  "setup_seconds": null,
+  "indexing_seconds": 0.07799235499987844,
+  "ranking_seconds": null,
+  "localization_overhead_seconds": 1.0987123470004008,
+  "harness_seconds": 21.78,
+  "timing_scope": {
+    "agent_wall_seconds": "From SWEbenchRunner.run() after condition normalization through Docker cleanup. Includes task loading, repository index access, localization setup, environment setup, agent execution, runtime feedback, and cleanup.",
+    "legacy_runtime_seconds": "Existing Role 1 runtime measurement starting immediately before agent/environment setup.",
+    "indexing_seconds": "Time spent obtaining repository index metadata via build_task_index.",
+    "localization_overhead_seconds": "Condition D FailureFeedbackController localization overhead when available.",
+    "harness_seconds": "Wall-clock duration measured by /usr/bin/time around the fresh official SWE-bench Harness evaluation."
+  },
+  "measurement_status": {
+    "agent_wall_seconds": "measured",
+    "legacy_runtime_seconds": "measured",
+    "indexing_seconds": "measured",
+    "setup_seconds": "not_separately_measured",
+    "ranking_seconds": "not_separately_measured",
+    "human_wait_seconds": "assumed_zero_unattended_run",
+    "harness_seconds": "measured"
+  },
+  "harness_timing_run_id": "dev5-pytest7571-D-a0b7c3b7"
+}

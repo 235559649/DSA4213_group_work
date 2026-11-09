@@ -1,0 +1,162 @@
+[
+  {
+    "file": "src/_pytest/capture.py",
+    "rank": 1,
+    "score": 29.5447,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/pathlib.py",
+    "rank": 2,
+    "score": 25.7636,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "scripts/release-on-comment.py",
+    "rank": 3,
+    "score": 25.069,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/config/argparsing.py",
+    "rank": 4,
+    "score": 24.5549,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/doctest.py",
+    "rank": 7,
+    "score": 22.9614,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/warning_types.py",
+    "rank": 9,
+    "score": 22.1924,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/mark/expression.py",
+    "rank": 10,
+    "score": 21.94,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/assertion/rewrite.py",
+    "rank": 11,
+    "score": 21.8589,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/faulthandler.py",
+    "rank": 12,
+    "score": 21.7114,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/config/__init__.py",
+    "rank": 13,
+    "score": 21.465,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/python.py",
+    "rank": 16,
+    "score": 21.2097,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/mark/structures.py",
+    "rank": 19,
+    "score": 20.844,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/hookspec.py",
+    "rank": 20,
+    "score": 20.4027,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/skipping.py",
+    "rank": 21,
+    "score": 19.7203,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/python_api.py",
+    "rank": 22,
+    "score": 19.6692,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/outcomes.py",
+    "rank": 26,
+    "score": 18.5658,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "extra/get_issues.py",
+    "rank": 27,
+    "score": 17.7013,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/fixtures.py",
+    "rank": 29,
+    "score": 17.5981,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/main.py",
+    "rank": 31,
+    "score": 17.1673,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "src/_pytest/mark/__init__.py",
+    "rank": 32,
+    "score": 17.1337,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

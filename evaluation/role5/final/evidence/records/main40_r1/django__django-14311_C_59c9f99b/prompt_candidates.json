@@ -1,0 +1,162 @@
+[
+  {
+    "file": "django/__main__.py",
+    "rank": 1,
+    "score": 0.0327868852,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/utils/autoreload.py",
+    "rank": 5,
+    "score": 0.0307692308,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/core/files/temp.py",
+    "rank": 6,
+    "score": 0.0303030303,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/utils/module_loading.py",
+    "rank": 8,
+    "score": 0.0294117647,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/contrib/auth/password_validation.py",
+    "rank": 10,
+    "score": 0.0285714286,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/core/management/__init__.py",
+    "rank": 11,
+    "score": 0.0269050199,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/contrib/staticfiles/storage.py",
+    "rank": 12,
+    "score": 0.0224747475,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/utils/datastructures.py",
+    "rank": 13,
+    "score": 0.0223423423,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/core/cache/__init__.py",
+    "rank": 14,
+    "score": 0.0223328074,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/core/files/storage.py",
+    "rank": 15,
+    "score": 0.0218521143,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/apps/registry.py",
+    "rank": 16,
+    "score": 0.0210323105,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/template/defaultfilters.py",
+    "rank": 17,
+    "score": 0.0206456456,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/conf/__init__.py",
+    "rank": 18,
+    "score": 0.019044437,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/apps/config.py",
+    "rank": 19,
+    "score": 0.017133275,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/core/management/commands/makemessages.py",
+    "rank": 20,
+    "score": 0.0170221935,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/core/signing.py",
+    "rank": 21,
+    "score": 0.015977033,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/db/transaction.py",
+    "rank": 22,
+    "score": 0.0159529362,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/contrib/staticfiles/finders.py",
+    "rank": 23,
+    "score": 0.0157958125,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/contrib/auth/forms.py",
+    "rank": 24,
+    "score": 0.0152684024,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  },
+  {
+    "file": "django/dispatch/__init__.py",
+    "rank": 25,
+    "score": 0.0152211515,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF"
+  }
+]

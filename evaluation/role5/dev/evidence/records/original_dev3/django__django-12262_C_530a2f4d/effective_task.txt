@@ -1,0 +1,48 @@
+Custom template tags raise TemplateSyntaxError when keyword-only arguments with defaults are provided.
+Description
+	 
+		(last modified by P-Seebauer)
+	 
+When creating simple tags without variable keyword args, but an keyword argument with a default value. It's not possible to supply any other variable.
+@register.simple_tag
+def hello(*, greeting='hello'):
+	return f'{greeting} world'
+{% hello greeting='hi' %}
+Raises “'hello' received unexpected keyword argument 'greeting'”
+Also supplying a keyword argument a second time raises the wrong error message:
+#tag
+@register.simple_tag
+def hi(*, greeting):
+	return f'{greeting} world'
+{% hi greeting='hi' greeting='hello' %}
+Raises “'hi' received unexpected keyword argument 'greeting'”
+instead of "'hi' received multiple values for keyword argument 'greeting'"
+Same goes for inclusion tags (is the same code) I already have a fix ready, will push it after creating the ticket (that I have a ticket# for the commit).
+Is actually for all versions since the offending line is from 2.0…
+
+
+----
+Repository localization guidance:
+Additional repository localization hints are provided below.
+These are navigation suggestions only. You may inspect any file in the repository if needed.
+
+1. django/template/library.py | score: 0.0328 | reason: RRF
+2. tests/template_tests/test_custom.py | score: 0.0323 | reason: RRF
+3. django/templatetags/i18n.py | score: 0.0317 | reason: RRF
+4. django/template/defaulttags.py | score: 0.0312 | reason: RRF
+5. django/template/loader_tags.py | score: 0.0308 | reason: RRF
+6. tests/generic_views/test_base.py | score: 0.0303 | reason: RRF
+7. django/db/backends/base/schema.py | score: 0.0299 | reason: RRF
+8. django/template/base.py | score: 0.0294 | reason: RRF
+9. django/contrib/gis/utils/layermapping.py | score: 0.0290 | reason: RRF
+10. django/dispatch/dispatcher.py | score: 0.0286 | reason: RRF
+11. django/template/defaultfilters.py | score: 0.0260 | reason: RRF
+12. django/template/engine.py | score: 0.0257 | reason: RRF
+13. django/utils/timezone.py | score: 0.0256 | reason: RRF
+14. django/db/transaction.py | score: 0.0244 | reason: RRF
+15. django/utils/translation/__init__.py | score: 0.0221 | reason: RRF
+16. django/template/context.py | score: 0.0216 | reason: RRF
+17. django/utils/regex_helper.py | score: 0.0211 | reason: RRF
+18. django/template/exceptions.py | score: 0.0205 | reason: RRF
+19. django/utils/inspect.py | score: 0.0196 | reason: RRF
+20. django/utils/html.py | score: 0.0195 | reason: RRF

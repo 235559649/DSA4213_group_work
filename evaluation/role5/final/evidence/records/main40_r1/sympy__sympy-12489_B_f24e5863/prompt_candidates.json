@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/core/singleton.py",
+    "rank": 1,
+    "score": 90.0864,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/printing/printer.py",
+    "rank": 2,
+    "score": 85.3835,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/permutations.py",
+    "rank": 3,
+    "score": 82.0827,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/liealgebras/root_system.py",
+    "rank": 4,
+    "score": 80.3553,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/quantum/operatorset.py",
+    "rank": 5,
+    "score": 77.8813,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/operations.py",
+    "rank": 6,
+    "score": 77.2689,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/lambdify.py",
+    "rank": 7,
+    "score": 74.2516,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/solvers.py",
+    "rank": 8,
+    "score": 72.8956,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/exceptions.py",
+    "rank": 9,
+    "score": 72.066,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/sympify.py",
+    "rank": 10,
+    "score": 70.4539,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/quantum/represent.py",
+    "rank": 11,
+    "score": 70.3467,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/quantum/qexpr.py",
+    "rank": 12,
+    "score": 70.1803,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/basic.py",
+    "rank": 13,
+    "score": 69.7213,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/codegen.py",
+    "rank": 14,
+    "score": 69.6031,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/tensor/indexed.py",
+    "rank": 15,
+    "score": 68.8985,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/compatibility.py",
+    "rank": 16,
+    "score": 68.8757,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/logic/boolalg.py",
+    "rank": 17,
+    "score": 68.4117,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/sets/sets.py",
+    "rank": 18,
+    "score": 68.2389,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/utilities/enumerative.py",
+    "rank": 19,
+    "score": 68.1861,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/pde.py",
+    "rank": 20,
+    "score": 68.0006,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

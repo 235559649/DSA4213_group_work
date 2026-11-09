@@ -1,0 +1,80 @@
+autodoc: empty __all__ attribute is ignored
+**Describe the bug**
+autodoc: empty `__all__` attribute is ignored
+
+**To Reproduce**
+```
+# example.py
+__all__ = []
+
+
+def foo():
+    "docstring"
+
+
+def bar():
+    "docstring"
+
+
+def baz():
+    "docstring"
+```
+```
+# index.rst
+.. automodule:: example
+   :members:
+```
+
+All foo, bar, and baz are shown.
+
+**Expected behavior**
+No entries should be shown because `__all__` is empty.
+
+**Your project**
+No
+
+**Screenshots**
+No
+
+**Environment info**
+- OS: Mac
+- Python version: 3.9.1
+- Sphinx version: HEAD of 3.x
+- Sphinx extensions: sphinx.ext.autodoc
+- Extra tools: No
+
+**Additional context**
+No
+
+
+----
+Repository localization guidance:
+Additional repository localization hints are provided below.
+These are navigation suggestions only. You may inspect any file in the repository if needed.
+Inspect plausible implementation candidates before editing; explain evidence-based departures from the ranking.
+
+1. sphinx/domains/__init__.py | score: 35.9422 | reason: BM25
+4. sphinx/search/__init__.py | score: 32.8377 | reason: BM25
+9. sphinx/addnodes.py | score: 31.3007 | reason: BM25
+11. sphinx/errors.py | score: 31.2077 | reason: BM25
+12. sphinx/ext/autodoc/__init__.py | score: 30.2545 | reason: BM25
+15. sphinx/ext/todo.py | score: 29.2942 | reason: BM25
+16. sphinx/ext/napoleon/__init__.py | score: 29.2314 | reason: BM25
+19. sphinx/ext/extlinks.py | score: 28.4173 | reason: BM25
+21. sphinx/util/inventory.py | score: 28.0028 | reason: BM25
+22. sphinx/ext/napoleon/iterators.py | score: 27.6267 | reason: BM25
+23. sphinx/parsers.py | score: 27.6088 | reason: BM25
+25. sphinx/util/stemmer/porter.py | score: 27.5036 | reason: BM25
+29. sphinx/application.py | score: 26.6199 | reason: BM25
+31. sphinx/util/docfields.py | score: 26.2667 | reason: BM25
+35. sphinx/writers/text.py | score: 25.4464 | reason: BM25
+36. sphinx/util/osutil.py | score: 25.4357 | reason: BM25
+37. sphinx/transforms/__init__.py | score: 25.2686 | reason: BM25
+38. sphinx/config.py | score: 25.0944 | reason: BM25
+39. sphinx/setup_command.py | score: 24.8342 | reason: BM25
+40. sphinx/environment/__init__.py | score: 24.8024 | reason: BM25
+
+Possibly relevant existing tests (from the same ranking):
+- tests/test_ext_autodoc.py
+- tests/test_environment_indexentries.py
+- tests/test_project.py

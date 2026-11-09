@@ -1,0 +1,162 @@
+[
+  {
+    "file": "django/core/files/temp.py",
+    "rank": 1,
+    "score": 68.8364,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/files/uploadedfile.py",
+    "rank": 3,
+    "score": 57.6693,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/files/storage.py",
+    "rank": 4,
+    "score": 54.1464,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/sql/query.py",
+    "rank": 6,
+    "score": 53.8162,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/sessions/backends/file.py",
+    "rank": 7,
+    "score": 53.2228,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/fields/files.py",
+    "rank": 8,
+    "score": 52.8815,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/transaction.py",
+    "rank": 9,
+    "score": 52.8015,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/admin/options.py",
+    "rank": 12,
+    "score": 50.8179,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/utils/encoding.py",
+    "rank": 13,
+    "score": 49.4988,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/cache/__init__.py",
+    "rank": 14,
+    "score": 49.3213,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/auth/models.py",
+    "rank": 15,
+    "score": 49.1843,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/migrations/loader.py",
+    "rank": 16,
+    "score": 49.0223,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/utils/archive.py",
+    "rank": 17,
+    "score": 48.8088,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/db/models/fields/__init__.py",
+    "rank": 18,
+    "score": 48.2372,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/contrib/auth/hashers.py",
+    "rank": 19,
+    "score": 47.7703,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/files/move.py",
+    "rank": 20,
+    "score": 47.7384,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/core/mail/backends/base.py",
+    "rank": 22,
+    "score": 46.9936,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/middleware/cache.py",
+    "rank": 25,
+    "score": 46.4127,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/utils/functional.py",
+    "rank": 26,
+    "score": 46.0859,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "django/forms/widgets.py",
+    "rank": 27,
+    "score": 45.9406,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]

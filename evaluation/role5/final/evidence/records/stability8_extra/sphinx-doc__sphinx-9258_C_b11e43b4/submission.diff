@@ -1,0 +1,38 @@
+diff --git a/sphinx/util/docfields.py b/sphinx/util/docfields.py
+index 6d48e910c..b37e29947 100644
+--- a/sphinx/util/docfields.py
++++ b/sphinx/util/docfields.py
+@@ -171,6 +171,23 @@ class TypedField(GroupedField):
+ 
+     def make_field(self, types: Dict[str, List[Node]], domain: str,
+                    items: Tuple, env: BuildEnvironment = None) -> nodes.field:
++        def make_type_xrefs(typename: str) -> List[Node]:
++            text = typename.strip()
++            if '|' not in text:
++                return self.make_xrefs(self.typerolename, domain, text,
++                                       addnodes.literal_emphasis, env=env)
++
++            nodes_list: List[Node] = []
++            for i, part in enumerate(text.split('|')):
++                part = part.strip()
++                if not part:
++                    continue
++                if i > 0:
++                    nodes_list.append(nodes.Text(' | '))
++                nodes_list.extend(self.make_xrefs(self.typerolename, domain, part,
++                                                  addnodes.literal_emphasis, env=env))
++            return nodes_list
++
+         def handle_item(fieldarg: str, content: str) -> nodes.paragraph:
+             par = nodes.paragraph()
+             par.extend(self.make_xrefs(self.rolename, domain, fieldarg,
+@@ -183,8 +200,7 @@ class TypedField(GroupedField):
+                 fieldtype = types.pop(fieldarg)
+                 if len(fieldtype) == 1 and isinstance(fieldtype[0], nodes.Text):
+                     typename = fieldtype[0].astext()
+-                    par.extend(self.make_xrefs(self.typerolename, domain, typename,
+-                                               addnodes.literal_emphasis, env=env))
++                    par.extend(make_type_xrefs(typename))
+                 else:
+                     par += fieldtype
+                 par += nodes.Text(')')

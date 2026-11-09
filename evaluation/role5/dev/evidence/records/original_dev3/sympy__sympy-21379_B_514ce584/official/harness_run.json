@@ -1,0 +1,6 @@
+{
+  "dataset": "/root/projects/DSA4213_group_work/experiments/dev5_abcd_v1/evaluation_dataset/swebench_verified_78f471bf_test.parquet",
+  "split": "test",
+  "task_repo": null,
+  "created_at": "2026-10-26T07:12:40+00:00"
+}

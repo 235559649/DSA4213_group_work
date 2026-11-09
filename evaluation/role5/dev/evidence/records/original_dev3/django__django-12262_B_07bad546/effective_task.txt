@@ -1,0 +1,48 @@
+Custom template tags raise TemplateSyntaxError when keyword-only arguments with defaults are provided.
+Description
+	 
+		(last modified by P-Seebauer)
+	 
+When creating simple tags without variable keyword args, but an keyword argument with a default value. It's not possible to supply any other variable.
+@register.simple_tag
+def hello(*, greeting='hello'):
+	return f'{greeting} world'
+{% hello greeting='hi' %}
+Raises “'hello' received unexpected keyword argument 'greeting'”
+Also supplying a keyword argument a second time raises the wrong error message:
+#tag
+@register.simple_tag
+def hi(*, greeting):
+	return f'{greeting} world'
+{% hi greeting='hi' greeting='hello' %}
+Raises “'hi' received unexpected keyword argument 'greeting'”
+instead of "'hi' received multiple values for keyword argument 'greeting'"
+Same goes for inclusion tags (is the same code) I already have a fix ready, will push it after creating the ticket (that I have a ticket# for the commit).
+Is actually for all versions since the offending line is from 2.0…
+
+
+----
+Repository localization guidance:
+Additional repository localization hints are provided below.
+These are navigation suggestions only. You may inspect any file in the repository if needed.
+
+1. django/template/library.py | score: 68.2752 | reason: BM25
+2. tests/template_tests/test_custom.py | score: 66.3999 | reason: BM25
+3. django/templatetags/i18n.py | score: 53.5855 | reason: BM25
+4. django/template/defaulttags.py | score: 52.8687 | reason: BM25
+5. django/template/loader_tags.py | score: 51.3164 | reason: BM25
+6. tests/generic_views/test_base.py | score: 49.1346 | reason: BM25
+7. django/db/backends/base/schema.py | score: 48.7976 | reason: BM25
+8. django/template/base.py | score: 46.6666 | reason: BM25
+9. django/contrib/gis/utils/layermapping.py | score: 46.2110 | reason: BM25
+10. django/dispatch/dispatcher.py | score: 45.9412 | reason: BM25
+11. django/contrib/flatpages/templatetags/flatpages.py | score: 45.2616 | reason: BM25
+12. django/contrib/gis/utils/srs.py | score: 45.0741 | reason: BM25
+13. django/utils/timezone.py | score: 44.9834 | reason: BM25
+14. tests/one_to_one/tests.py | score: 44.6622 | reason: BM25
+15. django/views/generic/base.py | score: 44.5804 | reason: BM25
+16. django/db/transaction.py | score: 44.3784 | reason: BM25
+17. django/contrib/auth/password_validation.py | score: 43.9495 | reason: BM25
+18. django/apps/registry.py | score: 43.8271 | reason: BM25
+19. django/contrib/admin/templatetags/log.py | score: 43.8059 | reason: BM25
+20. django/template/engine.py | score: 43.5756 | reason: BM25

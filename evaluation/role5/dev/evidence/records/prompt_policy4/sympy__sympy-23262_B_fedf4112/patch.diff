@@ -1,0 +1,17 @@
+diff --git a/sympy/printing/pycode.py b/sympy/printing/pycode.py
+index 1877c3f92a..ebeb163101 100755
+--- a/sympy/printing/pycode.py
++++ b/sympy/printing/pycode.py
+@@ -541,6 +541,13 @@ def _print_Indexed(self, expr):
+         index = expr.args[1:]
+         return "{}[{}]".format(str(base), ", ".join([self._print(ind) for ind in index]))
+ 
++
++    def _print_Tuple(self, expr):
++        args = ', '.join(map(self._print, expr.args))
++        if len(expr.args) == 1:
++            args += ','
++        return '(%s)' % args
++
+     def _print_Pow(self, expr, rational=False):
+         return self._hprint_Pow(expr, rational=rational)

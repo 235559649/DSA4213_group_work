@@ -1,0 +1,162 @@
+[
+  {
+    "file": "src/_pytest/compat.py",
+    "rank": 2,
+    "score": 0.0322580645,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/deprecated.py",
+    "rank": 3,
+    "score": 0.0317460317,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/pytester.py",
+    "rank": 4,
+    "score": 0.03125,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/python_api.py",
+    "rank": 5,
+    "score": 0.0307692308,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/_code/code.py",
+    "rank": 7,
+    "score": 0.0298507463,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/outcomes.py",
+    "rank": 8,
+    "score": 0.0294117647,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/assertion/rewrite.py",
+    "rank": 10,
+    "score": 0.0285714286,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/config/argparsing.py",
+    "rank": 11,
+    "score": 0.0251956182,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/python.py",
+    "rank": 12,
+    "score": 0.0249226006,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/store.py",
+    "rank": 13,
+    "score": 0.0246246246,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/hookspec.py",
+    "rank": 14,
+    "score": 0.0245481928,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/capture.py",
+    "rank": 15,
+    "score": 0.0245025245,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/reports.py",
+    "rank": 16,
+    "score": 0.0241152968,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/fixtures.py",
+    "rank": 17,
+    "score": 0.0237397012,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/tmpdir.py",
+    "rank": 18,
+    "score": 0.023690078,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/config/__init__.py",
+    "rank": 19,
+    "score": 0.0232346833,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/nodes.py",
+    "rank": 20,
+    "score": 0.0231297912,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/mark/structures.py",
+    "rank": 21,
+    "score": 0.0230748945,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/pathlib.py",
+    "rank": 22,
+    "score": 0.0228937729,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  },
+  {
+    "file": "src/_pytest/junitxml.py",
+    "rank": 23,
+    "score": 0.0220289855,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "RRF(L,S)"
+  }
+]

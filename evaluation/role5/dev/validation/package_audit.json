@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-28",
+  "distribution": "slim",
+  "original_file_count_verified_unchanged": 1074,
+  "synthetic_tests_passed": 30,
+  "evidence_tests_skipped_without_archive": 5,
+  "evidence_tests_passed_with_archive": 5,
+  "archive_evidence_files_verified": 1044,
+  "small_record_files_byte_identical": 709,
+  "omitted_files_archived": 239,
+  "recomputed_files_byte_identical": [
+    "analysis.json",
+    "comparisons.csv",
+    "condition_summary.csv",
+    "d_timing.csv",
+    "feedback_events.csv",
+    "run_summary.csv"
+  ],
+  "authored_links_checked": 1177,
+  "archive_link_anchors_checked": 250,
+  "archive_bytes": 7966259,
+  "archive_sha256": "2ef9db0992edefe0606c32987862956dabad4f7b7275b93294cc1b6d2face388",
+  "attempts": 76,
+  "selected_runs": 63,
+  "unique_tasks": 8,
+  "uploaded": false
+}

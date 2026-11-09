@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "<stdin>", line 8, in <module>
+  File "/testbed/sympy/core/basic.py", line 1672, in simplify
+b.is_subset(c)= True
+c.is_subset(b)= True
+    return simplify(self, **kwargs)
+  File "/testbed/sympy/simplify/simplify.py", line 578, in simplify
+    return _eval_simplify(**kwargs)
+  File "/testbed/sympy/core/relational.py", line 562, in _eval_simplify
+    e = super()._eval_simplify(**kwargs)
+  File "/testbed/sympy/core/relational.py", line 314, in _eval_simplify
+    elif dif.equals(0):  # XXX this is expensive
+AttributeError: 'EmptySet' object has no attribute 'equals'

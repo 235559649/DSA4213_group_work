@@ -1,0 +1,62 @@
+Unexpected `PolynomialError` when using simple `subs()` for particular expressions
+I am seeing weird behavior with `subs` for particular expressions with hyperbolic sinusoids with piecewise arguments. When applying `subs`, I obtain an unexpected `PolynomialError`. For context, I was umbrella-applying a casting from int to float of all int atoms for a bunch of random expressions before using a tensorflow lambdify to avoid potential tensorflow type errors. You can pretend the expression below has a `+ 1` at the end, but below is the MWE that I could produce.
+
+See the expression below, and the conditions in which the exception arises.
+
+Sympy version: 1.8.dev
+
+```python
+from sympy import *
+from sympy.core.cache import clear_cache
+
+x, y, z = symbols('x y z')
+
+clear_cache()
+expr = exp(sinh(Piecewise((x, y > x), (y, True)) / z))
+# This works fine
+expr.subs({1: 1.0})
+
+clear_cache()
+x, y, z = symbols('x y z', real=True)
+expr = exp(sinh(Piecewise((x, y > x), (y, True)) / z))
+# This fails with "PolynomialError: Piecewise generators do not make sense"
+expr.subs({1: 1.0})  # error
+# Now run it again (isympy...) w/o clearing cache and everything works as expected without error
+expr.subs({1: 1.0})
+```
+
+I am not really sure where the issue is, but I think it has something to do with the order of assumptions in this specific type of expression. Here is what I found-
+
+- The error only (AFAIK) happens with `cosh` or `tanh` in place of `sinh`, otherwise it succeeds
+- The error goes away if removing the division by `z`
+- The error goes away if removing `exp` (but stays for most unary functions, `sin`, `log`, etc.)
+- The error only happens with real symbols for `x` and `y` (`z` does not have to be real)
+
+Not too sure how to debug this one.
+
+
+----
+Repository localization guidance:
+Additional repository localization hints are provided below.
+These are navigation suggestions only. You may inspect any file in the repository if needed.
+
+1. sympy/core/sympify.py | score: 106.8071 | reason: BM25
+2. isympy.py | score: 99.9897 | reason: BM25
+3. sympy/core/expr.py | score: 97.5077 | reason: BM25
+4. sympy/core/assumptions.py | score: 97.4627 | reason: BM25
+5. sympy/integrals/risch.py | score: 97.0844 | reason: BM25
+6. sympy/simplify/powsimp.py | score: 96.6046 | reason: BM25
+7. sympy/core/basic.py | score: 95.2811 | reason: BM25
+8. sympy/core/function.py | score: 93.0802 | reason: BM25
+9. sympy/integrals/integrals.py | score: 89.3157 | reason: BM25
+10. sympy/utilities/lambdify.py | score: 89.2483 | reason: BM25
+11. bin/test_submodule_imports.py | score: 87.4697 | reason: BM25
+12. sympy/simplify/simplify.py | score: 87.1491 | reason: BM25
+13. sympy/solvers/ode/subscheck.py | score: 87.1405 | reason: BM25
+14. examples/advanced/autowrap_integrators.py | score: 86.6309 | reason: BM25
+15. sympy/utilities/autowrap.py | score: 86.0935 | reason: BM25
+16. sympy/assumptions/assume.py | score: 85.6009 | reason: BM25
+17. sympy/logic/boolalg.py | score: 85.5705 | reason: BM25
+18. sympy/tensor/indexed.py | score: 85.4696 | reason: BM25
+19. sympy/printing/glsl.py | score: 85.4639 | reason: BM25
+20. sympy/core/singleton.py | score: 84.7267 | reason: BM25

@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sympy/combinatorics/homomorphisms.py",
+    "rank": 1,
+    "score": 92.6333,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/fp_groups.py",
+    "rank": 2,
+    "score": 71.1381,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/perm_groups.py",
+    "rank": 3,
+    "score": 61.488,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/pc_groups.py",
+    "rank": 5,
+    "score": 49.8532,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/testutil.py",
+    "rank": 6,
+    "score": 48.9164,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/tensor_can.py",
+    "rank": 7,
+    "score": 48.3305,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/polys/agca/homomorphisms.py",
+    "rank": 8,
+    "score": 47.0145,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/assumptions.py",
+    "rank": 11,
+    "score": 43.7063,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/series/approximants.py",
+    "rank": 12,
+    "score": 43.1728,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/solvers/solveset.py",
+    "rank": 14,
+    "score": 42.7034,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/core/power.py",
+    "rank": 15,
+    "score": 42.4492,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/stats/rv.py",
+    "rank": 16,
+    "score": 42.3886,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/simplify/powsimp.py",
+    "rank": 18,
+    "score": 42.2903,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/combinatorics/coset_table.py",
+    "rank": 19,
+    "score": 41.9535,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/integrals/risch.py",
+    "rank": 21,
+    "score": 41.4992,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/physics/units/__init__.py",
+    "rank": 22,
+    "score": 41.4218,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/diffgeom/diffgeom.py",
+    "rank": 23,
+    "score": 41.1266,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/polys/numberfields/modules.py",
+    "rank": 24,
+    "score": 41.0056,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/series/gruntz.py",
+    "rank": 25,
+    "score": 40.7567,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  },
+  {
+    "file": "sympy/functions/special/gamma_functions.py",
+    "rank": 26,
+    "score": 40.6588,
+    "symbol": null,
+    "symbol_type": null,
+    "reason": "BM25"
+  }
+]
