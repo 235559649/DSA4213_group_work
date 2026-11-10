@@ -163,9 +163,106 @@ Solved in all 3 rounds (/8) & 3 & 4 & 4 & 5 \\
 \end{minipage}\par\medskip
 
 \subsection*{A.6 Failure-feedback details and case studies}
-% Owner 4: slide 23 table (events / runs / feedback / re-rank / resolved by repo and pattern)
-% and the two A8 case studies (django-16950 for structure, sympy-18189 for feedback).
-\todo{Failure-feedback breakdown table and case studies.}
+
+\paragraph{Primary failure coding.}
+Table~\ref{tab:failures} preserves the presentation's mutually exclusive primary-cause
+labels, assigned after reading failed patches against the official fix. These labels
+are qualitative diagnoses, not the official test-outcome groups in Section 5.
+
+\begin{table}[h]
+\centering\small
+\caption{Main cause of the 71 unresolved main-round runs, assigned by reading each failed
+patch against the official fix. No environment failures (F5) occurred.}
+\label{tab:failures}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Failure class & \condA & \condB & \condC & \condD & All \\
+\midrule
+F1 never opened the reference file       & 2 & 3 & 3 & 3 & 11 \\
+F2 opened it, misdiagnosed the cause     & 7 & 8 & 7 & 7 & 29 \\
+F3 right location, incomplete fix        & 6 & 3 & 3 & 6 & 18 \\
+F4 target fixed, existing tests broken   & 5 & 3 & 2 & 3 & 13 \\
+\midrule
+Unresolved                               & 20 & 17 & 15 & 19 & 71 \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Owner 4. Evidence: presentation slides 15, 23 and 26.
+\begin{table}[htbp]
+\centering\small
+\caption{Main-round \condD{} feedback (presentation slide 23). Events count failures;
+the next three columns count runs. Rerank concerns the first delivered feedback.
+Repository and outcome-pattern groupings partition the same 40 tasks separately.}
+\label{tab:feedback-breakdown}
+\begin{tabular}{@{}lrrrrc@{}}
+\toprule
+Subset & Events & Runs with event & Runs fed & Rerank & Resolved/fed \\
+\midrule
+All & 52 & 23 & 10 & 5 & 5/10 \\
+\midrule
+Django & 8 & 6 & 2 & 0 & 0/2 \\
+SymPy & 30 & 11 & 5 & 5 & 4/5 \\
+Sphinx & 5 & 3 & 1 & 0 & 0/1 \\
+pytest & 9 & 3 & 2 & 0 & 1/2 \\
+\midrule
+All four solved & 26 & 10 & 5 & 4 & 5/5 \\
+Swing & 4 & 3 & 1 & 0 & 0/1 \\
+None solved & 22 & 10 & 4 & 1 & 0/4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The 15 messages reached ten runs; 37 of 52 candidate events were withheld. A run can
+generate multiple events and receive multiple messages. Among runs with feedback, nine had the same
+repair outcome as \condC{} and one was \condC{}-only (\texttt{django-14311}, diagnostic
+note only). Among the 30 runs without feedback, 27 matched \condC{} and three were
+\condC{}-only. Receipt of feedback is selected by the agent's trajectory, not randomized,
+so neither comparison estimates a causal effect. Setup-related candidate events can be
+filtered out even though no final unresolved run was assigned F5.
+
+
+Of 37 withheld events, 12 had unclear source locations; weak signal, printed source,
+route limits and environment errors accounted for five each, and other reasons for five.
+
+\begin{samepage}
+\paragraph{Failure case: \texttt{django-13590}.}
+Named tuples passed to \texttt{\_\_range} crashed after a Django 3.0 upgrade. All conditions
+edited the same line in \texttt{django/db/models/sql/query.py} as the official fix.
+Expanding resolved elements as positional arguments to \texttt{type(value)} repaired the
+named-tuple case but broke ordinary \texttt{list} and \texttt{tuple} construction, leaving
+140--144 of 145 existing tests passing. This was coded F4 for every condition despite
+successful file and line localization.
+
+\end{samepage}
+\begin{samepage}
+\paragraph{Structure case: \texttt{django-16950}.}
+The issue concerned an admin inline formset ignoring a UUIDField default. Structural
+fusion moved \texttt{django/forms/models.py} from rank 35 in $L$ (outside \condB{}'s hint)
+to 19 in \condC{} (inside). \condC{} opened it at model call 1 rather than \condB{}'s
+call 2, using about 62k versus 127k tokens; both resolved the task. \condA{} and \condD{}
+also reached the file but broke three inline-default tests (F4). This supports a concrete
+navigation improvement while leaving the downstream patch-quality mechanism unresolved.
+
+\end{samepage}
+\paragraph{Feedback case: \texttt{sympy-18189}.}
+The issue reported incomplete \texttt{diophantine()} results depending on symbol order
+with \texttt{permute=True}. After an agent edit, execution produced the following
+traceback excerpt (intermediate frames omitted; presentation slide 15):
+\begin{quote}\small\ttfamily\raggedright
+File "sympy/solvers/diophantine.py", line 185\\
+\hspace*{1em}[Previous line repeated 989 more times]\\
+File "sympy/core/expr.py", line 126, \_\_eq\_\_\\
+File "sympy/core/sympify.py", line 265\\
+RecursionError: maximum recursion depth exceeded
+\end{quote}
+Fusion promoted \texttt{diophantine.py} from rank 2 to 1; the deepest-frame file,
+\texttt{sympify.py}, remained outside the hint. Traceback proximity does not establish
+the root cause of the original defect.
+\condD{} resolved the task, as did \condA{}--\condC{}, so the rank improvement did not
+demonstrate an additional repair. Among the other four first-feedback reranks,
+\texttt{sympy-20428}'s first reference file stayed at rank 341 (F3), while the other three
+stayed at rank 1 and resolved. The online pipeline had no reference-file labels; these
+before/after comparisons were made only during offline evaluation.
 
 \subsection*{A.7 Results by repository}
 Gains do not follow ranking quality. SymPy has by far the best initial rankings

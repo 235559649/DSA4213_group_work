@@ -40,11 +40,25 @@ localization hint, and \condD{} reranks it when a failure yields usable evidence
 \todo{Prompt policy (3--4 sentences).}
 
 \subsection*{4.4 Failure-aware refinement (Condition D)}
-% Owner 4. Source: slide 6. Wrap env.execute() and model.query().
-% Pipeline: detect (exit status) -> parse (frames, exception, failing tests) -> map frames to index
-% entities (index refreshed with edited files) -> rank F (nearest-to-exception first, 1/rank)
-% -> RRF(L,S,F), w=1 -> short evidence note before next model call.
-% Usability rules: >=1 frame maps to indexed source entity; setup errors never rerank;
-% tests-only -> diagnostic note; stale workspace -> skipped; identical evidence not re-sent.
-% Routing caps per run: rank_update 3, edit_recovery 2, diagnostic_only 1.
-\todo{Failure-aware pipeline + usability rules (could be a 5-step list or pseudocode).}
+% Owner 4. PPT slides 6--7.
+Condition \condD{} wraps \texttt{env.execute()} to capture failed commands and
+\texttt{model.query()} to deliver evidence before the next decision. It extracts traceback
+frames, exceptions and failing tests, refreshes edited files in the index, and maps lines
+to entities. Distinct source files in the terminal traceback form $F$, nearest the exception
+first, with scores $1/r_F(f)$. Fusion uses
+\[
+ s_D(f)=\frac{1}{60+r_L(f)}
+       +\frac{1}{60+r_S(f)}
+       +\frac{1}{60+r_F(f)}.
+\]
+Missing entries contribute zero.
+Initial $L$ and $S$ remain fixed, and \condD{} starts with \condC{}'s ranking.
+
+Usable indexed source frames permit \texttt{rank\_update} (at most three deliveries per run).
+An agent-introduced syntax error in previously parseable code triggers \texttt{edit\_recovery}
+(two); exceptions or tests without usable frames permit \texttt{diagnostic\_only} (one).
+Recovery and diagnostic notes preserve the ranking. Setup errors never rerank; stale
+workspace evidence and duplicate context are skipped. A short evidence increment and any
+fused-rank changes precede the next model call, with limits charged only on delivery.
+Proximity is not a root-cause verdict; reference patches and evaluation labels are never
+online inputs.
