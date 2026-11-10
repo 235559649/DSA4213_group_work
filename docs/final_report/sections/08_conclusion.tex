@@ -1,11 +1,12 @@
 % =====================================================================
 % Owner: editor (3)   Budget: ~0.2 page   Source: slide 16
+% Draft interpretation follows main's provisional Sections 5--6; verify after their finalization.
 % =====================================================================
 \section*{8. Conclusion}
 
-% 3 findings + 1 take-home (slide 16):
-% 1. No hint hurt repair; C resolved most with fewest regressions, within noise.
-% 2. File hints put the agent on relevant code sooner (call 1: C 30/40 vs A 6/40), cheaper per fix.
-% 3. Complete fixes remain the bottleneck; failure feedback added little.
-% Next: use structure for change-impact analysis and related-test selection.
-\todo{Conclusion paragraph.}
+Localization hints brought reference files into view earlier. Lexical--structural guidance had
+the most observed repairs and lower tokens per resolved task, but its repair advantage remained
+inconclusive and total token use increased. Failure-aware updates added limited benefit;
+most unresolved runs had already inspected a reference file. The next step is to use repository
+structure for change-impact analysis and test selection, helping agents validate complete fixes
+after finding plausible locations.
