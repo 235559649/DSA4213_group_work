@@ -1,6 +1,7 @@
 % =====================================================================
 % Owner: editor (3)   Budget: ~0.5 page   Source: slide 1, slide 16
 % Write the Summary LAST, after §5 and §6 are final.
+% Draft values follow main's provisional Sections 5--6; Role 5 must verify before submission.
 % =====================================================================
 \section*{Administrative Information}
 
@@ -14,11 +15,13 @@ Repository & \url{https://github.com/235559649/DSA4213_group_work} \\
 
 \section*{Project Summary}
 
-% One paragraph, ~150 words. Must cover: question -> what we built -> how evaluated -> main findings.
-% Main findings to state (keep the cautious tone of slide 10/16):
-%  - 40 held-out SWE-bench Verified tasks, 4 conditions, 224 runs, gpt-5.4-mini.
-%  - No hint hurt repair; C resolved most (25/40 vs A 20/40), but within noise (McNemar p=0.13).
-%  - Hints let the agent read the reference file at call 1: C 30/40 vs A 6/40.
-%  - 60 of 71 failures happened after the reference file was opened -> fixing, not finding, is the bottleneck.
-%  - Failure feedback fired in 10/40 D runs and moved a reference file up once.
-\todo{Summary paragraph (write last).}
+We study whether localization guidance helps mini-SWE-agent find relevant code without reducing
+repair success. Our extension combines a Python AST index, BM25 retrieval, import-based ranking
+and failure-aware updates. Using \texttt{gpt-5.4-mini}, we compare four conditions on 40 held-out
+SWE-bench Verified tasks, with 224 runs including stability checks. Lexical--structural guidance
+achieved the highest observed repair count, 25/40 versus 20/40 for the baseline, but the paired
+difference was inconclusive (exact McNemar $p=0.13$). It also brought a reference-patch file into view at the
+first model call in 30/40 tasks, versus 6/40 for the baseline. However, 60 of 71 unresolved runs
+had already opened such a file. Failure feedback was delivered in 10/40 runs and improved a
+reference file's rank only once. These observations suggest that file discovery can improve
+while diagnosis and complete, regression-free repair remain substantial obstacles.

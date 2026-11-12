@@ -5,20 +5,32 @@
 % =====================================================================
 \section*{2. Related Work and Contribution}
 
-% Agent framework: SWE-agent shows the agent-computer interface matters \cite{yang2024sweagent};
-%   mini-SWE-agent is the minimal baseline we keep fixed \cite{minisweagent}. SWE-bench / Verified \cite{jimenez2024swebench,openai2024verified}.
-% Textual & staged localization: BugLocator \cite{zhou2012buglocator}, Agentless \cite{xia2024agentless}, BM25 \cite{robertson2009bm25}.
-% Structural navigation: LocAgent \cite{chen2025locagent}, CoSIL \cite{jiang2025cosil}, RepoNav \cite{chai2026reponav}, GraphLocator \cite{liu2025graphlocator}.
-% Execution-informed: AutoCodeRover \cite{zhang2024autocoderover}, IssueExec \cite{liu2026issueexec}.
-% Fusion: RRF \cite{cormack2009rrf}.
-\todo{Related work, 3 short paragraphs.}
+SWE-agent shows how the agent--computer interface affects software repair
+\cite{yang2024sweagent}. We use mini-SWE-agent as a minimal baseline whose repair loop stays
+fixed \cite{minisweagent}, and evaluate with SWE-bench Verified, a human-screened subset of
+real repository issues \cite{jimenez2024swebench,openai2024verified}. BugLocator combines
+report--code textual similarity with historical bug information \cite{zhou2012buglocator},
+while Agentless separates localization, repair and validation \cite{xia2024agentless}.
+These motivate our lexical comparison using BM25 \cite{robertson2009bm25}.
+
+Structural methods go beyond textual matching. LocAgent searches code entities and dependencies
+in a heterogeneous graph \cite{chen2025locagent}; CoSIL uses iterative graph search with pruning
+\cite{jiang2025cosil}. RepoNav organizes retrieved evidence around files and candidate functions
+\cite{chai2026reponav}, while GraphLocator reasons from symptoms toward interdependent edit
+locations \cite{liu2025graphlocator}. Our simpler alternative uses one-hop import neighbours
+and reciprocal rank fusion (RRF) \cite{cormack2009rrf}, supplying advisory file rankings.
+
+Execution can also inform localization: AutoCodeRover combines structural search with optional
+spectrum-based fault localization \cite{zhang2024autocoderover}, and IssueExec retrieves tests
+and analyzes execution traces \cite{liu2026issueexec}. Our extension instead uses failures
+observed during the agent's own repair trajectory to update its localization context.
+The baseline already receives ordinary execution feedback, so the comparison concerns the
+additional explicit ranking and evidence updates.
 
 \paragraph{Our contribution.}
-% Be explicit about what is OURS vs assembled (graders check this):
-%  C1 Python AST repository index (files, classes, functions, imports) + BM25 / import-graph / RRF ranking;
-%  C2 failure-aware refinement: traceback -> index entities -> rerank, with bounded routing
-%     (rank_update / edit_recovery / diagnostic_only), staleness & environment-error filters;
-%  C3 controlled 4-condition study on 40 held-out tasks with official harness, trajectory-level
-%     localization metrics and a manual failure taxonomy.
-% Also cite what we USE: mini-SWE-agent 2.4.6, SWE-bench harness 5.0.2, OpenRouter gpt-5.4-mini.
-\todo{Contribution paragraph (C1--C3).}
+We contribute an integration and controlled study: \textbf{C1}, a Python AST index supporting
+BM25, import-based ranking and RRF; \textbf{C2}, failure-to-entity mapping with bounded ranking,
+edit-recovery and diagnostic updates, filtering stale or environmental evidence; and
+\textbf{C3}, a four-condition study on 40 held-out tasks with trajectory metrics and a manual
+failure taxonomy. BM25, RRF, mini-SWE-agent 2.4.6, the SWE-bench harness 5.0.2 and the
+OpenRouter-hosted \texttt{gpt-5.4-mini} model are existing components, not our algorithmic contributions.

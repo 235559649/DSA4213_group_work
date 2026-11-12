@@ -8,7 +8,8 @@
 \centering
 % Owner 1: export slide 3 as PDF (crop) -> figures/architecture.pdf
 \IfFileExists{figures/architecture.pdf}{%
-  \includegraphics[width=\linewidth]{figures/architecture.pdf}%
+  % trim (left bottom right top, pt) drops the slide's title, logo and footer bar
+  \includegraphics[width=\linewidth,trim=36 47 32 108,clip]{figures/architecture.pdf}%
 }{%
   \fbox{\parbox[c][4.5cm][c]{0.9\linewidth}{\centering
   \todo{figures/architecture.pdf (export from slide 3)}}}%
@@ -19,32 +20,63 @@ localization hint, and \condD{} reranks it when a failure yields usable evidence
 \end{figure}
 
 \subsection*{4.1 Repository index and lexical ranking}
-% Owner 2. Python ast at base_commit -> module/class/function/method records with line span,
-% signature, text = path + symbol + source (<= 2,000 chars); internal import edges.
-% Coverage on dev set: 27,484 files, 1 unparseable (intentional syntax-error fixture).
-% BM25 per entity, file score = max over its entities (equation from slide 4).
-\todo{Index + BM25 (incl.\ file-level max equation).}
+% Owner 2. Implementation: src/repository/{ast_parser,indexer,swebench}.py, src/localization/keyword.py.
+For each task we parse every \texttt{.py} file at \texttt{base\_commit}, read directly from git, with
+Python's \texttt{ast} module and store one record per module, class, function and method (path,
+symbol, line span, signature, and path\,+\,symbol\,+\,source truncated to 2,000 characters). Resolved
+imports give each file $f$ its one-hop neighbours $N(f)$, the files it imports or that import it. On
+the 20 development tasks the index covers 27,484 files with one unparseable file, a deliberate
+syntax-error fixture. In \condD{} the index is updated with the agent's edits (Section~4.4).
+The lexical ranking $L$ scores each record $e$ with BM25~\cite{robertson2009bm25} ($k_1=1.5$,
+$b=0.75$) against the issue text, and a file takes its best entity's score,
+$\mathrm{score}(f)=\max_{e\in f}\mathrm{score}_{\mathrm{BM25}}(e)$, so one strongly matching function
+lifts its file and long files are not rewarded for length. $L$ holds every file with a positive
+score and is the hint source for \condB.
 
 \subsection*{4.2 Structural ranking and RRF fusion}
-% Owner 2. Seeds = top-10 of L; one-hop import neighbours (no tests); weight 1/r_L(q) split equally.
-% Equation for s(f) and RRF(k=60) from slide 5.
-% KEY DESIGN DECISION (must explain + disclose): original S (seeds excluded) hurt RRF -
-% django-11133 correct file 1 -> 23, MRR 0.500 -> 0.393 on dev. Seeds-head S protects L's top-10
-% so structure only adds files at ranks 11-20. Chosen on the dev set => dev numbers optimistic.
-% Dev-set table -> Appendix (tab:dev-ablation).
-\todo{Structural score, RRF, seeds-head decision.}
+% Owner 2. Implementation: src/localization/structural.py, src/localization/ranker.py.
+The structural ranking $S$ uses the import graph to reach files the issue does not mention. The
+seeds $Q$ are the top-10 files of $L$; each seed $q$ shares a weight of $1/r_L(q)$ equally among its
+non-test neighbours, $s(f)=\sum_{q\in Q}\mathbf{1}[f\in N(q)]\,/\,\bigl(r_L(q)\max(1,|N(q)|)\bigr)$.
+$S$ lists the seeds first, in lexical order, then their neighbours by decreasing $s(f)$.
+\condC{} fuses $L$ and $S$ with reciprocal rank fusion~\cite{cormack2009rrf},
+$\mathrm{RRF}(f)=\sum_{r\in\{L,S\}}1/(60+r(f))$, which uses positions only, so the two scores never
+need a common scale.
+\emph{Design change from the proposal:} there, $S$ held only neighbours. On the development tasks
+that version let files in both lists overtake a correct BM25 first place (django-11133: rank
+$1\to23$; MRR $0.500\to0.393$, Appendix~A.2). Seeds at the head of $S$ keep $L$'s top~10 intact, so
+structure only adds files at ranks 11--20 (dev Hit@20 $0.75\to0.85$). The choice was made on the
+development set, so these numbers are optimistic; Section~5.1 reports the held-out effect.
 
 \subsection*{4.3 Prompt policy}
-% Owner 2 (with 3). Hint lists top-20 SOURCE files; top-3 test files from the same ranking listed
-% as "possibly relevant existing tests"; labelled as navigation suggestions only. ~550 tokens per call.
-\todo{Prompt policy (3--4 sentences).}
+% Owner 2 (with 3). Implementation: src/agent/context.py (policy source_only+related_tests_v1).
+The hint is appended once to the issue before the first call and labelled as optional navigation
+suggestions. It lists the top-20 \emph{source} files of the ranking, with their full-ranking ranks,
+then the three highest-ranked test files as ``possibly relevant existing tests'' (Appendix~A.1).
+We adopted this after development runs in which most failures came after the right file had been
+seen, while test and documentation files took 2.9 of the 20 slots on average. The full ranking is
+logged for evaluation only.
 
 \subsection*{4.4 Failure-aware refinement (Condition D)}
-% Owner 4. Source: slide 6. Wrap env.execute() and model.query().
-% Pipeline: detect (exit status) -> parse (frames, exception, failing tests) -> map frames to index
-% entities (index refreshed with edited files) -> rank F (nearest-to-exception first, 1/rank)
-% -> RRF(L,S,F), w=1 -> short evidence note before next model call.
-% Usability rules: >=1 frame maps to indexed source entity; setup errors never rerank;
-% tests-only -> diagnostic note; stale workspace -> skipped; identical evidence not re-sent.
-% Routing caps per run: rank_update 3, edit_recovery 2, diagnostic_only 1.
-\todo{Failure-aware pipeline + usability rules (could be a 5-step list or pseudocode).}
+% Owner 4. PPT slides 6--7.
+Condition \condD{} wraps \texttt{env.execute()} to capture failed commands and
+\texttt{model.query()} to deliver evidence before the next decision. It extracts traceback
+frames, exceptions and failing tests, refreshes edited files in the index, and maps lines
+to entities. Distinct source files in the terminal traceback form $F$, nearest the exception
+first, with scores $1/r_F(f)$. Fusion uses
+\[
+ s_D(f)=\frac{1}{60+r_L(f)}
+       +\frac{1}{60+r_S(f)}
+       +\frac{1}{60+r_F(f)}.
+\]
+Missing entries contribute zero.
+Initial $L$ and $S$ remain fixed, and \condD{} starts with \condC{}'s ranking.
+
+Usable indexed source frames permit \texttt{rank\_update} (at most three deliveries per run).
+An agent-introduced syntax error in previously parseable code triggers \texttt{edit\_recovery}
+(two); exceptions or tests without usable frames permit \texttt{diagnostic\_only} (one).
+Recovery and diagnostic notes preserve the ranking. Setup errors never rerank; stale
+workspace evidence and duplicate context are skipped. A short evidence increment and any
+fused-rank changes precede the next model call, with limits charged only on delivery.
+Proximity is not a root-cause verdict; reference patches and evaluation labels are never
+online inputs.

@@ -1,17 +1,8 @@
 % =====================================================================
 % Owner: 1   Budget: ~0.3 page
-% Before writing this, the repo must actually contain what we claim:
-%  [ ] README with setup + how to run A/B/C/D + how to evaluate (currently only a title)
-%  [ ] frozen task lists (dev 20, held-out 40, stability 8)
-%  [ ] rankings (bm25/structural/condition_c results for held-out tasks)
-%  [ ] predictions, harness reports, trajectories (or a GitHub Release archive)
-%  [ ] .env.example only - no API keys anywhere in history
 % =====================================================================
 \section*{7. Reproducibility and Responsible Practice}
 
-% Where: repo URL, README sections, scripts (run_agent.py, run_comparison.py, localization_ablation.py ...).
-% Versions: mini-SWE-agent 2.4.6, swebench 5.0.2, SWE-bench Verified rev 78f471bf, openai/gpt-5.4-mini,
-% decoding settings, limits. Hardware note for timings.
-% Safeguards: task-specific Docker containers; only public repos; repo content and tool output treated
-% as untrusted; no credentials in materials; generated patches need human review.
-\todo{Reproducibility + safeguards paragraph.}
+The code is version-controlled in the project repository with \texttt{mini-swe-agent==2.4.6} pinned and API keys supplied through environment variables, never committed. Scripts cover BM25, structural ranking, RRF, agent runs, comparison and harness evaluation. The implementation was frozen (tag \texttt{frozen-2026-10-27}) before the held-out runs; Docker images were pulled before formal attempts so downloads were not timed as agent work, each run was recorded individually so interrupted batches could resume, and technical retries were kept separate from stability repeats.
+Only public benchmark repositories run, each in an isolated container; repository content and tool output are treated as untrusted, and generated patches still need human review before real-world use.
+
