@@ -1,45 +1,32 @@
-% =====================================================================
-% Owner: 4 (costs paragraph: 5)   Budget: ~1.5 pages
-% Source: slides 14, 15, 20, 21, 24, 16 (limitations), proposal §6
-% =====================================================================
+% Owner 4; Costs retained from Owner 5 without textual changes.
 \section*{6. Analysis of Results, Failures, Limitations, Costs, and Risks}
 
-\paragraph{The bottleneck is the fix, not the file.}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/role4_failure_feedback.pdf}
+\caption{Main-round failure stages and feedback reach. (a) Primary causes across 71 unresolved
+runs; F5 (environment) was zero. These post-hoc qualitative labels differ from official
+target-test/regression outcomes. (b) Runs at each feedback stage among 40 \condD{} runs;
+reranking and reference-rank improvement concern the first delivered feedback. Event and
+message totals are annotated separately. Appendix A.6 gives the condition-level counts.}
+\label{fig:failure-feedback}
+\end{figure}
 
-\begin{table}[h]
-\centering\small
-\caption{Main cause of the 71 unresolved main-round runs, assigned by reading each failed
-patch against the official fix. No environment failures (F5) occurred.}
-\label{tab:failures}
-\begin{tabular}{@{}lccccc@{}}
-\toprule
-Failure class & \condA & \condB & \condC & \condD & All \\
-\midrule
-F1 never opened the reference file       & 2 & 3 & 3 & 3 & 11 \\
-F2 opened it, misdiagnosed the cause     & 7 & 8 & 7 & 7 & 29 \\
-F3 right location, incomplete fix        & 6 & 3 & 3 & 6 & 18 \\
-F4 target fixed, existing tests broken   & 5 & 3 & 2 & 3 & 13 \\
-\midrule
-Unresolved                               & 20 & 17 & 15 & 19 & 71 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\paragraph{Finding the file is insufficient.}
+Of 71 unresolved runs, 60 had opened a reference-patch file; F2 remained the largest class
+at 7--8 runs per condition (Figure~\ref{fig:failure-feedback}a). Twelve of its 29 runs
+subsequently edited another file, and 56 of all failures fell on the 14 tasks nobody solved.
+On \texttt{django-13590}, every condition edited the reference-fix line but broke ordinary
+list/tuple lookups while repairing named tuples. Thus localization alone did not ensure
+compatible behavior; the coding table and case details are in Appendix A.6.
 
-% 60/71 failures came after the reference file was opened; F2 largest and flat across conditions (7-8);
-% 12 of 29 F2 then edited a different file; 56/71 failures on the 14 tasks nobody solved.
-% Case django-13590: all four conditions edit the same line as the official fix but break list/tuple
-% lookups (P2P 140-144/145). => localization hints cannot help with "what to change".
-% Mention who labelled the failures and how (one coder? second check?) - graders will ask.
-\todo{Failure analysis paragraph + django-13590 case (3--4 sentences).}
-
-\paragraph{Why failure feedback rarely helped (RQ3).}
-% Funnel (slide 15): 52 candidate events in 23 D runs -> 15 messages delivered to 10 runs ->
-% 5 first feedbacks re-ranked files -> 1 reference file moved up (sympy-18189: #2 -> #1; task solved by
-% all conditions anyway). Held back: source unclear 12, weak signal 5, printed source 5, route limit 5,
-% environment 5, other 5. All 5 re-ranks were in sympy.
-% Interpretation: by the time the agent fails, it already has the right file; its failures are about
-% what to change. Feedback added 95 s over 40 runs.
-\todo{Failure-feedback funnel + interpretation.}
+\paragraph{Limited new evidence from feedback (RQ3).}
+Fifty-two events in 23 \condD{} runs yielded 15 messages to ten runs; only five first
+feedbacks reranked files, all in SymPy (Figure~\ref{fig:failure-feedback}b).
+Only \texttt{sympy-18189}'s first reference-file rank improved (2 to 1), but all conditions
+solved it. Of four tasks \condD{} lost to \condC{}, three received no feedback, so those
+losses cannot be attributed to the added messages. These observations establish neither
+a repair benefit nor feedback-induced harm; filtering details are in Appendix A.6.
 
 \paragraph{Costs.}
 % Owner 5. Sources: Role 5 cost audit (07_cost), time budget (08_time_budget) and ranking-cost
@@ -56,10 +43,10 @@ processing added 95\,s over all 40 \condD{} runs. Timings come from a separate r
 Python 3.10.12) whose rankings matched the main runs exactly, so they show magnitudes, not exact latencies.
 
 \paragraph{Limitations and risks.}
-% - Small sample: 40 tasks, 4 repos, one model; stability on 8 tasks only; differences within noise.
-% - Seeds-head S and prompt policy chosen on dev set.
-% - Reference-patch files are imperfect localization targets (alternative fixes); tests != correctness.
-% - Benchmark contamination (public issues in training data).
-% - Structure-vs-regressions link is untested (mechanism).
-% - Risks: patches need human review; hints can misdirect (sphinx-7757: C solved with a file outside every hint).
-\todo{Limitations and risks (compact list).}
+Forty tasks, four Python repositories, one model and repeats on eight tasks limit
+generalization and leave run-to-run variation unresolved. Seeds-head ranking and the prompt
+policy were selected on development tasks. Reference-patch files are imperfect targets,
+passing tests does not prove correctness, and public benchmarks risk pretraining contamination.
+The link between structural hints and fewer regressions remains untested. Hints must stay
+advisory: \condC{} solved \texttt{sphinx-7757} outside every initial hint. Patches still need
+human review; change-impact analysis and related-test selection are next steps.
