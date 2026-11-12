@@ -3,14 +3,13 @@
 % =====================================================================
 \section*{3. Agent and Task Setup}
 
-% Task: issue text + repo at base_commit in the task's SWE-bench Docker image; output = one final patch.
-% Agent: mini-SWE-agent 2.4.6, bash tool, linear history; NOT given reference patch / test labels.
-% Stopping: submit, 250 steps, $3 per run, 60 s per command, or unrecoverable env failure.
-% Only the localization context differs across conditions (table below).
-\todo{Task, environment, observations/actions, stopping (1--2 paragraphs).}
+Each SWE-bench Verified instance provides an issue description together with a repository checked out at the task-specific \texttt{base\_commit}. The agent operates inside the corresponding SWE-bench Docker environment and produces one final Git patch. We use mini-SWE-agent 2.4.6 with its bash tool and linear interaction history. At each step, the model selects a shell action, receives the resulting observation (standard output, standard error, and exit status), and decides the next action. The agent may inspect the repository freely but is not given the reference patch or the official \texttt{FAIL\_TO\_PASS}/\texttt{PASS\_TO\_PASS} labels during generation.
+
+The same model, repair instructions, Docker environment, and execution budgets are used in all four conditions; only the repository-localization context differs. Condition \condA{} is the original agent without an added hint. Conditions \condB{} and \condC{} append a localization hint before the first model call, using BM25 and $\mathrm{RRF}(L,S)$ respectively. Condition \condD{} starts from the same context as \condC{} and may inject a bounded evidence update after a usable runtime failure. A run terminates when the agent submits a patch, reaches 250 model steps or the \$3 budget, exceeds the 60\,s command limit, or encounters an unrecoverable environment failure. The official SWE-bench harness is applied only after generation and therefore cannot influence the agent trajectory.
 
 \begin{table}[h]
-\centering\small
+\centering
+\small
 \caption{Experimental setup (slide 8).}
 \label{tab:setup}
 \begin{tabular}{@{}ll@{}}
@@ -20,7 +19,7 @@ Setting & Value \\
 Benchmark & SWE-bench Verified (rev \texttt{78f471bf}) \\
 Development set & 20 tasks: Django 6, SymPy 6, Sphinx 4, pytest 4 \\
 Held-out set & 40 tasks: Django 12, SymPy 12, Sphinx 10, pytest 6 \\
-Runs & 160 main ($40\times4$) + 64 stability ($8$ tasks $\times 2$ rounds $\times 4$) \\
+Runs & 160 main ($40 \times 4$) + 64 stability ($8$ tasks $\times 2$ rounds $\times 4$) \\
 Agent & mini-SWE-agent 2.4.6, bash tool \\
 Model & \texttt{openai/gpt-5.4-mini} via OpenRouter \\
 Limits per run & 250 steps, \$3.00, 60\,s per command \\
@@ -34,6 +33,4 @@ Evaluation & official harness, \texttt{swebench} 5.0.2 \\
 \end{tabular}
 \end{table}
 
-% What the agent sees: show the (shortened) hint block from slide 7 as a small verbatim/minipage,
-% OR move it to Appendix A.1 if pages are tight.
-\todo{Short example of the localization hint (or reference Appendix).}
+Localization hints are advisory rather than hard constraints: the agent may still inspect any repository file. The prompt presents up to 20 ranked source files and lists related tests separately, while the full ranking is retained for later evaluation. Appendix A.1 shows an actual Condition \condC{} localization hint and summarizes a failure-driven update under Condition \condD{}.

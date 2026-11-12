@@ -1,17 +1,9 @@
 % =====================================================================
 % Owner: 1   Budget: ~0.3 page
-% Before writing this, the repo must actually contain what we claim:
-%  [ ] README with setup + how to run A/B/C/D + how to evaluate (currently only a title)
-%  [ ] frozen task lists (dev 20, held-out 40, stability 8)
-%  [ ] rankings (bm25/structural/condition_c results for held-out tasks)
-%  [ ] predictions, harness reports, trajectories (or a GitHub Release archive)
-%  [ ] .env.example only - no API keys anywhere in history
 % =====================================================================
 \section*{7. Reproducibility and Responsible Practice}
 
-% Where: repo URL, README sections, scripts (run_agent.py, run_comparison.py, localization_ablation.py ...).
-% Versions: mini-SWE-agent 2.4.6, swebench 5.0.2, SWE-bench Verified rev 78f471bf, openai/gpt-5.4-mini,
-% decoding settings, limits. Hardware note for timings.
-% Safeguards: task-specific Docker containers; only public repos; repo content and tool output treated
-% as untrusted; no credentials in materials; generated patches need human review.
-\todo{Reproducibility + safeguards paragraph.}
+The implementation is version-controlled in the project repository, with dependencies pinned where required (\texttt{mini-swe-agent==2.4.6}) and API configuration supplied through environment variables rather than committed credentials. The experimental pipeline is exposed through scripts for BM25 retrieval, structural ranking, RRF fusion, agent execution, comparison, and SWE-bench evaluation. The held-out implementation was frozen before final evaluation, and all conditions used the same model and task-specific SWE-bench Docker environments. Docker images were prepared before formal attempts so that first-time image downloads were not confused with agent execution, while completed runs were recorded individually to support safe resumption after infrastructure interruptions; technical retries were kept distinct from experimental stability repeats.
+
+Only public benchmark repositories are executed, each inside an isolated Docker container. Repository contents and tool outputs are treated as untrusted inputs, no API credentials are included in the released materials, and generated patches are evaluated by the official SWE-bench harness and should still receive human review before real-world use.
+
